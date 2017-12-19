@@ -121,18 +121,13 @@ public class BSDropDown<J extends BSDropDown<J>>
 		if (noCaret)
 		{
 			getDropdownButton().addClass("no-caret");
-			if (BootstrapPageConfigurator.isBootstrap4())
-			{
-				addCssReference(BootstrapReferencePool.Bootstrap4DropDownReference.getCssReference());
-			}
+			addCssReference(BootstrapReferencePool.Bootstrap4DropDownReference.getCssReference());
+
 		}
 		else
 		{
 			getDropdownButton().removeClass("no-caret");
-			if (BootstrapPageConfigurator.isBootstrap4())
-			{
-				getCssReferences().remove(BootstrapReferencePool.Bootstrap4DropDownReference.getCssReference());
-			}
+			getCssReferences().remove(BootstrapReferencePool.Bootstrap4DropDownReference.getCssReference());
 		}
 
 		return (J) this;
@@ -241,7 +236,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 		}
 		BSDropDown<?> that = (BSDropDown<?>) o;
 		return Objects.equals(getDropdownButton(), that.getDropdownButton()) &&
-				Objects.equals(getDropdownMenu(), that.getDropdownMenu());
+				       Objects.equals(getDropdownMenu(), that.getDropdownMenu());
 	}
 
 	@Override
