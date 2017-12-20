@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,9 +34,9 @@ public class BSInput<J extends BSInput<J>>
 		extends Input<NoAttributes, J>
 		implements BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Allows construction of a bootstrap input component
 	 */
@@ -44,7 +44,7 @@ public class BSInput<J extends BSInput<J>>
 	{
 		BootstrapPageConfigurator.setRequired(this, true);
 	}
-	
+
 	/**
 	 * Allows construction of a bootstrap input component
 	 *
@@ -55,14 +55,14 @@ public class BSInput<J extends BSInput<J>>
 		super(inputType);
 		BootstrapPageConfigurator.setRequired(this, true);
 	}
-	
+
 	@Override
 	public void preConfigure()
 	{
 		if (!isConfigured())
 		{
 			addAttribute(GlobalAttributes.Name, getID());
-			addClass(BSComponentFormGroupOptions.Form_Control);
+			addClass(BSComponentFormGroupOptions.Form_Control.toString());
 		}
 		super.preConfigure();
 	}

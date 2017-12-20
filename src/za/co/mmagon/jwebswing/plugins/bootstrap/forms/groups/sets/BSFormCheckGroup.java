@@ -33,9 +33,9 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 		extends BSFormGroup<J>
 		implements BSFormSetChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new instance of a group of items that denote a single radio button.
 	 * <p>
@@ -54,7 +54,7 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 		inputComponent.addAttribute("value", value);
 		BootstrapPageConfigurator.setRequired(this, true);
 	}
-	
+
 	/**
 	 * Adds all the necessary items
 	 */
@@ -63,10 +63,10 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	{
 		if (!isConfigured())
 		{
-			addClass(BSComponentFormGroupOptions.Form_Check);
-			getLabel().addClass(BSComponentFormGroupOptions.Form_Check_Label);
-			removeClass(BSComponentFormGroupOptions.Form_Group);
-			
+			addClass(BSComponentFormGroupOptions.Form_Check.toString());
+			getLabel().addClass(BSComponentFormGroupOptions.Form_Check_Label.toString());
+			removeClass(BSComponentFormGroupOptions.Form_Group.toString());
+
 			getLabel().add(getInputComponent());
 			getLabel().setRenderTextBeforeChildren(false);
 			add(getLabel());

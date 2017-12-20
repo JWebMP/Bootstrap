@@ -26,18 +26,18 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren
 public class BSFormTextAreaInput extends BSInput<BSFormTextAreaInput>
 		implements BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A bootstrap default form select
 	 */
 	public BSFormTextAreaInput()
 	{
 		this(3);
-		
+
 	}
-	
+
 	/**
 	 * Constructs a new select input with multiple
 	 *
@@ -51,5 +51,5 @@ public class BSFormTextAreaInput extends BSInput<BSFormTextAreaInput>
 		setInlineClosingTag(false);
 		setClosingTag(true);
 	}
-	
+
 }

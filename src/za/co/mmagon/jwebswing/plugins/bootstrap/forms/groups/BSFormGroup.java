@@ -350,7 +350,7 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 			configureInputComponent();
 			configureAngularValidation();
 
-			addClass(BSComponentFormGroupOptions.Form_Group);
+			addClass(BSComponentFormGroupOptions.Form_Group.toString());
 			addStyle("margin-bottom:0px");
 
 		}
