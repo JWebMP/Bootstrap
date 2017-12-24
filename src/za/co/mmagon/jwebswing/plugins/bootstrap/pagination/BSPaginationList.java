@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,9 +28,9 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
  */
 public class BSPaginationList extends List<BSPageinationListItem, NoAttributes, GlobalEvents, BSPaginationList> implements BSPaginationChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The default paging list
 	 */

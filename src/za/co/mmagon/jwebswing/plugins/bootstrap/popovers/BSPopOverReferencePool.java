@@ -37,14 +37,14 @@ public enum BSPopOverReferencePool implements ReferencePool
 	 * The actual css reference
 	 */
 	private CSSReference cssReference;
-	
+
 	/**
 	 * Constructs a reference pool
 	 */
 	BSPopOverReferencePool()
 	{
 	}
-	
+
 	/**
 	 * Constructs a new reference pool
 	 *
@@ -56,29 +56,7 @@ public enum BSPopOverReferencePool implements ReferencePool
 		this.javaScriptReference = javaScriptReference;
 		this.cssReference = cssReference;
 	}
-	
-	/**
-	 * Returns the javascript reference
-	 *
-	 * @return
-	 */
-	@Override
-	public JavascriptReference getJavaScriptReference()
-	{
-		return javaScriptReference;
-	}
-	
-	/**
-	 * Sets the javascript reference
-	 *
-	 * @param javaScriptReference
-	 */
-	@Override
-	public void setJavaScriptReference(JavascriptReference javaScriptReference)
-	{
-		this.javaScriptReference = javaScriptReference;
-	}
-	
+
 	/**
 	 * Gets the cSS reference
 	 *
@@ -89,7 +67,7 @@ public enum BSPopOverReferencePool implements ReferencePool
 	{
 		return cssReference;
 	}
-	
+
 	/**
 	 * Sets the CSS Reference
 	 *
@@ -99,5 +77,27 @@ public enum BSPopOverReferencePool implements ReferencePool
 	public void setCssReference(CSSReference cssReference)
 	{
 		this.cssReference = cssReference;
+	}
+
+	/**
+	 * Returns the javascript reference
+	 *
+	 * @return
+	 */
+	@Override
+	public JavascriptReference getJavaScriptReference()
+	{
+		return javaScriptReference;
+	}
+
+	/**
+	 * Sets the javascript reference
+	 *
+	 * @param javaScriptReference
+	 */
+	@Override
+	public void setJavaScriptReference(JavascriptReference javaScriptReference)
+	{
+		this.javaScriptReference = javaScriptReference;
 	}
 }

@@ -21,7 +21,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.tables.TableBorderCollapse;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts.BSCardHeader;
 import za.co.mmagon.jwebswing.plugins.bootstrap.collapse.BSCollapse;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -65,88 +65,6 @@ public class BSAccordionItem<J extends BSAccordionItem<J>>
 		//Nothing Needed
 	}
 
-	/**
-	 * Gets the accordion header
-	 *
-	 * @return
-	 */
-	@NotNull
-	public BSAccordionHeader getAccordionHeader()
-	{
-		if (accordionHeader == null)
-		{
-			accordionHeader = new BSAccordionHeader();
-		}
-		return accordionHeader;
-	}
-
-	/**
-	 * Sets the accordion header
-	 *
-	 * @param accordionHeader
-	 */
-	@SuppressWarnings({"unused", "unchecked"})
-	public J setAccordionHeader(BSAccordionHeader accordionHeader)
-	{
-		this.accordionHeader = accordionHeader;
-		return (J) this;
-	}
-
-	/**
-	 * if this accordion item is active or not
-	 *
-	 * @param active
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setActive(boolean active)
-	{
-		this.active = active;
-		if (isActive())
-		{
-			getAccordionHeader().getAccordionHeaderLink().addAttribute(GlobalAttributes.Aria_Expanded, Boolean.TRUE.toString());
-
-			getAccordionHeader().getAccordionHeaderLink().removeClass(BSDefaultOptions.Collapsed);
-			getAccordionCollapsingContent().addClass(BSDefaultOptions.Show);
-		}
-		else
-		{
-			getAccordionHeader().getAccordionHeaderLink().addAttribute(GlobalAttributes.Aria_Expanded, Boolean.FALSE.toString());
-
-			getAccordionCollapsingContent().removeClass(BSDefaultOptions.Show);
-			getAccordionHeader().getAccordionHeaderLink().addClass(BSDefaultOptions.Collapsed);
-		}
-		return (J) this;
-	}
-
-	/**
-	 * The collapsing content for the accordion item
-	 *
-	 * @return
-	 */
-	@NotNull
-	public BSAccordionCollapsingContent getAccordionCollapsingContent()
-	{
-		if (accordionCollapsingContent == null)
-		{
-			accordionCollapsingContent = new BSAccordionCollapsingContent();
-		}
-		return accordionCollapsingContent;
-	}
-
-	/**
-	 * Sets the accordion collapsing content
-	 *
-	 * @param accordionCollapsingContent
-	 */
-	@SuppressWarnings({"unused", "unchecked"})
-	@NotNull
-	public J setAccordionCollapsingContent(BSAccordionCollapsingContent accordionCollapsingContent)
-	{
-		this.accordionCollapsingContent = accordionCollapsingContent;
-		return (J) this;
-	}
-
 	@Override
 	@SuppressWarnings("unchecked")
 	public void init()
@@ -165,16 +83,6 @@ public class BSAccordionItem<J extends BSAccordionItem<J>>
 
 		}
 		super.init();
-	}
-
-	/**
-	 * If this accordion item is active or not
-	 *
-	 * @return
-	 */
-	public boolean isActive()
-	{
-		return active;
 	}
 
 	@NotNull
@@ -202,6 +110,86 @@ public class BSAccordionItem<J extends BSAccordionItem<J>>
 		return (J) this;
 	}
 
+	/**
+	 * The collapsing content for the accordion item
+	 *
+	 * @return
+	 */
+	@NotNull
+	public BSAccordionCollapsingContent getAccordionCollapsingContent()
+	{
+		if (accordionCollapsingContent == null)
+		{
+			accordionCollapsingContent = new BSAccordionCollapsingContent();
+		}
+		return accordionCollapsingContent;
+	}
+
+	/**
+	 * Gets the accordion header
+	 *
+	 * @return
+	 */
+	@NotNull
+	public BSAccordionHeader getAccordionHeader()
+	{
+		if (accordionHeader == null)
+		{
+			accordionHeader = new BSAccordionHeader();
+		}
+		return accordionHeader;
+	}
+/**
+	 * Sets the accordion header
+	 *
+	 * @param accordionHeader
+	 */
+	@SuppressWarnings({"unused", "unchecked"})
+	public J setAccordionHeader(BSAccordionHeader accordionHeader)
+	{
+		this.accordionHeader = accordionHeader;
+		return (J) this;
+	}
+
+	/**
+	 * Sets the accordion collapsing content
+	 *
+	 * @param accordionCollapsingContent
+	 */
+	@SuppressWarnings({"unused", "unchecked"})
+	@NotNull
+	public J setAccordionCollapsingContent(BSAccordionCollapsingContent accordionCollapsingContent)
+	{
+		this.accordionCollapsingContent = accordionCollapsingContent;
+		return (J) this;
+	}
+/**
+	 * if this accordion item is active or not
+	 *
+	 * @param active
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setActive(boolean active)
+	{
+		this.active = active;
+		if (isActive())
+		{
+			getAccordionHeader().getAccordionHeaderLink().addAttribute(GlobalAttributes.Aria_Expanded, Boolean.TRUE.toString());
+
+			getAccordionHeader().getAccordionHeaderLink().removeClass(BSDefaultOptions.Collapsed);
+			getAccordionCollapsingContent().addClass(BSDefaultOptions.Show);
+		}
+		else
+		{
+			getAccordionHeader().getAccordionHeaderLink().addAttribute(GlobalAttributes.Aria_Expanded, Boolean.FALSE.toString());
+
+			getAccordionCollapsingContent().removeClass(BSDefaultOptions.Show);
+			getAccordionHeader().getAccordionHeaderLink().addClass(BSDefaultOptions.Collapsed);
+		}
+		return (J) this;
+	}
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -222,10 +210,28 @@ public class BSAccordionItem<J extends BSAccordionItem<J>>
 				       Objects.equals(getAccordionCollapsingContent(), that.getAccordionCollapsingContent()) &&
 				       Objects.equals(getCardHeader(), that.getCardHeader());
 	}
-
-	@Override
+@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getAccordionHeader(), getAccordionCollapsingContent(), getCardHeader());
 	}
+
+
+	/**
+	 * If this accordion item is active or not
+	 *
+	 * @return
+	 */
+	public boolean isActive()
+	{
+		return active;
+	}
+
+
+
+
+
+
+
+
 }

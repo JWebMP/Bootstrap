@@ -17,7 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.cards.themed;
 
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSBackgroundOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSBackgroundOptions;
 
 /**
  * Background variants

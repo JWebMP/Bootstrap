@@ -14,33 +14,40 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
+
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 
 /**
- * Close icon
+ * Buttons
  * <p>
- * Use a generic close icon for dismissing content like modals and alerts. Be sure to include text for screen readers, as we’ve done with aria-label.
+ * Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
  *
  * @author GedMarc
  * @version 1.0
- * @since 31 Dec 2016
+ * @since 01 Jan 2017
  */
-public enum BSCloseIconOptions implements IBSComponentOptions
+public enum BSButtonSizeOptions implements IBSComponentOptions
 {
 	/**
-	 * Marks an item as a close item
+	 * Makes a large button
 	 */
-	Close;
-
-	BSCloseIconOptions()
-	{
-
-	}
+	Btn_Lg,
+	/**
+	 * Makes a small button
+	 */
+	Btn_Sm,
+	/**
+	 * Makes a block_level button (spans the full width of the parent element)
+	 */
+	Btn_Block;
 
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase();
+		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
-
 }

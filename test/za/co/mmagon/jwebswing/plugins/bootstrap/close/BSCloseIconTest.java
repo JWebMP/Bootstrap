@@ -25,11 +25,11 @@ import za.co.mmagon.jwebswing.BaseTestClass;
  */
 public class BSCloseIconTest extends BaseTestClass
 {
-	
+
 	public BSCloseIconTest()
 	{
 	}
-	
+
 	@Test
 	public void test()
 	{
@@ -38,10 +38,10 @@ public class BSCloseIconTest extends BaseTestClass
 		icon.getCloseIcon().setID("closeIcon");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals("<button aria_label=\"Close\" class=\"close\" id=\"icon\" type=\"button\">\n"
-				                    + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
-				                    + "</button>", icon.toString(true));
+				                        + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
+				                        + "</button>", icon.toString(true));
 	}
-	
+
 	@Test
 	public void testSetAriaLabel()
 	{
@@ -51,10 +51,10 @@ public class BSCloseIconTest extends BaseTestClass
 		icon.setAriaLabel("aria label");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals("<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n"
-				                    + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
-				                    + "</button>", icon.toString(true));
+				                        + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
+				                        + "</button>", icon.toString(true));
 	}
-	
+
 	@Test
 	public void testGetCloseIcon()
 	{
@@ -64,10 +64,10 @@ public class BSCloseIconTest extends BaseTestClass
 		icon.setAriaLabel("aria label");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals("<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n"
-				                    + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
-				                    + "</button>", icon.toString(true));
+				                        + "	<span aria_hidden=\"true\" id=\"closeIcon\">&times;</span>\n"
+				                        + "</button>", icon.toString(true));
 	}
-	
+
 	@Test
 	public void testGetCloseIconText()
 	{
@@ -78,10 +78,10 @@ public class BSCloseIconTest extends BaseTestClass
 		icon.setCloseIconText("newText");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals("<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n"
-				                    + "	<span aria_hidden=\"true\" id=\"closeIcon\">newText</span>\n"
-				                    + "</button>", icon.toString(true));
+				                        + "	<span aria_hidden=\"true\" id=\"closeIcon\">newText</span>\n"
+				                        + "</button>", icon.toString(true));
 	}
-	
+
 	@Test
 	public void testJSON()
 	{
@@ -92,7 +92,7 @@ public class BSCloseIconTest extends BaseTestClass
 		icon.setCloseIconText("newText");
 		System.out.println(icon.toString());
 		Assertions.assertEquals("<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n"
-				                    + "	<span aria_hidden=\"true\" id=\"closeIcon\">newText</span>\n"
-				                    + "</button>", icon.toString(true));
+				                        + "	<span aria_hidden=\"true\" id=\"closeIcon\">newText</span>\n"
+				                        + "</button>", icon.toString(true));
 	}
 }

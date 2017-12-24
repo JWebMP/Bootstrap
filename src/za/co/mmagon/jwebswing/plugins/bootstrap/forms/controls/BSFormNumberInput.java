@@ -27,9 +27,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren
 public class BSFormNumberInput<J extends BSFormNumberInput<J>> extends BSInput<J>
 		implements BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A bootstrap default form select
 	 */
@@ -38,5 +38,5 @@ public class BSFormNumberInput<J extends BSFormNumberInput<J>> extends BSInput<J
 		super(InputTypes.Number);
 		addClass(BSComponentFormGroupOptions.Form_Control);
 	}
-	
+
 }

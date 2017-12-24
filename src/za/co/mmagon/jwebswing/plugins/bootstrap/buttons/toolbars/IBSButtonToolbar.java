@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons.toolbars;
 @FunctionalInterface
 public interface IBSButtonToolbar
 {
-	
+
 	/**
 	 * Sets the screen reader label for this group
 	 *
@@ -32,5 +32,5 @@ public interface IBSButtonToolbar
 	 * @return
 	 */
 	BSButtonToolbar setAriaLabel(String label);
-	
+
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.badge;
  */
 public interface IBSBadge<J extends BSBadge>
 {
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -31,9 +31,9 @@ public interface IBSBadge<J extends BSBadge>
 	 * @return
 	 */
 	J setDanger(boolean applyStyle);
-	
+
 	J setDefault(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -42,9 +42,9 @@ public interface IBSBadge<J extends BSBadge>
 	 * @return
 	 */
 	J setInfo(boolean applyStyle);
-	
+
 	J setPrimary(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -53,7 +53,7 @@ public interface IBSBadge<J extends BSBadge>
 	 * @return
 	 */
 	J setSuccess(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -62,5 +62,5 @@ public interface IBSBadge<J extends BSBadge>
 	 * @return
 	 */
 	J setWarning(boolean applyStyle);
-	
+
 }

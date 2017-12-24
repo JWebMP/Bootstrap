@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.navs.BSNavs;
  */
 public interface IBSNavBarToggler
 {
-	
+
 	/**
 	 * Nav
 	 * <p>
@@ -42,11 +42,11 @@ public interface IBSNavBarToggler
 	 * @return
 	 */
 	<T extends Div & BSNavBarChildren> T createCollapsingDiv(BSNavs navs);
-	
+
 	String getIconClass();
-	
+
 	void setIconClass(String iconClass);
-	
+
 	void preConfigure();
-	
+
 }

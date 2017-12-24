@@ -29,11 +29,11 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.menu.BSDropDownMenuItem
  */
 public class BSDropDownTest extends BaseTestClass
 {
-	
+
 	public BSDropDownTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
@@ -43,7 +43,7 @@ public class BSDropDownTest extends BaseTestClass
 		drop.getDropdownMenu().add(new BSDropDownMenuItemHeader("Text Yes"));
 		System.out.println(drop.toString(true));
 	}
-	
+
 	@Test
 	public void testSingleDropdown()
 	{
@@ -51,16 +51,16 @@ public class BSDropDownTest extends BaseTestClass
 		drop.setDropdownButton(new BSButtonPrimaryOutline());
 		System.out.println(drop.toString(true));
 	}
-	
+
 	@Test
 	public void testSplitButton()
 	{
 		BSButton actionButton = new BSButton("action");
 		BSDropDownSplitButton splitButton = new BSDropDownSplitButton(actionButton);
-		
+
 		System.out.println(splitButton.toString(true));
 	}
-	
+
 	@Test
 	public void testDropupButton()
 	{

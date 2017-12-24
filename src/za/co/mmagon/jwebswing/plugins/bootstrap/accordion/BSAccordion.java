@@ -20,7 +20,6 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 	@SuppressWarnings("")
 	public BSAccordion()
 	{
-		BootstrapPageConfigurator.setRequired(this, true);
+
 		addAttribute(BSAccordionAttributes.Role, RoleAttributeName);
 		addAttribute(BSAccordionAttributes.Aria_Multiselectable, Boolean.TRUE.toString());
 	}
@@ -103,16 +102,6 @@ public class BSAccordion<J extends BSAccordion<J>>
 		return (J) this;
 	}
 
-	/**
-	 * Sets the active accordion item
-	 *
-	 * @return
-	 */
-	public int getActiveItem()
-	{
-		return activeItem;
-	}
-
 	@Override
 	public void init()
 	{
@@ -132,9 +121,18 @@ public class BSAccordion<J extends BSAccordion<J>>
 					next.setActive(false);
 				}
 			}
-
 		}
 		super.init();
+	}
+
+	/**
+	 * Sets the active accordion item
+	 *
+	 * @return
+	 */
+	public int getActiveItem()
+	{
+		return activeItem;
 	}
 
 	/**

@@ -24,15 +24,15 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  *
  * @author GedMarc
  * @version 1.0
- * <p>
- * <p>
+ * 		<p>
+ * 		<p>
  * @since Mar 4, 2015
  */
 public class BSModalOptions<J extends BSModalOptions<J>> extends JavaScriptPart<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 *
 	 */
@@ -40,5 +40,5 @@ public class BSModalOptions<J extends BSModalOptions<J>> extends JavaScriptPart<
 	{
 		//Nothing Needed
 	}
-	
+
 }

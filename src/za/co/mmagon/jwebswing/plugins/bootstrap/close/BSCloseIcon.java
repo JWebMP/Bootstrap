@@ -18,14 +18,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.close;
 
 import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.base.html.Span;
+import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
+import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSCloseIconOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSCloseIconOptions;
 
 import java.util.Objects;
 
@@ -62,22 +63,9 @@ public class BSCloseIcon<J extends BSCloseIcon<J>> extends Button<GlobalChildren
 	{
 		setAriaLabel("Close");
 		addClass(BSCloseIconOptions.Close);
-		addAttribute(GlobalAttributes.Type, "button");
+		addAttribute(GlobalAttributes.Type, ComponentTypes.Button.getComponentTag());
 		getCloseIcon();
-		BootstrapPageConfigurator.setRequired(this, true);
-	}
 
-	/**
-	 * Sets the close icon as a data dismissable
-	 *
-	 * @param dismiss
-	 *
-	 * @return
-	 */
-	public BSCloseIcon setDataDismiss(String dismiss)
-	{
-		addAttribute("data-dismiss", dismiss);
-		return this;
 	}
 
 	/**
@@ -125,9 +113,42 @@ public class BSCloseIcon<J extends BSCloseIcon<J>> extends Button<GlobalChildren
 		if (this.closeIcon != null)
 		{
 			add(this.closeIcon);
-			this.closeIcon.addAttribute(GlobalAttributes.Aria_Hidden, "true");
+			this.closeIcon.addAttribute(GlobalAttributes.Aria_Hidden, Boolean.toString(true));
 		}
 		return this;
+	}
+
+	/**
+	 * Sets the close icon as a data dismissable
+	 *
+	 * @param dismiss
+	 *
+	 * @return
+	 */
+	public BSCloseIcon setDataDismiss(String dismiss)
+	{
+		addAttribute(ButtonAttributes.Data_Dismiss.toString(), dismiss);
+		return this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof BSCloseIcon))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+		BSCloseIcon<?> that = (BSCloseIcon<?>) o;
+		return Objects.equals(getCloseIcon(), that.getCloseIcon()) &&
+				       Objects.equals(getCloseIconText(), that.getCloseIconText());
 	}
 
 	/**
@@ -152,26 +173,6 @@ public class BSCloseIcon<J extends BSCloseIcon<J>> extends Button<GlobalChildren
 		{
 			getCloseIcon().setText(closeIconText);
 		}
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSCloseIcon))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSCloseIcon<?> that = (BSCloseIcon<?>) o;
-		return Objects.equals(getCloseIcon(), that.getCloseIcon()) &&
-				Objects.equals(getCloseIconText(), that.getCloseIconText());
 	}
 
 	@Override

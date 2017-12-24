@@ -27,7 +27,8 @@ import java.io.Serializable;
 /**
  * Any child is allowed on this element
  *
- * @param <A> Any attribute definition
+ * @param <A>
+ * 		Any attribute definition
  *
  * @author GedMarc
  * @since 16 Feb 2017
@@ -35,7 +36,7 @@ import java.io.Serializable;
 public class BSAnyChild<A extends Enum & AttributeDefinitions> extends Div<GlobalChildren, A, GlobalFeatures, GlobalEvents, BSAnyChild<A>>
 		implements Serializable
 {
-	
+
 	private static final long serialVersionUID = 1L;
 
 }

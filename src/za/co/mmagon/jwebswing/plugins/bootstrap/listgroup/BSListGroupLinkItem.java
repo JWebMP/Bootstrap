@@ -32,9 +32,9 @@ import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
 public class BSListGroupLinkItem<J extends BSListGroupLinkItem<J>>
 		extends BSListGroupListItem<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Links and buttons Use &gt;a&lt;s or &gt;button&lt;s to create actionable list group items with hover, disabled, and active states by adding .list-group-item-action. We separate these
 	 * pseudo-classes to ensure list groups made of non-interactive elements (like &gt;li&lt;s or &gt;div&lt;s) don’t provide a click or tap affordance.

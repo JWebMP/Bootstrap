@@ -38,25 +38,39 @@ import java.util.logging.Logger;
 public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>> extends Event<JavaScriptPart, J>
 		implements GlobalEvents, BSAlertEvents
 {
-	
+
 	/**
 	 * Logger for the Component
 	 */
 	private static final Logger LOG = LogFactory.getInstance().getLogger("BSAlertCloseEvent");
 	private static final long serialVersionUID = 1L;
 	private BSAlertCloseEventDirective directive;
-	
+
 	/**
 	 * Performs a click
 	 *
-	 * @param component The component this click is going to be acting on
+	 * @param component
+	 * 		The component this click is going to be acting on
 	 */
 	public BSAlertCloseEvent(Component component)
 	{
 		super(EventTypes.undefined, component);
 		setComponent(component);
 	}
-	
+
+	@Override
+	public void fireEvent(AjaxCall call, AjaxResponse response)
+	{
+		try
+		{
+			onClose(call, response);
+		}
+		catch (Exception e)
+		{
+			LOG.log(Level.SEVERE, "Error In Firing Event", e);
+		}
+	}
+
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -70,7 +84,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>> extends 
 		}
 		super.preConfigure();
 	}
-	
+
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -84,7 +98,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>> extends 
 		}
 		return directive;
 	}
-	
+
 	/**
 	 * Sets the right click angular event
 	 *
@@ -94,29 +108,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>> extends 
 	{
 		this.directive = directive;
 	}
-	
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call     The physical AJAX call
-	 * @param response The physical Ajax Receiver
-	 */
-	public abstract void onClose(AjaxCall call, AjaxResponse response);
-	
-	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
-	{
-		try
-		{
-			onClose(call, response);
-		}
-		catch (Exception e)
-		{
-			LOG.log(Level.SEVERE, "Error In Firing Event", e);
-		}
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -135,10 +127,21 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>> extends 
 		BSAlertCloseEvent<?> that = (BSAlertCloseEvent<?>) o;
 		return getComponent().equals(that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getDirective());
 	}
+
+	/**
+	 * Triggers on Click
+	 * <p>
+	 *
+	 * @param call
+	 * 		The physical AJAX call
+	 * @param response
+	 * 		The physical Ajax Receiver
+	 */
+	public abstract void onClose(AjaxCall call, AjaxResponse response);
 }

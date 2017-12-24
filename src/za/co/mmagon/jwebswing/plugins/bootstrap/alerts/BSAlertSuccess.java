@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +27,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.alerts;
  */
 public class BSAlertSuccess extends BSAlert
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Alerts
 	 * <p>
@@ -37,7 +37,7 @@ public class BSAlertSuccess extends BSAlert
 	 */
 	public BSAlertSuccess()
 	{
-		addClass(BSComponentAlertOptions.Alert_Success);
+		addClass(BSAlertOptions.Alert_Success);
 	}
-	
+
 }

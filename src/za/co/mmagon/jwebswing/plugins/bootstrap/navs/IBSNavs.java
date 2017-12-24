@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,33 +22,33 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.navs;
  */
 public interface IBSNavs
 {
-	
+
 	/**
 	 * Assigns the navigation list
 	 *
 	 * @return
 	 */
 	BSNavList getNavigationList();
-	
+
 	/**
 	 * Sets the navigation list accordingly
 	 *
 	 * @param navigationList
 	 */
 	void setNavigationList(BSNavList navigationList);
-	
+
 	/**
 	 * Sets this navigation bar as centered
 	 *
 	 * @return
 	 */
 	BSNavs setCentered();
-	
+
 	/**
 	 * Sets this navigation bar as right aligned
 	 *
 	 * @return
 	 */
 	BSNavs setRightAligned();
-	
+
 }

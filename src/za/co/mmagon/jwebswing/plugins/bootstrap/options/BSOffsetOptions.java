@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;
 
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
@@ -27,251 +27,250 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  * @version 1.0
  * @since Oct 10, 2016
  */
-public enum BSWidthOptions implements IBSComponentOptions
+public enum BSOffsetOptions implements IBSComponentOptions
 {
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_1,
+	Offset_Xs_1,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_2,
+	Offset_Xs_2,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_3,
+	Offset_Xs_3,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_4,
+	Offset_Xs_4,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_5,
+	Offset_Xs_5,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_6,
+	Offset_Xs_6,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_7,
+	Offset_Xs_7,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_8,
+	Offset_Xs_8,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_9,
+	Offset_Xs_9,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_10,
+	Offset_Xs_10,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_11,
+	Offset_Xs_11,
 	/**
 	 * From size XS the size should be 1
 	 */
-	col_xs_12,
+	Offset_Xs_12,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_1,
+	Offset_Sm_1,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_2,
+	Offset_Sm_2,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_3,
+	Offset_Sm_3,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_4,
+	Offset_Sm_4,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_5,
+	Offset_Sm_5,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_6,
+	Offset_Sm_6,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_7,
+	Offset_Sm_7,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_8,
+	Offset_Sm_8,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_9,
+	Offset_Sm_9,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_10,
+	Offset_Sm_10,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_11,
+	Offset_Sm_11,
 	/**
 	 * From size SM (small) the size should be 1
 	 */
-	col_sm_12,
+	Offset_Sm_12,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_1,
+	Offset_Md_1,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_2,
+	Offset_Md_2,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_3,
+	Offset_Md_3,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_4,
+	Offset_Md_4,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_5,
+	Offset_Md_5,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_6,
+	Offset_Md_6,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_7,
+	Offset_Md_7,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_8,
+	Offset_Md_8,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_9,
+	Offset_Md_9,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_10,
+	Offset_Md_10,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_11,
+	Offset_Md_11,
 	/**
 	 * From size MD (medium) the size should be 1
 	 */
-	col_md_12,
+	Offset_Md_12,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_1,
+	Offset_Lg_1,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_2,
+	Offset_Lg_2,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_3,
+	Offset_Lg_3,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_4,
+	Offset_Lg_4,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_5,
+	Offset_Lg_5,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_6,
+	Offset_Lg_6,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_7,
+	Offset_Lg_7,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_8,
+	Offset_Lg_8,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_9,
+	Offset_Lg_9,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_10,
+	Offset_Lg_10,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_11,
+	Offset_Lg_11,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_lg_12,
+	Offset_Lg_12,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_1,
+	Offset_Xl_1,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_2,
+	Offset_Xl_2,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_3,
+	Offset_Xl_3,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_4,
+	Offset_Xl_4,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_5,
+	Offset_Xl_5,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_6,
+	Offset_Xl_6,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_7,
+	Offset_Xl_7,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_8,
+	Offset_Xl_8,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_9,
+	Offset_Xl_9,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_10,
+	Offset_Xl_10,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_11,
+	Offset_Xl_11,
 	/**
 	 * For large LG only the size should be 1
 	 */
-	col_xl_12,;
+	Offset_Xl_12;
 
-
-	BSWidthOptions()
+	BSOffsetOptions()
 	{
 
 	}

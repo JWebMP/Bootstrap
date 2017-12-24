@@ -30,9 +30,9 @@ public class BSButtonGroupCheckbox<J extends BSButtonGroupCheckbox<J>>
 		extends InputCheckBoxType<J>
 		implements IBSButtonGroupInput, BSButtonChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSButtonGroupCheckbox()
 	{
 		addAttribute(InputCheckBoxTypeAttributes.AutoComplete, "off");

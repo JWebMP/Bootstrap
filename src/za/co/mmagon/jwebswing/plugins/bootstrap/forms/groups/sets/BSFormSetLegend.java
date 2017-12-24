@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,9 +26,9 @@ import za.co.mmagon.jwebswing.base.html.Italic;
  */
 public class BSFormSetLegend extends Italic implements BSFormSetChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A legend to describe a form set
 	 */
@@ -36,7 +36,7 @@ public class BSFormSetLegend extends Italic implements BSFormSetChildren
 	{
 		setTag("legend");
 	}
-	
+
 	/**
 	 * A legend to describe a form set
 	 *
@@ -47,5 +47,5 @@ public class BSFormSetLegend extends Italic implements BSFormSetChildren
 		super(text);
 		setTag("legend");
 	}
-	
+
 }

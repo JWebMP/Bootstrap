@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,19 +25,19 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.modal.BSModal;
  */
 public class BSModalShowFeature extends Feature
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSModalShowFeature(BSModal modal)
 	{
 		super("BSModalShowFeature", modal);
 		setComponent(modal);
 	}
-	
+
 	@Override
 	protected void assignFunctionsToComponent()
 	{
 		addQuery(getComponent().getJQueryID() + "modal('show');");
 	}
-	
+
 }

@@ -24,13 +24,13 @@ import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 public enum BSProgressBarAttributes implements AttributeDefinitions
 {
 	Visibility;
-	
+
 	private boolean isKeyword;
-	
+
 	BSProgressBarAttributes()
 	{
 	}
-	
+
 	@Override
 	public boolean isKeyword()
 	{

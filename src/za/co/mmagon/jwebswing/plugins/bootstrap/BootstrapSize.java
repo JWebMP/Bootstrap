@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,32 +47,21 @@ public enum BootstrapSize
 	 * Starting at the bottom
 	 */
 	XSmall("xs", 0);
-	
+
 	private String name;
 	private Integer size;
-	
+
 	BootstrapSize()
 	{
-	
+
 	}
-	
+
 	BootstrapSize(String name, Integer size)
 	{
 		this.name = name;
 		this.size = size;
 	}
-	
-	@JsonValue
-	public String getName()
-	{
-		return name;
-	}
-	
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-	
+
 	/**
 	 * The actual pixel size setting
 	 *
@@ -82,7 +71,7 @@ public enum BootstrapSize
 	{
 		return size;
 	}
-	
+
 	/**
 	 * The actual pixel size setting
 	 *
@@ -92,10 +81,21 @@ public enum BootstrapSize
 	{
 		this.size = size;
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return getName();
+	}
+
+	@JsonValue
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 }

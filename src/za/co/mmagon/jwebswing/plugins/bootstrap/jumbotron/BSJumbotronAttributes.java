@@ -36,6 +36,7 @@ public enum BSJumbotronAttributes implements AttributeDefinitions
 	BSJumbotronAttributes()
 	{
 	}
+
 	/**
 	 * If the attribute is a keyword
 	 *

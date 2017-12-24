@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,9 +31,9 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
  */
 public class BSCarouselItem extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, BSCarouselItem>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Contains each carousel slide
 	 */
@@ -41,7 +41,7 @@ public class BSCarouselItem extends Div<GlobalChildren, NoAttributes, GlobalFeat
 	{
 		addClass(BSComponentCarouselOptions.Carousel_Item);
 	}
-	
+
 	/**
 	 * Optional captions
 	 * <p>

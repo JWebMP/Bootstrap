@@ -27,7 +27,6 @@ import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSForm;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormInline;
@@ -41,6 +40,8 @@ import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSContainerOptions.Row;
 
 /**
  * An implementation of
@@ -217,67 +218,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
-	 * Returns a label. There must always be a label
-	 *
-	 * @return
-	 */
-	@Override
-	public BSFormLabel getLabel()
-	{
-		return label;
-	}
-
-	/**
-	 * Sets the label to the given label
-	 *
-	 * @param label
-	 *
-	 * @return
-	 */
-	@Override
-	public J setLabel(BSFormLabel label)
-	{
-		this.label = label;
-		return (J) this;
-	}
-
-	/**
-	 * Return the help text
-	 *
-	 * @return
-	 */
-	@Override
-	public String getHelpText()
-	{
-		return helpText;
-	}
-
-	/**
-	 * Sets the help text
-	 *
-	 * @param helpText
-	 *
-	 * @return
-	 */
-	@Override
-	public J setHelpText(String helpText)
-	{
-		this.helpText = helpText;
-		return (J) this;
-	}
-
-	/**
-	 * Returns the input component
-	 *
-	 * @return
-	 */
-	@Override
-	public Component getInputComponent()
-	{
-		return inputComponent;
-	}
-
-	/**
 	 * Sets the input component to any input type
 	 *
 	 * @param inputComponent
@@ -288,53 +228,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	{
 		this.inputComponent = inputComponent;
 		return (J) this;
-	}
-
-	/**
-	 * Sets the input component
-	 *
-	 * @param inputComponent
-	 *
-	 * @return
-	 */
-	@Override
-	public J setInputComponent(BSInput inputComponent)
-	{
-		this.inputComponent = inputComponent;
-		return (J) this;
-	}
-
-	/**
-	 * Sets the input component
-	 *
-	 * @param inputComponent
-	 *
-	 * @return
-	 */
-	@Override
-	public J setInputComponent(BSFormSelectInput inputComponent)
-	{
-		this.inputComponent = inputComponent;
-		return (J) this;
-	}
-
-	/**
-	 * Adds and configures the row
-	 */
-	private void configureAsRow()
-	{
-		if (isAsRow())
-		{
-			addClass(BSDefaultOptions.Row);
-			if (getLabel() != null)
-			{
-				getLabel().addClass("col-2");
-			}
-			if (getInputComponent() != null)
-			{
-				getInputComponent().addClass("col-10");
-			}
-		}
 	}
 
 	/**
@@ -355,6 +248,25 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 
 		}
 		super.preConfigure();
+	}
+
+	/**
+	 * Adds and configures the row
+	 */
+	private void configureAsRow()
+	{
+		if (isAsRow())
+		{
+			addClass(Row);
+			if (getLabel() != null)
+			{
+				getLabel().addClass("col-2");
+			}
+			if (getInputComponent() != null)
+			{
+				getInputComponent().addClass("col-10");
+			}
+		}
 	}
 
 	/**
@@ -444,6 +356,34 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
+	 * Sets the instance of this
+	 *
+	 * @return
+	 */
+	public String getFrontIcon()
+	{
+		return frontIcon;
+	}
+
+	/**
+	 * Adds the angular icon for components
+	 */
+	private void configureAngularIcon()
+	{
+		if (getInputComponent() != null)
+		{
+			Span iconFeedback = new Span();
+			iconFeedback.addStyle("background:transparent !important;");
+			iconFeedback.addAttribute("aria-hidden", "true");
+			iconFeedback.addStyle("top:0;");
+			iconFeedback.addStyle("margin-top:0;");
+			add(iconFeedback);
+
+			configureDataAttributes();
+		}
+	}
+
+	/**
 	 * Configures the data attributes for the widget
 	 */
 	private void configureDataAttributes()
@@ -479,21 +419,196 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
-	 * Adds the angular icon for components
+	 * The general global error for a message
+	 *
+	 * @return
 	 */
-	private void configureAngularIcon()
+	@Nullable
+	public String getErrorMessage()
 	{
-		if (getInputComponent() != null)
-		{
-			Span iconFeedback = new Span();
-			iconFeedback.addStyle("background:transparent !important;");
-			iconFeedback.addAttribute("aria-hidden", "true");
-			iconFeedback.addStyle("top:0;");
-			iconFeedback.addStyle("margin-top:0;");
-			add(iconFeedback);
+		return errorMessage;
+	}
 
-			configureDataAttributes();
-		}
+	/**
+	 * Return the help text
+	 *
+	 * @return
+	 */
+	@Override
+	public String getHelpText()
+	{
+		return helpText;
+	}
+
+	/**
+	 * Sets the help text
+	 *
+	 * @param helpText
+	 *
+	 * @return
+	 */
+	@Override
+	public J setHelpText(String helpText)
+	{
+		this.helpText = helpText;
+		return (J) this;
+	}
+
+	/**
+	 * Sets the input component
+	 *
+	 * @param inputComponent
+	 *
+	 * @return
+	 */
+	@Override
+	public J setInputComponent(BSInput inputComponent)
+	{
+		this.inputComponent = inputComponent;
+		return (J) this;
+	}
+
+	/**
+	 * Returns the input component
+	 *
+	 * @return
+	 */
+	@Override
+	public Component getInputComponent()
+	{
+		return inputComponent;
+	}
+
+	/**
+	 * Returns a label. There must always be a label
+	 *
+	 * @return
+	 */
+	@Override
+	public BSFormLabel getLabel()
+	{
+		return label;
+	}
+
+	/**
+	 * Sets the label to the given label
+	 *
+	 * @param label
+	 *
+	 * @return
+	 */
+	@Override
+	public J setLabel(BSFormLabel label)
+	{
+		this.label = label;
+		return (J) this;
+	}
+
+	/**
+	 * The max length message
+	 *
+	 * @return
+	 */
+	@Override
+	public String getMaxLengthMessage()
+	{
+		return maxLengthMessage;
+	}
+
+	/**
+	 * Sets the maximum reached message error
+	 *
+	 * @return
+	 */
+	@Override
+	public String getMaxMessage()
+	{
+		return maxMessage;
+	}
+
+	/**
+	 * Sets the maximum reached message error
+	 *
+	 * @param maxMessage
+	 *
+	 * @return
+	 */
+	@Override
+	public J setMaxMessage(String maxMessage)
+	{
+		setAngularValidation(true);
+		this.maxMessage = maxMessage;
+		return (J) this;
+	}
+
+	/**
+	 * Returns the minimum length message
+	 *
+	 * @return
+	 */
+	@Override
+	public String getMinLengthMessage()
+	{
+		return minLengthMessage;
+	}
+
+	/**
+	 * Returns the minimum reached message component
+	 *
+	 * @return
+	 */
+	@Override
+	public String getMinMessage()
+	{
+		return minMessage;
+	}
+
+	/**
+	 * Sets the component to be shown when there is a pattern error
+	 *
+	 * @return
+	 */
+	@Override
+	public String getPatternMessage()
+	{
+		return patternMessage;
+	}
+
+	/**
+	 * Returns the component to be shown when there is a required error
+	 *
+	 * @return
+	 */
+	@Override
+	public String getRequiredMessage()
+	{
+		return requiredMessage;
+	}
+
+	/**
+	 * Sets the component to be shown when there is a required error
+	 *
+	 * @param requiredMessage
+	 *
+	 * @return
+	 */
+	@Override
+	public J setRequiredMessage(String requiredMessage)
+	{
+		setAngularValidation(true);
+		this.requiredMessage = requiredMessage;
+		return (J) this;
+	}
+
+	/**
+	 * Shows a ticket, warning or cross from bootstrap 4
+	 *
+	 * @return
+	 */
+	@Override
+	public Boolean getShowControlFeedback()
+	{
+		return showControlFeedback;
 	}
 
 	/**
@@ -572,40 +687,18 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
-	 * Returns the component to be shown when there is a required error
+	 * Shows a ticket, warning or cross from bootstrap 4
+	 *
+	 * @param showControlFeedback
 	 *
 	 * @return
 	 */
 	@Override
-	public String getRequiredMessage()
-	{
-		return requiredMessage;
-	}
-
-	/**
-	 * Sets the component to be shown when there is a required error
-	 *
-	 * @param requiredMessage
-	 *
-	 * @return
-	 */
-	@Override
-	public J setRequiredMessage(String requiredMessage)
+	public J setShowControlFeedback(Boolean showControlFeedback)
 	{
 		setAngularValidation(true);
-		this.requiredMessage = requiredMessage;
+		this.showControlFeedback = showControlFeedback;
 		return (J) this;
-	}
-
-	/**
-	 * Sets the component to be shown when there is a pattern error
-	 *
-	 * @return
-	 */
-	@Override
-	public String getPatternMessage()
-	{
-		return patternMessage;
 	}
 
 	/**
@@ -624,17 +717,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
-	 * Returns the minimum reached message component
-	 *
-	 * @return
-	 */
-	@Override
-	public String getMinMessage()
-	{
-		return minMessage;
-	}
-
-	/**
 	 * Sets the minimum reached message
 	 *
 	 * @param minMessage
@@ -647,43 +729,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 		setAngularValidation(true);
 		this.minMessage = minMessage;
 		return (J) this;
-	}
-
-	/**
-	 * Sets the maximum reached message error
-	 *
-	 * @return
-	 */
-	@Override
-	public String getMaxMessage()
-	{
-		return maxMessage;
-	}
-
-	/**
-	 * Sets the maximum reached message error
-	 *
-	 * @param maxMessage
-	 *
-	 * @return
-	 */
-	@Override
-	public J setMaxMessage(String maxMessage)
-	{
-		setAngularValidation(true);
-		this.maxMessage = maxMessage;
-		return (J) this;
-	}
-
-	/**
-	 * Returns the minimum length message
-	 *
-	 * @return
-	 */
-	@Override
-	public String getMinLengthMessage()
-	{
-		return minLengthMessage;
 	}
 
 	/**
@@ -704,17 +749,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	/**
 	 * The max length message
 	 *
-	 * @return
-	 */
-	@Override
-	public String getMaxLengthMessage()
-	{
-		return maxLengthMessage;
-	}
-
-	/**
-	 * The max length message
-	 *
 	 * @param maxLengthMessage
 	 *
 	 * @return
@@ -728,55 +762,17 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	}
 
 	/**
-	 * Shows a ticket, warning or cross from bootstrap 4
+	 * Sets the input component
+	 *
+	 * @param inputComponent
 	 *
 	 * @return
 	 */
 	@Override
-	public Boolean getShowControlFeedback()
+	public J setInputComponent(BSFormSelectInput inputComponent)
 	{
-		return showControlFeedback;
-	}
-
-	/**
-	 * Shows a ticket, warning or cross from bootstrap 4
-	 *
-	 * @param showControlFeedback
-	 *
-	 * @return
-	 */
-	@Override
-	public J setShowControlFeedback(Boolean showControlFeedback)
-	{
-		setAngularValidation(true);
-		this.showControlFeedback = showControlFeedback;
+		this.inputComponent = inputComponent;
 		return (J) this;
-	}
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int hash = 7;
-		hash = 79 * hash + (this.getID().hashCode());
-		return hash;
 	}
 
 	/**
@@ -811,17 +807,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	/**
 	 * The general global error for a message
 	 *
-	 * @return
-	 */
-	@Nullable
-	public String getErrorMessage()
-	{
-		return errorMessage;
-	}
-
-	/**
-	 * The general global error for a message
-	 *
 	 * @param errorMessage
 	 *
 	 * @return
@@ -830,16 +815,6 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	{
 		this.errorMessage = errorMessage;
 		return (J) this;
-	}
-
-	/**
-	 * Sets the instance of this
-	 *
-	 * @return
-	 */
-	public String getFrontIcon()
-	{
-		return frontIcon;
 	}
 
 	/**
@@ -853,5 +828,31 @@ public class BSFormGroup<J extends BSFormGroup<J>>
 	{
 		this.frontIcon = frontIcon;
 		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		return super.equals(obj);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 7;
+		hash = 79 * hash + (this.getID().hashCode());
+		return hash;
 	}
 }

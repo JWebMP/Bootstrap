@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,9 +25,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSComponentDropDownOpti
  */
 public class BSDropDownMenuItemDivider extends BSDropDownMenuItem
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A divider on the bs drop down menu item
 	 * <p>

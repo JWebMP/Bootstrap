@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
  */
 public interface IBSButton<J extends BSButton>
 {
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -33,7 +33,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setDanger(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -42,7 +42,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setDangerOutline(boolean applyStyle);
-	
+
 	/**
 	 * Disabled state
 	 * <p>
@@ -69,7 +69,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	BSButton setDisabled(boolean disabled);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -78,7 +78,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setInfo(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -87,7 +87,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setInfoOutline(boolean applyStyle);
-	
+
 	/**
 	 * Sets the style as link
 	 *
@@ -96,7 +96,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setLink(boolean applyStyle);
-	
+
 	/**
 	 * Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active.
 	 * <p>
@@ -108,7 +108,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	BSButton setPressed(boolean pressed);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -117,7 +117,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setPrimary(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -126,7 +126,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setPrimaryOutline(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -135,7 +135,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setSecondary(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -144,7 +144,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setSecondaryOutline(boolean applyStyle);
-	
+
 	/**
 	 * Sizes
 	 * <p>
@@ -154,8 +154,8 @@ public interface IBSButton<J extends BSButton>
 	 *
 	 * @return
 	 */
-	BSButton setSize(BSComponentButtonSizeOptions size);
-	
+	BSButton setSize(BSButtonSizeOptions size);
+
 	/**
 	 * Set or remove the style
 	 *
@@ -164,7 +164,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setSuccess(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -173,7 +173,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setSuccessOutline(boolean applyStyle);
-	
+
 	/**
 	 * Button plugin Do more with buttons. Control button states or create groups of buttons for more components like toolbars.
 	 * <p>
@@ -184,7 +184,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setToggle(boolean toggle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -193,7 +193,7 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setWarning(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -202,5 +202,5 @@ public interface IBSButton<J extends BSButton>
 	 * @return
 	 */
 	J setWarningOutline(boolean applyStyle);
-	
+
 }

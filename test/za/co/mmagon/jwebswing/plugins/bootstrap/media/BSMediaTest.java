@@ -25,11 +25,11 @@ import za.co.mmagon.jwebswing.BaseTestClass;
  */
 public class BSMediaTest extends BaseTestClass
 {
-	
+
 	public BSMediaTest()
 	{
 	}
-	
+
 	@Test
 	public void testNothing()
 	{
@@ -38,7 +38,7 @@ public class BSMediaTest extends BaseTestClass
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\"></div>", media.toString(true));
 	}
-	
+
 	@Test
 	public void testGetMediaLink()
 	{
@@ -47,10 +47,10 @@ public class BSMediaTest extends BaseTestClass
 		media.getMediaLink().setID("link");
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\">\n"
-				                    + "	<a class=\"media-left\" href=\"#\" id=\"link\"></a>\n"
-				                    + "</div>", media.toString(true));
+				                        + "	<a class=\"media-left\" href=\"#\" id=\"link\"></a>\n"
+				                        + "</div>", media.toString(true));
 	}
-	
+
 	@Test
 	public void testGetMediaBody()
 	{
@@ -59,28 +59,28 @@ public class BSMediaTest extends BaseTestClass
 		media.getMediaBody().setID("body");
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\">\n"
-				                    + "	<div class=\"media-body\" id=\"body\"></div>\n"
-				                    + "</div>", media.toString(true));
+				                        + "	<div class=\"media-body\" id=\"body\"></div>\n"
+				                        + "</div>", media.toString(true));
 	}
-	
+
 	@Test
 	public void testGetMediaHeader()
 	{
 		BSMedia media = new BSMedia();
 		media.setID("media");
 		media.getMediaHeader().setID("header");
-		
+
 		media.getMediaBody().setID("body");
-		
+
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\">\n"
-				                    + "	<div class=\"media-body\" id=\"body\">\n"
-				                        + "		<H4 class=\"media-heading\" id=\"header\"></H4>\n"
-				                    + "	</div>\n"
-				                    + "</div>", media.toString(true));
-		
+				                        + "	<div class=\"media-body\" id=\"body\">\n"
+				                        + "		<H4 class=\"media-heading mt-1\" id=\"header\"></H4>\n"
+				                        + "	</div>\n"
+				                        + "</div>", media.toString(true));
+
 	}
-	
+
 	@Test
 	public void testGetMediaComponent()
 	{
@@ -88,13 +88,13 @@ public class BSMediaTest extends BaseTestClass
 		media.setID("media");
 		media.getMediaComponent().setID("object");
 		media.getMediaLink().setID("link");
-		
+
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\">\n"
-				                    + "	<a class=\"media-left\" href=\"#\" id=\"link\">\n"
-				                    + "		<div class=\"media-object\" id=\"object\"></div>\n"
-				                    + "	</a>\n"
-				                    + "</div>", media.toString(true));
+				                        + "	<a class=\"media-left\" href=\"#\" id=\"link\">\n"
+				                        + "		<div class=\"media-object\" id=\"object\"></div>\n"
+				                        + "	</a>\n"
+				                        + "</div>", media.toString(true));
 	}
-	
+
 }

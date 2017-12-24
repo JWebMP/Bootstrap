@@ -20,9 +20,8 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Span;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSColoursOptions;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSColoursOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,17 +87,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	public BSCarousel()
 	{
 		addFeature(getFeature());
-		BootstrapPageConfigurator.setRequired(this, true);
-	}
 
-	/**
-	 * Neater representation
-	 *
-	 * @return
-	 */
-	public IBSCarousel asMe()
-	{
-		return this;
 	}
 
 	/**
@@ -116,6 +105,16 @@ public class BSCarousel<J extends BSCarousel<J>>
 	}
 
 	/**
+	 * Neater representation
+	 *
+	 * @return
+	 */
+	public IBSCarousel asMe()
+	{
+		return this;
+	}
+
+	/**
 	 * Returns any javascript options available
 	 *
 	 * @return
@@ -124,6 +123,34 @@ public class BSCarousel<J extends BSCarousel<J>>
 	public BSCarouselOptions getOptions()
 	{
 		return getFeature().getOptions();
+	}
+
+	@Override
+	public void init()
+	{
+		if (!isInitialized())
+		{
+			BSCarouselIndicators indications = new BSCarouselIndicators(this);
+			indications.init();
+			add(indications);
+			add(getCarouselSlides());
+
+			BSCarouselItem activeItem;
+			if (!getSlides().isEmpty())
+			{
+				activeItem = getSlides().get(getActiveSlide());
+				activeItem.addClass(BSDefaultOptions.Active);
+			}
+			for (BSCarouselItem slide : getSlides())
+			{
+				getCarouselSlides().add(slide);
+			}
+
+			add(getPreviousLink());
+			add(getNextLink());
+
+		}
+		super.init();
 	}
 
 	/**
@@ -149,6 +176,65 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		this.activeSlide = activeSlide;
 		return this;
+	}
+
+	/**
+	 * Returns the carousel slides
+	 *
+	 * @return
+	 */
+	@Override
+	public BSCarouselSlides getCarouselSlides()
+	{
+		if (carouselSlides == null)
+		{
+			setCarouselSlides(new BSCarouselSlides());
+		}
+		return carouselSlides;
+	}
+
+	/**
+	 * Sets the carousel slides
+	 *
+	 * @param carouselSlides
+	 *
+	 * @return
+	 */
+	@Override
+	public J setCarouselSlides(BSCarouselSlides carouselSlides)
+	{
+		this.carouselSlides = carouselSlides;
+		return (J) this;
+	}
+
+	/**
+	 * Returns the next link
+	 *
+	 * @return
+	 */
+	@Override
+	public BSCarouselControl getNextLink()
+	{
+		if (nextLink == null)
+		{
+			setNextLink(new BSCarouselControl(this, false));
+		}
+		return nextLink;
+	}
+
+	/**
+	 * Returns the previous link
+	 *
+	 * @return
+	 */
+	@Override
+	public BSCarouselControl getPreviousLink()
+	{
+		if (previousLink == null)
+		{
+			setPreviousLink(new BSCarouselControl(this, true));
+		}
+		return previousLink;
 	}
 
 	/**
@@ -184,6 +270,39 @@ public class BSCarousel<J extends BSCarousel<J>>
 	}
 
 	/**
+	 * Whether or not this carousel shows indicators
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isIndicators()
+	{
+		return indicators;
+	}
+
+	/**
+	 * The data-ride="carousel" attribute is used to mark a carousel as animating starting at page load. It cannot be used in combination with (redundant and unnecessary) explicit JavaScript
+	 * initialization of the same carousel.
+	 *
+	 * @param startAnimationOnLoad
+	 *
+	 * @return
+	 */
+	@Override
+	public J setAnimateOnLoad(boolean startAnimationOnLoad)
+	{
+		if (startAnimationOnLoad)
+		{
+			addAttribute("data-ride", "carousel");
+		}
+		else
+		{
+			getAttributes().remove("data-ride");
+		}
+		return (J) this;
+	}
+
+	/**
 	 * Returns the list of slides currently associated
 	 *
 	 * @return
@@ -213,141 +332,16 @@ public class BSCarousel<J extends BSCarousel<J>>
 	}
 
 	/**
-	 * Returns the carousel slides
+	 * Whether or not this carousel shows indicators
+	 *
+	 * @param indicators
 	 *
 	 * @return
 	 */
 	@Override
-	public BSCarouselSlides getCarouselSlides()
+	public J setIndicators(boolean indicators)
 	{
-		if (carouselSlides == null)
-		{
-			setCarouselSlides(new BSCarouselSlides());
-		}
-		return carouselSlides;
-	}
-
-	/**
-	 * Sets the carousel slides
-	 *
-	 * @param carouselSlides
-	 *
-	 * @return
-	 */
-	@Override
-	public J setCarouselSlides(BSCarouselSlides carouselSlides)
-	{
-		this.carouselSlides = carouselSlides;
-		return (J) this;
-	}
-
-	/**
-	 * Returns the previous link
-	 *
-	 * @return
-	 */
-	@Override
-	public BSCarouselControl getPreviousLink()
-	{
-		if (previousLink == null)
-		{
-			setPreviousLink(new BSCarouselControl(this, true));
-		}
-		return previousLink;
-	}
-
-	/**
-	 * Set's the previous link
-	 *
-	 * @param previousLink
-	 *
-	 * @return
-	 */
-	@Override
-	public J setPreviousLink(BSCarouselControl previousLink)
-	{
-		getChildren().remove(this.previousLink);
-		this.previousLink = previousLink;
-		if (this.previousLink != null)
-		{
-			previousLink.addClass(BSComponentCarouselOptions.Carousel_Control_Prev);
-			previousLink.addAttribute("role", "button");
-			previousLink.addAttribute("data-slide", "prev");
-
-			Span iconSpan = new Span();
-			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
-			iconSpan.addClass(BSComponentCarouselOptions.Carousel_Control_Prev_Icon);
-
-			Span readerFriendly = new Span("Previous");
-			readerFriendly.addClass(BSColoursOptions.Sr_Only);
-			previousLink.add(iconSpan);
-			previousLink.add(readerFriendly);
-		}
-		return (J) this;
-	}
-
-	/**
-	 * Returns the next link
-	 *
-	 * @return
-	 */
-	@Override
-	public BSCarouselControl getNextLink()
-	{
-		if (nextLink == null)
-		{
-			setNextLink(new BSCarouselControl(this, false));
-		}
-		return nextLink;
-	}
-
-	@Override
-	public void init()
-	{
-		if (!isInitialized())
-		{
-			BSCarouselIndicators indications = new BSCarouselIndicators(this);
-			indications.init();
-			add(indications);
-			add(getCarouselSlides());
-
-			BSCarouselItem activeItem;
-			if (!getSlides().isEmpty())
-			{
-				activeItem = getSlides().get(getActiveSlide());
-				activeItem.addClass(BSDefaultOptions.Active);
-			}
-			for (BSCarouselItem slide : getSlides())
-			{
-				getCarouselSlides().add(slide);
-			}
-
-			add(getPreviousLink());
-			add(getNextLink());
-
-		}
-		super.init();
-	}
-
-	/**
-	 * The data-ride="carousel" attribute is used to mark a carousel as animating starting at page load. It cannot be used in combination with (redundant and unnecessary) explicit JavaScript
-	 * initialization of the same carousel.
-	 *
-	 * @param startAnimationOnLoad
-	 *
-	 * @return
-	 */
-	@Override
-	public J setAnimateOnLoad(boolean startAnimationOnLoad)
-	{
-		if (startAnimationOnLoad)
-		{
-			addAttribute("data-ride", "carousel");
-		}
-		else
-		{
-			getAttributes().remove("data-ride");
-		}
+		this.indicators = indicators;
 		return (J) this;
 	}
 
@@ -408,27 +402,32 @@ public class BSCarousel<J extends BSCarousel<J>>
 	}
 
 	/**
-	 * Whether or not this carousel shows indicators
+	 * Set's the previous link
+	 *
+	 * @param previousLink
 	 *
 	 * @return
 	 */
 	@Override
-	public boolean isIndicators()
+	public J setPreviousLink(BSCarouselControl previousLink)
 	{
-		return indicators;
-	}
+		getChildren().remove(this.previousLink);
+		this.previousLink = previousLink;
+		if (this.previousLink != null)
+		{
+			previousLink.addClass(BSComponentCarouselOptions.Carousel_Control_Prev);
+			previousLink.addAttribute("role", "button");
+			previousLink.addAttribute("data-slide", "prev");
 
-	/**
-	 * Whether or not this carousel shows indicators
-	 *
-	 * @param indicators
-	 *
-	 * @return
-	 */
-	@Override
-	public J setIndicators(boolean indicators)
-	{
-		this.indicators = indicators;
+			Span iconSpan = new Span();
+			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
+			iconSpan.addClass(BSComponentCarouselOptions.Carousel_Control_Prev_Icon);
+
+			Span readerFriendly = new Span("Previous");
+			readerFriendly.addClass(BSColoursOptions.Sr_Only);
+			previousLink.add(iconSpan);
+			previousLink.add(readerFriendly);
+		}
 		return (J) this;
 	}
 

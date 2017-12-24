@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,35 +27,35 @@ import za.co.mmagon.jwebswing.base.html.Link;
  */
 public interface IBSMedia
 {
-	
+
 	/**
 	 * Returns the body portion of this media object
 	 *
 	 * @return
 	 */
 	Div getMediaBody();
-	
+
 	/**
 	 * Returns the component displayed inside the link that is used for display
 	 *
 	 * @return
 	 */
 	Component getMediaComponent();
-	
+
 	/**
 	 * Returns a new H4 header
 	 *
 	 * @return
 	 */
 	HeaderText getMediaHeader();
-	
+
 	/**
 	 * Returns the associated media link, never null
 	 *
 	 * @return
 	 */
 	Link getMediaLink();
-	
+
 	/**
 	 * Sets the media body and adds it to this object
 	 *
@@ -64,7 +64,7 @@ public interface IBSMedia
 	 * @return
 	 */
 	BSMedia setMediaBody(Div mediaBody);
-	
+
 	/**
 	 * Sets the component displayed to the left or right (set that in the link)
 	 *
@@ -73,7 +73,7 @@ public interface IBSMedia
 	 * @return
 	 */
 	BSMedia setMediaComponent(Component mediaComponent);
-	
+
 	/**
 	 * Sets the header to the required object
 	 *
@@ -82,7 +82,7 @@ public interface IBSMedia
 	 * @return
 	 */
 	BSMedia setMediaHeader(HeaderText mediaHeader);
-	
+
 	/**
 	 * Sets the media link, and moves the media object into the new link if necessary
 	 *
@@ -92,5 +92,5 @@ public interface IBSMedia
 	 * @return
 	 */
 	BSMedia setMediaLink(Link mediaLink, boolean left);
-	
+
 }

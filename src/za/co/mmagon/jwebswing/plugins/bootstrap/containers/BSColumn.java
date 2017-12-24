@@ -17,9 +17,9 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.containers;
 
 import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSWidthOptions;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.IBSComponentOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSColumnOptions.Col;
 
 /**
  * Shortcut for writing column Div's and spans for bootstrap
@@ -40,14 +40,18 @@ public class BSColumn extends Div
 	 */
 	public BSColumn(IBSComponentOptions... columnOptions)
 	{
+		addClass(Col);
 		if (columnOptions != null)
 		{
 			for (IBSComponentOptions columnOption : columnOptions)
 			{
+				if (!("W_100".equalsIgnoreCase(columnOption.name()) || "col".equalsIgnoreCase(columnOption.name())))
+				{
+					removeClass(Col);
+				}
 				addClass(columnOption.toString());
 			}
 		}
-		BootstrapPageConfigurator.setRequired(this, true);
 	}
 
 	/**
@@ -59,10 +63,6 @@ public class BSColumn extends Div
 	 */
 	public static BSColumn newInstance(IBSComponentOptions... columnOptions)
 	{
-		if (columnOptions == null || columnOptions.length < 1)
-		{
-			columnOptions = new IBSComponentOptions[]{BSWidthOptions.col_md_6};
-		}
 		return new BSColumn(columnOptions);
 	}
 

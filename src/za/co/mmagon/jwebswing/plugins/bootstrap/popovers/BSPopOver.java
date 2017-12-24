@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.popovers;
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapReferencePool;
 
 /**
@@ -46,13 +45,13 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapReferencePool;
 		url = "https://v4-alpha.getbootstrap.com/components/popovers/", wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, BSPopOver> implements IBSPopOver
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * P
 	 */
 	private BSPopOverFeature feature;
-	
+
 	/**
 	 * Popovers
 	 * <p>
@@ -81,7 +80,8 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 	 * <p>
 	 * <p>
 	 *
-	 * @param displayedComponent Shortcut for getOptions().setContent
+	 * @param displayedComponent
+	 * 		Shortcut for getOptions().setContent
 	 */
 	public BSPopOver(ComponentHierarchyBase displayedComponent)
 	{
@@ -93,9 +93,9 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 			displayedComponent.setTiny(true);
 			getOptions().setContent(displayedComponent.toString(true));
 		}
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
-	
+
 	/**
 	 * Returns the feature if any is required
 	 *
@@ -109,7 +109,7 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 		}
 		return feature;
 	}
-	
+
 	/**
 	 * Returns the options if any is required
 	 *
@@ -120,7 +120,7 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 	{
 		return getFeature().getOptions();
 	}
-	
+
 	/**
 	 * Neater representation
 	 *
@@ -130,7 +130,7 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 	{
 		return this;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -148,7 +148,7 @@ public class BSPopOver extends Div<BSPopOverChildren, BSPopOverAttributes, BSPop
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
