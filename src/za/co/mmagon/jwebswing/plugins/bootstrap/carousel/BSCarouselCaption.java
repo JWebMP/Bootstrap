@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
  */
 public class BSCarouselCaption extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, BSCarouselCaption>
 {
-	
+
 	/**
 	 * Optional captions
 	 * <p>
@@ -42,7 +42,7 @@ public class BSCarouselCaption extends Div<GlobalChildren, NoAttributes, GlobalF
 	public BSCarouselCaption()
 	{
 	}
-	
+
 	/**
 	 * Optional captions
 	 * <p>
@@ -55,6 +55,6 @@ public class BSCarouselCaption extends Div<GlobalChildren, NoAttributes, GlobalF
 	{
 		super(text);
 	}
-	
-	
+
+
 }

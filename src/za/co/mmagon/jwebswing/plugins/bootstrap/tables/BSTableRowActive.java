@@ -11,8 +11,6 @@ public abstract class BSTableRowActive<J extends BSTableRowActive<J>> extends BS
 {
 	/**
 	 * Creates a table row class with the given context
-	 *
-	 * @param tableRowClass
 	 */
 	public BSTableRowActive()
 	{

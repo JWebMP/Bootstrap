@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,13 +36,13 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 		extends Feature<BSCarouselOptions, J>
 		implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The method name to call
 	 */
 	private static final String methodName = "pause";
-	
+
 	/**
 	 * Constructs a new Carousel Feature - Cycle
 	 * <p>
@@ -54,7 +54,7 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 		super("BSCarouselPauseFeature");
 		setComponent(forComponent);
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
@@ -63,7 +63,7 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -82,7 +82,7 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 		BSCarouselPauseFeature that = (BSCarouselPauseFeature) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

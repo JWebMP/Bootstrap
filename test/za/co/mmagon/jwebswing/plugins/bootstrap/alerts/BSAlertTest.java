@@ -38,28 +38,28 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.alerts.events.BSAlertClosedEvent
  */
 public class BSAlertTest extends BaseTestClass
 {
-	
+
 	public BSAlertTest()
 	{
 	}
-	
+
 	@Test
 	public void testAlert()
 	{
 		BSAlert al = new BSAlert();
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testCreateDismissButton()
 	{
 		BSAlert al = new BSAlert();
 		ComponentHierarchyBase o = al.createDismissButton();
 		System.out.println(o.toString(true));
-		
+
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testSetDanger()
 	{
@@ -67,7 +67,7 @@ public class BSAlertTest extends BaseTestClass
 		al.setDanger(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testSetInfo()
 	{
@@ -75,7 +75,7 @@ public class BSAlertTest extends BaseTestClass
 		al.setInfo(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testSetLink()
 	{
@@ -83,7 +83,7 @@ public class BSAlertTest extends BaseTestClass
 		al.setLink(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testSetSuccess()
 	{
@@ -91,7 +91,7 @@ public class BSAlertTest extends BaseTestClass
 		al.setSuccess(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testSetWarning()
 	{
@@ -99,7 +99,7 @@ public class BSAlertTest extends BaseTestClass
 		al.setWarning(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testAsMe()
 	{
@@ -107,7 +107,7 @@ public class BSAlertTest extends BaseTestClass
 		al.asMe().setWarning(true);
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testEvents()
 	{
@@ -129,7 +129,7 @@ public class BSAlertTest extends BaseTestClass
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		});
-		
+
 		al.addEvent(new ClickAdapter(al)
 		{
 			@Override
@@ -138,10 +138,10 @@ public class BSAlertTest extends BaseTestClass
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		});
-		
+
 		System.out.println(al.toString(true));
 	}
-	
+
 	@Test
 	public void testInPage()
 	{

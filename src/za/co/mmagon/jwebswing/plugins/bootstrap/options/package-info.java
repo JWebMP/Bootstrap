@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,32 +14,4 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
-
-import za.co.mmagon.jwebswing.base.interfaces.ICSSClassName;
-
-/**
- * Defines any class that is registered as a bootstrap associated class
- *
- * @author GedMarc
- * @since 2016/10/10
- */
-@FunctionalInterface
-public interface IBSComponentOptions extends ICSSClassName
-{
-	
-	/**
-	 * Replaces the text with its HTML class equivalent
-	 *
-	 * @return
-	 */
-	@Override
-	String toString();
-	
-	/**
-	 * Default name method for enumerations
-	 *
-	 * @return
-	 */
-	String name();
-}
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;

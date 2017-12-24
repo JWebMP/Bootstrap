@@ -58,6 +58,21 @@ public class BSCard<J extends BSCard<J>> extends Div<BSCardChildren, BSCardAttri
 	 * A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
 	 * <p>
 	 * If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar functionality to those components is available as modifier classes for cards.
+	 *
+	 * @param text
+	 */
+	public BSCard(String text)
+	{
+		super(text);
+		addClass(BSComponentCardOptions.Card);
+	}
+
+	/**
+	 * Cards
+	 * <p>
+	 * A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+	 * <p>
+	 * If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar functionality to those components is available as modifier classes for cards.
 	 * <p>
 	 * This card is inversed
 	 *
@@ -71,21 +86,6 @@ public class BSCard<J extends BSCard<J>> extends Div<BSCardChildren, BSCardAttri
 			addClass("card-inverse");
 		}
 		addStyle("background-color:transparent;");
-	}
-
-	/**
-	 * Cards
-	 * <p>
-	 * A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
-	 * <p>
-	 * If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar functionality to those components is available as modifier classes for cards.
-	 *
-	 * @param text
-	 */
-	public BSCard(String text)
-	{
-		super(text);
-		addClass(BSComponentCardOptions.Card);
 	}
 
 	/**

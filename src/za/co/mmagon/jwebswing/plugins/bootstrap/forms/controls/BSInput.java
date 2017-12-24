@@ -20,7 +20,6 @@ import za.co.mmagon.jwebswing.base.html.Input;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.InputTypes;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSComponentFormGroupOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren;
 
@@ -42,7 +41,7 @@ public class BSInput<J extends BSInput<J>>
 	 */
 	public BSInput()
 	{
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
 
 	/**
@@ -53,7 +52,7 @@ public class BSInput<J extends BSInput<J>>
 	public BSInput(InputTypes inputType)
 	{
 		super(inputType);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
 
 	@Override

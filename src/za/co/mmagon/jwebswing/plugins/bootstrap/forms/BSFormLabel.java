@@ -32,9 +32,9 @@ public class BSFormLabel<J extends BSFormLabel<J>>
 		extends Label<J>
 		implements BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new label for a bootstrap form
 	 */
@@ -42,7 +42,7 @@ public class BSFormLabel<J extends BSFormLabel<J>>
 	{
 		this(null);
 	}
-	
+
 	/**
 	 * Constructs a new label for a bootstrap form
 	 *
@@ -52,7 +52,7 @@ public class BSFormLabel<J extends BSFormLabel<J>>
 	{
 		this(label, null);
 	}
-	
+
 	/**
 	 * Constructs a new label for a bootstrap form
 	 *

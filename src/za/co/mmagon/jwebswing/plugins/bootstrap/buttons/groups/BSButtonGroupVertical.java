@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +27,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups;
  */
 public class BSButtonGroupVertical extends BSButtonGroup
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Vertical variation
 	 * <p>

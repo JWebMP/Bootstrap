@@ -27,25 +27,25 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  */
 public class BSListGroupTest extends BaseTestClass
 {
-	
+
 	public BSListGroupTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
 		BSListGroup group = new BSListGroup();
 		group.add(new BSListGroupListItem("List Item").setActive());
-		
+
 		System.out.println(group.toString(true));
 
 		group.add(new BSListGroupLinkItem(STRING_HASH, "link item"));
 		System.out.println(group.toString(true));
-		
+
 		group.add((BSListGroupButtonItem) new BSListGroupButtonItem().setText("button"));
 		System.out.println(group.toString(true));
-		
+
 		group.add(((BSListGroupButtonItem) new BSListGroupButtonItem().setText("button")).setSuccess());
 		group.add(((BSListGroupButtonItem) new BSListGroupButtonItem().setText("button")).setDanger());
 		group.add(((BSListGroupButtonItem) new BSListGroupButtonItem().setText("button")).setWarning());
@@ -57,7 +57,7 @@ public class BSListGroupTest extends BaseTestClass
 		group.add(((BSListGroupLinkItem) new BSListGroupLinkItem(StaticStrings.STRING_HASH, "").setText("button")).setWarning());
 		group.add(((BSListGroupLinkItem) new BSListGroupLinkItem(StaticStrings.STRING_HASH, "").setText("button")).setInfo());
 		System.out.println(group.toString(true));
-		
+
 	}
 
 }

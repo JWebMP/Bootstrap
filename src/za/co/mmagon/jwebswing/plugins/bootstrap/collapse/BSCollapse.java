@@ -22,7 +22,8 @@ import za.co.mmagon.jwebswing.base.html.Link;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.toggle.BSToggleAttributes;
 
 /**
  * Collapse
@@ -52,6 +53,7 @@ public class BSCollapse
 	 * @param display
 	 * @param hideOnStart
 	 */
+	@SuppressWarnings("unchecked")
 	public static void link(Link linkController, ComponentHierarchyBase display, boolean hideOnStart)
 	{
 		if (display != null)
@@ -59,15 +61,14 @@ public class BSCollapse
 			display.addClass(Collapse);
 			if (!hideOnStart)
 			{
-				display.addClass(BSDefaultOptions.In);
+				display.addClass(BSDefaultOptions.Show);
 			}
-			linkController.addAttribute("aria-controls", display.getID());
+			linkController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
 			linkController.addAttribute(LinkAttributes.Data_Target.toString(), display.getID(true));
 		}
 
 		linkController.addAttribute(LinkAttributes.Data_Toggle, Collapse);
 		linkController.addAttribute(GlobalAttributes.Aria_Expanded, Boolean.toString(!hideOnStart));
-
 	}
 
 	/**
@@ -84,14 +85,13 @@ public class BSCollapse
 			display.addClass(Collapse);
 			if (!hideOnStart)
 			{
-				display.addClass("in");
+				display.addClass(BSDefaultOptions.Show);
 			}
-
-			buttonController.addAttribute("aria-controls", display.getID());
-			buttonController.addAttribute("data-target", display.getID(true));
+			buttonController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
+			buttonController.addAttribute(BSToggleAttributes.Data_Target.toString(), display.getID(true));
 		}
 
-		buttonController.addAttribute("data-toggle", Collapse);
-		buttonController.addAttribute("aria-expanded", Boolean.toString(!hideOnStart));
+		buttonController.addAttribute(BSToggleAttributes.Data_Target.toString(), Collapse);
+		buttonController.addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
 	}
 }

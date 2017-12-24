@@ -17,13 +17,10 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.media;
 
 import za.co.mmagon.jwebswing.Component;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.base.html.H4;
-import za.co.mmagon.jwebswing.base.html.HeaderText;
-import za.co.mmagon.jwebswing.base.html.Link;
+import za.co.mmagon.jwebswing.base.html.*;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSSpacingOptions;
 
 import java.util.Objects;
 
@@ -48,8 +45,12 @@ public class BSMedia<J extends BSMedia<J>>
 		extends Div<BSMediaChildren, BSMediaAttributes, GlobalFeatures, BSMediaEvents, J>
 		implements IBSMedia
 {
-	
+
 	private static final long serialVersionUID = 1L;
+	/**
+	 * The media image
+	 */
+	private Image mediaImage;
 	/**
 	 * The link for the media object
 	 */
@@ -66,7 +67,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 * The media object being displayed (usually image or something)
 	 */
 	private Component mediaComponent;
-	
+
 	/**
 	 * The media object is an abstract element used as the basis for building more complex and repetitive components (like blog comments, Tweets, etc).
 	 * <p>
@@ -75,48 +76,9 @@ public class BSMedia<J extends BSMedia<J>>
 	public BSMedia()
 	{
 		addClass(BSComponentMediaOptions.Media);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
-	
-	/**
-	 * Returns the associated media link, never null
-	 *
-	 * @return
-	 */
-	@Override
-	public Link getMediaLink()
-	{
-		if (mediaLink == null)
-		{
-			setMediaLink(new Link(STRING_HASH), true);
-		}
-		return mediaLink;
-	}
-	
-	/**
-	 * Sets the header to the required object
-	 *
-	 * @param mediaHeader
-	 *
-	 * @return
-	 */
-	@Override
-	public BSMedia setMediaHeader(HeaderText mediaHeader)
-	{
-		if (this.mediaHeader != null)
-		{
-			getMediaBody().remove(this.mediaHeader);
-			this.mediaHeader = null;
-		}
-		this.mediaHeader = mediaHeader;
-		if (this.mediaHeader != null)
-		{
-			this.mediaHeader.addClass(BSComponentMediaOptions.Media_Heading);
-			getMediaBody().add(this.mediaHeader);
-		}
-		return this;
-	}
-	
+
 	/**
 	 * Returns the body portion of this media object
 	 *
@@ -131,7 +93,7 @@ public class BSMedia<J extends BSMedia<J>>
 		}
 		return mediaBody;
 	}
-	
+
 	/**
 	 * Sets the media body and adds it to this object
 	 *
@@ -155,7 +117,22 @@ public class BSMedia<J extends BSMedia<J>>
 		getChildren().add(mediaBody);
 		return this;
 	}
-	
+
+	/**
+	 * Returns the component displayed inside the link that is used for display
+	 *
+	 * @return
+	 */
+	@Override
+	public Component getMediaComponent()
+	{
+		if (this.mediaComponent == null)
+		{
+			setMediaComponent(new Div());
+		}
+		return mediaComponent;
+	}
+
 	/**
 	 * Returns a new H4 header
 	 *
@@ -170,7 +147,85 @@ public class BSMedia<J extends BSMedia<J>>
 		}
 		return mediaHeader;
 	}
-	
+
+	/**
+	 * Returns the associated media link, never null
+	 *
+	 * @return
+	 */
+	@Override
+	public Link getMediaLink()
+	{
+		if (mediaLink == null)
+		{
+			setMediaLink(new Link(STRING_HASH), true);
+		}
+		return mediaLink;
+	}
+
+	/**
+	 * Sets the media link
+	 *
+	 * @param mediaLink
+	 */
+	@SuppressWarnings("unchecked")
+	public J setMediaLink(Link mediaLink)
+	{
+		this.mediaLink = mediaLink;
+		return (J) this;
+	}
+
+	/**
+	 * Sets the component displayed to the left or right (set that in the link)
+	 *
+	 * @param mediaComponent
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setMediaComponent(Component mediaComponent)
+	{
+		if (this.mediaComponent != null)
+		{
+			getMediaLink().remove(this.mediaComponent);
+			this.mediaComponent = null;
+		}
+		this.mediaComponent = mediaComponent;
+		if (this.mediaComponent != null)
+		{
+			this.mediaComponent.addClass(BSComponentMediaOptions.Media_Object);
+			getMediaLink().add(this.mediaComponent);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Sets the header to the required object
+	 *
+	 * @param mediaHeader
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setMediaHeader(HeaderText mediaHeader)
+	{
+		if (this.mediaHeader != null)
+		{
+			getMediaBody().remove(this.mediaHeader);
+			this.mediaHeader = null;
+		}
+		this.mediaHeader = mediaHeader;
+		if (this.mediaHeader != null)
+		{
+			this.mediaHeader.addClass(BSComponentMediaOptions.Media_Heading);
+			this.mediaHeader.addClass(BSSpacingOptions.Margin_Top_1);
+			getMediaBody().add(this.mediaHeader);
+		}
+		return (J) this;
+	}
+
 	/**
 	 * Sets the media link, and moves the media object into the new link if necessary
 	 *
@@ -180,7 +235,8 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public BSMedia setMediaLink(Link mediaLink, boolean left)
+	@SuppressWarnings("unchecked")
+	public J setMediaLink(Link mediaLink, boolean left)
 	{
 		if (this.mediaLink != null)
 		{
@@ -201,48 +257,36 @@ public class BSMedia<J extends BSMedia<J>>
 			}
 			getChildren().add(this.mediaLink);
 		}
-		return this;
+		return (J) this;
 	}
-	
+
 	/**
-	 * Returns the component displayed inside the link that is used for display
+	 * Gets the media image
 	 *
 	 * @return
 	 */
-	@Override
-	public Component getMediaComponent()
+	public Image getMediaImage()
 	{
-		if (this.mediaComponent == null)
-		{
-			setMediaComponent(new Div());
-		}
-		return mediaComponent;
+		return mediaImage;
 	}
-	
+
 	/**
-	 * Sets the component displayed to the left or right (set that in the link)
+	 * Sets the media image
 	 *
-	 * @param mediaComponent
-	 *
-	 * @return
+	 * @param mediaImage
 	 */
-	@Override
-	public BSMedia setMediaComponent(Component mediaComponent)
+	@SuppressWarnings("unchecked")
+	public J setMediaImage(Image mediaImage)
 	{
-		if (this.mediaComponent != null)
+		this.mediaImage = mediaImage;
+		if (mediaImage != null)
 		{
-			getMediaLink().remove(this.mediaComponent);
-			this.mediaComponent = null;
+			mediaImage.addClass(BSSpacingOptions.Margin_Right_3);
+			getChildren().add(mediaImage);
 		}
-		this.mediaComponent = mediaComponent;
-		if (this.mediaComponent != null)
-		{
-			this.mediaComponent.addClass(BSComponentMediaOptions.Media_Object);
-			getMediaLink().add(this.mediaComponent);
-		}
-		return this;
+		return (J) this;
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -260,11 +304,11 @@ public class BSMedia<J extends BSMedia<J>>
 		}
 		BSMedia<?> bsMedia = (BSMedia<?>) o;
 		return Objects.equals(getMediaLink(), bsMedia.getMediaLink()) &&
-				Objects.equals(getMediaBody(), bsMedia.getMediaBody()) &&
-				Objects.equals(getMediaHeader(), bsMedia.getMediaHeader()) &&
-				Objects.equals(getMediaComponent(), bsMedia.getMediaComponent());
+				       Objects.equals(getMediaBody(), bsMedia.getMediaBody()) &&
+				       Objects.equals(getMediaHeader(), bsMedia.getMediaHeader()) &&
+				       Objects.equals(getMediaComponent(), bsMedia.getMediaComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

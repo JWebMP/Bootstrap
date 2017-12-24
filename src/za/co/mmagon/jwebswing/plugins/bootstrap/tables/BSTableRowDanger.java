@@ -11,8 +11,6 @@ public abstract class BSTableRowDanger<J extends BSTableRowDanger<J>> extends BS
 {
 	/**
 	 * Creates a table row class with the given context
-	 *
-	 * @param tableRowClass
 	 */
 	public BSTableRowDanger()
 	{

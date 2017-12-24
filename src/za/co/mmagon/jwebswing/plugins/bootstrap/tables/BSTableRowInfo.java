@@ -11,8 +11,6 @@ public abstract class BSTableRowInfo<J extends BSTableRowInfo<J>> extends BSTabl
 {
 	/**
 	 * Creates a table row class with the given context
-	 *
-	 * @param tableRowClass
 	 */
 	public BSTableRowInfo()
 	{

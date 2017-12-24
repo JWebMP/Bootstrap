@@ -13,26 +13,26 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 {
 	private List<Span> before = new ArrayList<>();
 	private List<Span> after = new ArrayList<>();
-	
+
 	/**
 	 * Constructs a number spinner
 	 */
 	public BSNumberSpinner()
 	{
 		addClass("number-spinner");
-		
+
 		Span lower = new Span();
 		lower.addClass("input_group_btn");
 		Button lowerButton = new Button();
 		lowerButton.addClass("btn btn-default");
 		Span lowerIcon = new Span();
 		lowerIcon.addClass("fa fa-angle-down");
-		
+
 		lower.add(lowerButton);
 		lowerButton.add(lowerIcon);
 		lowerButton.addAttribute("data-dir", "dwn");
 		before.add(lower);
-		
+
 		Span upper = new Span();
 		upper.addClass("input_group_btn");
 		Button upperButton = new Button();
@@ -40,13 +40,13 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 		upperButton.addAttribute("data-dir", "up");
 		Span upperIcon = new Span();
 		upperIcon.addClass("fa fa-angle-up");
-		
+
 		upper.add(upperButton);
 		upperButton.add(upperIcon);
 		after.add(upper);
-		
+
 	}
-	
+
 	@Override
 	public void init()
 	{
@@ -65,7 +65,7 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 		}
 		super.init();
 	}
-	
+
 	/**
 	 * Returns this before list
 	 *
@@ -75,10 +75,12 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 	{
 		return before;
 	}
-	
+
 	/**
 	 * Sets the before list of spans
+	 *
 	 * @param before
+	 *
 	 * @return
 	 */
 	public J setBefore(List<Span> before)
@@ -86,27 +88,7 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 		this.before = before;
 		return (J) this;
 	}
-	
-	/**
-	 * Returns the after span list
-	 * @return
-	 */
-	public List<Span> getAfter()
-	{
-		return after;
-	}
-	
-	/**
-	 * Sets the after list
-	 * @param after
-	 * @return
-	 */
-	public J setAfter(List<Span> after)
-	{
-		this.after = after;
-		return (J) this;
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -124,9 +106,32 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>> extends BSFormNumberI
 		}
 		BSNumberSpinner<?> that = (BSNumberSpinner<?>) o;
 		return Objects.equals(getBefore(), that.getBefore()) &&
-				Objects.equals(getAfter(), that.getAfter());
+				       Objects.equals(getAfter(), that.getAfter());
 	}
-	
+
+	/**
+	 * Returns the after span list
+	 *
+	 * @return
+	 */
+	public List<Span> getAfter()
+	{
+		return after;
+	}
+
+	/**
+	 * Sets the after list
+	 *
+	 * @param after
+	 *
+	 * @return
+	 */
+	public J setAfter(List<Span> after)
+	{
+		this.after = after;
+		return (J) this;
+	}
+
 	@Override
 	public int hashCode()
 	{

@@ -30,29 +30,33 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
 /**
  * @author GedMarc
  */
-public class BSBreadcrumbTest
+public class BSBreadcrumbContainerItemTest
 {
-	
-	public BSBreadcrumbTest()
+
+	public BSBreadcrumbContainerItemTest()
 	{
 	}
-	
+
 	@Test
 	public void testGetCrumbLink()
 	{
-		BSBreadcrumb crumbs = new BSBreadcrumb();
-		System.out.println(crumbs.toString(true));
-	}
-	
-	@Test
-	public void testSetCrumbLink()
-	{
-		BSBreadcrumb crumbs = new BSBreadcrumb(new BSBreadCrumbLink(STRING_HASH));
-		System.out.println(crumbs.toString(true));
-		
-		crumbs.setActive(true);
-		
+		BSBreadcrumbItem crumbs = new BSBreadcrumbItem();
 		System.out.println(crumbs.toString(true));
 	}
 
+	@Test
+	public void testSetCrumbLink()
+	{
+		BSBreadcrumbItem crumbs = new BSBreadcrumbItem(new BSBreadCrumbLink(STRING_HASH));
+		System.out.println(crumbs.toString(true));
+
+		crumbs.setActive(true);
+
+		System.out.println(crumbs.toString(true));
+	}
+
+	@Test
+	void asMe()
+	{
+	}
 }

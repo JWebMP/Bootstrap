@@ -11,8 +11,6 @@ public abstract class BSTableRowDark<J extends BSTableRowDark<J>> extends BSTabl
 {
 	/**
 	 * Creates a table row class with the given context
-	 *
-	 * @param tableRowClass
 	 */
 	public BSTableRowDark()
 	{

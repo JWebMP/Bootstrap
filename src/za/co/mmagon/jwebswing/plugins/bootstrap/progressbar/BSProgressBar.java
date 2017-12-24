@@ -18,7 +18,6 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.progressbar;
 
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.progressbar.bar.BSProgressBarDisplay;
 
 import java.util.Objects;
@@ -43,9 +42,9 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		extends Div<BSProgressBarChildren, BSProgressBarAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 		implements IBSProgressBar<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Whether or not the progress bar is striped
 	 */
@@ -58,12 +57,12 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 * if animated
 	 */
 	private boolean animated;
-	
+
 	/**
 	 * The actual progress bar
 	 */
 	private BSProgressBarDisplay progressBar;
-	
+
 	/**
 	 * Use our custom progress component for displaying simple or complex progress bars.
 	 */
@@ -71,34 +70,40 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	{
 		this(false);
 	}
-	
+
 	/**
 	 * Creates a new instance of a progress bar
 	 *
-	 * @param striped If the progress bar is striped or not
+	 * @param striped
+	 * 		If the progress bar is striped or not
 	 */
 	public BSProgressBar(boolean striped)
 	{
 		this(striped, false);
 	}
-	
+
 	/**
 	 * Creates a new instance of a progress bar
 	 *
-	 * @param striped If the progress bar is striped or not
-	 * @param active  if the progress bar is active or not
+	 * @param striped
+	 * 		If the progress bar is striped or not
+	 * @param active
+	 * 		if the progress bar is active or not
 	 */
 	public BSProgressBar(boolean striped, boolean active)
 	{
 		this(striped, active, null);
 	}
-	
+
 	/**
 	 * Creates a new instance of a progress bar
 	 *
-	 * @param striped     If the progress bar is striped or not
-	 * @param active      if the progress bar is active or not
-	 * @param progressBar The actual progress bar
+	 * @param striped
+	 * 		If the progress bar is striped or not
+	 * @param active
+	 * 		if the progress bar is active or not
+	 * @param progressBar
+	 * 		The actual progress bar
 	 */
 	public BSProgressBar(boolean striped, boolean active, BSProgressBarDisplay progressBar)
 	{
@@ -106,9 +111,9 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		setStriped(striped);
 		setActive(active);
 		setProgressBar(progressBar);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
-	
+
 	/**
 	 * Returns a new progress bar
 	 *
@@ -117,6 +122,28 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	public IBSProgressBar asMe()
 	{
 		return this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof BSProgressBar))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+		BSProgressBar<?> that = (BSProgressBar<?>) o;
+		return isStriped() == that.isStriped() &&
+				       isActive() == that.isActive() &&
+				       isAnimated() == that.isAnimated() &&
+				       Objects.equals(getProgressBar(), that.getProgressBar());
 	}
 
 	/**
@@ -129,7 +156,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	{
 		return striped;
 	}
-	
+
 	/**
 	 * Sets if this components is striped or not
 	 *
@@ -148,7 +175,13 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 			getProgressBar().removeClass(BSComponentProgressBarOptions.Progress_Bar_Striped);
 		}
 	}
-	
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(super.hashCode(), isStriped(), isActive(), isAnimated(), getProgressBar());
+	}
+
 	/**
 	 * Sets the given percentage
 	 *
@@ -162,7 +195,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		getProgressBar().setValue(percent);
 		return (J) this;
 	}
-	
+
 	/**
 	 * Returns if this progress bar should return as active
 	 *
@@ -173,7 +206,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	{
 		return active;
 	}
-	
+
 	/**
 	 * Sets if this component should return as active
 	 *
@@ -192,7 +225,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 			getProgressBar().removeClass("active");
 		}
 	}
-	
+
 	/**
 	 * Returns the actual progress bar
 	 *
@@ -208,7 +241,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		}
 		return progressBar;
 	}
-	
+
 	/**
 	 * Sets the actual progress bar
 	 *
@@ -224,7 +257,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 			getChildren().add(progressBar);
 		}
 	}
-	
+
 	/**
 	 * If is animated
 	 *
@@ -235,7 +268,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	{
 		return animated;
 	}
-	
+
 	/**
 	 * Sets if animated
 	 *
@@ -254,33 +287,6 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 			getProgressBar().removeClass(BSComponentProgressBarOptions.Progress_Bar_Animated);
 		}
 	}
-	
-	
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSProgressBar))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSProgressBar<?> that = (BSProgressBar<?>) o;
-		return isStriped() == that.isStriped() &&
-				isActive() == that.isActive() &&
-				isAnimated() == that.isAnimated() &&
-				Objects.equals(getProgressBar(), that.getProgressBar());
-	}
-	
-	@Override
-	public int hashCode()
-	{
-		return Objects.hash(super.hashCode(), isStriped(), isActive(), isAnimated(), getProgressBar());
-	}
+
+
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,22 +37,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.toolbars.BSButtonToolbar
 public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttributes, GlobalFeatures, BSButtonGroupEvents, BSButtonGroup>
 		implements BSButtonToolbarChildren, IBSButtonGroup
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Button group
-	 * <p>
-	 * Group a series of buttons together on a single line with the button group. Add on optional JavaScript radio and checkbox style behavior with our buttons plugin.
-	 */
-	public BSButtonGroup()
-	{
-		addAttribute(BSButtonGroupAttributes.Role, "group");
-		setAriaLabel("Button Group");
-		addClass(BSComponentButtonGroupOptions.Btn_Group);
-		addAttribute(BSButtonGroupAttributes.Data_Toggle, "buttons");
-	}
-	
+
 	/**
 	 * Button group
 	 * <p>
@@ -66,17 +53,22 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 		this();
 		setSize(size);
 	}
-	
+
 	/**
-	 * Neater view
-	 *
-	 * @return
+	 * Button group
+	 * <p>
+	 * Group a series of buttons together on a single line with the button group. Add on optional JavaScript radio and checkbox style behavior with our buttons plugin.
 	 */
-	public IBSButtonGroup asMe()
+	public BSButtonGroup(String... optionalArialLabel)
 	{
-		return this;
+		if (optionalArialLabel.length > 0)
+		{
+			setAriaLabel(optionalArialLabel[0]);
+		}
+		addClass(BSComponentButtonGroupOptions.Btn_Group);
+		addAttribute(BSButtonGroupAttributes.Data_Toggle, "buttons");
 	}
-	
+
 	/**
 	 * Sets the screen reader label for this group
 	 *
@@ -90,7 +82,7 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 		addAttribute(GlobalAttributes.Aria_Label, label);
 		return this;
 	}
-	
+
 	/**
 	 * Sizes
 	 * <p>
@@ -108,6 +100,16 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 			removeClass(value.toString());
 		}
 		addClass(size);
+		return this;
+	}
+
+	/**
+	 * Neater view
+	 *
+	 * @return
+	 */
+	public IBSButtonGroup asMe()
+	{
 		return this;
 	}
 }

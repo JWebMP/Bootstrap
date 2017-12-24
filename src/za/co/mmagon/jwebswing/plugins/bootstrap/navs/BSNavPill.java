@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,9 +24,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.navs;
  */
 public class BSNavPill extends BSNavs
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Pills Take that same HTML, but use .nav-pills instead:
 	 */

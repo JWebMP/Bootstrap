@@ -30,11 +30,11 @@ import org.junit.jupiter.api.Test;
  */
 public class BSProgressBarTest
 {
-	
+
 	public BSProgressBarTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{

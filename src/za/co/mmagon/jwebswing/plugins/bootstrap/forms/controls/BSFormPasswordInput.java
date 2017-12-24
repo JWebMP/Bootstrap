@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,15 +26,15 @@ import za.co.mmagon.jwebswing.base.html.attributes.InputTypes;
  */
 public class BSFormPasswordInput extends BSInput
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A default email input for bootstrap
 	 */
 	public BSFormPasswordInput()
 	{
-		
+
 		setInputType(InputTypes.Password);
 	}
 }

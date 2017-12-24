@@ -11,8 +11,6 @@ public abstract class BSTableRowWarning<J extends BSTableRowWarning<J>> extends 
 {
 	/**
 	 * Creates a table row class with the given context
-	 *
-	 * @param tableRowClass
 	 */
 	public BSTableRowWarning()
 	{

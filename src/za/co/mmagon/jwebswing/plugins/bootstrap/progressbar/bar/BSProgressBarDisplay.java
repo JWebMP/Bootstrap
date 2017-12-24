@@ -20,8 +20,7 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Span;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSColoursOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSColoursOptions;
 
 import java.util.Objects;
 
@@ -69,25 +68,18 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	{
 
 		this(0, 100, 0);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
 
 	/**
 	 * Construct a new progress bar display with the given values
 	 *
-	 * @param value The actual percentage value
-	 */
-	public BSProgressBarDisplay(double value)
-	{
-		this(0, 100, value);
-	}
-
-	/**
-	 * Construct a new progress bar display with the given values
-	 *
-	 * @param min   The minimum value
-	 * @param max   The maximum value
-	 * @param value The actual percentage value
+	 * @param min
+	 * 		The minimum value
+	 * @param max
+	 * 		The maximum value
+	 * @param value
+	 * 		The actual percentage value
 	 */
 	public BSProgressBarDisplay(double min, double max, double value)
 	{
@@ -97,21 +89,14 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	/**
 	 * Construct a new progress bar display with the given values
 	 *
-	 * @param value The actual percentage value
-	 * @param label The label to display
-	 */
-	public BSProgressBarDisplay(double value, String label)
-	{
-		this(0, 100, value, label);
-	}
-
-	/**
-	 * Construct a new progress bar display with the given values
-	 *
-	 * @param min   The minimum value
-	 * @param max   The maximum value
-	 * @param value The actual percentage value
-	 * @param label The label to display
+	 * @param min
+	 * 		The minimum value
+	 * @param max
+	 * 		The maximum value
+	 * @param value
+	 * 		The actual percentage value
+	 * @param label
+	 * 		The label to display
 	 */
 	public BSProgressBarDisplay(double min, double max, double value, String label)
 	{
@@ -123,6 +108,30 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 		addAttribute(BSProgressBarDisplayAttributes.Role, "progressbar");
 	}
 
+	/**
+	 * Construct a new progress bar display with the given values
+	 *
+	 * @param value
+	 * 		The actual percentage value
+	 */
+	public BSProgressBarDisplay(double value)
+	{
+		this(0, 100, value);
+	}
+
+	/**
+	 * Construct a new progress bar display with the given values
+	 *
+	 * @param value
+	 * 		The actual percentage value
+	 * @param label
+	 * 		The label to display
+	 */
+	public BSProgressBarDisplay(double value, String label)
+	{
+		this(0, 100, value, label);
+	}
+
 	@Override
 	public void preConfigure()
 	{
@@ -131,6 +140,30 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 			addClass(getTheme().getClassText());
 		}
 		super.preConfigure();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof BSProgressBarDisplay))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+		BSProgressBarDisplay<?> that = (BSProgressBarDisplay<?>) o;
+		return Double.compare(that.getMin(), getMin()) == 0 &&
+				       Double.compare(that.getMax(), getMax()) == 0 &&
+				       Double.compare(that.getValue(), getValue()) == 0 &&
+				       Objects.equals(getSpan(), that.getSpan()) &&
+				       getTheme() == that.getTheme() &&
+				       Objects.equals(getLabel(), that.getLabel());
 	}
 
 	/**
@@ -159,6 +192,17 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	}
 
 	/**
+	 * Returns this label
+	 *
+	 * @return
+	 */
+	@Override
+	public String getLabel()
+	{
+		return label;
+	}
+
+	/**
 	 * Gets the current max value
 	 *
 	 * @return
@@ -182,6 +226,38 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 		this.max = max;
 		addAttribute(BSProgressBarDisplayAttributes.Aria_ValueMax, Double.toString(max));
 		return (J) this;
+	}
+
+	/**
+	 * Returns this associated span
+	 *
+	 * @return
+	 */
+	@Override
+	public Span getSpan()
+	{
+		if (span == null)
+		{
+			span = new Span();
+			add(span);
+		}
+		span.addClass(BSColoursOptions.Sr_Only);
+		return span;
+	}
+
+	/**
+	 * Returns a current theme, default is success
+	 *
+	 * @return
+	 */
+	@Override
+	public BSProgressBarThemes getTheme()
+	{
+		if (theme == null)
+		{
+			setTheme(BSProgressBarThemes.Success);
+		}
+		return theme;
 	}
 
 	/**
@@ -212,64 +288,6 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	}
 
 	/**
-	 * Returns this associated span
-	 *
-	 * @return
-	 */
-	@Override
-	public Span getSpan()
-	{
-		if (span == null)
-		{
-			span = new Span();
-			add(span);
-		}
-		span.addClass(BSColoursOptions.Sr_Only);
-		return span;
-	}
-
-	/**
-	 * Returns this label
-	 *
-	 * @return
-	 */
-	@Override
-	public String getLabel()
-	{
-		return label;
-	}
-
-	/**
-	 * Sets this label
-	 *
-	 * @param label
-	 *
-	 * @return
-	 */
-	@Override
-	public final J setLabel(String label)
-	{
-		this.label = label;
-		getSpan().setText(label);
-		return (J) this;
-	}
-
-	/**
-	 * Returns a current theme, default is success
-	 *
-	 * @return
-	 */
-	@Override
-	public BSProgressBarThemes getTheme()
-	{
-		if (theme == null)
-		{
-			setTheme(BSProgressBarThemes.Success);
-		}
-		return theme;
-	}
-
-	/**
 	 * Sets the current theme
 	 *
 	 * @param theme
@@ -291,28 +309,19 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 		return (J) this;
 	}
 
+	/**
+	 * Sets this label
+	 *
+	 * @param label
+	 *
+	 * @return
+	 */
 	@Override
-	public boolean equals(Object o)
+	public final J setLabel(String label)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSProgressBarDisplay))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSProgressBarDisplay<?> that = (BSProgressBarDisplay<?>) o;
-		return Double.compare(that.getMin(), getMin()) == 0 &&
-				Double.compare(that.getMax(), getMax()) == 0 &&
-				Double.compare(that.getValue(), getValue()) == 0 &&
-				Objects.equals(getSpan(), that.getSpan()) &&
-				getTheme() == that.getTheme() &&
-				Objects.equals(getLabel(), that.getLabel());
+		this.label = label;
+		getSpan().setText(label);
+		return (J) this;
 	}
 
 	@Override

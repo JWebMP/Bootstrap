@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups;
  */
 public interface IBSButtonGroup
 {
-	
+
 	/**
 	 * Sets the screen reader label for this group
 	 *
@@ -31,7 +31,7 @@ public interface IBSButtonGroup
 	 * @return
 	 */
 	BSButtonGroup setAriaLabel(String label);
-	
+
 	/**
 	 * Sizes
 	 * <p>
@@ -42,5 +42,5 @@ public interface IBSButtonGroup
 	 * @return
 	 */
 	BSButtonGroup setSize(BSComponentButtonGroupSizeOptions size);
-	
+
 }

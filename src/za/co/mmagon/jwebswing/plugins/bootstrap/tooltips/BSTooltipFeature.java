@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.tooltips;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.popovers.BSPopOverFeatures;
 import za.co.mmagon.jwebswing.plugins.bootstrap.popovers.BSPopOverOptions;
 
@@ -32,11 +31,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.popovers.BSPopOverOptions;
  */
 public class BSTooltipFeature extends Feature<BSPopOverOptions, BSTooltipFeature> implements BSPopOverFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	private BSPopOverOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -47,9 +44,8 @@ public class BSTooltipFeature extends Feature<BSPopOverOptions, BSTooltipFeature
 	{
 		super("BootstrapPopoverFeature");
 		setComponent(forComponent);
-		BootstrapPageConfigurator.setRequired(forComponent, true);
 	}
-	
+
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -59,21 +55,21 @@ public class BSTooltipFeature extends Feature<BSPopOverOptions, BSTooltipFeature
 	@Override
 	public BSPopOverOptions getOptions()
 	{
-		if (options == null)
+		if (super.getOptions() == null)
 		{
-			options = new BSPopOverOptions();
+			setOptions(new BSPopOverOptions());
 		}
-		return options;
+		return super.getOptions();
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
 		String requiredString = getComponent().getJQueryID()
-				+ "tooltip(" + getOptions() + ");" + getNewLine();
+				                        + "tooltip(" + getOptions() + ");" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -91,7 +87,7 @@ public class BSTooltipFeature extends Feature<BSPopOverOptions, BSTooltipFeature
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

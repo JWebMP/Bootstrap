@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,9 +34,9 @@ import za.co.mmagon.jwebswing.utilities.StaticStrings;
  */
 public class BSDropDownLink extends Link implements BSDropDownChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new bootstrap drop down link item
 	 */

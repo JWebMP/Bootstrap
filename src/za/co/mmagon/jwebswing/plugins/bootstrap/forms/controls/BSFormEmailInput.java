@@ -28,19 +28,19 @@ import za.co.mmagon.jwebswing.utilities.RegularExpressionsDTO;
  */
 public class BSFormEmailInput<J extends BSFormEmailInput<J>> extends BSInput<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A default email input for bootstrap
 	 */
 	public BSFormEmailInput()
 	{
-		
+
 		setInputType(InputTypes.Email);
 		addAttribute(AngularAttributes.ngPattern, "regex.emailField");
 	}
-	
+
 	@Override
 	public void init()
 	{

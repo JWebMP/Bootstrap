@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,15 +27,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
  */
 public class BSButtonInfoOutline extends BSButton
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Contextual button for informational alert messages
 	 */
 	public BSButtonInfoOutline()
 	{
-		addClass(BSComponentButtonOptions.Btn_Outline_Info);
+		addClass(BSButtonOptions.Btn_Outline_Info);
 	}
-	
+
 }

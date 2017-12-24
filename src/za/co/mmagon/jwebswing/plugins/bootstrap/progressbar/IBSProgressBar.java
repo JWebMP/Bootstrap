@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,63 +26,63 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.progressbar.bar.BSProgressBarDis
  */
 public interface IBSProgressBar<J extends BSProgressBar>
 {
-	
+
 	/**
 	 * Returns the actual progress bar
 	 *
 	 * @return
 	 */
 	BSProgressBarDisplay getProgressBar();
-	
+
 	/**
 	 * Sets the actual progress bar
 	 *
 	 * @param progressBar
 	 */
 	void setProgressBar(BSProgressBarDisplay progressBar);
-	
+
 	/**
 	 * Returns if this progress bar should return as active
 	 *
 	 * @return
 	 */
 	boolean isActive();
-	
+
 	/**
 	 * Sets if this component should return as active
 	 *
 	 * @param active
 	 */
 	void setActive(boolean active);
-	
+
 	/**
 	 * If is animated
 	 *
 	 * @return
 	 */
 	boolean isAnimated();
-	
+
 	/**
 	 * Sets if animated
 	 *
 	 * @param animated
 	 */
 	void setAnimated(boolean animated);
-	
+
 	/**
 	 * Sets if this component is striped or not
 	 *
 	 * @return
 	 */
 	boolean isStriped();
-	
+
 	/**
 	 * Sets if this components is striped or not
 	 *
 	 * @param striped
 	 */
 	void setStriped(boolean striped);
-	
+
 	/**
 	 * Sets the given percentage
 	 *
@@ -91,5 +91,5 @@ public interface IBSProgressBar<J extends BSProgressBar>
 	 * @return
 	 */
 	J setPercentage(double percent);
-	
+
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,7 +44,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 		extends DivSimple<J>
 		implements BSFormGroupChildren, BSFormSetChildren, BSDropDownMenuChildren, IBSFormInputGroup
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The input group addons
@@ -54,9 +54,9 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 	 * The input group addons
 	 */
 	private List<Span> inputGroupAddonsRight;
-	
+
 	private Input input;
-	
+
 	/**
 	 * Input group
 	 * <p>
@@ -77,7 +77,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 			}
 		}
 	}
-	
+
 	/**
 	 * Input group
 	 * <p>
@@ -98,7 +98,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 			}
 		}
 	}
-	
+
 	/**
 	 * Input group
 	 * <p>
@@ -119,7 +119,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 			}
 		}
 	}
-	
+
 	/**
 	 * Input group
 	 * <p>
@@ -140,89 +140,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 			}
 		}
 	}
-	
-	/**
-	 * @return
-	 */
-	@Override
-	public List<Span> getInputGroupAddons()
-	{
-		if (inputGroupAddons == null)
-		{
-			setInputGroupAddons(new ArrayList<>());
-		}
-		return inputGroupAddons;
-	}
-	
-	/**
-	 * The input group addons
-	 *
-	 * @param inputGroupAddons
-	 *
-	 * @return
-	 */
-	@Override
-	public BSFormInputGroup setInputGroupAddons(List<Span> inputGroupAddons)
-	{
-		this.inputGroupAddons = inputGroupAddons;
-		return this;
-	}
-	
-	/**
-	 * Sets the input group addons to the right
-	 *
-	 * @return
-	 */
-	@Override
-	public List<Span> getInputGroupAddonsRight()
-	{
-		if (inputGroupAddonsRight == null)
-		{
-			setInputGroupAddonsRight(new ArrayList());
-		}
-		return inputGroupAddonsRight;
-	}
-	
-	/**
-	 * Sets the input group addons to the right
-	 *
-	 * @param inputGroupAddonsRight
-	 *
-	 * @return
-	 */
-	@Override
-	public BSFormInputGroup setInputGroupAddonsRight(List<Span> inputGroupAddonsRight)
-	{
-		this.inputGroupAddonsRight = inputGroupAddonsRight;
-		return this;
-	}
-	
-	/**
-	 * Gets the input component
-	 *
-	 * @return
-	 */
-	@Nullable
-	public Input getInput()
-	{
-		return input;
-	}
-	
-	/**
-	 * Sets the input component
-	 *
-	 * @param input
-	 */
-	public J setInput(Input input)
-	{
-		this.input = input;
-		if (this.input != null)
-		{
-			this.input.addClass("form-control");
-		}
-		return (J) this;
-	}
-	
+
 	@Override
 	public void init()
 	{
@@ -248,7 +166,89 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 		}
 		super.init();
 	}
-	
+
+	/**
+	 * @return
+	 */
+	@Override
+	public List<Span> getInputGroupAddons()
+	{
+		if (inputGroupAddons == null)
+		{
+			setInputGroupAddons(new ArrayList<>());
+		}
+		return inputGroupAddons;
+	}
+
+	/**
+	 * The input group addons
+	 *
+	 * @param inputGroupAddons
+	 *
+	 * @return
+	 */
+	@Override
+	public BSFormInputGroup setInputGroupAddons(List<Span> inputGroupAddons)
+	{
+		this.inputGroupAddons = inputGroupAddons;
+		return this;
+	}
+
+	/**
+	 * Sets the input group addons to the right
+	 *
+	 * @return
+	 */
+	@Override
+	public List<Span> getInputGroupAddonsRight()
+	{
+		if (inputGroupAddonsRight == null)
+		{
+			setInputGroupAddonsRight(new ArrayList());
+		}
+		return inputGroupAddonsRight;
+	}
+
+	/**
+	 * Sets the input group addons to the right
+	 *
+	 * @param inputGroupAddonsRight
+	 *
+	 * @return
+	 */
+	@Override
+	public BSFormInputGroup setInputGroupAddonsRight(List<Span> inputGroupAddonsRight)
+	{
+		this.inputGroupAddonsRight = inputGroupAddonsRight;
+		return this;
+	}
+
+	/**
+	 * Gets the input component
+	 *
+	 * @return
+	 */
+	@Nullable
+	public Input getInput()
+	{
+		return input;
+	}
+
+	/**
+	 * Sets the input component
+	 *
+	 * @param input
+	 */
+	public J setInput(Input input)
+	{
+		this.input = input;
+		if (this.input != null)
+		{
+			this.input.addClass("form-control");
+		}
+		return (J) this;
+	}
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -266,10 +266,10 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J>>
 		}
 		BSFormInputGroup<?> that = (BSFormInputGroup<?>) o;
 		return Objects.equals(getInputGroupAddons(), that.getInputGroupAddons()) &&
-				Objects.equals(getInputGroupAddonsRight(), that.getInputGroupAddonsRight()) &&
-				Objects.equals(getInput(), that.getInput());
+				       Objects.equals(getInputGroupAddonsRight(), that.getInputGroupAddonsRight()) &&
+				       Objects.equals(getInput(), that.getInput());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
