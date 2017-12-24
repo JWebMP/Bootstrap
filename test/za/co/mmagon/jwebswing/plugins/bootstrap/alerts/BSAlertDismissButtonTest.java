@@ -23,11 +23,11 @@ import org.junit.jupiter.api.Test;
  */
 public class BSAlertDismissButtonTest
 {
-	
+
 	public BSAlertDismissButtonTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
@@ -36,5 +36,5 @@ public class BSAlertDismissButtonTest
 		System.out.println(alert.toString(true));
 		System.out.println(alert.toString());
 	}
-	
+
 }

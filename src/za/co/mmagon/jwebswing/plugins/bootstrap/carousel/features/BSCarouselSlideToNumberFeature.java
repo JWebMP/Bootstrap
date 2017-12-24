@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,13 +34,13 @@ import java.util.Objects;
 public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFeature<J>> extends Feature<BSCarouselOptions, J>
 		implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The method name to call
 	 */
 	private String methodName = "0";
-	
+
 	/**
 	 * Cycles the carousel to a particular frame (0 based, similar to an array).
 	 * <p>
@@ -52,7 +52,7 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 		super("BSCarouselPauseFeature");
 		setComponent(forComponent);
 	}
-	
+
 	/**
 	 * Sets the slide number
 	 *
@@ -62,16 +62,17 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 	{
 		return methodName;
 	}
-	
+
 	/**
 	 * Sets the slide number
+	 *
 	 * @param methodName
 	 */
 	public void setSlideNumber(String methodName)
 	{
 		this.methodName = methodName;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
@@ -80,7 +81,7 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -99,7 +100,7 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 		BSCarouselSlideToNumberFeature<?> that = (BSCarouselSlideToNumberFeature<?>) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

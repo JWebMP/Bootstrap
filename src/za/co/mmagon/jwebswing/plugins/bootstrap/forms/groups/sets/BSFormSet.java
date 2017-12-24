@@ -36,9 +36,9 @@ public class BSFormSet<J extends BSFormSet<J>>
 		extends Div<BSFormSetChildren, BSFormSetAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSFormChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new instance
 	 */
@@ -47,7 +47,7 @@ public class BSFormSet<J extends BSFormSet<J>>
 		setTag("fieldset");
 		addClass(BSComponentFormGroupOptions.Form_Group);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -65,7 +65,7 @@ public class BSFormSet<J extends BSFormSet<J>>
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
@@ -73,5 +73,5 @@ public class BSFormSet<J extends BSFormSet<J>>
 		hash = 79 * hash + (this.getID().hashCode());
 		return hash;
 	}
-	
+
 }

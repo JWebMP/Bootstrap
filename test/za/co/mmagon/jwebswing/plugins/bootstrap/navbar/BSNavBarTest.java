@@ -34,29 +34,29 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  */
 public class BSNavBarTest
 {
-	
+
 	public BSNavBarTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
 		BSNavBar nav = new BSNavBar(BSNavBarTogglerSizes.Navbar_Toggleable_MD, BSNavBarColourSchemes.Navbar_Light, BSNavBarColourSchemes.BG_Faded).setPositioning(BSNavBarPositioning.Fixed_Top);
-		
+
 		BSNavBarToggler toggle = new BSNavBarToggler(BSNavBarTogglerAlignments.Navbar_Toggler_Right);
 		nav.add(toggle);
 		nav.add(new BSNavBarBrandImage(new Image("image")));
-		
+
 		BSNavs navs = new BSNavs();
 		navs.add(new BSNavItemDropDown());
 		navs.add(new BSNavLinkItem(STRING_HASH));
-		
+
 		navs.add(new BSFormInline());
-		
+
 		nav.add(toggle.createCollapsingDiv(navs));
-		
+
 		System.out.println(nav.toString(true));
 	}
-	
+
 }

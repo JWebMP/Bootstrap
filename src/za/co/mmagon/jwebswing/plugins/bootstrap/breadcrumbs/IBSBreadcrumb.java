@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,16 +24,16 @@ import za.co.mmagon.jwebswing.base.html.Link;
  * @author GedMarc
  * @since 16 Feb 2017
  */
-public interface IBSBreadcrumb<J extends BSBreadcrumb>
+public interface IBSBreadcrumb<J extends BSBreadcrumbItem<J>>
 {
-	
+
 	/**
 	 * Returns the crumb link, never null
 	 *
 	 * @return
 	 */
 	Link getCrumbLink();
-	
+
 	/**
 	 * Sets this crumb to display as active
 	 *
@@ -42,12 +42,12 @@ public interface IBSBreadcrumb<J extends BSBreadcrumb>
 	 * @return
 	 */
 	J setActive(boolean active);
-	
+
 	/**
 	 * Sets the given crumb link
 	 *
 	 * @param crumbLink
 	 */
 	J setCrumbLink(Link crumbLink);
-	
+
 }

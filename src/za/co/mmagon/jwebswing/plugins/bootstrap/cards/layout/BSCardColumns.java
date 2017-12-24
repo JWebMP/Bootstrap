@@ -60,13 +60,13 @@ public class BSCardColumns extends Div<BSCard, NoAttributes, GlobalFeatures, Glo
 	public StringBuilder renderCss(int tabCount, boolean renderOpening, boolean renderInQuotations, boolean isAjaxCall)
 	{
 		return super.renderCss(tabCount, renderOpening, renderInQuotations, isAjaxCall).append(".card-columns {")
-				.append(getNewLine())
-				.append("  @include media-breakpoint-only(lg) {").append(getNewLine())
-				.append("    column-count: 4;").append(getNewLine()).append("  }")
-				.append(getNewLine()).append("  @include media-breakpoint-only(xl) {")
-				.append(getNewLine()).append("    column-count: 5;")
-				.append(getNewLine()).append("  }")
-				.append(getNewLine()).append("}");
+				       .append(getNewLine())
+				       .append("  @include media-breakpoint-only(lg) {").append(getNewLine())
+				       .append("    column-count: 4;").append(getNewLine()).append("  }")
+				       .append(getNewLine()).append("  @include media-breakpoint-only(xl) {")
+				       .append(getNewLine()).append("    column-count: 5;")
+				       .append(getNewLine()).append("  }")
+				       .append(getNewLine()).append("}");
 	}
 
 }

@@ -38,7 +38,7 @@ import java.util.logging.Logger;
 public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> extends Event<JavaScriptPart, J>
 		implements GlobalEvents, BSAlertEvents
 {
-	
+
 	/**
 	 * Logger for the Component
 	 */
@@ -48,17 +48,31 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> exte
 	 * The associated directive
 	 */
 	private BSCarouselSlideEventDirective directive;
-	
+
 	/**
 	 * Performs a click
 	 *
-	 * @param component The component this click is going to be acting on
+	 * @param component
+	 * 		The component this click is going to be acting on
 	 */
 	public BSCarouselSlidEvent(Component component)
 	{
 		super(EventTypes.undefined, component);
 	}
-	
+
+	@Override
+	public void fireEvent(AjaxCall call, AjaxResponse response)
+	{
+		try
+		{
+			onSlid(call, response);
+		}
+		catch (Exception e)
+		{
+			LOG.log(Level.SEVERE, "Error In Firing Event", e);
+		}
+	}
+
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -72,7 +86,7 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> exte
 		}
 		super.preConfigure();
 	}
-	
+
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -86,7 +100,7 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> exte
 		}
 		return directive;
 	}
-	
+
 	/**
 	 * Sets the right click angular event
 	 *
@@ -96,29 +110,7 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> exte
 	{
 		this.directive = directive;
 	}
-	
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call     The physical AJAX call
-	 * @param response The physical Ajax Receiver
-	 */
-	public abstract void onSlid(AjaxCall call, AjaxResponse response);
-	
-	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
-	{
-		try
-		{
-			onSlid(call, response);
-		}
-		catch (Exception e)
-		{
-			LOG.log(Level.SEVERE, "Error In Firing Event", e);
-		}
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -137,10 +129,21 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>> exte
 		BSCarouselSlidEvent<?> that = (BSCarouselSlidEvent<?>) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getComponent());
 	}
+
+	/**
+	 * Triggers on Click
+	 * <p>
+	 *
+	 * @param call
+	 * 		The physical AJAX call
+	 * @param response
+	 * 		The physical Ajax Receiver
+	 */
+	public abstract void onSlid(AjaxCall call, AjaxResponse response);
 }

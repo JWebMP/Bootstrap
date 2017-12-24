@@ -30,12 +30,12 @@ public class BSButtonGroupRadioButton<J extends BSButtonGroupRadioButton<J>>
 		extends InputRadioType<J>
 		implements IBSButtonGroupInput, BSButtonChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSButtonGroupRadioButton()
 	{
 		addAttribute(InputRadioTypeAttributes.AutoComplete, "off");
 	}
-	
+
 }

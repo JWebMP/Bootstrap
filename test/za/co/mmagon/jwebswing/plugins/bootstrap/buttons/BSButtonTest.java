@@ -31,81 +31,81 @@ import za.co.mmagon.jwebswing.BaseTestClass;
  */
 public class BSButtonTest extends BaseTestClass
 {
-	
+
 	public BSButtonTest()
 	{
 	}
-	
+
 	@Test
 	public void testPreConfigure()
 	{
 		BSButton button = new BSButton();
 		button.setTag("a");
-		
+
 		System.out.println(button.toString(true));
-		
+
 		button = new BSButton();
 		button.setTag("a");
 		button.setDisabled(true);
-		
+
 		System.out.println(button.toString(true));
 	}
-	
+
 	@Test
 	public void testSetSize()
 	{
 		BSButton button = new BSButton();
-		button.setSize(BSComponentButtonSizeOptions.Btn_Lg).setDangerOutline(true);
-		
+		button.setSize(BSButtonSizeOptions.Btn_Lg).setDangerOutline(true);
+
 		System.out.println(button.toString(true));
 	}
-	
+
 	@Test
 	public void testSetPressed()
 	{
 		BSButton button = new BSButton();
 		button.setPressed(true);
-		
+
 		System.out.println(button.toString(true));
 		button.setPressed(false);
-		
+
 		System.out.println(button.toString(true));
 	}
-	
+
 	@Test
 	public void testSetDisabled()
 	{
 		BSButton button = new BSButton();
 		button.setDisabled(true);
-		
+
 		System.out.println(button.toString(true));
 		button.setDisabled(false);
-		
+
 		System.out.println(button.toString(true));
 	}
-	
+
 	@Test
 	public void testSetPrimary()
 	{
 		BSButton button = new BSButton();
 		button.setPrimary(true);
-		
+
 		System.out.println(button.toString(true));
 		button.setPrimary(false);
-		
+
 		System.out.println(button.toString(true));
 	}
-	
+
 	@Test
 	public void testSetSecondary()
 	{
 		BSButton button = new BSButton();
 		button.setSecondary(true);
-		
+
 		System.out.println(button.toString(true));
 		button.setSecondary(false);
-		
+
 		System.out.println(button.toString(true));
 	}
-	
+
 }

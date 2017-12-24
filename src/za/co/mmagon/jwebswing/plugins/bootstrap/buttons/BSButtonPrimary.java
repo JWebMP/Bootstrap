@@ -28,15 +28,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
 public class BSButtonPrimary<J extends BSButtonPrimary<J>>
 		extends BSButton<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Provides extra visual weight and identifies the primary action in a set of buttons
 	 */
 	public BSButtonPrimary()
 	{
-		addClass(BSComponentButtonOptions.Btn_Primary);
+		addClass(BSButtonOptions.Btn_Primary);
 	}
-	
+
 }

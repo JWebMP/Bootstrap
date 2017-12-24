@@ -65,18 +65,6 @@ public enum BootstrapReferencePool implements ReferencePool
 	}
 
 	@Override
-	public JavascriptReference getJavaScriptReference()
-	{
-		return javaScriptReference;
-	}
-
-	@Override
-	public void setJavaScriptReference(JavascriptReference javaScriptReference)
-	{
-		this.javaScriptReference = javaScriptReference;
-	}
-
-	@Override
 	public CSSReference getCssReference()
 	{
 		return cssReference;
@@ -86,5 +74,17 @@ public enum BootstrapReferencePool implements ReferencePool
 	public void setCssReference(CSSReference cssReference)
 	{
 		this.cssReference = cssReference;
+	}
+
+	@Override
+	public JavascriptReference getJavaScriptReference()
+	{
+		return javaScriptReference;
+	}
+
+	@Override
+	public void setJavaScriptReference(JavascriptReference javaScriptReference)
+	{
+		this.javaScriptReference = javaScriptReference;
 	}
 }

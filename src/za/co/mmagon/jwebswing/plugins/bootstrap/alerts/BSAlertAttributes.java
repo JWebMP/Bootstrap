@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,13 +30,13 @@ import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 public enum BSAlertAttributes implements AttributeDefinitions
 {
 	Role;
-	
+
 	@Override
 	public boolean isKeyword()
 	{
 		return false;
 	}
-	
+
 	@Override
 	public String toString()
 	{

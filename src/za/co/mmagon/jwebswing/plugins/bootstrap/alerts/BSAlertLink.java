@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,12 +29,12 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  */
 public class BSAlertLink extends Link
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSAlertLink()
 	{
 		super(STRING_HASH);
-		addClass(BSComponentAlertOptions.Alert_Link);
+		addClass(BSAlertOptions.Alert_Link);
 	}
 }

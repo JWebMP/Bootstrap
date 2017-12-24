@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -35,13 +35,13 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 		extends Feature<BSCarouselOptions, J>
 		implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The method name to call
 	 */
 	private static final String methodName = "prev";
-	
+
 	/**
 	 * Cycles to the previous item.
 	 * <p>
@@ -53,7 +53,7 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 		super("BSCarouselPreviousFeature");
 		setComponent(forComponent);
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
@@ -62,7 +62,7 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -81,7 +81,7 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 		BSCarouselPreviousFeature that = (BSCarouselPreviousFeature) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

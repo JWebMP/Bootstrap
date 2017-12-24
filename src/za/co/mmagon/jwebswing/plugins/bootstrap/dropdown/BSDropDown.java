@@ -23,12 +23,11 @@ import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapReferencePool;
 import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.BSButtonAttributes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups.BSButtonGroupAttributes;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.menu.BSDropDownMenu;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 
 import java.util.Objects;
 
@@ -64,16 +63,6 @@ public class BSDropDown<J extends BSDropDown<J>>
 	private BSDropDownMenu dropdownMenu;
 
 	/**
-	 * Construct a new bootstrap drop down
-	 */
-	@SuppressWarnings("")
-	public BSDropDown()
-	{
-		addClass(BSComponentDropDownOptions.Dropdown);
-		BootstrapPageConfigurator.setRequired(this, true);
-	}
-
-	/**
 	 * Construct a new drop down
 	 *
 	 * @param link
@@ -83,7 +72,17 @@ public class BSDropDown<J extends BSDropDown<J>>
 	{
 		this();
 		setDropdownButton(link);
-		BootstrapPageConfigurator.setRequired(this, true);
+
+	}
+
+	/**
+	 * Construct a new bootstrap drop down
+	 */
+	@SuppressWarnings("")
+	public BSDropDown()
+	{
+		addClass(BSComponentDropDownOptions.Dropdown);
+
 	}
 
 	/**
@@ -96,7 +95,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 	{
 		this();
 		setDropdownButton(button);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
 
 	/**
@@ -134,39 +133,6 @@ public class BSDropDown<J extends BSDropDown<J>>
 	}
 
 	/**
-	 * Returns the current dropdownMenu or a new one
-	 *
-	 * @return
-	 */
-	@Override
-	public BSDropDownMenu getDropdownMenu()
-	{
-		if (dropdownMenu == null)
-		{
-			setMenu(new BSDropDownMenu());
-		}
-		return dropdownMenu;
-	}
-
-	/**
-	 * Sets the dropdownMenu
-	 *
-	 * @param menu
-	 *
-	 * @return
-	 */
-	@Override
-	public BSDropDown setMenu(BSDropDownMenu menu)
-	{
-		this.dropdownMenu = menu;
-		if (menu != null)
-		{
-			menu.addAttribute(BSButtonAttributes.Role.toString(), "menu");
-		}
-		return this;
-	}
-
-	/**
 	 * Returns the drop down button
 	 *
 	 * @return
@@ -179,6 +145,21 @@ public class BSDropDown<J extends BSDropDown<J>>
 			setDropdownButton(new BSDropDownLink());
 		}
 		return dropdownButton;
+	}
+
+	/**
+	 * Returns the current dropdownMenu or a new one
+	 *
+	 * @return
+	 */
+	@Override
+	public BSDropDownMenu getDropdownMenu()
+	{
+		if (dropdownMenu == null)
+		{
+			setMenu(new BSDropDownMenu());
+		}
+		return dropdownMenu;
 	}
 
 	/**
@@ -197,6 +178,24 @@ public class BSDropDown<J extends BSDropDown<J>>
 			dropdownButton.addClass(BSComponentDropDownOptions.Dropdown_Toggle);
 		}
 		return (J) this;
+	}
+
+	/**
+	 * Sets the dropdownMenu
+	 *
+	 * @param menu
+	 *
+	 * @return
+	 */
+	@Override
+	public BSDropDown setMenu(BSDropDownMenu menu)
+	{
+		this.dropdownMenu = menu;
+		if (menu != null)
+		{
+			menu.addAttribute(BSButtonAttributes.Role.toString(), "menu");
+		}
+		return this;
 	}
 
 	@Override

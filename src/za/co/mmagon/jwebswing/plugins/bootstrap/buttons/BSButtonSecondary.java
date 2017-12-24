@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,15 +27,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
  */
 public class BSButtonSecondary extends BSButton
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Secondary, outline button
 	 */
 	public BSButtonSecondary()
 	{
-		addClass(BSComponentButtonOptions.Btn_Secondary);
+		addClass(BSButtonOptions.Btn_Secondary);
 	}
-	
+
 }

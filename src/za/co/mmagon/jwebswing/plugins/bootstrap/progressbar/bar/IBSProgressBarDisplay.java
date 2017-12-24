@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,42 +26,42 @@ import za.co.mmagon.jwebswing.base.html.Span;
  */
 public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 {
-	
+
 	/**
 	 * Returns this label
 	 *
 	 * @return
 	 */
 	String getLabel();
-	
+
 	/**
 	 * Gets the current max value
 	 *
 	 * @return
 	 */
 	double getMax();
-	
+
 	/**
 	 * Returns this associated span
 	 *
 	 * @return
 	 */
 	Span getSpan();
-	
+
 	/**
 	 * Returns a current theme, default is success
 	 *
 	 * @return
 	 */
 	BSProgressBarThemes getTheme();
-	
+
 	/**
 	 * Returns the current percentage
 	 *
 	 * @return
 	 */
 	double getValue();
-	
+
 	/**
 	 * Sets this label
 	 *
@@ -70,7 +70,7 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 * @return
 	 */
 	J setLabel(String label);
-	
+
 	/**
 	 * Sets the current max value
 	 *
@@ -79,7 +79,7 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 * @return
 	 */
 	J setMax(double max);
-	
+
 	/**
 	 * Returns the current min value
 	 *
@@ -88,7 +88,7 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 * @return
 	 */
 	J setMin(double min);
-	
+
 	/**
 	 * Sets the current theme
 	 *
@@ -97,7 +97,7 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 * @return
 	 */
 	J setTheme(BSProgressBarThemes theme);
-	
+
 	/**
 	 * Sets the current percentage / width
 	 *
@@ -106,5 +106,5 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 * @return
 	 */
 	J setValue(double value);
-	
+
 }

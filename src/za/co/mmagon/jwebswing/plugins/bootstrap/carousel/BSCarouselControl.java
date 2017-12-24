@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ import java.util.Objects;
 public class BSCarouselControl extends Link
 		implements BSCarouselChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The actual carousel
@@ -46,7 +46,7 @@ public class BSCarouselControl extends Link
 	 * The icon for this control, automatically gets next and previous added on
 	 */
 	private Span icon;
-	
+
 	/**
 	 * Constructs with a carousel and a previous
 	 *
@@ -56,9 +56,9 @@ public class BSCarouselControl extends Link
 	public BSCarouselControl(BSCarousel carousel, boolean previous)
 	{
 		this.carousel = carousel;
-		
+
 		addAttribute("role", "button");
-		
+
 		if (previous)
 		{
 			addAttribute("data-slide", "prev");
@@ -72,7 +72,7 @@ public class BSCarouselControl extends Link
 			addAttribute(LinkAttributes.HRef, carousel.getID(true));
 		}
 	}
-	
+
 	/**
 	 * Returns the carousel
 	 *
@@ -86,7 +86,7 @@ public class BSCarouselControl extends Link
 		}
 		return carousel;
 	}
-	
+
 	/**
 	 * Set carousel
 	 *
@@ -99,7 +99,7 @@ public class BSCarouselControl extends Link
 		this.carousel = carousel;
 		return this;
 	}
-	
+
 	/**
 	 * Returns if this is a previous or next item
 	 *
@@ -109,7 +109,7 @@ public class BSCarouselControl extends Link
 	{
 		return previous;
 	}
-	
+
 	/**
 	 * Sets if this is a previous or next control
 	 *
@@ -122,7 +122,13 @@ public class BSCarouselControl extends Link
 		this.previous = previous;
 		return this;
 	}
-	
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(super.hashCode(), getIcon());
+	}
+
 	/**
 	 * Returns the span for the icon, auto generated if need be
 	 *
@@ -132,7 +138,7 @@ public class BSCarouselControl extends Link
 	{
 		return icon;
 	}
-	
+
 	/**
 	 * Sets the icon to the given item
 	 *
@@ -143,10 +149,10 @@ public class BSCarouselControl extends Link
 	public BSCarouselControl setIcon(Span icon)
 	{
 		this.icon = icon;
-		
+
 		return this;
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -164,11 +170,5 @@ public class BSCarouselControl extends Link
 		}
 		BSCarouselControl that = (BSCarouselControl) o;
 		return Objects.equals(getComponent(), that.getComponent());
-	}
-	
-	@Override
-	public int hashCode()
-	{
-		return Objects.hash(super.hashCode(), getIcon());
 	}
 }

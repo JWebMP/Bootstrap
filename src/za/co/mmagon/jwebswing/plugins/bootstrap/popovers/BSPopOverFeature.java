@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,11 +29,11 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
  */
 public class BSPopOverFeature extends Feature<BSPopOverOptions, BSPopOverFeature> implements BSPopOverFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private BSPopOverOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -46,7 +46,7 @@ public class BSPopOverFeature extends Feature<BSPopOverOptions, BSPopOverFeature
 		setComponent(forComponent);
 		getOptions().setSelector("[rel=bs4popover]");
 	}
-	
+
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -62,17 +62,17 @@ public class BSPopOverFeature extends Feature<BSPopOverOptions, BSPopOverFeature
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
 		String requiredString = getNewLine()
-				+ getComponent().getJQueryID() + "popover({"
-				+ getOptions()
-				+ "});" + getNewLine();
+				                        + getComponent().getJQueryID() + "popover({"
+				                        + getOptions()
+				                        + "});" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -90,7 +90,7 @@ public class BSPopOverFeature extends Feature<BSPopOverOptions, BSPopOverFeature
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

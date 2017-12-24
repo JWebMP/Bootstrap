@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,13 +33,13 @@ public class BSCarouselNextFeature<J extends BSCarouselNextFeature<J>>
 		extends Feature<BSCarouselOptions, J>
 		implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The method name to call
 	 */
 	private static final String methodName = "next";
-	
+
 	/**
 	 * Cycles to the next item.
 	 * <p>
@@ -51,7 +51,7 @@ public class BSCarouselNextFeature<J extends BSCarouselNextFeature<J>>
 		super("BSCarouselNextFeature");
 		setComponent(forComponent);
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{

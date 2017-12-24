@@ -25,18 +25,19 @@ import za.co.mmagon.jwebswing.utilities.StaticStrings;
 public enum BSBreadcrumbsAttributes implements AttributeDefinitions
 {
 	Visibility;
-	
+
 	private boolean isKeyword;
-	
+
 	BSBreadcrumbsAttributes()
 	{
 	}
+
 	@Override
 	public boolean isKeyword()
 	{
 		return isKeyword;
 	}
-	
+
 	/**
 	 * Returns the attribute name replacing all underscores with dashes and all dollar signs to empty
 	 *

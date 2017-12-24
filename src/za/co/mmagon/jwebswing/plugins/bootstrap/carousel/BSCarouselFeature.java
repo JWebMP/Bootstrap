@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,13 +32,13 @@ import java.util.Objects;
 public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 		extends Feature<BSCarouselOptions, J> implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * Any Carousel options provided by JavaSript
 	 */
 	private BSCarouselOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -50,7 +50,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 		super("BSCarouselFeature");
 		setComponent(forComponent);
 	}
-	
+
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -66,7 +66,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
@@ -75,7 +75,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -94,7 +94,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 		BSCarouselFeature<?> that = (BSCarouselFeature<?>) o;
 		return Objects.equals(getOptions(), that.getOptions());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

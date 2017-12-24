@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,13 +34,13 @@ public class BSCarouselCycleFeature<J extends BSCarouselCycleFeature<J>>
 		extends Feature<BSCarouselOptions, J>
 		implements BSCarouselFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The method name to call
 	 */
 	private static final String methodName = "cycle";
-	
+
 	/**
 	 * Constructs a new Carousel Feature - Cycle
 	 * <p>
@@ -52,7 +52,7 @@ public class BSCarouselCycleFeature<J extends BSCarouselCycleFeature<J>>
 		super("BSCarouselCycleFeature");
 		setComponent(forComponent);
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{

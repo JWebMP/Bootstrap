@@ -16,7 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap.badge;
 
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.IBSComponentOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
@@ -25,7 +25,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  * @author GedMarc
  * @since 18 Jan 2017
  */
-public enum BSComponentBadgeOptions implements IBSComponentOptions
+public enum BSBadgeOptions implements IBSComponentOptions
 {
 	/**
 	 * Base badge class
@@ -60,11 +60,19 @@ public enum BSComponentBadgeOptions implements IBSComponentOptions
 	 */
 	Badge_Danger,
 	/**
+	 * Danger styling
+	 */
+	Badge_Light,
+	/**
+	 * Danger styling
+	 */
+	Badge_Dark,
+	/**
 	 * Pill styling (placed before colouring)
 	 */
 	Badge_Pill;
 
-	BSComponentBadgeOptions()
+	BSBadgeOptions()
 	{
 		//Nothing Needed
 	}

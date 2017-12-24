@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,9 +25,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.navs;
 public class BSNavList extends BSNavs
 		implements BSNavsChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new nav list for use with the bs nav widget
 	 */

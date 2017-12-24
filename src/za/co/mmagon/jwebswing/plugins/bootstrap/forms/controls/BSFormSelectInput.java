@@ -26,9 +26,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren
 public class BSFormSelectInput extends BSInput
 		implements BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A bootstrap default form select
 	 */
@@ -36,7 +36,7 @@ public class BSFormSelectInput extends BSInput
 	{
 		this(false);
 	}
-	
+
 	/**
 	 * Constructs a new select input with multiple
 	 *
@@ -51,5 +51,5 @@ public class BSFormSelectInput extends BSInput
 		}
 		setTag("select");
 	}
-	
+
 }

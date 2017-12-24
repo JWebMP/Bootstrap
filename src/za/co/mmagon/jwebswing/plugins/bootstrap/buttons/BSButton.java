@@ -20,11 +20,12 @@ import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.InputButtonTypeAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
+import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSDropDownChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 /**
  * Buttons
@@ -49,17 +50,6 @@ public class BSButton<J extends BSButton<J>>
 	private static final String roleAttribute = "button";
 
 	/**
-	 * Constructs a new button
-	 */
-	@SuppressWarnings("")
-	public BSButton()
-	{
-		addClass(BSComponentButtonOptions.Btn);
-		addAttribute(GlobalAttributes.Type, roleAttribute);
-		BootstrapPageConfigurator.setRequired(this, true);
-	}
-
-	/**
 	 * Constructs a new BS Button with the given text
 	 *
 	 * @param text
@@ -68,6 +58,16 @@ public class BSButton<J extends BSButton<J>>
 	{
 		this();
 		setText(text);
+	}
+
+	/**
+	 * Constructs a new button
+	 */
+	@SuppressWarnings("")
+	public BSButton()
+	{
+		addClass(BSButtonOptions.Btn);
+		addAttribute(GlobalAttributes.Type, roleAttribute);
 	}
 
 	/**
@@ -92,11 +92,59 @@ public class BSButton<J extends BSButton<J>>
 	@Override
 	public void preConfigure()
 	{
-		if (!isConfigured() && "a".equalsIgnoreCase(getTag()))
+		if (!isConfigured() && ComponentTypes.Link.getComponentTag().equalsIgnoreCase(getTag()))
 		{
 			addAttribute(BSButtonAttributes.Role, roleAttribute);
 		}
 		super.preConfigure();
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setDanger(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSButtonOptions.Btn_Danger);
+		}
+		else
+
+		{
+			removeClass(BSButtonOptions.Btn_Danger);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setDangerOutline(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSButtonOptions.Btn_Outline_Danger);
+		}
+		else
+
+		{
+			removeClass(BSButtonOptions.Btn_Outline_Danger);
+		}
+
+		return (J) this;
 	}
 
 	/**
@@ -130,7 +178,7 @@ public class BSButton<J extends BSButton<J>>
 		if (disabled)
 		{
 			addAttribute(GlobalAttributes.Aria_Disabled, Boolean.toString(true));
-			addAttribute(BSButtonAttributes.Disabled, "");
+			addAttribute(BSButtonAttributes.Disabled, StaticStrings.STRING_EMPTY);
 			addClass("disabled");
 		}
 		else
@@ -141,6 +189,52 @@ public class BSButton<J extends BSButton<J>>
 		}
 
 		return this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setInfo(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSButtonOptions.Btn_Info);
+		}
+		else
+		{
+			removeClass(BSButtonOptions.Btn_Info);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setInfoOutline(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSButtonOptions.Btn_Outline_Info);
+		}
+		else
+		{
+			removeClass(BSButtonOptions.Btn_Outline_Info);
+		}
+
+		return (J) this;
 	}
 
 	/**
@@ -156,11 +250,11 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Link);
+			addClass(BSButtonOptions.Btn_Link);
 		}
 		else
 		{
-			removeClass(BSComponentButtonOptions.Btn_Link);
+			removeClass(BSButtonOptions.Btn_Link);
 		}
 
 		return (J) this;
@@ -202,134 +296,16 @@ public class BSButton<J extends BSButton<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J setDanger(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentButtonOptions.Btn_Danger);
-		}
-		else
-
-		{
-			removeClass(BSComponentButtonOptions.Btn_Danger);
-		}
-
-		return (J) this;
-	}
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J setDangerOutline(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Danger);
-		}
-		else
-
-		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Danger);
-		}
-
-		return (J) this;
-	}
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J setInfo(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentButtonOptions.Btn_Info);
-		}
-		else
-		{
-			removeClass(BSComponentButtonOptions.Btn_Info);
-		}
-
-		return (J) this;
-	}
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J setInfoOutline(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Info);
-		}
-		else
-		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Info);
-		}
-
-		return (J) this;
-	}
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J setSecondaryOutline(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Secondary);
-		}
-		else
-
-		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Secondary);
-		}
-
-		return (J) this;
-	}
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
 	public J setPrimary(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Primary);
+			addClass(BSButtonOptions.Btn_Primary);
 		}
 		else
 
 		{
-			removeClass(BSComponentButtonOptions.Btn_Primary);
+			removeClass(BSButtonOptions.Btn_Primary);
 		}
 
 		return (J) this;
@@ -348,12 +324,12 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Primary);
+			addClass(BSButtonOptions.Btn_Outline_Primary);
 		}
 		else
 
 		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Primary);
+			removeClass(BSButtonOptions.Btn_Outline_Primary);
 		}
 
 		return (J) this;
@@ -372,12 +348,36 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Secondary);
+			addClass(BSButtonOptions.Btn_Secondary);
 		}
 		else
 
 		{
-			removeClass(BSComponentButtonOptions.Btn_Secondary);
+			removeClass(BSButtonOptions.Btn_Secondary);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J setSecondaryOutline(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSButtonOptions.Btn_Outline_Secondary);
+		}
+		else
+
+		{
+			removeClass(BSButtonOptions.Btn_Outline_Secondary);
 		}
 
 		return (J) this;
@@ -393,9 +393,9 @@ public class BSButton<J extends BSButton<J>>
 	 * @return
 	 */
 	@Override
-	public BSButton setSize(BSComponentButtonSizeOptions size)
+	public BSButton setSize(BSButtonSizeOptions size)
 	{
-		for (BSComponentButtonSizeOptions value : BSComponentButtonSizeOptions.values())
+		for (BSButtonSizeOptions value : BSButtonSizeOptions.values())
 		{
 			removeClass(value.toString());
 		}
@@ -417,11 +417,11 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Success);
+			addClass(BSButtonOptions.Btn_Success);
 		}
 		else
 		{
-			removeClass(BSComponentButtonOptions.Btn_Success);
+			removeClass(BSButtonOptions.Btn_Success);
 		}
 		return (J) this;
 	}
@@ -439,11 +439,11 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Success);
+			addClass(BSButtonOptions.Btn_Outline_Success);
 		}
 		else
 		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Success);
+			removeClass(BSButtonOptions.Btn_Outline_Success);
 		}
 		return (J) this;
 	}
@@ -471,7 +471,6 @@ public class BSButton<J extends BSButton<J>>
 			getAttributes().remove(BSButtonAttributes.Data_Toggle.toString(), roleAttribute);
 			getAttributes().remove(InputButtonTypeAttributes.AutoComplete.toString());
 		}
-
 		return (J) this;
 	}
 
@@ -488,11 +487,11 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Warning);
+			addClass(BSButtonOptions.Btn_Warning);
 		}
 		else
 		{
-			removeClass(BSComponentButtonOptions.Btn_Warning);
+			removeClass(BSButtonOptions.Btn_Warning);
 		}
 		return (J) this;
 	}
@@ -510,11 +509,11 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentButtonOptions.Btn_Outline_Warning);
+			addClass(BSButtonOptions.Btn_Outline_Warning);
 		}
 		else
 		{
-			removeClass(BSComponentButtonOptions.Btn_Outline_Warning);
+			removeClass(BSButtonOptions.Btn_Outline_Warning);
 		}
 		return (J) this;
 	}

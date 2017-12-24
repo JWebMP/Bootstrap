@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -53,13 +53,13 @@ import java.util.List;
  *
  * @author GedMarc
  * @version 1.0
- * <p>
- * <p>
+ * 		<p>
+ * 		<p>
  * @since Mar 4, 2015
  */
 public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptPart<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * Apply a CSS fade transition to the popover
@@ -133,7 +133,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	 * Offset of the popover relative to its target. For more information refer to Tether's offset docs.
 	 */
 	private String offset;
-	
+
 	/**
 	 * Popovers
 	 * <p>
@@ -166,7 +166,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		//Nothing needed
 	}
-	
+
 	/**
 	 * Apply a CSS fade transition to the popover
 	 *
@@ -176,7 +176,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return animation;
 	}
-	
+
 	/**
 	 * Apply a CSS fade transition to the popover
 	 *
@@ -187,7 +187,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.animation = animation;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Default content value if data-content attribute isn't present.
 	 *
@@ -197,7 +197,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return content;
 	}
-	
+
 	/**
 	 * Default content value if data-content attribute isn't present.
 	 *
@@ -208,7 +208,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.content = content;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Appends the popover to a specific element. Example: container: 'body'. This option is particularly useful in that it allows you to position the popover in the flow of the document near the
 	 * triggering element - which will prevent the popover from floating away from the triggering element during a window resize.	FALSE
@@ -219,7 +219,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return container;
 	}
-	
+
 	/**
 	 * Appends the popover to a specific element. Example: container: 'body'. This option is particularly useful in that it allows you to position the popover in the flow of the document near the
 	 * triggering element - which will prevent the popover from floating away from the triggering element during a window resize.	FALSE
@@ -231,7 +231,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.container = container;
 		return (J) this;
 	}
-	
+
 	/**
 	 * An array of constraints - passed through to Tether. For more information refer to Tether's constraint docs.
 	 *
@@ -245,7 +245,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		}
 		return constraints;
 	}
-	
+
 	/**
 	 * An array of constraints - passed through to Tether. For more information refer to Tether's constraint docs.
 	 *
@@ -256,7 +256,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.constraints = constraints;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Delay showing and hiding the popover (ms) - does not apply to manual trigger type
 	 * <p>
@@ -270,7 +270,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return delay;
 	}
-	
+
 	/**
 	 * Delay showing and hiding the popover (ms) - does not apply to manual trigger type
 	 * <p>
@@ -285,7 +285,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.delay = delay;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Insert HTML into the popover.
 	 * <p>
@@ -297,7 +297,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return html;
 	}
-	
+
 	/**
 	 * Insert HTML into the popover.
 	 * <p>
@@ -310,7 +310,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.html = html;
 		return (J) this;
 	}
-	
+
 	/**
 	 * <p>
 	 * How to position the popover - top | bottom | left | right.
@@ -324,7 +324,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return placement;
 	}
-	
+
 	/**
 	 * <p>
 	 * How to position the popover - top | bottom | left | right.
@@ -339,7 +339,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.placement = placement;
 		return (J) this;
 	}
-	
+
 	/**
 	 * If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See this and an
 	 * informative example.
@@ -350,7 +350,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return selector;
 	}
-	
+
 	/**
 	 * If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See this and an
 	 * informative example.
@@ -362,7 +362,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.selector = selector;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Base HTML to use when creating the popover.
 	 * <p>
@@ -380,7 +380,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return template;
 	}
-	
+
 	/**
 	 * Base HTML to use when creating the popover.
 	 * <p>
@@ -399,7 +399,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.template = template;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Default title value if title attribute isn't present.
 	 * <p>
@@ -411,7 +411,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return title;
 	}
-	
+
 	/**
 	 * Default title value if title attribute isn't present.
 	 * <p>
@@ -424,7 +424,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.title = title;
 		return (J) this;
 	}
-	
+
 	/**
 	 * How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space. `manual` cannot be combined with any other trigger.
 	 *
@@ -434,7 +434,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return trigger;
 	}
-	
+
 	/**
 	 * How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space. `manual` cannot be combined with any other trigger.
 	 *
@@ -445,7 +445,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.trigger = trigger;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Offset of the popover relative to its target. For more information refer to Tether's offset docs.
 	 *
@@ -455,7 +455,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return offset;
 	}
-	
+
 	/**
 	 * Offset of the popover relative to its target. For more information refer to Tether's offset docs.
 	 *
@@ -466,7 +466,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 		this.offset = offset;
 		return (J) this;
 	}
-	
+
 	/**
 	 * Render as javascript
 	 *
@@ -477,5 +477,5 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>> extends JavaScriptP
 	{
 		return JavascriptPartType.Javascript;
 	}
-	
+
 }

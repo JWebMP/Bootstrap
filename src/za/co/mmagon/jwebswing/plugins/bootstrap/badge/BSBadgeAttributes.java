@@ -24,7 +24,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 /**
  * @author GedMarc
  */
-public enum BSBadgeAttributes implements AttributeDefinitions
+enum BSBadgeAttributes implements AttributeDefinitions
 {
 	Visibility;
 

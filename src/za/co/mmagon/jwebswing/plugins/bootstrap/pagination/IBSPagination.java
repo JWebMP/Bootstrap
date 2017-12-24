@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.pagination;
  */
 public interface IBSPagination
 {
-	
+
 	/**
 	 * Creates a new pagination button link.
 	 * <p>
@@ -33,19 +33,19 @@ public interface IBSPagination
 	 * @return
 	 */
 	BSPaginationLink createPageLink(String ariaLabel);
-	
+
 	/**
 	 * The actual list for the pagination
 	 *
 	 * @return
 	 */
 	BSPaginationList getPageList();
-	
+
 	/**
 	 * The actual list for the pagination
 	 *
 	 * @param pageList
 	 */
 	void setPageList(BSPaginationList pageList);
-	
+
 }

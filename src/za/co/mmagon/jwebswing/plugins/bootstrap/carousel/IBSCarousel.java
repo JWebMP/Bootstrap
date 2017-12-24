@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,49 +24,49 @@ import java.util.List;
  */
 public interface IBSCarousel<J extends BSCarousel>
 {
-	
+
 	/**
 	 * The active slide
 	 *
 	 * @return
 	 */
 	int getActiveSlide();
-	
+
 	/**
 	 * Returns the carousel slides
 	 *
 	 * @return
 	 */
 	BSCarouselSlides getCarouselSlides();
-	
+
 	/**
 	 * Returns the next link
 	 *
 	 * @return
 	 */
 	BSCarouselControl getNextLink();
-	
+
 	/**
 	 * Returns the previous link
 	 *
 	 * @return
 	 */
 	BSCarouselControl getPreviousLink();
-	
+
 	/**
 	 * Returns the list of slides currently associated
 	 *
 	 * @return
 	 */
 	List<BSCarouselItem> getSlides();
-	
+
 	/**
 	 * Whether or not this carousel shows indicators
 	 *
 	 * @return
 	 */
 	boolean isIndicators();
-	
+
 	/**
 	 * Sets the active slide
 	 *
@@ -75,7 +75,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	BSCarousel setActiveSlide(int activeSlide);
-	
+
 	/**
 	 * The data-ride="carousel" attribute is used to mark a carousel as animating starting at page load. It cannot be used in combination with (redundant and unnecessary) explicit JavaScript
 	 * initialization of the same carousel.
@@ -85,7 +85,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setAnimateOnLoad(boolean startAnimationOnLoad);
-	
+
 	/**
 	 * Sets the carousel slides
 	 *
@@ -94,7 +94,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setCarouselSlides(BSCarouselSlides carouselSlides);
-	
+
 	/**
 	 * Whether or not this carousel shows indicators
 	 *
@@ -103,7 +103,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setIndicators(boolean indicators);
-	
+
 	/**
 	 * Sets the time in milli's
 	 *
@@ -112,7 +112,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setInterval(int interval);
-	
+
 	/**
 	 * Whether or not to respond to keyboard actions
 	 *
@@ -121,7 +121,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setKeyboard(boolean keyboard);
-	
+
 	/**
 	 * Sets the next link
 	 *
@@ -130,7 +130,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setNextLink(BSCarouselControl nextLink);
-	
+
 	/**
 	 * If set to "hover", pauses the cycling of the carousel on mouse-enter and resumes the cycling of the carousel on mouse-leave. If set to null, hovering over the carousel won't pause it.
 	 *
@@ -139,7 +139,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setPause(boolean pause);
-	
+
 	/**
 	 * Set's the previous link
 	 *
@@ -148,7 +148,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setPreviousLink(BSCarouselControl previousLink);
-	
+
 	/**
 	 * Sets the list of slides currently associated
 	 *
@@ -157,7 +157,7 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	BSCarousel setSlides(List<BSCarouselItem> slides);
-	
+
 	/**
 	 * Whether the carousel should cycle continuously or have hard stops.
 	 *
@@ -166,5 +166,5 @@ public interface IBSCarousel<J extends BSCarousel>
 	 * @return
 	 */
 	J setWrap(boolean wrap);
-	
+
 }

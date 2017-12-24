@@ -24,15 +24,15 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  *
  * @author GedMarc
  * @version 1.0
- * <p>
- * <p>
+ * 		<p>
+ * 		<p>
  * @since Mar 4, 2015
  */
 public class BSProgressBarDisplayOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Progress Bar Options JS
 	 */
@@ -40,5 +40,5 @@ public class BSProgressBarDisplayOptions extends JavaScriptPart
 	{
 		//Nothing Needed
 	}
-	
+
 }

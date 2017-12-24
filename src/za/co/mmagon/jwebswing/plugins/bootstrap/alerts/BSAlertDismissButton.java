@@ -18,7 +18,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.alerts;
 
 import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.close.BSCloseIcon;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 
 /**
  * Dismissing
@@ -50,15 +50,15 @@ public class BSAlertDismissButton extends BSCloseIcon
 	 * @param alert
 	 * @param fade
 	 */
-	@SuppressWarnings("")
+	@SuppressWarnings("unchecked")
 	public BSAlertDismissButton(BSAlert alert, boolean fade)
 	{
-		addAttribute(ButtonAttributes.Data_Dismiss, "alert");
-		alert.addClass(BSComponentAlertOptions.Alert_Dismissible);
+		addAttribute(ButtonAttributes.Data_Dismiss, BSAlertOptions.Alert.toString());
+		alert.addClass(BSAlertOptions.Alert_Dismissible);
 		if (fade)
 		{
 			alert.addClass(BSDefaultOptions.Fade);
-			alert.addClass(BSDefaultOptions.In);
+			alert.addClass(BSDefaultOptions.Show);
 		}
 		alert.add(this);
 	}

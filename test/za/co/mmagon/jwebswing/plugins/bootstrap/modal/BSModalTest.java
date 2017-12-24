@@ -24,11 +24,11 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.close.BSCloseIcon;
  */
 public class BSModalTest
 {
-	
+
 	public BSModalTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
@@ -42,5 +42,5 @@ public class BSModalTest
 		modal.asMe().setShow(false);
 		System.out.println(modal.toString(true));
 	}
-	
+
 }

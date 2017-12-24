@@ -21,9 +21,9 @@ import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.base.html.Link;
 import za.co.mmagon.jwebswing.base.html.ListItem;
 import za.co.mmagon.jwebswing.plugins.bootstrap.accordion.BSAccordionAttributes;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.navs.BSComponentNavsOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.navs.BSNavs;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.toggle.BSToggleAttributes;
 import za.co.mmagon.logger.LogFactory;
 
@@ -68,12 +68,6 @@ public class BSTabs<J> extends DivSimple<BSTabs<J>>
 		getNavigation().addAttribute("role", "tablist");
 	}
 
-	public J addTab(BSTab tab)
-	{
-		getTabs().add(tab);
-		return (J) this;
-	}
-
 	/**
 	 * Gets the navigation component, not allowed to be null
 	 *
@@ -88,34 +82,9 @@ public class BSTabs<J> extends DivSimple<BSTabs<J>>
 		return navigation;
 	}
 
-	/**
-	 * Sets the navigation component
-	 *
-	 * @param navigation
-	 *
-	 * @return
-	 */
-	protected J setNavigation(BSNavs navigation)
+	public J addTab(BSTab tab)
 	{
-		this.navigation = navigation;
-		return (J) this;
-	}
-
-	/**
-	 * Aligns the tabs to fill the available space in Justify mode
-	 *
-	 * @return
-	 */
-	public J setJustify(boolean justified)
-	{
-		if (justified)
-		{
-			addClass(BSComponentNavsOptions.Nav_Fill);
-		}
-		else
-		{
-			removeClass(BSComponentNavsOptions.Nav_Fill);
-		}
+		getTabs().add(tab);
 		return (J) this;
 	}
 
@@ -147,31 +116,32 @@ public class BSTabs<J> extends DivSimple<BSTabs<J>>
 	}
 
 	/**
-	 * Returns the tab content div. Never Null
+	 * Sets the navigation component
+	 *
+	 * @param navigation
 	 *
 	 * @return
 	 */
-	public Div getTabContent()
+	protected J setNavigation(BSNavs navigation)
 	{
-		if (tabContent == null)
-		{
-			setTabContent(new Div());
-		}
-		return tabContent;
+		this.navigation = navigation;
+		return (J) this;
 	}
 
 	/**
-	 * Sets the tab content
+	 * Aligns the tabs to fill the available space in Justify mode
 	 *
-	 * @param tabContent
+	 * @return
 	 */
-	public J setTabContent(Div tabContent)
+	public J setJustify(boolean justified)
 	{
-		this.tabContent = tabContent;
-		if (this.tabContent != null)
+		if (justified)
 		{
-			this.tabContent.addClass("tab-content");
-			this.tabContent.setRenderIDAttibute(false);
+			addClass(BSComponentNavsOptions.Nav_Fill);
+		}
+		else
+		{
+			removeClass(BSComponentNavsOptions.Nav_Fill);
 		}
 		return (J) this;
 	}
@@ -240,8 +210,38 @@ public class BSTabs<J> extends DivSimple<BSTabs<J>>
 		}
 		BSTabs<?> bsTabs = (BSTabs<?>) o;
 		return Objects.equals(getTabs(), bsTabs.getTabs()) &&
-				Objects.equals(getNavigation(), bsTabs.getNavigation()) &&
-				Objects.equals(getTabContent(), bsTabs.getTabContent());
+				       Objects.equals(getNavigation(), bsTabs.getNavigation()) &&
+				       Objects.equals(getTabContent(), bsTabs.getTabContent());
+	}
+
+	/**
+	 * Returns the tab content div. Never Null
+	 *
+	 * @return
+	 */
+	public Div getTabContent()
+	{
+		if (tabContent == null)
+		{
+			setTabContent(new Div());
+		}
+		return tabContent;
+	}
+
+	/**
+	 * Sets the tab content
+	 *
+	 * @param tabContent
+	 */
+	public J setTabContent(Div tabContent)
+	{
+		this.tabContent = tabContent;
+		if (this.tabContent != null)
+		{
+			this.tabContent.addClass("tab-content");
+			this.tabContent.setRenderIDAttibute(false);
+		}
+		return (J) this;
 	}
 
 	@Override

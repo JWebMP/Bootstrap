@@ -23,7 +23,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public interface BSBadgeChildren extends GlobalChildren
+interface BSBadgeChildren extends GlobalChildren
 {
 
 }

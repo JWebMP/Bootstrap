@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,14 +29,15 @@ import za.co.mmagon.jwebswing.utilities.StaticStrings;
  */
 public class BSPaginationLink extends Link
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A pagination link for an item, usually auto generated from BSPagination
 	 *
-	 * @param ariaLabel In addition, as pages likely have more than one such navigation section, it’s advisable to provide a descriptive aria-label for the nav to reflect its purpose. For example, if
-	 *                  the pagination component is used to navigate between a set of search results, an appropriate label could be aria-label="Search results pages".
+	 * @param ariaLabel
+	 * 		In addition, as pages likely have more than one such navigation section, it’s advisable to provide a descriptive aria-label for the nav to reflect its purpose. For example, if
+	 * 		the pagination component is used to navigate between a set of search results, an appropriate label could be aria-label="Search results pages".
 	 */
 	public BSPaginationLink(String ariaLabel)
 	{
@@ -44,7 +45,7 @@ public class BSPaginationLink extends Link
 		addAttribute(LinkAttributes.HRef, StaticStrings.STRING_HASH);
 		addAttribute(GlobalAttributes.Aria_Label, ariaLabel);
 	}
-	
+
 	/**
 	 * Returns this items parent (usually, may throw exceptions if used other than BSPagination.createLink();
 	 *

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,9 +24,9 @@ import za.co.mmagon.jwebswing.base.html.Link;
  */
 public class BSAccordionHeaderLink extends Link<BSAccordionHeaderLink>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The displayed link for an accordion
 	 */
@@ -34,5 +34,5 @@ public class BSAccordionHeaderLink extends Link<BSAccordionHeaderLink>
 	{
 		//Nothing Needed
 	}
-	
+
 }

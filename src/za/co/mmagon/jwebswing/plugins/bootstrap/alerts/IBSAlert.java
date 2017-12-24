@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
  */
 public interface IBSAlert<J extends BSAlert>
 {
-	
+
 	/**
 	 * Adds the link styling for an alert to any component
 	 *
@@ -36,14 +36,14 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	<T extends ComponentHierarchyBase> T addLinkStyle(T component);
-	
+
 	/**
 	 * Creates and adds dismiss button assigned to this alert
 	 *
 	 * @return
 	 */
 	BSAlertDismissButton createDismissButton();
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -52,7 +52,7 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	J setDanger(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -61,7 +61,7 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	J setInfo(boolean applyStyle);
-	
+
 	/**
 	 * Sets the style as link
 	 *
@@ -70,7 +70,7 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	J setLink(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -79,7 +79,7 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	J setSuccess(boolean applyStyle);
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -88,5 +88,5 @@ public interface IBSAlert<J extends BSAlert>
 	 * @return
 	 */
 	J setWarning(boolean applyStyle);
-	
+
 }

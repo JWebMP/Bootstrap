@@ -16,11 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
 
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.IBSComponentOptions;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
-
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
-
 /**
  * Buttons
  * <p>
@@ -30,24 +25,17 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public enum BSComponentButtonSizeOptions implements IBSComponentOptions
+public class BSButtonDark<J extends BSButtonDark<J>> extends BSButton<J>
 {
-	/**
-	 * Makes a large button
-	 */
-	Btn_Lg,
-	/**
-	 * Makes a small button
-	 */
-	Btn_Sm,
-	/**
-	 * Makes a block_level button (spans the full width of the parent element)
-	 */
-	Btn_Block;
 
-	@Override
-	public String toString()
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Indicates a successful or positive action
+	 */
+	public BSButtonDark()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		addClass(BSButtonOptions.Btn_Dark);
 	}
+
 }

@@ -16,7 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap.buttons;
 
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.IBSComponentOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
@@ -30,7 +30,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public enum BSComponentButtonOptions implements IBSComponentOptions
+public enum BSButtonOptions implements IBSComponentOptions
 {
 	/**
 	 * Adds basic styling to any button
@@ -65,21 +65,17 @@ public enum BSComponentButtonOptions implements IBSComponentOptions
 	 */
 	Btn_Danger,
 	/**
+	 * Indicates a dangerous or potentially negative action
+	 */
+	Btn_Dark,
+	/**
+	 * Indicates a dangerous or potentially negative action
+	 */
+	Btn_Light,
+	/**
 	 * Makes a button look like a link (will still have button behavior)
 	 */
 	Btn_Link,
-	/**
-	 * Makes a large button
-	 */
-	Btn_Lg,
-	/**
-	 * Makes a small button
-	 */
-	Btn_Sm,
-	/**
-	 * Makes an extra small button
-	 */
-	Btn_Xs,
 	/**
 	 * Makes a block_level button (spans the full width of the parent element)
 	 */
@@ -107,7 +103,15 @@ public enum BSComponentButtonOptions implements IBSComponentOptions
 	/**
 	 * Indicates a dangerous or potentially negative action with outline button mode
 	 */
-	Btn_Outline_Danger,;
+	Btn_Outline_Danger,
+	/**
+	 * Indicates a dangerous or potentially negative action with outline button mode
+	 */
+	Btn_Outline_Dark,
+	/**
+	 * Indicates a dangerous or potentially negative action with outline button mode
+	 */
+	Btn_Outline_Light;
 
 	@Override
 	public String toString()

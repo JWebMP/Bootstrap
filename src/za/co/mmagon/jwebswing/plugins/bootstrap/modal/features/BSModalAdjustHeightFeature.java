@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,19 +29,19 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.modal.BSModal;
  */
 public class BSModalAdjustHeightFeature extends Feature
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSModalAdjustHeightFeature(BSModal modal)
 	{
 		super("BSModalDynamicHeightFeature", modal);
 		setComponent(modal);
 	}
-	
+
 	@Override
 	protected void assignFunctionsToComponent()
 	{
 		addQuery(getComponent().getJQueryID() + ".data('bs.modal').handleUpdate();");
 	}
-	
+
 }

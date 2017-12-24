@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,24 +29,24 @@ public enum BSProgressBarDisplayAttributes implements AttributeDefinitions
 	Aria_ValueMin,
 	Aria_ValueMax,
 	Visibility;
-	
+
 	private boolean isKeyword;
-	
+
 	BSProgressBarDisplayAttributes()
 	{
 	}
-	
+
 	@Override
 	public boolean isKeyword()
 	{
 		return isKeyword;
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, '-').replace("$", "");
 	}
-	
-	
+
+
 }

@@ -21,7 +21,8 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Alerts
@@ -34,14 +35,14 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
  * @version 1.0
  * @since 31 Dec 2016
  */
-@ComponentInformation(name = "Bootstrap Alert", description = "rovide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+@ComponentInformation(name = "Bootstrap Alert", description = "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
 		url = "https://v4-alpha.getbootstrap.com/components/alerts/", wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSAlert<J extends BSAlert<J>>
 		extends Div<GlobalChildren, BSAlertAttributes, GlobalFeatures, BSAlertEvents, J> implements IBSAlert<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Alerts
 	 * <p>
@@ -49,11 +50,11 @@ public class BSAlert<J extends BSAlert<J>>
 	 */
 	public BSAlert()
 	{
-		addAttribute(BSAlertAttributes.Role, "alert");
-		addClass(BSComponentAlertOptions.Alert);
-		BootstrapPageConfigurator.setRequired(this, true);
+		addAttribute(BSAlertAttributes.Role, BSAlertOptions.Alert.toString());
+		addClass(BSAlertOptions.Alert);
+
 	}
-	
+
 	/**
 	 * Neater view of this component
 	 *
@@ -63,87 +64,7 @@ public class BSAlert<J extends BSAlert<J>>
 	{
 		return this;
 	}
-	
-	/**
-	 * Creates and adds dismiss button assigned to this alert
-	 *
-	 * @return
-	 */
-	@Override
-	public BSAlertDismissButton createDismissButton()
-	{
-		BSAlertDismissButton news = new BSAlertDismissButton(this, true);
-		add(news);
-		return news;
-	}
-	
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	public J setDanger(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentAlertOptions.Alert_Danger);
-		}
-		else
-		
-		{
-			removeClass(BSComponentAlertOptions.Alert_Danger);
-		}
-		
-		return (J) this;
-	}
-	
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	public J setInfo(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentAlertOptions.Alert_Info);
-		}
-		else
-		{
-			removeClass(BSComponentAlertOptions.Alert_Info);
-		}
-		
-		return (J) this;
-	}
-	
-	/**
-	 * Sets the style as link
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
-	public J setLink(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentAlertOptions.Alert_Link);
-		}
-		else
-		{
-			removeClass(BSComponentAlertOptions.Alert_Link);
-		}
-		
-		return (J) this;
-	}
-	
+
 	/**
 	 * Adds the link styling for an alert to any component
 	 *
@@ -153,12 +74,27 @@ public class BSAlert<J extends BSAlert<J>>
 	 * @return
 	 */
 	@Override
-	public <T extends ComponentHierarchyBase> T addLinkStyle(T component)
+	@NotNull
+	public <T extends ComponentHierarchyBase> T addLinkStyle(@NotNull T component)
 	{
-		component.addClass(BSComponentAlertOptions.Alert_Link);
+		component.addClass(BSAlertOptions.Alert_Link);
 		return component;
 	}
-	
+
+	/**
+	 * Creates and adds dismiss button assigned to this alert
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSAlertDismissButton createDismissButton()
+	{
+		BSAlertDismissButton news = new BSAlertDismissButton(this, true);
+		add(news);
+		return news;
+	}
+
 	/**
 	 * Set or remove the style
 	 *
@@ -167,19 +103,93 @@ public class BSAlert<J extends BSAlert<J>>
 	 * @return
 	 */
 	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setDanger(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Danger);
+		}
+		else
+
+		{
+			removeClass(BSAlertOptions.Alert_Danger);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setInfo(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Info);
+		}
+		else
+		{
+			removeClass(BSAlertOptions.Alert_Info);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Sets the style as link
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setLink(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Link);
+		}
+		else
+		{
+			removeClass(BSAlertOptions.Alert_Link);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
 	public J setSuccess(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentAlertOptions.Alert_Success);
+			addClass(BSAlertOptions.Alert_Success);
 		}
 		else
 		{
-			removeClass(BSComponentAlertOptions.Alert_Success);
+			removeClass(BSAlertOptions.Alert_Success);
 		}
 		return (J) this;
 	}
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -188,17 +198,88 @@ public class BSAlert<J extends BSAlert<J>>
 	 * @return
 	 */
 	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
 	public J setWarning(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentAlertOptions.Alert_Warning);
+			addClass(BSAlertOptions.Alert_Warning);
 		}
 		else
 		{
-			removeClass(BSComponentAlertOptions.Alert_Warning);
+			removeClass(BSAlertOptions.Alert_Warning);
 		}
 		return (J) this;
 	}
-	
+
+	/**
+	 * Sets the style as link
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setPrimary(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Primary);
+		}
+		else
+		{
+			removeClass(BSAlertOptions.Alert_Primary);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Sets the style as link
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setLight(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Light);
+		}
+		else
+		{
+			removeClass(BSAlertOptions.Alert_Light);
+		}
+
+		return (J) this;
+	}
+
+	/**
+	 * Sets the style as link
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setDark(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSAlertOptions.Alert_Dark);
+		}
+		else
+		{
+			removeClass(BSAlertOptions.Alert_Dark);
+		}
+
+		return (J) this;
+	}
+
 }

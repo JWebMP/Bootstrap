@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,14 +27,20 @@ public enum BSProgressBarThemes
 	Warning("progress-bar-warning"),
 	Danger("progress-bar-danger"),
 	Success("progress-bar-success");
-	
+
 	private String classText;
-	
+
 	BSProgressBarThemes(String classText)
 	{
 		this.classText = classText;
 	}
-	
+
+	@Override
+	public String toString()
+	{
+		return getClassText().toLowerCase();
+	}
+
 	/**
 	 * Returns the class text
 	 *
@@ -44,7 +50,7 @@ public enum BSProgressBarThemes
 	{
 		return classText;
 	}
-	
+
 	/**
 	 * Sets the class text
 	 *
@@ -54,12 +60,6 @@ public enum BSProgressBarThemes
 	{
 		this.classText = classText;
 	}
-	
-	@Override
-	public String toString()
-	{
-		return getClassText().toLowerCase();
-	}
-	
-	
+
+
 }

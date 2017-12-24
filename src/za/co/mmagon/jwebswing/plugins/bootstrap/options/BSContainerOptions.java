@@ -14,24 +14,43 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;
+
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 
 /**
- * Clearfix
+ * Width and height
  * <p>
- * Easily clear floats by adding .clearfix to the parent element. Utilizes the micro clearfix as popularized by Nicolas Gallagher. Can also be used as a mixin.
+ * Easily make an element as wide or as tall as its parent using the .w-100 and .h-100 utility classes.
  *
  * @author GedMarc
  * @version 1.0
  * @since 31 Dec 2016
  */
-public enum BSClearfixOptions implements IBSComponentOptions
+public enum BSContainerOptions implements IBSComponentOptions
 {
-	Clearfix;
+	/**
+	 * A default container
+	 */
+	Container,
+	/**
+	 * Container with the width at 100%
+	 */
+	Container_Fluid,
+	/**
+	 * A bs row
+	 */
+	Row,
+	/**
+	 * Removes all gutters from a component
+	 */
+	No_Gutters;
 
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase();
+		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

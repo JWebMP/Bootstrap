@@ -37,25 +37,39 @@ import java.util.logging.Logger;
 public abstract class BSModalShowEvent<J extends BSModalShowEvent<J>> extends Event<JavaScriptPart, J>
 		implements GlobalEvents
 {
-	
+
 	/**
 	 * Logger for the Component
 	 */
 	private static final Logger LOG = LogFactory.getInstance().getLogger("BootstrapShowModal");
 	private static final long serialVersionUID = 1L;
 	private BSModalShowEventDirective directive;
-	
+
 	/**
 	 * Performs a click
 	 *
-	 * @param component The component this click is going to be acting on
+	 * @param component
+	 * 		The component this click is going to be acting on
 	 */
 	public BSModalShowEvent(Component component)
 	{
 		super(EventTypes.contextmenu, component);
-		
+
 	}
-	
+
+	@Override
+	public void fireEvent(AjaxCall call, AjaxResponse response)
+	{
+		try
+		{
+			onModalShow(call, response);
+		}
+		catch (Exception e)
+		{
+			LOG.log(Level.SEVERE, "Error In Firing Event", e);
+		}
+	}
+
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -69,7 +83,7 @@ public abstract class BSModalShowEvent<J extends BSModalShowEvent<J>> extends Ev
 		}
 		super.preConfigure();
 	}
-	
+
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -83,7 +97,7 @@ public abstract class BSModalShowEvent<J extends BSModalShowEvent<J>> extends Ev
 		}
 		return directive;
 	}
-	
+
 	/**
 	 * Sets the right click angular event
 	 *
@@ -93,29 +107,7 @@ public abstract class BSModalShowEvent<J extends BSModalShowEvent<J>> extends Ev
 	{
 		this.directive = directive;
 	}
-	
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call     The physical AJAX call
-	 * @param response The physical Ajax Receiver
-	 */
-	public abstract void onModalShow(AjaxCall call, AjaxResponse response);
-	
-	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
-	{
-		try
-		{
-			onModalShow(call, response);
-		}
-		catch (Exception e)
-		{
-			LOG.log(Level.SEVERE, "Error In Firing Event", e);
-		}
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -134,10 +126,21 @@ public abstract class BSModalShowEvent<J extends BSModalShowEvent<J>> extends Ev
 		BSModalShowEvent<?> that = (BSModalShowEvent<?>) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getDirective());
 	}
+
+	/**
+	 * Triggers on Click
+	 * <p>
+	 *
+	 * @param call
+	 * 		The physical AJAX call
+	 * @param response
+	 * 		The physical Ajax Receiver
+	 */
+	public abstract void onModalShow(AjaxCall call, AjaxResponse response);
 }

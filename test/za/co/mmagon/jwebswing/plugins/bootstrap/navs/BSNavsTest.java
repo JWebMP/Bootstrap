@@ -27,23 +27,23 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  */
 public class BSNavsTest
 {
-	
+
 	public BSNavsTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
 		BSNavs nav = new BSNavs();
 		nav.add((BSNavLinkItem) new BSNavLinkItem(STRING_HASH).setText("Stff"));
 		System.out.println(nav.toString(true));
-		
+
 		nav = new BSNavPill();
 		nav.add(((BSNavLinkItem) new BSNavLinkItem(StaticStrings.STRING_HASH).setText("Stff")).setActive());
 		System.out.println(nav.toString(true));
 	}
-	
+
 	@Test
 	public void testDropDownInTab()
 	{
@@ -51,7 +51,7 @@ public class BSNavsTest
 		nav.add(new BSNavItemDropDown());
 		System.out.println(nav.toString(true));
 	}
-	
+
 	@Test
 	public void testPillsDropDownInTab()
 	{
@@ -59,7 +59,7 @@ public class BSNavsTest
 		nav.add(new BSNavItemDropDown());
 		System.out.println(nav.toString(true));
 	}
-	
+
 	@Test
 	public void testTabsDropDownInTab()
 	{
@@ -67,13 +67,13 @@ public class BSNavsTest
 		nav.add(new BSNavItemDropDown());
 		System.out.println(nav.toString(true));
 	}
-	
+
 	@Test
 	public void testList()
 	{
 		BSNavs nav = new BSNavs();
 		nav.getNavigationList().add(new BSNavListItem(new BSNavLinkItem("url")));
-		
+
 		System.out.println(nav.toString(true));
 	}
 }

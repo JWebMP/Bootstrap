@@ -21,10 +21,10 @@ import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSContainerOptions.Row;
 
 /**
  * Rows are horizontal groups of columns that ensure your columns are lined up properly.
@@ -37,7 +37,6 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren
  */
 public class BSRow<J extends BSRow<J>> extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, BSRow<J>> implements BSFormChildren, BSFormGroupChildren
 {
-
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -47,7 +46,16 @@ public class BSRow<J extends BSRow<J>> extends Div<GlobalChildren, NoAttributes,
 	 */
 	public BSRow()
 	{
-		addClass(BSDefaultOptions.Row);
-		BootstrapPageConfigurator.setRequired(this, true);
+		addClass(Row);
+	}
+
+	/**
+	 * Static creator for a new BSRow
+	 *
+	 * @return
+	 */
+	public static BSRow newInstance()
+	{
+		return new BSRow();
 	}
 }

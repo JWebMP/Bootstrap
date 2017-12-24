@@ -16,7 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.sets;
 
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormLabel;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSComponentFormGroupOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroup;
@@ -52,7 +51,7 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	{
 		super(label, inputComponent, helpText);
 		inputComponent.addAttribute("value", value);
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
 
 	/**

@@ -28,22 +28,27 @@ import org.junit.jupiter.api.Test;
 /**
  * @author GedMarc
  */
-public class BSBreadcrumbsTest
+public class BSBreadcrumbContainerTestItem
 {
-	
-	public BSBreadcrumbsTest()
+
+	public BSBreadcrumbContainerTestItem()
 	{
 	}
-	
+
 	@Test
 	public void testPreConfigure()
 	{
-		BSBreadcrumbs crumbs = new BSBreadcrumbs();
-		BSBreadcrumb crumb = new BSBreadcrumb();
-		
+		BSBreadcrumbContainer crumbs = new BSBreadcrumbContainer();
+		BSBreadcrumbItem crumb = new BSBreadcrumbItem();
+
 		crumbs.add(crumb);
-		
+
 		System.out.println(crumbs.toString(true));
+
+		BSBreadCrumb crumby = new BSBreadCrumb();
+		crumby.addBreadCrumb(crumb);
+
+		System.out.println(crumby.toString(0));
 	}
 
 }

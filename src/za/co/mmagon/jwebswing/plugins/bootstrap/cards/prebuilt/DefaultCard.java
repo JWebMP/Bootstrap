@@ -3,7 +3,6 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.prebuilt;
 import za.co.mmagon.jwebswing.base.html.H1;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts.*;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
@@ -11,6 +10,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSTypographyOptions.Text_Muted;
 
 /**
  * A default complete structured bootstrap card
@@ -26,6 +27,8 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 
 	private List<BSCardLink> cardLinks;
 	private BSCardFooter footerBlock;
+
+	private BSCardBody cardBody;
 
 	private transient Optional<String> headerText;
 	private transient Optional<String> footerText;
@@ -191,7 +194,7 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 			{
 				footerBlock.add(footerText.get());
 				add(footerBlock);
-				footerBlock.addClass(BSDefaultOptions.Text_Muted);
+				footerBlock.addClass(Text_Muted);
 				footerBlock.addClass("text-xs-center");
 			}
 			cardDate.ifPresent(localDateTime -> footerBlock.add("Date : " + localDateTime.toLocalDate()));
@@ -261,10 +264,14 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	/**
 	 * returns the content block
 	 */
-	@Nullable
+	@NotNull
 	public BSCardBody getCardBody()
 	{
-		return null;
+		if (cardBody == null)
+		{
+			this.cardBody = new BSCardBody();
+		}
+		return cardBody;
 	}
 
 	/**
@@ -303,6 +310,10 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	 */
 	public BSCardImageTop getCardImageTop()
 	{
+		if (cardImageTop == null)
+		{
+			cardImageTop = new BSCardImageTop();
+		}
 		return cardImageTop;
 	}
 
@@ -341,9 +352,13 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	 *
 	 * @return
 	 */
-	@Nullable
+	@NotNull
 	public BSCardFooter getFooterBlock()
 	{
+		if (footerBlock == null)
+		{
+			footerBlock = new BSCardFooter();
+		}
 		return footerBlock;
 	}
 
@@ -501,5 +516,17 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	{
 		this.cardDate = Optional.ofNullable(cardDate);
 		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

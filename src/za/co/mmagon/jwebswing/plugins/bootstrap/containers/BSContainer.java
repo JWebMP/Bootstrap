@@ -21,10 +21,12 @@ import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.BSFormChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.BSFormGroupChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.navbar.BSNavBarChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSContainerOptions;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSContainerOptions.Container_Fluid;
 
 /**
  * Containers
@@ -44,48 +46,48 @@ public class BSContainer<J extends BSContainer<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSNavBarChildren, BSFormChildren, BSFormGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs as a container-fluid full page
 	 */
 	public BSContainer()
 	{
-		this(BSContainerType.Container_Fluid);
+		this(Container_Fluid);
 	}
-	
+
 	/**
 	 * Constructs a new container
 	 *
 	 * @param type
 	 */
-	public BSContainer(BSContainerType type)
+	public BSContainer(BSContainerOptions type)
 	{
 		addClass(type.toString());
-		BootstrapPageConfigurator.setRequired(this, true);
 	}
-	
+
 	/**
 	 * Returns a new instance
 	 *
-	 * @param type The type of container.
+	 * @param type
+	 * 		The type of container.
 	 *
 	 * @return
 	 */
-	public static BSContainer newInstance(BSContainerType type)
+	public static BSContainer newInstance(BSContainerOptions type)
 	{
 		return new BSContainer(type);
 	}
-	
+
 	/**
 	 * Sets the container type on this container
 	 *
 	 * @param type
 	 */
-	public void setContainerType(BSContainerType type)
+	public void setContainerType(BSContainerOptions type)
 	{
-		for (BSContainerType value : BSContainerType.values())
+		for (BSContainerOptions value : BSContainerOptions.values())
 		{
 			removeClass(value.toString());
 		}

@@ -12,8 +12,8 @@ public class BSFormInputGroupTest extends BaseTestClass
 	{
 		BSFormInputGroup inputGroup = new BSFormInputGroup(new BSFormTextInput());
 		inputGroup.getInputGroupAddons().add(new Span("@"));
-		
+
 		System.out.println(inputGroup.toString(0));
 	}
-	
+
 }

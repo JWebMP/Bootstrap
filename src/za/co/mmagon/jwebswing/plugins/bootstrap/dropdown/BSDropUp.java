@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,15 +26,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.dropdown;
  */
 public class BSDropUp extends BSDropDown
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSDropUp()
 	{
-		
+
 		addClass(BSComponentDropDownOptions.Dropup);
 	}
-	
+
 	@Override
 	public void init()
 	{

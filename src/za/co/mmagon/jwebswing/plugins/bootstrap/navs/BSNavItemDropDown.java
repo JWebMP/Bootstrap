@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,9 +26,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSDropDownLink;
  */
 public class BSNavItemDropDown extends BSDropDown implements BSNavsChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A drop down that can be placed on any nav bar
 	 */
@@ -38,7 +38,7 @@ public class BSNavItemDropDown extends BSDropDown implements BSNavsChildren
 		getClasses().add(BSComponentNavsOptions.Nav_Item.toString());
 		setTag("li");
 	}
-	
+
 	/**
 	 * A drop down that can be placed on any nav bar
 	 *
@@ -51,7 +51,7 @@ public class BSNavItemDropDown extends BSDropDown implements BSNavsChildren
 		getClasses().add(BSComponentNavsOptions.Nav_Item.toString());
 		setTag("li");
 	}
-	
+
 	/**
 	 * A drop down that can be placed on any nav bar
 	 *
@@ -64,5 +64,5 @@ public class BSNavItemDropDown extends BSDropDown implements BSNavsChildren
 		getClasses().add(BSComponentNavsOptions.Nav_Item.toString());
 		setTag("li");
 	}
-	
+
 }

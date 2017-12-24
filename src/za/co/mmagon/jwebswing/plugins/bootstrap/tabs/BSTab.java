@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class BSTab<J extends BSTab> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The tab header item
 	 */
@@ -24,26 +24,28 @@ public class BSTab<J extends BSTab> implements Serializable
 	 * If this tab is active
 	 */
 	private boolean active;
-	
+
 	/**
 	 * Construct a blank tab
 	 */
 	public BSTab()
 	{
 	}
-	
+
 	/**
 	 * Construct a new tab with the given items
 	 *
-	 * @param tabHeader  The header of the tab
-	 * @param tabContent The content of the tab
+	 * @param tabHeader
+	 * 		The header of the tab
+	 * @param tabContent
+	 * 		The content of the tab
 	 */
 	public BSTab(ListItem tabHeader, Div tabContent)
 	{
 		this.tabHeader = tabHeader;
 		this.tabContent = tabContent;
 	}
-	
+
 	/**
 	 * Returns the list item. Nullable
 	 *
@@ -53,7 +55,7 @@ public class BSTab<J extends BSTab> implements Serializable
 	{
 		return tabHeader;
 	}
-	
+
 	/**
 	 * Sets the tab header
 	 *
@@ -63,7 +65,7 @@ public class BSTab<J extends BSTab> implements Serializable
 	{
 		this.tabHeader = tabHeader;
 	}
-	
+
 	/**
 	 * Gets the tab content. Nullable
 	 *
@@ -73,7 +75,7 @@ public class BSTab<J extends BSTab> implements Serializable
 	{
 		return tabContent;
 	}
-	
+
 	/**
 	 * Sets the tab content
 	 *
@@ -83,7 +85,7 @@ public class BSTab<J extends BSTab> implements Serializable
 	{
 		this.tabContent = tabContent;
 	}
-	
+
 	/**
 	 * If this tab is set as active
 	 *
@@ -93,7 +95,7 @@ public class BSTab<J extends BSTab> implements Serializable
 	{
 		return active;
 	}
-	
+
 	/**
 	 * Sets this tab as active (try only have one per tab set)
 	 *

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,51 +27,51 @@ import za.co.mmagon.jwebswing.base.html.Div;
  */
 public interface IBSModal<J extends BSModal>
 {
-	
+
 	/**
 	 * Adds the dismiss button to the modal
 	 *
 	 * @param button
 	 */
 	J addDismissButton(Button button);
-	
+
 	/**
 	 * Adds a button that will open up the modal
 	 *
 	 * @param button
 	 */
 	J addOpenButton(Button button);
-	
+
 	/**
 	 * Gets the modal body
 	 *
 	 * @return
 	 */
 	Div getModalBody();
-	
+
 	/**
 	 * Gets the modal content pane
 	 *
 	 * @return
 	 */
 	Div getModalContent();
-	
+
 	Div getModalDialog();
-	
+
 	/**
 	 * Gets the modal footer
 	 *
 	 * @return
 	 */
 	Div getModalFooter();
-	
+
 	/**
 	 * Sets the modal header pane
 	 *
 	 * @return
 	 */
 	Div getModalHeader();
-	
+
 	/**
 	 * Includes a modal-backdrop element. Alternatively, specify static for a backdrop which doesn't close the modal on click.
 	 *
@@ -80,9 +80,9 @@ public interface IBSModal<J extends BSModal>
 	 * @return
 	 */
 	J setBackdrop(boolean backdrop);
-	
+
 	BSModal setFade();
-	
+
 	/**
 	 * Puts the focus on the modal when initialized.
 	 *
@@ -91,7 +91,7 @@ public interface IBSModal<J extends BSModal>
 	 * @return
 	 */
 	J setFocus(boolean focus);
-	
+
 	/**
 	 * Closes the modal when escape key is pressed
 	 *
@@ -100,49 +100,49 @@ public interface IBSModal<J extends BSModal>
 	 * @return
 	 */
 	J setKeyboard(boolean keyboard);
-	
+
 	/**
 	 * Sets the modal body
 	 *
 	 * @param modalBody
 	 */
 	J setModalBody(Div modalBody);
-	
+
 	/**
 	 * Sets the modal content pane
 	 *
 	 * @param modalContent
 	 */
 	J setModalContent(Div modalContent);
-	
+
 	/**
 	 * Sets the overall dialog of the modal
 	 *
 	 * @param modalDialog
 	 */
 	J setModalDialog(Div modalDialog);
-	
+
 	/**
 	 * Sets the size to render for the modal. By default medium. false sets small
 	 *
 	 * @param large
 	 */
 	J setModalDialogSize(boolean large);
-	
+
 	/**
 	 * Sets the modal footer
 	 *
 	 * @param modalFooter
 	 */
 	J setModalFooter(Div modalFooter);
-	
+
 	/**
 	 * Sets the modal header pane
 	 *
 	 * @param modalHeader
 	 */
 	J setModalHeader(Div modalHeader);
-	
+
 	/**
 	 * Shows the modal when initialized.
 	 *

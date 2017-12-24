@@ -1,0 +1,178 @@
+/*
+ * Copyright (C) 2017 Marc Magon
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package za.co.mmagon.jwebswing.plugins.bootstrap.breadcrumbs;
+
+import za.co.mmagon.jwebswing.base.html.Link;
+import za.co.mmagon.jwebswing.base.html.ListItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import javax.validation.constraints.NotNull;
+
+/**
+ * A particular crumb
+ *
+ * @param <J>
+ *
+ * @author GedMarc
+ * @version 1.0
+ * @since 31 Dec 2016
+ */
+public class BSBreadcrumbItem<J extends BSBreadcrumbItem<J>>
+		extends ListItem<J>
+		implements BSBreadcrumbsChildren, IBSBreadcrumb<J>
+{
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The actual link for the crumb
+	 */
+	private Link crumbLink;
+
+	/**
+	 * Construct with a link and text to show
+	 *
+	 * @param crumbLink
+	 */
+	@SuppressWarnings("")
+	public BSBreadcrumbItem(Link crumbLink)
+	{
+		this();
+		setCrumbLink(crumbLink);
+	}
+
+	/**
+	 * Constructs a particular crumb
+	 */
+	public BSBreadcrumbItem()
+	{
+		addClass(BSComponentBreadcrumbOptions.Breadcrumb_Item);
+	}
+
+	/**
+	 * Adds a link to the Breadcrumb Link
+	 *
+	 * @param link
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addLink(BSBreadCrumbLink link)
+	{
+		add(link);
+		return (J) this;
+	}
+
+	/**
+	 * Neater display
+	 *
+	 * @return
+	 */
+	public IBSBreadcrumb asMe()
+	{
+		return this;
+	}
+
+	/**
+	 * Returns the crumb link, never null
+	 *
+	 * @return
+	 */
+	@Override
+	public Link getCrumbLink()
+	{
+		if (crumbLink == null)
+		{
+			setCrumbLink(new Link(StaticStrings.STRING_HASH));
+		}
+		return crumbLink;
+	}
+
+	/**
+	 * Sets this crumb to display as active
+	 *
+	 * @param active
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setActive(boolean active)
+	{
+		if (active)
+		{
+			addClass(BSDefaultOptions.Active);
+		}
+		else
+		{
+			removeClass(BSDefaultOptions.Active);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Sets the given crumb link
+	 *
+	 * @param crumbLink
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCrumbLink(Link crumbLink)
+	{
+		if (this.crumbLink != null)
+		{
+			remove(this.crumbLink);
+			this.crumbLink = null;
+		}
+		this.crumbLink = crumbLink;
+		if (this.crumbLink != null)
+		{
+			add(this.crumbLink);
+		}
+		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		return super.equals(obj);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 7;
+		hash = 79 * hash + (this.getID().hashCode());
+		return hash;
+	}
+}

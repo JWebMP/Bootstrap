@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +27,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.forms.groups.sets.BSFormCheckInp
  */
 public class BSFormRadioInput extends BSFormCheckInput
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new Radio Input
 	 *
@@ -42,7 +42,7 @@ public class BSFormRadioInput extends BSFormCheckInput
 		addAttribute(GlobalAttributes.Name, groupName);
 		removeClass("form-control");
 	}
-	
+
 	/**
 	 * Sets this radio item as checked
 	 *
@@ -53,7 +53,7 @@ public class BSFormRadioInput extends BSFormCheckInput
 		addAttribute("checked", null);
 		return this;
 	}
-	
+
 	/**
 	 * Sets this radio item disabled
 	 *

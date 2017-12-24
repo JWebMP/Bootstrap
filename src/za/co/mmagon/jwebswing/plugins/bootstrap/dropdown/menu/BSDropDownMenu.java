@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,18 +32,18 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSDropDownChildren;
 public class BSDropDownMenu extends Div<BSDropDownMenuChildren, BSDropDownMenuAttributes, GlobalFeatures, BSDropDownMenuEvents, BSDropDownMenu>
 		implements BSDropDownChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A new drop down menu list
 	 */
 	public BSDropDownMenu()
 	{
 		addClass(BSComponentDropDownOptions.Dropdown_Menu);
-		
+
 	}
-	
+
 	/**
 	 * Menu alignment
 	 * <p>
@@ -58,5 +58,5 @@ public class BSDropDownMenu extends Div<BSDropDownMenuChildren, BSDropDownMenuAt
 		addClass(BSComponentDropDownOptions.Dropdown_Menu_Right);
 		return this;
 	}
-	
+
 }

@@ -19,26 +19,29 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.columnlayout;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.BaseTestClass;
+import za.co.mmagon.jwebswing.plugins.bootstrap.containers.BSColumn;
 import za.co.mmagon.jwebswing.plugins.bootstrap.containers.BSContainer;
-import za.co.mmagon.jwebswing.plugins.bootstrap.containers.BSContainerType;
+import za.co.mmagon.jwebswing.plugins.bootstrap.containers.BSRow;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSContainerOptions.Container;
 
 /**
  * @author GedMarc
  */
 public class BSContainerTest extends BaseTestClass
 {
-	
+
 	public BSContainerTest()
 	{
-	
+
 	}
-	
+
 	@Test
 	public void testNewInstance()
 	{
-		BSContainer.newInstance(BSContainerType.Container);
+		BSContainer.newInstance(Container);
 	}
-	
+
 	@Test
 	public void testContainer()
 	{
@@ -46,11 +49,14 @@ public class BSContainerTest extends BaseTestClass
 		b.setID("id");
 		System.out.println(b.toString(true));
 		Assertions.assertEquals("<div class=\"container-fluid\" id=\"id\"></div>", b.toString(true));
-		
-		b.setContainerType(BSContainerType.Container);
+
+		b.setContainerType(Container);
 		System.out.println(b.toString(true));
 		Assertions.assertEquals("<div class=\"container\" id=\"id\"></div>", b.toString(true));
 		soutDivider();
+
+		b.add(BSRow.newInstance().add(BSColumn.newInstance()));
+		System.out.println(b.toString(0));
 	}
 
 }

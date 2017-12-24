@@ -19,8 +19,8 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.menu;
 import za.co.mmagon.jwebswing.base.html.Italic;
 import za.co.mmagon.jwebswing.base.html.Link;
 import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSComponentDropDownOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.options.BSDefaultOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import java.util.Objects;
@@ -75,6 +75,28 @@ public class BSDropDownMenuItem extends Link implements BSDropDownMenuChildren
 		return this;
 	}
 
+	@Override
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
+
+			Italic i = new Italic();
+			if (iconClass != null && !iconClass.isEmpty())
+			{
+				i.addClass(iconClass);
+			}
+			setText(i.toString(true) + getText(getCurrentTabIndents()).toString());
+		}
+		super.preConfigure();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(super.hashCode(), getIconClass());
+	}
+
 	/**
 	 * Sets the icon class
 	 *
@@ -99,30 +121,8 @@ public class BSDropDownMenuItem extends Link implements BSDropDownMenuChildren
 	}
 
 	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-
-			Italic i = new Italic();
-			if (iconClass != null && !iconClass.isEmpty())
-			{
-				i.addClass(iconClass);
-			}
-			setText(i.toString(true) + getText(getCurrentTabIndents()).toString());
-		}
-		super.preConfigure();
-	}
-
-	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return Objects.hash(super.hashCode(), getIconClass());
 	}
 }

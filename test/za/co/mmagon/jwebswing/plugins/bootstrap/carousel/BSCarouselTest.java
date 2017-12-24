@@ -27,25 +27,25 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.carousel.events.BSCarouselSlidEv
  */
 public class BSCarouselTest extends BaseTestClass
 {
-	
+
 	public BSCarouselTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
-		
+
 		BSCarousel car = new BSCarousel();
 		BSCarouselItem ci = new BSCarouselItem();
 		ci.addCaption(new BSCarouselCaption("Caption"));
 		car.getSlides().add(ci);
-		
+
 		car.setAnimateOnLoad(true);
-		
+
 		System.out.println(car.toString(true));
 	}
-	
+
 	@Test
 	public void testOnDemand()
 	{
@@ -53,7 +53,7 @@ public class BSCarouselTest extends BaseTestClass
 		BSCarouselItem ci = new BSCarouselItem();
 		ci.addCaption(new BSCarouselCaption("Caption"));
 		car.getSlides().add(ci);
-		
+
 		car.addEvent(new BSCarouselSlidEvent(car)
 		{
 			@Override
@@ -61,7 +61,7 @@ public class BSCarouselTest extends BaseTestClass
 			{
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
-			
+
 		});
 	}
 

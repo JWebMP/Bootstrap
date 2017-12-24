@@ -33,13 +33,13 @@ public class BSButtonGroupLabel<J extends BSButtonGroupLabel<J, I>, I extends BS
 		extends BSButton<J>
 		implements BSButtonGroupChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The group button input for the label
 	 */
 	private I input;
-	
+
 	/**
 	 * Construct a new button group label item for an input component
 	 *
@@ -52,7 +52,7 @@ public class BSButtonGroupLabel<J extends BSButtonGroupLabel<J, I>, I extends BS
 		setRenderTextBeforeChildren(false);
 		this.input = input;
 	}
-	
+
 	/**
 	 * Construct a new button group label item for an input component
 	 *
@@ -67,27 +67,7 @@ public class BSButtonGroupLabel<J extends BSButtonGroupLabel<J, I>, I extends BS
 		setRenderTextBeforeChildren(false);
 		this.input = input;
 	}
-	
-	/**
-	 * Returns the associated input component if any exists
-	 *
-	 * @return
-	 */
-	public I getInput()
-	{
-		return input;
-	}
-	
-	/**
-	 * Sets the associated input component if any exists
-	 *
-	 * @param input
-	 */
-	public void setInput(I input)
-	{
-		this.input = input;
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -106,7 +86,27 @@ public class BSButtonGroupLabel<J extends BSButtonGroupLabel<J, I>, I extends BS
 		BSButtonGroupLabel<?, ?> that = (BSButtonGroupLabel<?, ?>) o;
 		return Objects.equals(getInput(), that.getInput());
 	}
-	
+
+	/**
+	 * Returns the associated input component if any exists
+	 *
+	 * @return
+	 */
+	public I getInput()
+	{
+		return input;
+	}
+
+	/**
+	 * Sets the associated input component if any exists
+	 *
+	 * @param input
+	 */
+	public void setInput(I input)
+	{
+		this.input = input;
+	}
+
 	@Override
 	public int hashCode()
 	{

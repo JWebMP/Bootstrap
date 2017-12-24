@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,19 +26,19 @@ import java.util.List;
  */
 public interface IBSFormInputGroup
 {
-	
+
 	/**
 	 * @return
 	 */
 	List<Span> getInputGroupAddons();
-	
+
 	/**
 	 * Sets the input group addons to the right
 	 *
 	 * @return
 	 */
 	List<Span> getInputGroupAddonsRight();
-	
+
 	/**
 	 * The input group addons
 	 *
@@ -47,7 +47,7 @@ public interface IBSFormInputGroup
 	 * @return
 	 */
 	BSFormInputGroup setInputGroupAddons(List<Span> inputGroupAddons);
-	
+
 	/**
 	 * Sets the input group addons to the right
 	 *
@@ -56,5 +56,5 @@ public interface IBSFormInputGroup
 	 * @return
 	 */
 	BSFormInputGroup setInputGroupAddonsRight(List<Span> inputGroupAddonsRight);
-	
+
 }

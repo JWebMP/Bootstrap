@@ -14,39 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.containers;
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;
 
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
-
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import za.co.mmagon.jwebswing.base.interfaces.ICSSClassName;
 
 /**
+ * Defines any class that is registered as a bootstrap associated class
+ *
  * @author GedMarc
- * @version 1.0
- * @since Oct 11, 2016
+ * @since 2016/10/10
  */
-public enum BSContainerType
+@FunctionalInterface
+public interface IBSComponentOptions extends ICSSClassName
 {
+
 	/**
-	 * fixed-width
+	 * Replaces the text with its HTML class equivalent
+	 *
+	 * @return
 	 */
-	Container,
-	/**
-	 * full width
-	 * Default is this
-	 */
-	Container_Fluid;
-
-	BSContainerType()
-	{
-
-	}
-
 	@Override
-	public String toString()
-	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
-	}
+	String toString();
 
-
+	/**
+	 * Default name method for enumerations
+	 *
+	 * @return
+	 */
+	String name();
 }

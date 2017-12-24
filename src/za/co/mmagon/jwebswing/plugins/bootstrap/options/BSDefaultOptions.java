@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_SPACE;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc
@@ -26,22 +26,16 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_SPACE;
  */
 public enum BSDefaultOptions implements IBSComponentOptions
 {
-	/**
-	 * A bs row
-	 */
-	Row,
+
 	/**
 	 * Only do it when coming in (or hiding?)
 	 */
-	In,
+	Show,
 	/**
 	 * Only do it when going out (or showing
 	 */
-	Out,
-	/**
-	 * The primary font
-	 */
-	Primary_Font,
+	Hide,
+
 	/**
 	 * Place to the left
 	 */
@@ -66,42 +60,13 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	 * Highlights text: Highlighted text
 	 */
 	Mark,
-	/**
-	 * Indicates left_aligned text
-	 */
-	Text_Left,
-	/**
-	 * Indicates center_aligned text
-	 */
-	Text_Center,
-	/**
-	 * Indicates right_aligned text
-	 */
-	Text_Right,
+
 	/**
 	 * Indicates justified text
 	 */
 	Text_Justify,
-	/**
-	 * Indicates text that is muted
-	 */
-	Text_Muted,
-	/**
-	 * Indicates no wrap text
-	 */
-	Text_NoWrap,
-	/**
-	 * Indicates lowercased text: LOWERCASED TEXT
-	 */
-	Text_Lowercase,
-	/**
-	 * Indicates uppercased text: uppercased text
-	 */
-	Text_Uppercase,
-	/**
-	 * Indicates capitalized text: capitalized text
-	 */
-	Text_Capitalize,
+
+
 	/**
 	 * Displays the text inside the &lt;abbr&gt; element in a slightly smaller font size
 	 */
@@ -110,10 +75,7 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	 * The .invisible class can be used to toggle only the visibility of an element, meaning its display is not modified and the element can still affect the flow of the document. Displays the item as
 	 */
 	Invisible,
-	/**
-	 * Indicates a blockquote with right_aligned content
-	 */
-	Blockquote_reverse,
+
 	/**
 	 * Removes the default list_style and left margin on list items (works on both &lt;ul&gt; and &lt;ol&gt;) This class only applies to immediate children list items (to remove the default list_style
 	 * from any nested lists, apply this class to any nested lists as well)
@@ -123,6 +85,12 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	 * Places all list items on a single line
 	 */
 	List_Inline,
+	/**
+	 * Remove a list’s bullets and apply some light margin with a combination of two classes, .list-inline and .list-inline-item.
+	 */
+	List_Inline_Item,
+
+
 	/**
 	 * Lines up the terms and descriptions in the &lt;dl&gt; element side_by_side Starts off like default &lt;dl&gt;s, but when the browser window expands, it will line up side_by_side
 	 */
@@ -147,10 +115,7 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	 * Sets an element to display:block with margin_right:auto and margin_left:auto
 	 */
 	Center_Block,
-	/**
-	 * Forces an element to be shown
-	 */
-	Show,
+
 	/**
 	 * Forces an element to be hidden
 	 */
@@ -168,58 +133,8 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	 * Indicates dropdown functionality (will reverse automatically in dropup menus)
 	 */
 	Caret,
-	/**
-	 * Adds rounded corners to an image (not available in IE8)
-	 */
-	Img_Rounded,
-	/**
-	 * Shapes the image to a circle (not available in IE8)
-	 */
-	Img_Circle,
-	/**
-	 * Shapes the image to a thumbnail
-	 */
-	Img_Thumbnail,
-	/**
-	 * Makes an image responsive (will scale nicely to the parent element)
-	 */
-	Img_Responsive,
-	/**
-	 * Adds basic styling (light padding and only horizontal dividers) to any &lt;table&gt;
-	 */
-	Table,
-	/**
-	 * Adds zebra_striping to any table row within &lt;tbody&gt; (not available in IE8)
-	 */
-	Table_Striped,
-	/**
-	 * Adds border on all sides of the table and cells
-	 */
-	Table_Bordered,
-	/**
-	 * Enables a hover state on table rows within a &lt;tbody&gt;
-	 */
-	Table_Hover,
-	/**
-	 * Makes table more compact by cutting cell padding in half
-	 */
-	Table_Condensed,
-	/**
-	 * Indicates a successful or positive action
-	 */
-	Success,
-	/**
-	 * Indicates a neutral informative change or action
-	 */
-	Info,
-	/**
-	 * Indicates a warning that might need attention
-	 */
-	Warning,
-	/**
-	 * Indicates a dangerous or potentially negative action
-	 */
-	Danger,
+
+
 	/**
 	 * Indicates a dropdown menu
 	 */
@@ -320,7 +235,7 @@ public enum BSDefaultOptions implements IBSComponentOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replaceAll("\\$", STRING_SPACE).replaceAll("_", "-");
+		return name().toLowerCase().replaceAll("\\$", STRING_SPACE).replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 
 }

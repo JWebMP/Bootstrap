@@ -17,9 +17,13 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.badge;
 
 import za.co.mmagon.jwebswing.base.html.Span;
+import za.co.mmagon.jwebswing.base.html.attributes.ALinkAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
+import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * With badges
@@ -39,31 +43,32 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.BootstrapPageConfigurator;
 public class BSBadge<J extends BSBadge<J>>
 		extends Span<GlobalChildren, BSBadgeAttributes, J> implements IBSBadge<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * With badges
 	 * <p>
 	 * Add badges to any list group item to show unread counts, activity, and more with the help of some utilities. Note the justify-content-between utility class and the badge’s placement.
 	 *
 	 * @param asPill
-	 * @param badgeOptions start with "badge"
+	 * @param badgeOptions
+	 * 		start with "badge"
 	 */
-	public BSBadge(boolean asPill, BSComponentBadgeOptions... badgeOptions)
+	public BSBadge(boolean asPill, BSBadgeOptions... badgeOptions)
 	{
-		addClass(BSComponentBadgeOptions.Badge);
+		addClass(BSBadgeOptions.Badge);
 		if (asPill)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Pill);
+			addClass(BSBadgeOptions.Badge_Pill);
 		}
-		for (BSComponentBadgeOptions badgeOption : badgeOptions)
+		for (BSBadgeOptions badgeOption : badgeOptions)
 		{
 			addClass(badgeOption);
 		}
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
-	
+
 	/**
 	 * With badges
 	 * <p>
@@ -71,56 +76,84 @@ public class BSBadge<J extends BSBadge<J>>
 	 *
 	 * @param text
 	 * @param asPill
-	 * @param badgeOptions start with "badge"
+	 * @param badgeOptions
+	 * 		start with "badge"
 	 */
-	public BSBadge(String text, boolean asPill, BSComponentBadgeOptions... badgeOptions)
+	public BSBadge(String text, boolean asPill, BSBadgeOptions... badgeOptions)
 	{
 		super(text);
-		addClass(BSComponentBadgeOptions.Badge);
+		addClass(BSBadgeOptions.Badge);
 		if (asPill)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Pill);
+			addClass(BSBadgeOptions.Badge_Pill);
 		}
-		for (BSComponentBadgeOptions badgeOption : badgeOptions)
+		for (BSBadgeOptions badgeOption : badgeOptions)
 		{
 			addClass(badgeOption);
 		}
-		BootstrapPageConfigurator.setRequired(this, true);
+
 	}
-	
+
 	/**
 	 * Neater output
 	 *
 	 * @return
 	 */
+	@NotNull
 	public IBSBadge asMe()
 	{
 		return this;
 	}
-	
+
 	/**
-	 * Primary colour theme
+	 * Configures badge as a link with hover and active styles
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLink(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			setTag(ComponentTypes.Link.getComponentTag());
+			addAttribute(ALinkAttributes.HRef.toString(), StaticStrings.STRING_HASH);
+		}
+		else
+		{
+			setTag(ComponentTypes.Span.getComponentTag());
+			removeAttribute(ALinkAttributes.HRef.toString());
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
 	 *
 	 * @param applyStyle
 	 *
 	 * @return
 	 */
 	@Override
-	public J setPrimary(boolean applyStyle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDanger(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Primary);
+			addClass(BSBadgeOptions.Badge_Danger);
 		}
 		else
-		
+
 		{
-			removeClass(BSComponentBadgeOptions.Badge_Primary);
+			removeClass(BSBadgeOptions.Badge_Danger);
 		}
-		
+
 		return (J) this;
 	}
-	
+
 	/**
 	 * Default colour theme
 	 *
@@ -129,21 +162,23 @@ public class BSBadge<J extends BSBadge<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setDefault(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Default);
+			addClass(BSBadgeOptions.Badge_Default);
 		}
 		else
-		
+
 		{
-			removeClass(BSComponentBadgeOptions.Badge_Default);
+			removeClass(BSBadgeOptions.Badge_Default);
 		}
-		
+
 		return (J) this;
 	}
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -152,43 +187,47 @@ public class BSBadge<J extends BSBadge<J>>
 	 * @return
 	 */
 	@Override
-	public J setDanger(boolean applyStyle)
-	{
-		if (applyStyle)
-		{
-			addClass(BSComponentBadgeOptions.Badge_Danger);
-		}
-		else
-		
-		{
-			removeClass(BSComponentBadgeOptions.Badge_Danger);
-		}
-		
-		return (J) this;
-	}
-	
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setInfo(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Info);
+			addClass(BSBadgeOptions.Badge_Info);
 		}
 		else
 		{
-			removeClass(BSComponentBadgeOptions.Badge_Info);
+			removeClass(BSBadgeOptions.Badge_Info);
 		}
-		
+
 		return (J) this;
 	}
-	
+
+	/**
+	 * Primary colour theme
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPrimary(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSBadgeOptions.Badge_Primary);
+		}
+		else
+
+		{
+			removeClass(BSBadgeOptions.Badge_Primary);
+		}
+
+		return (J) this;
+	}
+
 	/**
 	 * Set or remove the style
 	 *
@@ -197,19 +236,21 @@ public class BSBadge<J extends BSBadge<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setSuccess(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Success);
+			addClass(BSBadgeOptions.Badge_Success);
 		}
 		else
 		{
-			removeClass(BSComponentBadgeOptions.Badge_Success);
+			removeClass(BSBadgeOptions.Badge_Success);
 		}
 		return (J) this;
 	}
-	
+
 	/**
 	 * Set or remove the style
 	 *
@@ -218,19 +259,65 @@ public class BSBadge<J extends BSBadge<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setWarning(boolean applyStyle)
 	{
 		if (applyStyle)
 		{
-			addClass(BSComponentBadgeOptions.Badge_Warning);
+			addClass(BSBadgeOptions.Badge_Warning);
 		}
 		else
 		{
-			removeClass(BSComponentBadgeOptions.Badge_Warning);
+			removeClass(BSBadgeOptions.Badge_Warning);
 		}
 		return (J) this;
 	}
-	
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDark(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSBadgeOptions.Badge_Dark);
+		}
+		else
+		{
+			removeClass(BSBadgeOptions.Badge_Dark);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Set or remove the style
+	 *
+	 * @param applyStyle
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLight(boolean applyStyle)
+	{
+		if (applyStyle)
+		{
+			addClass(BSBadgeOptions.Badge_Light);
+		}
+		else
+		{
+			removeClass(BSBadgeOptions.Badge_Light);
+		}
+		return (J) this;
+	}
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -248,7 +335,7 @@ public class BSBadge<J extends BSBadge<J>>
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
@@ -256,5 +343,5 @@ public class BSBadge<J extends BSBadge<J>>
 		hash = 79 * hash + (this.getID().hashCode());
 		return hash;
 	}
-	
+
 }

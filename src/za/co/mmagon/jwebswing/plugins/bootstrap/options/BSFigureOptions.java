@@ -14,37 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions;
-
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
-
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+package za.co.mmagon.jwebswing.plugins.bootstrap.options;
 
 /**
- * Use .d-block, .d-inline, or .d-inline-block to simply set an element’s display property to block, inline, or inline-block (respectively).
+ * Clearfix
+ * <p>
+ * Easily clear floats by adding .clearfix to the parent element. Utilizes the micro clearfix as popularized by Nicolas Gallagher. Can also be used as a mixin.
  *
  * @author GedMarc
  * @version 1.0
  * @since 31 Dec 2016
  */
-public enum BSDisplayOptions implements IBSComponentOptions
+public enum BSFigureOptions implements IBSComponentOptions
 {
-	/**
-	 * Sets the display property to block
-	 */
-	Block,
-	/**
-	 * Sets the display property to inline
-	 */
-	Inline,
-	/**
-	 * Sets the display property to inline block
-	 */
-	Inline_Block;
+	Figure_Img,
+	Figure_Caption;
 
 	@Override
 	public String toString()
 	{
-		return "d-" + name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		return name().toLowerCase();
 	}
 }

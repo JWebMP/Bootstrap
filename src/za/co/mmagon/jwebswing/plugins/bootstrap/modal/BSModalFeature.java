@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,13 +31,13 @@ import java.util.Objects;
  */
 public class BSModalFeature extends Feature<BSModalOptions, BSModalFeature> implements BSModalFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The options for the modal
 	 */
 	private BSModalOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -49,7 +49,7 @@ public class BSModalFeature extends Feature<BSModalOptions, BSModalFeature> impl
 		super("BSModalFeature");
 		setComponent(forComponent);
 	}
-	
+
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -65,13 +65,13 @@ public class BSModalFeature extends Feature<BSModalOptions, BSModalFeature> impl
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
 		//Nothing Needed
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -90,7 +90,7 @@ public class BSModalFeature extends Feature<BSModalOptions, BSModalFeature> impl
 		BSModalFeature that = (BSModalFeature) o;
 		return Objects.equals(getOptions(), that.getOptions());
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

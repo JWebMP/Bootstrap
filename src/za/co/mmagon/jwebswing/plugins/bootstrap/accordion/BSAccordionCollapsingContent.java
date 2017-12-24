@@ -36,6 +36,16 @@ public class BSAccordionCollapsingContent<J extends BSAccordionCollapsingContent
 	 */
 	private BSAccordionContent accordionContent;
 
+	@Override
+	public void init()
+	{
+		if (!isInitialized())
+		{
+			add(getAccordionContent());
+		}
+		super.init();
+	}
+
 	/**
 	 * The actual content
 	 *
@@ -61,16 +71,6 @@ public class BSAccordionCollapsingContent<J extends BSAccordionCollapsingContent
 	{
 		this.accordionContent = accordionContent;
 		return (J) this;
-	}
-
-	@Override
-	public void init()
-	{
-		if (!isInitialized())
-		{
-			add(getAccordionContent());
-		}
-		super.init();
 	}
 
 	@Override

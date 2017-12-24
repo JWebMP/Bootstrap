@@ -32,11 +32,11 @@ import java.util.Objects;
 public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		extends List<ListChildren, NoAttributes, BSCarouselEvents, J> implements BSCarouselChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private final BSCarousel carousel;
-	
+
 	/**
 	 * The indicators for the bootstrap carousel
 	 *
@@ -48,7 +48,7 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		this.carousel = carousel;
 		addClass(BSComponentCarouselOptions.Carousel_Indicators);
 	}
-	
+
 	/**
 	 *
 	 */
@@ -65,17 +65,7 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		}
 		super.init();
 	}
-	
-	/**
-	 * Returns the associated carousel
-	 *
-	 * @return
-	 */
-	public BSCarousel getCarousel()
-	{
-		return carousel;
-	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -94,7 +84,17 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		BSCarouselIndicators<?> that = (BSCarouselIndicators<?>) o;
 		return Objects.equals(getCarousel(), that.getCarousel());
 	}
-	
+
+	/**
+	 * Returns the associated carousel
+	 *
+	 * @return
+	 */
+	public BSCarousel getCarousel()
+	{
+		return carousel;
+	}
+
 	@Override
 	public int hashCode()
 	{

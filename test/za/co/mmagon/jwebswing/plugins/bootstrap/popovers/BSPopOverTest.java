@@ -25,23 +25,23 @@ import za.co.mmagon.jwebswing.Page;
  */
 public class BSPopOverTest extends BaseTestClass
 {
-	
+
 	public BSPopOverTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
 		BSPopOver popOver = new BSPopOver(null);
-		
+
 		System.out.println(popOver.toString(true));
 		System.out.println(popOver.renderJavascript());
-		
+
 		Page p = getInstance();
 		//p.getOptions().setBootstrapEnabled(true);
 		p.getBody().add(popOver);
-		
+
 		System.out.println(p.toString(true));
 	}
 

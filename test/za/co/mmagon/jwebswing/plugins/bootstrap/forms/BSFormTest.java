@@ -35,12 +35,12 @@ public class BSFormTest extends BaseTestClass
 	public BSFormTest()
 	{
 	}
-	
+
 	@org.junit.jupiter.api.Test
 	void addSubmitButton()
 	{
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testEmailForm()
@@ -55,7 +55,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testEmailFormAngular()
@@ -69,13 +69,13 @@ public class BSFormTest extends BaseTestClass
 		group.setRequiredMessage("Required");
 		group.setID("group");
 		group.setAngularValidation(true);
-		
+
 		group.setHelpText("Default Help Text");
-		
+
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testPasswordEntryForm()
@@ -90,7 +90,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testSelectEntryForm()
@@ -106,7 +106,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testSelectMultipleEntryForm()
@@ -122,7 +122,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testTextArea()
@@ -136,7 +136,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testFileInput()
@@ -150,7 +150,7 @@ public class BSFormTest extends BaseTestClass
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testFieldSet()
@@ -159,21 +159,21 @@ public class BSFormTest extends BaseTestClass
 		form.setID("form");
 		BSFormSet fieldSet = new BSFormSet();
 		form.add(fieldSet);
-		
+
 		BSFormSetLegend legend = new BSFormSetLegend("legend text");
 		fieldSet.add(legend);
-		
+
 		BSFormCheckGroup radioGroup = new BSFormCheckGroup(new BSFormLabel("radioGroup"), new BSFormRadioInput("group 1"), "help text", "value");
 		fieldSet.add(radioGroup);
-		
+
 		BSFormCheckboxInput check = new BSFormCheckboxInput("checkbox");
 		BSFormCheckGroup checkGroup = new BSFormCheckGroup(new BSFormLabel("checkboxGroup"), check, "help text", "value");
 		fieldSet.add(checkGroup);
-		
+
 		System.out.println(form.toString(true));
-		
+
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testInputColour()
@@ -185,7 +185,7 @@ public class BSFormTest extends BaseTestClass
 		group.setID("group");
 		System.out.println(group.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testInputCDate()
@@ -195,10 +195,10 @@ public class BSFormTest extends BaseTestClass
 		input.toString(true);
 		BSFormGroup group = new BSFormGroup(new BSFormLabel("input"), input, null);
 		group.setID("group");
-		
+
 		System.out.println(group.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testAngular()
@@ -210,16 +210,16 @@ public class BSFormTest extends BaseTestClass
 		BSFormGroup group = new BSFormGroup(new BSFormLabel("input"), input, null);
 		group.setID("group");
 		group.setAngularValidation(true);
-		
+
 		group.setPatternMessage("test pattern message");
 		group.setRequiredMessage("test required message");
 		group.setMinMessage("test min message");
 		group.setMaxMessage("test max message");
-		
+
 		form.add(group);
 		System.out.println(form.toString(true));
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testInputGroups()
@@ -227,14 +227,14 @@ public class BSFormTest extends BaseTestClass
 		BSFormDateInput input = new BSFormDateInput();
 		input.setID("input");
 		//input.toString(true);
-		
+
 		BSFormInputGroup inputGroup = new BSFormInputGroup(input);
 		inputGroup.getInputGroupAddons().add(new Span("@"));
 		//System.out.println(inputGroup);
-		
+
 		BSFormGroup group = new BSFormGroup(new BSFormLabel("input"), inputGroup, null);
 		group.setID("group");
-		
+
 		System.out.println(group.toString(true));
 	}
 }

@@ -20,7 +20,8 @@ import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
-import za.co.mmagon.jwebswing.plugins.bootstrap.componentoptions.BSColoursOptions;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSTypographyOptions.Text_Muted;
 
 /**
  * Subtitles are used by adding a .card-subtitle to an h* tag.
@@ -64,8 +65,7 @@ public class BSCardSubtitle extends HeaderText implements BSCardChildren
 	{
 		super(headerType, text);
 		addClass(BSComponentCardOptions.Card_Subtitle);
-		addClass("mb-2");
-		addClass(BSColoursOptions.Text_Muted);
+		addClass(Text_Muted);
 	}
 
 }

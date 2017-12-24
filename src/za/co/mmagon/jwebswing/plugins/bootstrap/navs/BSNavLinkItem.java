@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +27,9 @@ import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
  */
 public class BSNavLinkItem extends Link implements BSNavsChildren
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A navigation link item
 	 *
@@ -41,7 +41,7 @@ public class BSNavLinkItem extends Link implements BSNavsChildren
 		addAttribute(LinkAttributes.HRef, url);
 		addClass(BSComponentNavsOptions.Nav_Link);
 	}
-	
+
 	/**
 	 * Sets this link item active
 	 *
@@ -52,7 +52,7 @@ public class BSNavLinkItem extends Link implements BSNavsChildren
 		addClass(BSComponentNavsOptions.Active);
 		return this;
 	}
-	
+
 	/**
 	 * Sets this link item disabled
 	 *
@@ -63,5 +63,5 @@ public class BSNavLinkItem extends Link implements BSNavsChildren
 		addClass(BSComponentNavsOptions.Disabled);
 		return this;
 	}
-	
+
 }

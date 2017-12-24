@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,13 +31,13 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.BSButton;
  */
 public class BSDropDownSplitButton extends BSDropDown
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public BSDropDownSplitButton(BSButton actionButton)
 	{
 		add(actionButton);
 		getDropdownButton().addClass(BSComponentDropDownOptions.Dropdown_Toggle_Split);
 	}
-	
+
 }

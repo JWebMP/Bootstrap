@@ -23,16 +23,16 @@ import org.junit.jupiter.api.Test;
  */
 public class BSJumbotronTest
 {
-	
+
 	public BSJumbotronTest()
 	{
 	}
-	
+
 	@Test
 	public void testSomeMethod()
 	{
 		BSJumbotron jumbo = new BSJumbotron(BSComponentJumbotronOptions.Jumbotron);
-		
+
 		System.out.println(jumbo.toString(true));
 	}
 

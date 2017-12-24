@@ -55,6 +55,25 @@ public class BSAccordionHeader<J extends BSAccordionHeader<J>> extends H5<J>
 		addClass("mb-0");
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof BSAccordionHeader))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+		BSAccordionHeader<?> that = (BSAccordionHeader<?>) o;
+		return Objects.equals(getAccordionHeaderLink(), that.getAccordionHeaderLink());
+	}
+
 	/**
 	 * Gets the current link
 	 *
@@ -89,25 +108,6 @@ public class BSAccordionHeader<J extends BSAccordionHeader<J>> extends H5<J>
 			add(this.accordionHeaderLink);
 		}
 		return (J) this;
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSAccordionHeader))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSAccordionHeader<?> that = (BSAccordionHeader<?>) o;
-		return Objects.equals(getAccordionHeaderLink(), that.getAccordionHeaderLink());
 	}
 
 	@Override

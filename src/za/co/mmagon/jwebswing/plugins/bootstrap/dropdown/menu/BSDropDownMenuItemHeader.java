@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.menu;
 
 import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
+import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSComponentDropDownOptions;
 
 /**
@@ -29,9 +30,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.dropdown.BSComponentDropDownOpti
  */
 public class BSDropDownMenuItemHeader extends BSDropDownMenuItem
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Menu headers
 	 * <p>
@@ -44,7 +45,7 @@ public class BSDropDownMenuItemHeader extends BSDropDownMenuItem
 		super(text);
 		config();
 	}
-	
+
 	/**
 	 * Menu headers
 	 * <p>
@@ -59,13 +60,13 @@ public class BSDropDownMenuItemHeader extends BSDropDownMenuItem
 		setRenderTextBeforeChildren(false);
 		config();
 	}
-	
+
 	/**
 	 * Sets tag to h6 and applies classes
 	 */
 	private void config()
 	{
-		setTag("h6");
+		setTag(ComponentTypes.Header6.getComponentTag());
 		addClass(BSComponentDropDownOptions.Dropdown_Header);
 		removeClass(BSComponentDropDownOptions.Dropdown_Item.toString());
 		getAttributes().remove(LinkAttributes.HRef.toString());
