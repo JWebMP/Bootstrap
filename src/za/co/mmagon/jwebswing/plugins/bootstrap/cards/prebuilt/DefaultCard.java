@@ -164,6 +164,10 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 			}
 		}
 
+		if (contentBlock != null && !contentBlock.getChildren().isEmpty())
+		{
+			add(contentBlock);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -174,6 +178,7 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 			if (contentBlock == null)
 			{
 				contentBlock = new BSCardBody();
+				add(contentBlock);
 			}
 			for (BSCardLink link : getCardLinks())
 			{
@@ -270,6 +275,7 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 		if (cardBody == null)
 		{
 			this.cardBody = new BSCardBody();
+			this.contentBlock = this.cardBody;
 		}
 		return cardBody;
 	}

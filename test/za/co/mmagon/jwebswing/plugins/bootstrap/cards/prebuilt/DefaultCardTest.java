@@ -80,6 +80,14 @@ public class DefaultCardTest extends BaseTestClass
 		System.out.println(impl.toString(0));
 	}
 
+	@Test
+	public void testToCardBody()
+	{
+		DefaultCardImpl impl = new DefaultCardImpl();
+		impl.getCardBody().add("TestBody");
+		System.out.println(impl.toString(0));
+	}
+
 	public static class DefaultCardImpl extends DefaultCard<DefaultCardImpl>
 	{
 
