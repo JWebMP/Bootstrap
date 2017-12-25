@@ -57,7 +57,7 @@ public class BSTable<J extends BSTable<J>> extends Table<J>
 	}
 
 	/**
-	 * Add .table-hover to enable a hover state on table rows within a <tbody>.
+	 * Add .table-hover to enable a hover state on table rows within a tbody.
 	 *
 	 * @param hovered
 	 *
