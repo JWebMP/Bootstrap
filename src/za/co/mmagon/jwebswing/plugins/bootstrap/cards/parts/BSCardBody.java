@@ -21,7 +21,7 @@ import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * @param <J>
@@ -30,7 +30,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardBody<J extends BSCardBody<J>> extends Div<BSCardChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+public class BSCardBody<J extends BSCardBody<J>>
+		extends Div<BSCardChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSCardChildren
 {
 
@@ -38,7 +39,7 @@ public class BSCardBody<J extends BSCardBody<J>> extends Div<BSCardChildren, NoA
 
 	public BSCardBody()
 	{
-		addClass(BSComponentCardOptions.Card_Body);
+		addClass(BSCardOptions.Card_Body);
 	}
 
 }

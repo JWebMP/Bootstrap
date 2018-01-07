@@ -18,7 +18,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 
 import za.co.mmagon.jwebswing.base.html.Paragraph;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * @param <J>
@@ -38,7 +38,7 @@ public class BSCardText<J extends BSCardText<J>>
 	 */
 	public BSCardText()
 	{
-		addClass(BSComponentCardOptions.Card_Text);
+		addClass(BSCardOptions.Card_Text);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class BSCardText<J extends BSCardText<J>>
 	public BSCardText(String text)
 	{
 		super(text);
-		addClass(BSComponentCardOptions.Card_Text);
+		addClass(BSCardOptions.Card_Text);
 	}
 
 }

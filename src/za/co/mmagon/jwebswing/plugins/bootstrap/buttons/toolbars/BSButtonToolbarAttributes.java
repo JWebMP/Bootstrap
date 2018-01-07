@@ -24,10 +24,11 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 /**
  * @author GedMarc
  */
-public enum BSButtonToolbarAttributes implements AttributeDefinitions
+enum BSButtonToolbarAttributes implements AttributeDefinitions
 {
 	Role,
-	Visibility;
+	Visibility,
+	Btn_Toolbar;
 
 	private boolean isKeyword;
 

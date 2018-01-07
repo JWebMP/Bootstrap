@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 import za.co.mmagon.jwebswing.base.html.Image;
 import za.co.mmagon.jwebswing.base.html.attributes.ImageAttributes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Image overlays
@@ -30,7 +30,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardImageBottom extends Image<BSCardImageBottom>
+public class BSCardImageBottom<J extends BSCardImageBottom<J>>
+		extends Image<J>
 		implements BSCardChildren
 {
 
@@ -57,7 +58,7 @@ public class BSCardImageBottom extends Image<BSCardImageBottom>
 	{
 		super(imageUrl);
 		addAttribute(ImageAttributes.Src, imageUrl);
-		addClass(BSComponentCardOptions.Card_Img_Bottom);
+		addClass(BSCardOptions.Card_Img_Bottom);
 	}
 
 }

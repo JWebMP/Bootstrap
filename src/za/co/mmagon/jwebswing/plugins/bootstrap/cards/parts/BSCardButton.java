@@ -27,7 +27,9 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  * @author GedMarc
  * @since 16 Feb 2017
  */
-public class BSCardButton extends BSButton implements BSCardChildren
+public class BSCardButton<J extends BSCardButton<J>>
+		extends BSButton<J>
+		implements BSCardChildren
 {
 
 	private static final long serialVersionUID = 1L;

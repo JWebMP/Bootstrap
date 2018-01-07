@@ -53,7 +53,7 @@ public class BSAlertDismissButton extends BSCloseIcon
 	@SuppressWarnings("unchecked")
 	public BSAlertDismissButton(BSAlert alert, boolean fade)
 	{
-		addAttribute(ButtonAttributes.Data_Dismiss, BSAlertOptions.Alert.toString());
+		addAttribute(ButtonAttributes.Data_Dismiss, BSAlertOptions.Alert);
 		alert.addClass(BSAlertOptions.Alert_Dismissible);
 		if (fade)
 		{

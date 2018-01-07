@@ -64,7 +64,7 @@ public class BSCard<J extends BSCard<J>> extends Div<BSCardChildren, BSCardAttri
 	public BSCard(String text)
 	{
 		super(text);
-		addClass(BSComponentCardOptions.Card);
+		addClass(BSCardOptions.Card);
 	}
 
 	/**

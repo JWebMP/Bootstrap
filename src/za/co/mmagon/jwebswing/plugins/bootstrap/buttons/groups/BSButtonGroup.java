@@ -22,6 +22,12 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.toolbars.BSButtonToolbarChildren;
 
+import javax.validation.constraints.NotNull;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups.BSButtonGroupAttributes.Data_Toggle;
+import static za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups.BSButtonGroupAttributes.Role;
+import static za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups.BSComponentButtonGroupOptions.Btn_Group;
+
 /**
  * Button group
  * <p>
@@ -34,7 +40,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.toolbars.BSButtonToolbar
  */
 @ComponentInformation(name = "Bootstrap Button Groups", description = "Group a series of buttons together on a single line with the button group. Add on optional JavaScript radio and checkbox style behavior with our buttons plugin.",
 		url = "https://v4-alpha.getbootstrap.com/components/button-group/", wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
-public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttributes, GlobalFeatures, BSButtonGroupEvents, BSButtonGroup>
+public class BSButtonGroup<J extends BSButtonGroup<J>>
+		extends Div<BSButtonGroupChildren, BSButtonGroupAttributes, GlobalFeatures, BSButtonGroupEvents, J>
 		implements BSButtonToolbarChildren, IBSButtonGroup
 {
 
@@ -65,8 +72,9 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 		{
 			setAriaLabel(optionalArialLabel[0]);
 		}
-		addClass(BSComponentButtonGroupOptions.Btn_Group);
-		addAttribute(BSButtonGroupAttributes.Data_Toggle, "buttons");
+		addClass(Btn_Group);
+		addAttribute(Data_Toggle, "buttons");
+		addAttribute(Role, "group");
 	}
 
 	/**
@@ -77,10 +85,12 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 	 * @return
 	 */
 	@Override
-	public final BSButtonGroup setAriaLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public final J setAriaLabel(String label)
 	{
 		addAttribute(GlobalAttributes.Aria_Label, label);
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -93,14 +103,16 @@ public class BSButtonGroup extends Div<BSButtonGroupChildren, BSButtonGroupAttri
 	 * @return
 	 */
 	@Override
-	public BSButtonGroup setSize(BSComponentButtonGroupSizeOptions size)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSize(BSComponentButtonGroupSizeOptions size)
 	{
 		for (BSComponentButtonGroupSizeOptions value : BSComponentButtonGroupSizeOptions.values())
 		{
 			removeClass(value.toString());
 		}
 		addClass(size);
-		return this;
+		return (J) this;
 	}
 
 	/**

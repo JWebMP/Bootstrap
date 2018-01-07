@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Columns
@@ -37,7 +37,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardColumns extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, BSCardColumns> implements GlobalChildren
+public class BSCardColumns<J extends BSCardColumns<J>>
+		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements GlobalChildren
 {
 
 	private static final long serialVersionUID = 1L;
@@ -53,7 +55,7 @@ public class BSCardColumns extends Div<BSCard, NoAttributes, GlobalFeatures, Glo
 	 */
 	public BSCardColumns()
 	{
-		addClass(BSComponentCardOptions.Card_Columns);
+		addClass(BSCardOptions.Card_Columns);
 	}
 
 	@Override

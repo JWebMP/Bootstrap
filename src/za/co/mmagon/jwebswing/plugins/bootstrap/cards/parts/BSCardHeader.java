@@ -24,7 +24,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Header and footer
@@ -60,7 +60,7 @@ public class BSCardHeader<J extends BSCardHeader<J>> extends Div<GlobalChildren,
 	public BSCardHeader(String text)
 	{
 		super(text);
-		addClass(BSComponentCardOptions.Card_Header);
+		addClass(BSCardOptions.Card_Header);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class BSCardHeader<J extends BSCardHeader<J>> extends Div<GlobalChildren,
 	{
 		super();
 		add(new HeaderText(headerType, text));
-		addClass(BSComponentCardOptions.Card_Header);
+		addClass(BSCardOptions.Card_Header);
 	}
 
 }

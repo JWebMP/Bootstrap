@@ -44,7 +44,7 @@ public enum BSColumnOptions implements IBSComponentOptions
 	/**
 	 * Variable width content on the given size
 	 */
-	Col_Xs_Auto,
+	Col_Auto,
 	/**
 	 * Variable width content on the given size
 	 */
@@ -64,51 +64,51 @@ public enum BSColumnOptions implements IBSComponentOptions
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_1,
+	Col_1,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_2,
+	Col_2,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_3,
+	Col_3,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_4,
+	Col_4,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_5,
+	Col_5,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_6,
+	Col_6,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_7,
+	Col_7,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_8,
+	Col_8,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_9,
+	Col_9,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_10,
+	Col_10,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_11,
+	Col_11,
 	/**
 	 * From size XS the size should be 1
 	 */
-	Col_Xs_12,
+	Col_12,
 	/**
 	 * From size SM (small) the size should be 1
 	 */

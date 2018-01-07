@@ -55,7 +55,7 @@ public class BSButtonToolbarTest extends BaseTestClass
 		System.out.println(bbt.toString(true));
 
 		Assertions.assertEquals("<div aria_label=\"Button Toolbar\" class=\"btn-toolbar\" id=\"toolbar\" role=\"toolbar\">\n" +
-				                        "\t<div class=\"btn-group\" data-toggle=\"buttons\" id=\"group\">\n" +
+				                        "\t<div class=\"btn-group\" data-toggle=\"buttons\" id=\"group\" role=\"group\">\n" +
 				                        "\t\t<label class=\"btn\" id=\"label\" type=\"button\">\n" +
 				                        "\t\t\t<input autocomplete=\"off\" id=\"label\" type=\"radio\">stuff\n" +
 				                        "\t\t</label>\n" +

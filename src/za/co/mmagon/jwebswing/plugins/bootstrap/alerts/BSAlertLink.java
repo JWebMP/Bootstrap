@@ -27,7 +27,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
  * @version 1.0
  * @since 31 Dec 2016
  */
-public class BSAlertLink extends Link
+public class BSAlertLink<J extends BSAlertLink<J>> extends Link<J>
 {
 
 	private static final long serialVersionUID = 1L;

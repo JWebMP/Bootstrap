@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Header and footer
@@ -33,7 +33,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardFooter extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, BSCardFooter> implements BSCardChildren
+public class BSCardFooter<J extends BSCardFooter<J>>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren
 {
 
 	private static final long serialVersionUID = 1L;
@@ -59,7 +61,7 @@ public class BSCardFooter extends Div<GlobalChildren, NoAttributes, GlobalFeatur
 	{
 		super(text);
 
-		addClass(BSComponentCardOptions.Card_Footer);
+		addClass(BSCardOptions.Card_Footer);
 	}
 
 }

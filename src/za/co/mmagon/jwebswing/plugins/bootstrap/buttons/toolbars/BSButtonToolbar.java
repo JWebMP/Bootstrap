@@ -33,7 +33,9 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  */
 @ComponentInformation(name = "Bootstrap Toolbar", description = "Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.",
 		url = "https://v4-alpha.getbootstrap.com/components/button-group/", wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
-public class BSButtonToolbar extends Div<BSButtonToolbarChildren, BSButtonToolbarAttributes, GlobalFeatures, BSButtonToolbarEvents, BSButtonToolbar> implements IBSButtonToolbar
+public class BSButtonToolbar<J extends BSButtonToolbar<J>>
+		extends Div<BSButtonToolbarChildren, BSButtonToolbarAttributes, GlobalFeatures, BSButtonToolbarEvents, J>
+		implements IBSButtonToolbar
 {
 
 	private static final long serialVersionUID = 1L;
@@ -47,7 +49,7 @@ public class BSButtonToolbar extends Div<BSButtonToolbarChildren, BSButtonToolba
 	{
 		addAttribute(BSButtonToolbarAttributes.Role, "toolbar");
 		setAriaLabel("Button Toolbar");
-		addClass(BSComponentButtonToolbarOptions.Btn_Toolbar);
+		addClass(BSButtonToolbarAttributes.Btn_Toolbar.toString());
 
 	}
 

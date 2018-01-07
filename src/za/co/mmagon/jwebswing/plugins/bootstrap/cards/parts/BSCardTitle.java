@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Subtitles are used by adding a .card-subtitle to an h* tag.
@@ -32,7 +32,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardTitle extends HeaderText
+public class BSCardTitle<J extends BSCardTitle<J>>
+		extends HeaderText<J>
 		implements BSCardChildren
 {
 
@@ -63,7 +64,7 @@ public class BSCardTitle extends HeaderText
 	public BSCardTitle(HeaderTypes headerType, String text)
 	{
 		super(headerType, text);
-		addClass(BSComponentCardOptions.Card_Title);
+		addClass(BSCardOptions.Card_Title);
 	}
 
 }

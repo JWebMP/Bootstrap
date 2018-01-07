@@ -25,7 +25,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.alerts;
  * @version 1.0
  * @since 31 Dec 2016
  */
-public class BSAlertDanger extends BSAlert
+public class BSAlertDanger<J extends BSAlertDanger<J>> extends BSAlert<J>
 {
 
 	private static final long serialVersionUID = 1L;

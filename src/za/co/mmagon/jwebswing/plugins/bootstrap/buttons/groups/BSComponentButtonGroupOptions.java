@@ -20,6 +20,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_UNDERSCORE;
 
 /**
  * Button group
@@ -46,6 +47,6 @@ public enum BSComponentButtonGroupOptions implements IBSComponentOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		return name().toLowerCase().replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

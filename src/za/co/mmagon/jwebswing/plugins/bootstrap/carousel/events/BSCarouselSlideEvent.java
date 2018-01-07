@@ -30,12 +30,15 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+
 /**
  * Handles all events. Over-ride methods.
  *
  * @author Marc Magon
  */
-public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>> extends Event<JavaScriptPart, J>
+public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>> extends Event<J>
 		implements GlobalEvents, BSAlertEvents
 {
 
@@ -79,7 +82,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>> ex
 		if (!isConfigured())
 		{
 			getComponent().getPage().getAngular().getAngularDirectives().add(getDirective());
-			getComponent().addAttribute("ng-bs-carousel-slide-directive", "perform($event," + renderVariables() + ");");
+			getComponent().addAttribute("ng-bs-carousel-slide-directive", STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}

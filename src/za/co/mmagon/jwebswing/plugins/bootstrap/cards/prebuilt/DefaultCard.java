@@ -1,5 +1,6 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.cards.prebuilt;
 
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.H1;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts.*;
@@ -20,6 +21,8 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSTypographyOptio
  */
 public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 {
+	private List<ComponentHierarchyBase> cardItems;
+
 	private BSCardHeader<?> containerHeader;
 
 	private BSCardImageTop cardImageTop;
@@ -87,6 +90,28 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	{
 		this(headerText, cardImage, cardTitle, cardSubTitle, null);
 	}
+/*
+	public BSCardHeader addHeader()
+	{
+		//Adds a header to the card
+	}
+
+	public BSCardHeader addHeader(String title)
+	{
+		//Adds a header to the card
+	}
+
+	public BSCardHeader addHeader(String title, String subtitle)
+	{
+		//Adds a header to the card
+	}
+
+	public BSCardHeader addHeader(String title, String subtitle)
+	{
+		//Adds a header to the card
+	}
+
+*/
 
 	@Override
 	@SuppressWarnings("unchecked")

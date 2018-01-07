@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Need a set of equal width and height cards that aren’t attached to one another? Use card decks.
@@ -31,7 +31,9 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardDeck extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, BSCardDeck> implements GlobalChildren
+public class BSCardDeck<J extends BSCardDeck<J>>
+		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements GlobalChildren
 {
 
 	private static final long serialVersionUID = 1L;
@@ -42,6 +44,6 @@ public class BSCardDeck extends Div<BSCard, NoAttributes, GlobalFeatures, Global
 	 */
 	public BSCardDeck()
 	{
-		addClass(BSComponentCardOptions.Card_Deck);
+		addClass(BSCardOptions.Card_Deck);
 	}
 }

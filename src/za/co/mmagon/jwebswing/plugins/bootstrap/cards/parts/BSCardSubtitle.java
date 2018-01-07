@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSTypographyOptions.Text_Muted;
 
@@ -34,7 +34,8 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap.options.BSTypographyOptio
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardSubtitle extends HeaderText implements BSCardChildren
+public class BSCardSubtitle<J extends BSCardSubtitle<J>>
+		extends HeaderText<J> implements BSCardChildren
 {
 
 	private static final long serialVersionUID = 1L;
@@ -64,7 +65,7 @@ public class BSCardSubtitle extends HeaderText implements BSCardChildren
 	public BSCardSubtitle(HeaderTypes headerType, String text)
 	{
 		super(headerType, text);
-		addClass(BSComponentCardOptions.Card_Subtitle);
+		addClass(BSCardOptions.Card_Subtitle);
 		addClass(Text_Muted);
 	}
 

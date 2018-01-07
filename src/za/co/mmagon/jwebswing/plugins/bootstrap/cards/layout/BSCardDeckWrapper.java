@@ -20,7 +20,7 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Need a set of equal width and height cards that aren’t attached to one another? Use card decks. By default, card decks require two wrapping elements: .card-deck-wrapper and a .card-deck. We use
@@ -30,7 +30,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardDeckWrapper extends Div<BSCardDeck, NoAttributes, GlobalFeatures, GlobalEvents, BSCardDeckWrapper>
+public class BSCardDeckWrapper<J extends BSCardDeckWrapper<J>>
+		extends Div<BSCardDeck, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -41,6 +42,6 @@ public class BSCardDeckWrapper extends Div<BSCardDeck, NoAttributes, GlobalFeatu
 	 */
 	public BSCardDeckWrapper()
 	{
-		addClass(BSComponentCardOptions.Card_Deck);
+		addClass(BSCardOptions.Card_Deck);
 	}
 }

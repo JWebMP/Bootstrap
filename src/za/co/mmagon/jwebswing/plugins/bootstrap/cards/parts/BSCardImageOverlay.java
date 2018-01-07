@@ -17,7 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Image overlays
@@ -28,7 +28,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardImageOverlay<J extends BSCardImageOverlay<J>> extends BSCardBody<J>
+public class BSCardImageOverlay<J extends BSCardImageOverlay<J>>
+		extends BSCardBody<J>
 		implements BSCardChildren
 {
 
@@ -54,8 +55,8 @@ public class BSCardImageOverlay<J extends BSCardImageOverlay<J>> extends BSCardB
 	public BSCardImageOverlay(String text)
 	{
 		add(text, true);
-		removeClass(BSComponentCardOptions.Card_Body);
-		addClass(BSComponentCardOptions.Card_Img_Overlay);
+		removeClass(BSCardOptions.Card_Body);
+		addClass(BSCardOptions.Card_Img_Overlay);
 	}
 
 }

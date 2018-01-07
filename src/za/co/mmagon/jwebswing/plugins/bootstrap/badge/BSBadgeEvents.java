@@ -23,7 +23,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public interface BSBadgeEvents extends GlobalEvents
+interface BSBadgeEvents extends GlobalEvents
 {
 
 }

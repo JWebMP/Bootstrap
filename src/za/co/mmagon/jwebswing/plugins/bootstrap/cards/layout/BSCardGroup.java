@@ -21,7 +21,7 @@ import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCard;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Groups
@@ -32,7 +32,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSCardGroup extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, BSCardGroup>
+public class BSCardGroup<J extends BSCardGroup<J>>
+		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -49,6 +50,6 @@ public class BSCardGroup extends Div<BSCard, NoAttributes, GlobalFeatures, Globa
 	 */
 	public BSCardGroup()
 	{
-		addClass(BSComponentCardOptions.Card_Group);
+		addClass(BSCardOptions.Card_Group);
 	}
 }

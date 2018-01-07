@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.cards.parts;
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Link;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * In the same way, links are added and placed next to each other by adding .card-link to an a tag.
@@ -40,7 +40,7 @@ public class BSCardLink<J extends BSCardLink<J>>
 	 */
 	public BSCardLink()
 	{
-		addClass(BSComponentCardOptions.Card_Link);
+		addClass(BSCardOptions.Card_Link);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class BSCardLink<J extends BSCardLink<J>>
 	public BSCardLink(String directToAddress)
 	{
 		super(directToAddress);
-		addClass(BSComponentCardOptions.Card_Link);
+		addClass(BSCardOptions.Card_Link);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class BSCardLink<J extends BSCardLink<J>>
 	public BSCardLink(String directToAddress, String targetFrameName)
 	{
 		super(directToAddress, targetFrameName);
-		addClass(BSComponentCardOptions.Card_Link);
+		addClass(BSCardOptions.Card_Link);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class BSCardLink<J extends BSCardLink<J>>
 	public BSCardLink(String directToAddress, String targetFrameName, String text)
 	{
 		super(directToAddress, targetFrameName, text);
-		addClass(BSComponentCardOptions.Card_Link);
+		addClass(BSCardOptions.Card_Link);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class BSCardLink<J extends BSCardLink<J>>
 	public BSCardLink(String directToAddress, String targetFrameName, ComponentHierarchyBase component)
 	{
 		super(directToAddress, targetFrameName, component);
-		addClass(BSComponentCardOptions.Card_Link);
+		addClass(BSCardOptions.Card_Link);
 	}
 
 }

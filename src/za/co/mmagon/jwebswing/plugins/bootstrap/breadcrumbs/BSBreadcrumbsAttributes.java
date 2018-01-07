@@ -17,12 +17,15 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap.breadcrumbs;
 
 import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_UNDERSCORE;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_EMPTY;
 
 /**
  * @author GedMarc
  */
-public enum BSBreadcrumbsAttributes implements AttributeDefinitions
+enum BSBreadcrumbsAttributes implements AttributeDefinitions
 {
 	Visibility;
 
@@ -46,6 +49,6 @@ public enum BSBreadcrumbsAttributes implements AttributeDefinitions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, '-').replace("$", "");
+		return name().toLowerCase().replace(CHAR_UNDERSCORE, CHAR_DASH).replace("$", STRING_EMPTY);
 	}
 }

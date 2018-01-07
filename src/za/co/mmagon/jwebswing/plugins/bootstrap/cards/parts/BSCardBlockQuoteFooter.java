@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSComponentCardOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap.cards.BSCardOptions;
 
 /**
  * Block quote format for inside a bootstrap card
@@ -43,6 +43,6 @@ public class BSCardBlockQuoteFooter<J extends BSCardBlockQuoteFooter<J>>
 	public BSCardBlockQuoteFooter()
 	{
 		setTag("footer");
-		addClass(BSComponentCardOptions.BlockQuote_Footer);
+		addClass(BSCardOptions.BlockQuote_Footer);
 	}
 }

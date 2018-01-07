@@ -14,7 +14,8 @@ import javax.validation.constraints.NotNull;
 
 @ComponentInformation(name = "Bootstrap Breadcrumbs", description = "Indicate the current page’s location within a navigational hierarchy. Separators are automatically added in CSS through ::before and content.",
 		url = "https://v4-alpha.getbootstrap.com/components/breadcrumb/", wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
-public class BSBreadCrumb<J extends BSBreadCrumb<J>> extends Div<BSBreadcrumbContainer, NoAttributes, GlobalFeatures, GlobalEvents, J>
+public class BSBreadCrumb<J extends BSBreadCrumb<J>>
+		extends Div<BSBreadcrumbContainer, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 	private static final String NavigationString = "navigation";
 	private static final String BreadCrumbsString = "breadcrumbs";

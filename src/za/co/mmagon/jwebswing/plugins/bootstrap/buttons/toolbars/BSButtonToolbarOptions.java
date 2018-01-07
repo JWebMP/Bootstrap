@@ -20,6 +20,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap.options.IBSComponentOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_UNDERSCORE;
 
 /**
  * Button toolbar
@@ -30,7 +31,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public enum BSComponentButtonToolbarOptions implements IBSComponentOptions
+public enum BSButtonToolbarOptions implements IBSComponentOptions
 {
 	/**
 	 * Button toolbar
@@ -42,6 +43,6 @@ public enum BSComponentButtonToolbarOptions implements IBSComponentOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		return name().toLowerCase().replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

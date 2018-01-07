@@ -25,7 +25,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap.buttons.groups;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public class BSButtonGroupVertical extends BSButtonGroup
+public class BSButtonGroupVertical<J extends BSButtonGroupVertical<J>> extends BSButtonGroup<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -38,6 +38,6 @@ public class BSButtonGroupVertical extends BSButtonGroup
 	public BSButtonGroupVertical()
 	{
 		addClass(BSComponentButtonGroupOptions.Btn_Group_Vertical);
-		removeClass(BSComponentButtonGroupOptions.Btn_Group.toString());
+		removeClass(BSComponentButtonGroupOptions.Btn_Group);
 	}
 }

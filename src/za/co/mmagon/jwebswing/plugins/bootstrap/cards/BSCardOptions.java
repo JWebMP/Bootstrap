@@ -32,7 +32,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_UNDERSCORE;
  * @version 1.0
  * @since 01 Jan 2017
  */
-public enum BSComponentCardOptions implements IBSComponentOptions
+public enum BSCardOptions implements IBSComponentOptions
 {
 	/**
 	 * Cards
