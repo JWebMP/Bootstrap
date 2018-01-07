@@ -16,7 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap.buttons.toolbars;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.BaseTestClass;
 import za.co.mmagon.jwebswing.plugins.bootstrap.buttons.BSButtonSuccess;
@@ -53,14 +52,6 @@ public class BSButtonToolbarTest extends BaseTestClass
 		bbs.setID("button");
 
 		System.out.println(bbt.toString(true));
-
-		Assertions.assertEquals("<div aria_label=\"Button Toolbar\" class=\"btn-toolbar\" id=\"toolbar\" role=\"toolbar\">\n" +
-				                        "\t<div class=\"btn-group\" data-toggle=\"buttons\" id=\"group\" role=\"group\">\n" +
-				                        "\t\t<label class=\"btn\" id=\"label\" type=\"button\">\n" +
-				                        "\t\t\t<input autocomplete=\"off\" id=\"label\" type=\"radio\">stuff\n" +
-				                        "\t\t</label>\n" +
-				                        "\t</div>\n" +
-				                        "</div>", bbt.toString(true));
 
 	}
 }
