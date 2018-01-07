@@ -90,6 +90,8 @@ public class DefaultCard<J extends DefaultCard<J>> extends BSCard<J>
 	{
 		this(headerText, cardImage, cardTitle, cardSubTitle, null);
 	}
+
+
 /*
 	public BSCardHeader addHeader()
 	{

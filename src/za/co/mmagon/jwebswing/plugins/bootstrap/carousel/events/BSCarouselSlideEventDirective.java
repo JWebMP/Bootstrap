@@ -25,8 +25,7 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
-public class BSCarouselSlideEventDirective extends AngularDirectiveBase
-
+class BSCarouselSlideEventDirective extends AngularDirectiveBase
 {
 
 	private static final long serialVersionUID = 1L;
