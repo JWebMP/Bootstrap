@@ -1,4 +1,4 @@
-/*! tether 1.4.0 */
+/*! tether 1.4.3 */
 
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -98,7 +98,7 @@
             var overflowX = _style.overflowX;
             var overflowY = _style.overflowY;
 
-            if (/(auto|scroll)/.test(overflow + overflowY + overflowX)) {
+            if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
                 if (position !== 'absolute' || ['relative', 'absolute', 'fixed'].indexOf(style.position) >= 0) {
                     parents.push(parent);
                 }
@@ -162,7 +162,6 @@
         }
         zeroElement = null;
     }
-
     function getBounds(el) {
         var doc = undefined;
         if (el === document) {
@@ -510,7 +509,6 @@
                     _x8 = receiver;
                     _again = true;
                     desc = parent = undefined;
-
                 }
             } else if ('value' in desc) {
                 return desc.value;
@@ -586,7 +584,7 @@
     };
 
     function now() {
-        if (typeof performance !== 'undefined' && typeof performance.now !== 'undefined') {
+        if (typeof performance === 'object' && typeof performance.now === 'function') {
             return performance.now();
         }
         return +new Date();
@@ -1358,7 +1356,9 @@
 
                 if (!moved) {
                     if (this.options.bodyElement) {
-                        this.options.bodyElement.appendChild(this.element);
+                        if (this.element.parentNode !== this.options.bodyElement) {
+                            this.options.bodyElement.appendChild(this.element);
+                        }
                     } else {
                         var offsetParentIsBody = true;
                         var currentNode = this.element.parentNode;

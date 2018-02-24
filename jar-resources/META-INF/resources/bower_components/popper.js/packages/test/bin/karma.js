@@ -10,6 +10,4 @@ const server = new Server(karmaConfig, exitCode = > {
     console.log('Karma has exited with ' + exitCode);
 process.exit(exitCode);
 })
-;
-
 server.start();

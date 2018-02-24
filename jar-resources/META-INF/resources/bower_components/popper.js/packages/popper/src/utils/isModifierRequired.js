@@ -13,21 +13,16 @@ import find from './find';
 export default function isModifierRequired(modifiers,
                                            requestingName,
                                            requestedName) {
-    const requesting = find(modifiers, ({name}) = > name === requestingName
+    const requesting = find(modifiers, ({name}) = > name === requestingName;
 )
-    ;
-
     const isRequired =
         !!requesting &&
         modifiers.some(modifier = > {
             return(modifier.name === requestedName &&
         modifier.enabled &&
-        modifier.order < requesting.order
+        modifier.order < requesting.order;
 )
-    ;
 })
-    ;
-
     if (!isRequired) {
         const requesting = `\`${requestingName}\``;
         const requested = `\`${requestedName}\``;

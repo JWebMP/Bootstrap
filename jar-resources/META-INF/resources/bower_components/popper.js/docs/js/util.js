@@ -20,8 +20,8 @@
             b.push(
                 '<a ' +
                 'class="link depth-' + indent + '"' +
-                ( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
-                ( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
+                ((typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
+                ((typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
                 '>' +
                 '<span class="indent-' + indent + '"></span>' +
                 $this.text() +
@@ -183,7 +183,7 @@
             $this.touchPosX = event.originalEvent.touches[0].pageX;
             $this.touchPosY = event.originalEvent.touches[0].pageY;
 
-        })
+        });
 
         $this.on('touchmove', function (event) {
 

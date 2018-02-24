@@ -40,7 +40,11 @@ public enum BSDisplayOptions implements IBSComponentOptions
 	/**
 	 * Sets the display property to inline block
 	 */
-	Inline_Block;
+	Inline_Block,
+	/**
+	 * Displays as flex
+	 */
+	Flex;
 
 	@Override
 	public String toString()

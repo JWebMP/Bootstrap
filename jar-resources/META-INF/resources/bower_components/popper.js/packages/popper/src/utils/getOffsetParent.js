@@ -1,5 +1,4 @@
 import getStyleComputedProperty from './getStyleComputedProperty';
-
 /**
  * Returns the offset parent of the given element
  * @method
@@ -13,7 +12,11 @@ export default function getOffsetParent(element) {
     const nodeName = offsetParent && offsetParent.nodeName;
 
     if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
-        return window.document.documentElement;
+        if (element) {
+            return element.ownerDocument.documentElement
+    }
+
+        return document.documentElement;
     }
 
     // .offsetParent will return the closest TD or TABLE in case

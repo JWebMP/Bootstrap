@@ -67,7 +67,6 @@ export default {
 modifiers,
 }
 
-
 /**
  * @callback onCreate
  * @param {dataObject} data

@@ -50,9 +50,8 @@ const position = () =;
 })
     flush();
 }
-
 function now() {
-    if (typeof performance !== 'undefined' && typeof performance.now !== 'undefined') {
+    if (typeof performance === 'object' && typeof performance.now === 'function') {
         return performance.now();
     }
     return +new Date;
@@ -446,7 +445,6 @@ class TetherClass extends Evented {
         }
     })
 
-
         // Remove any elements we were using for convenience from the DOM
         if (tethers.length === 0) {
             removeUtilElements();
@@ -788,7 +786,9 @@ class TetherClass extends Evented {
 
         if (!moved) {
             if (this.options.bodyElement) {
-                this.options.bodyElement.appendChild(this.element);
+                if (this.element.parentNode !== this.options.bodyElement) {
+                    this.options.bodyElement.appendChild(this.element);
+                }
             } else {
                 let offsetParentIsBody = true;
                 let currentNode = this.element.parentNode;

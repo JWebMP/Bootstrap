@@ -28,20 +28,20 @@ const banner = `/**!
 const miniBanner = `/*
  Copyright (C) Federico Zivolo ${new Date().getFullYear()}
  Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
- */`
+ */`;
 
 bundle({
-    moduleName: 'Popper',
-    entry: 'src/index.js',
-    dest: 'popper.js',
+    name: 'Popper',
+    input: 'src/index.js',
+    file: 'popper.js',
     banner,
     miniBanner,
 });
 
 bundle({
-    moduleName: 'PopperUtils',
-    entry: 'src/utils/index.js',
-    dest: 'popper-utils.js',
+    name: 'PopperUtils',
+    input: 'src/utils/index.js',
+    file: 'popper-utils.js',
     banner,
     miniBanner,
 });

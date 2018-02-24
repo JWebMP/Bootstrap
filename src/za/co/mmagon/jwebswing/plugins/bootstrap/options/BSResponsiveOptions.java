@@ -23,15 +23,22 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 /**
  * Responsive utilities
  * <p>
- * For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query. Also included are utility classes for toggling content when printed.
+ * For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query. Also
+ * included are utility classes for toggling content when printed.
  * <p>
- * Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device’s presentation. Available classes
+ * Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement
+ * each device’s presentation. Available classes
  * <p>
- * The .hidden-*-up classes hide the element when the viewport is at the given breakpoint or wider. For example, .hidden-md-up hides an element on medium, large, and extra-large viewports. The
- * .hidden-*-down classes hide the element when the viewport is at the given breakpoint or smaller. For example, .hidden-md-down hides an element on extra-small, small, and medium viewports. There are
- * no explicit “visible”/”show” responsive utility classes; you make an element visible by simply not hiding it at that breakpoint size. You can combine one .hidden-*-up class with one .hidden-*-down
- * class to show an element only on a given interval of screen sizes. For example, .hidden-sm-down.hidden-xl-up shows the element only on medium and large viewports. Using multiple .hidden-*-up
- * classes or multiple .hidden-*-down classes is redundant and pointless. These classes don’t attempt to accommodate less common cases where an element’s visibility can’t be expressed as a single
+ * The .hidden-*-up classes hide the element when the viewport is at the given breakpoint or wider. For example, .hidden-md-up hides an
+ * element on medium, large, and extra-large viewports. The
+ * .hidden-*-down classes hide the element when the viewport is at the given breakpoint or smaller. For example, .hidden-md-down hides an
+ * element on extra-small, small, and medium viewports. There are
+ * no explicit “visible”/”show” responsive utility classes; you make an element visible by simply not hiding it at that breakpoint size.
+ * You can combine one .hidden-*-up class with one .hidden-*-down
+ * class to show an element only on a given interval of screen sizes. For example, .hidden-sm-down.hidden-xl-up shows the element only on
+ * medium and large viewports. Using multiple .hidden-*-up
+ * classes or multiple .hidden-*-down classes is redundant and pointless. These classes don’t attempt to accommodate less common cases
+ * where an element’s visibility can’t be expressed as a single
  * contiguous range of viewport breakpoint sizes; you will instead need to use custom CSS in such cases.
  *
  * @author GedMarc
@@ -40,64 +47,54 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
  */
 public enum BSResponsiveOptions implements IBSComponentOptions
 {
+	Hidden("d-none"),
 	/**
 	 * Hide this component when small only
 	 */
-	Hidden_SM,
+	Hidden_SM("d-sm-none"),
 	/**
 	 * Hide this component extra small only
 	 */
-	Hidden_XS,
+	Hidden_XS("d-none"),
 	/**
 	 * Hide this component when medium
 	 */
-	Hidden_MD,
+	Hidden_MD("d-md-none"),
 	/**
 	 * Hide this component when large
 	 */
-	Hidden_LG,
+	Hidden_LG("d-lg-none"),
 	/**
 	 * Hide when XL
 	 */
-	Hidden_XL,
+	Hidden_XL("d-xl-none"),
 	/**
 	 * Hide for XS and SM
 	 */
-	Hidden_SM_Down,
+	Hidden_XS_Down("d-none d-sm-block"),
+	/**
+	 * Hide for XS and SM
+	 */
+	Hidden_SM_Down("d-none d-md-block"),
 	/**
 	 * Hide for XS, SM and MD
 	 */
-	Hidden_MD_Down,
+	Hidden_MD_Down("d-none d-lg-block"),
 	/**
 	 * Only display on XL
 	 */
-	Hidden_LG_Down,
-	/**
-	 * Invisible
-	 */
-	@Deprecated
-	Hidden_XL_Down,
-	/**
-	 * Hide for XS and UP (invisible
-	 */
-	@Deprecated
-	Hidden_XS_Up,
-	/**
-	 * Hide for SM and UP
-	 */
-	Hidden_SM_Up,
-	/**
-	 * Hide for MD screens and up
-	 */
-	Hidden_MD_Up,
-	/**
-	 * Hide for Large and up
-	 */
-	Hidden_LG_Up,;
+	Hidden_LG_Down("d-none d-xl-block"),;
+
+	private String newClasses;
 
 	BSResponsiveOptions()
 	{
 
+	}
+
+	BSResponsiveOptions(String newClasses)
+	{
+		this.newClasses = newClasses;
 	}
 
 	/**
@@ -108,7 +105,18 @@ public enum BSResponsiveOptions implements IBSComponentOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+		return getNewClasses().toLowerCase()
+				       .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+	}
+
+	public String getNewClasses()
+	{
+		return newClasses;
+	}
+
+	public void setNewClasses(String newClasses)
+	{
+		this.newClasses = newClasses;
 	}
 
 }

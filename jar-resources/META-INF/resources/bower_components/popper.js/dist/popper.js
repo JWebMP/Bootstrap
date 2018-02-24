@@ -1,6 +1,6 @@
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.5
+ * @version 1.12.9
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -22,20 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-const nativeHints = ['native code', '[object MutationObserverConstructor]'];
-
-/**
- * Determine if a function is implemented natively (as opposed to a polyfill).
- * @method
- * @memberof Popper.Utils
- * @argument {Function | undefined} fn the function to check
- * @returns {Boolean}
- */
-var isNative = (fn = > nativeHints.some(hint = > (fn || '').toString().indexOf(hint) > -1
-))
-;
-
-const isBrowser = typeof window !== 'undefined';
+const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 const longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
 let timeoutDuration = 0;
 for (let i = 0; i < longerTimeoutBrowsers.length; i += 1) {
@@ -46,36 +33,24 @@ for (let i = 0; i < longerTimeoutBrowsers.length; i += 1) {
 }
 
 function microtaskDebounce(fn) {
-    let scheduled = false;
-    let i = 0;
-    const elem = document.createElement('span');
-
-    // MutationObserver provides a mechanism for scheduling microtasks, which
-    // are scheduled *before* the next task. This gives us a way to debounce
-    // a function but ensure it's called *before* the next paint.
-    const observer = new MutationObserver(() = > {
-        fn();
-    scheduled = false;
-})
-    ;
-
-    observer.observe(elem, {attributes: true});
-
-    return () =
+    let called = false;
+    return () =;
 >
     {
-        if (!scheduled) {
-            scheduled = true;
-            elem.setAttribute('x-index', i);
-            i = i + 1; // don't use compund (+=) because it doesn't get optimized in V8
+        if (called) {
+            return;
         }
+        called = true;
+        window.Promise.resolve().then(() = > {
+            called = false;
+        fn();
+    })
     }
-    ;
 }
 
 function taskDebounce(fn) {
     let scheduled = false;
-    return () =
+    return () =;
 >
     {
         if (!scheduled) {
@@ -84,19 +59,13 @@ function taskDebounce(fn) {
                 scheduled = false;
             fn();
         },
-            timeoutDuration
+            timeoutDuration;
         )
-            ;
         }
     }
-    ;
 }
 
-// It's common for MutationObserver polyfills to be seen in the wild, however
-// these rely on Mutation Events which only occur when an element is connected
-// to the DOM. The algorithm used in this module does not use a connected element,
-// and so we must ensure that a *native* MutationObserver is available.
-const supportsNativeMutationObserver = isBrowser && isNative(window.MutationObserver);
+const supportsMicroTasks = isBrowser && window.Promise;
 
 /**
  * Create a debounced version of a method, that's asynchronously deferred
@@ -107,7 +76,7 @@ const supportsNativeMutationObserver = isBrowser && isNative(window.MutationObse
  * @argument {Function} fn
  * @returns {Function}
  */
-var debounce = supportsNativeMutationObserver ? microtaskDebounce : taskDebounce;
+var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
 
 /**
  * Check if the given variable is a function
@@ -133,7 +102,7 @@ function getStyleComputedProperty(element, property) {
         return [];
     }
     // NOTE: 1 DOM access here
-    const css = window.getComputedStyle(element, null);
+    const css = getComputedStyle(element, null);
     return property ? css[property] : css;
 }
 
@@ -160,8 +129,16 @@ function getParentNode(element) {
  */
 function getScrollParent(element) {
     // Return body, `getScroll` will take care to get the correct `scrollTop` from it
-    if (!element || ['HTML', 'BODY', '#document'].indexOf(element.nodeName) !== -1) {
-        return window.document.body;
+    if (!element) {
+        return document.body;
+    }
+
+    switch (element.nodeName) {
+        case 'HTML':
+        case 'BODY':
+            return element.ownerDocument.body;
+        case '#document':
+            return element.body;
     }
 
     // Firefox want us to check `-x` and `-y` variations as well
@@ -186,7 +163,11 @@ function getOffsetParent(element) {
     const nodeName = offsetParent && offsetParent.nodeName;
 
     if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
-        return window.document.documentElement;
+        if (element) {
+            return element.ownerDocument.documentElement;
+    }
+
+        return document.documentElement;
     }
 
     // .offsetParent will return the closest TD or TABLE in case
@@ -232,7 +213,7 @@ function getRoot(node) {
 function findCommonOffsetParent(element1, element2) {
     // This check is needed to avoid errors in case one of the elements isn't defined for any reason
     if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
-        return window.document.documentElement;
+        return document.documentElement;
     }
 
     // Here we make sure to give as "start" the element that comes first in the DOM
@@ -277,8 +258,8 @@ function getScroll(element, side = 'top') {
     const nodeName = element.nodeName;
 
     if (nodeName === 'BODY' || nodeName === 'HTML') {
-        const html = window.document.documentElement;
-        const scrollingElement = window.document.scrollingElement || html;
+        const html = element.ownerDocument.documentElement;
+        const scrollingElement = element.ownerDocument.scrollingElement || html;
         return scrollingElement[upperSide];
     }
 
@@ -319,7 +300,7 @@ function getBordersSize(styles, axis) {
     const sideA = axis === 'x' ? 'Left' : 'Top';
     const sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-    return +styles[`border${sideA}Width`].split('px')[0] + +styles[`border${sideB}Width`].split('px')[0];
+    return parseFloat(styles[`border${sideA}Width`], 10) + parseFloat(styles[`border${sideB}Width`], 10);
 }
 
 /**
@@ -342,9 +323,9 @@ function getSize(axis, body, html, computedStyle) {
 }
 
 function getWindowSizes() {
-    const body = window.document.body;
-    const html = window.document.documentElement;
-    const computedStyle = isIE10$1() && window.getComputedStyle(html);
+    const body = document.body;
+    const html = document.documentElement;
+    const computedStyle = isIE10$1() && getComputedStyle(html);
 
     return {
         height: getSize('Height', body, html, computedStyle),
@@ -445,8 +426,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
     const scrollParent = getScrollParent(children);
 
     const styles = getStyleComputedProperty(parent);
-    const borderTopWidth = +styles.borderTopWidth.split('px')[0];
-    const borderLeftWidth = +styles.borderLeftWidth.split('px')[0];
+    const borderTopWidth = parseFloat(styles.borderTopWidth, 10);
+    const borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
 
     let offsets = getClientRect({
         top: childrenRect.top - parentRect.top - borderTopWidth,
@@ -462,8 +443,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
     // differently when margins are applied to it. The margins are included in
     // the box of the documentElement, in the other cases not.
     if (!isIE10 && isHTML) {
-        const marginTop = +styles.marginTop.split('px')[0];
-        const marginLeft = +styles.marginLeft.split('px')[0];
+        const marginTop = parseFloat(styles.marginTop, 10);
+        const marginLeft = parseFloat(styles.marginLeft, 10);
 
         offsets.top -= borderTopWidth - marginTop;
         offsets.bottom -= borderTopWidth - marginTop;
@@ -483,7 +464,7 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
 }
 
 function getViewportOffsetRectRelativeToArtbitraryNode(element) {
-    const html = window.document.documentElement;
+    const html = element.ownerDocument.documentElement;
     const relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
     const width = Math.max(html.clientWidth, window.innerWidth || 0);
     const height = Math.max(html.clientHeight, window.innerHeight || 0);
@@ -542,12 +523,12 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
         // Handle other cases based on DOM element used as boundaries
         let boundariesNode;
         if (boundariesElement === 'scrollParent') {
-            boundariesNode = getScrollParent(getParentNode(popper));
+            boundariesNode = getScrollParent(getParentNode(reference));
             if (boundariesNode.nodeName === 'BODY') {
-                boundariesNode = window.document.documentElement;
+                boundariesNode = popper.ownerDocument.documentElement;
             }
         } else if (boundariesElement === 'window') {
-            boundariesNode = window.document.documentElement;
+            boundariesNode = popper.ownerDocument.documentElement;
         } else {
             boundariesNode = boundariesElement;
         }
@@ -619,16 +600,12 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
         key
     }, rects[key], {
         area: getArea(rects[key])
-    })
+    });
 ).
-    sort((a, b) = > b.area - a.area
+    sort((a, b) = > b.area - a.area;
 )
-    ;
-
-    const filteredAreas = sortedAreas.filter(({width, height}) = > width >= popper.clientWidth && height >= popper.clientHeight
+    const filteredAreas = sortedAreas.filter(({width, height}) = > width >= popper.clientWidth && height >= popper.clientHeight;
 )
-    ;
-
     const computedPlacement = filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key;
 
     const variation = placement.split('-')[1];
@@ -658,7 +635,7 @@ function getReferenceOffsets(state, popper, reference) {
  * @returns {Object} object containing width and height properties
  */
 function getOuterSizes(element) {
-    const styles = window.getComputedStyle(element);
+    const styles = getComputedStyle(element);
     const x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
     const y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
     const result = {
@@ -677,9 +654,8 @@ function getOuterSizes(element) {
  */
 function getOppositePlacement(placement) {
     const hash = {left: 'right', right: 'left', bottom: 'top', top: 'bottom'};
-    return placement.replace(/left|right|bottom|top/g, matched = > hash[matched]
+    return placement.replace(/left|right|bottom|top/g, matched = > hash[matched];
 )
-    ;
 }
 
 /**
@@ -752,15 +728,13 @@ function find(arr, check) {
 function findIndex(arr, prop, value) {
     // use native findIndex if supported
     if (Array.prototype.findIndex) {
-        return arr.findIndex(cur = > cur[prop] === value
+        return arr.findIndex(cur = > cur[prop] === value;
     )
-        ;
     }
 
     // use `find` + `indexOf` if `findIndex` isn't supported
-    const match = find(arr, obj = > obj[prop] === value
+    const match = find(arr, obj = > obj[prop] === value;
 )
-    ;
     return arr.indexOf(match);
 }
 
@@ -778,12 +752,13 @@ function runModifiers(modifiers, data, ends) {
     const modifiersToRun = ends === undefined ? modifiers : modifiers.slice(0, findIndex(modifiers, 'name', ends));
 
     modifiersToRun.forEach(modifier = > {
-        if(modifier.function
+        if(modifier['function'];
 )
     {
+        // eslint-disable-line dot-notation
         console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
     }
-    const fn = modifier.function || modifier.fn;
+    const fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
     if (modifier.enabled && isFunction(fn)) {
         // Add properties to offsets to make them a complete clientRect object
         // we do this before each modifier to make sure the previous one doesn't
@@ -794,8 +769,6 @@ function runModifiers(modifiers, data, ends) {
         data = fn(data, modifier);
     }
 })
-    ;
-
     return data;
 }
 
@@ -856,9 +829,8 @@ function update() {
  * @returns {Boolean}
  */
 function isModifierEnabled(modifiers, modifierName) {
-    return modifiers.some(({name, enabled}) = > enabled && name === modifierName
+    return modifiers.some(({name, enabled}) = > enabled && name === modifierName;
 )
-    ;
 }
 
 /**
@@ -875,7 +847,7 @@ function getSupportedPropertyName(property) {
     for (let i = 0; i < prefixes.length - 1; i++) {
         const prefix = prefixes[i];
         const toCheck = prefix ? `${prefix}${upperProp}` : property;
-        if (typeof window.document.body.style[toCheck] !== 'undefined') {
+        if (typeof document.body.style[toCheck] !== 'undefined') {
             return toCheck;
         }
     }
@@ -909,9 +881,19 @@ function destroy() {
     return this;
 }
 
+/**
+ * Get the window associated with the element
+ * @argument {Element} element
+ * @returns {Window}
+ */
+function getWindow(element) {
+    const ownerDocument = element.ownerDocument;
+    return ownerDocument ? ownerDocument.defaultView : window;
+}
+
 function attachToScrollParents(scrollParent, event, callback, scrollParents) {
     const isBody = scrollParent.nodeName === 'BODY';
-    const target = isBody ? window : scrollParent;
+    const target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
     target.addEventListener(event, callback, {passive: true});
 
     if (!isBody) {
@@ -929,7 +911,7 @@ function attachToScrollParents(scrollParent, event, callback, scrollParents) {
 function setupEventListeners(reference, options, state, updateBound) {
     // Resize event listener on window
     state.updateBound = updateBound;
-    window.addEventListener('resize', state.updateBound, {passive: true});
+    getWindow(reference).addEventListener('resize', state.updateBound, {passive: true});
 
     // Scroll event listener on scroll parents
     const scrollElement = getScrollParent(reference);
@@ -960,13 +942,12 @@ function enableEventListeners() {
  */
 function removeEventListeners(reference, state) {
     // Remove resize event listener on window
-    window.removeEventListener('resize', state.updateBound);
+    getWindow(reference).removeEventListener('resize', state.updateBound);
 
     // Remove scroll event listener on scroll parents
     state.scrollParents.forEach(target = > {
         target.removeEventListener('scroll', state.updateBound);
 })
-    ;
 
     // Reset state
     state.updateBound = null;
@@ -985,7 +966,7 @@ function removeEventListeners(reference, state) {
  */
 function disableEventListeners() {
     if (this.state.eventsEnabled) {
-        window.cancelAnimationFrame(this.scheduleUpdate);
+        cancelAnimationFrame(this.scheduleUpdate);
         this.state = removeEventListeners(this.reference, this.state);
     }
 }
@@ -1018,7 +999,6 @@ function setStyles(element, styles) {
     }
     element.style[prop] = styles[prop] + unit;
 })
-    ;
 }
 
 /**
@@ -1108,7 +1088,7 @@ function computeStyle(data, options) {
     const {popper} = data.offsets;
 
     // Remove this legacy support in Popper.js v2
-    const legacyGpuAccelerationOption = find(data.instance.modifiers, modifier = > modifier.name === 'applyStyle'
+    const legacyGpuAccelerationOption = find(data.instance.modifiers, modifier = > modifier.name === 'applyStyle';
 ).
     gpuAcceleration;
     if (legacyGpuAccelerationOption !== undefined) {
@@ -1198,15 +1178,11 @@ function computeStyle(data, options) {
  * @returns {Boolean}
  */
 function isModifierRequired(modifiers, requestingName, requestedName) {
-    const requesting = find(modifiers, ({name}) = > name === requestingName
+    const requesting = find(modifiers, ({name}) = > name === requestingName;
 )
-    ;
-
     const isRequired = !!requesting && modifiers.some(modifier = > {
         return modifier.name === requestedName && modifier.enabled && modifier.order < requesting.order;
 })
-    ;
-
     if (!isRequired) {
         const requesting = `\`${requestingName}\``;
         const requested = `\`${requestedName}\``;
@@ -1271,22 +1247,26 @@ function arrow(data, options) {
     if (reference[side] + arrowElementSize > popper[opSide]) {
         data.offsets.popper[side] += reference[side] + arrowElementSize - popper[opSide];
     }
+    data.offsets.popper = getClientRect(data.offsets.popper);
 
     // compute center of the popper
     const center = reference[side] + reference[len] / 2 - arrowElementSize / 2;
 
     // Compute the sideValue using the updated popper offsets
     // take popper margin in account because we don't have this info available
-    const popperMarginSide = getStyleComputedProperty(data.instance.popper, `margin${sideCapitalized}`).replace('px', '');
-    let sideValue = center - getClientRect(data.offsets.popper)[side] - popperMarginSide;
+    const css = getStyleComputedProperty(data.instance.popper);
+    const popperMarginSide = parseFloat(css[`margin${sideCapitalized}`], 10);
+    const popperBorderSide = parseFloat(css[`border${sideCapitalized}Width`], 10);
+    let sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
     // prevent arrowElement from being placed not contiguously to its popper
     sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
 
     data.arrowElement = arrowElement;
-    data.offsets.arrow = {};
-    data.offsets.arrow[side] = Math.round(sideValue);
-    data.offsets.arrow[altSide] = ''; // make sure to unset any eventual altSide value from the DOM node
+    data.offsets.arrow = {
+        [side]: Math.round(sideValue),
+        [altSide]: '' // make sure to unset any eventual altSide value from the DOM node
+    };
 
     return data;
 }
@@ -1406,7 +1386,7 @@ function flip(data, options) {
     }
 
     flipOrder.forEach((step, index) = > {
-        if(placement !== step || flipOrder.length === index + 1
+        if(placement !== step || flipOrder.length === index + 1;
 )
     {
         return data;
@@ -1454,7 +1434,6 @@ function flip(data, options) {
         data = runModifiers(data.instance.modifiers, data, 'flip');
     }
 })
-    ;
     return data;
 }
 
@@ -1558,16 +1537,13 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
 
     // Split the offset string to obtain a list of values and operands
     // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
-    const fragments = offset.split(/(\+|\-)/).map(frag = > frag.trim()
+    const fragments = offset.split(/(\+|\-)/).map(frag = > frag.trim();
 )
-    ;
 
     // Detect if the offset string contains a pair of values or a single one
     // they could be separated by comma or space
-    const divider = fragments.indexOf(find(fragments, frag = > frag.search(/,|\s/) !== -1)
+    const divider = fragments.indexOf(find(fragments, frag = > frag.search(/,|\s/) !== -1);
 )
-    ;
-
     if (fragments[divider] && fragments[divider].indexOf(',') === -1) {
         console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
     }
@@ -1586,7 +1562,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
     // This aggregates any `+` or `-` sign that aren't considered operators
     // e.g.: 10 + +5 => [10, +, +5]
         .reduce((a, b) = > {
-        if(a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1
+        if(a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1;
 )
     {
         a[a.length - 1] = b;
@@ -1602,28 +1578,24 @@ else
         return a.concat(b);
     }
 },
-    []
+    [];
 )
     // Here we convert the string values into number values (in px)
 .
-    map(str = > toValue(str, measurement, popperOffsets, referenceOffsets)
+    map(str = > toValue(str, measurement, popperOffsets, referenceOffsets);
 )
-    ;
 })
-    ;
 
     // Loop trough the offsets arrays and execute the operations
     ops.forEach((op, index) = > {
         op.forEach((frag, index2) = > {
-        if(isNumeric(frag)
+        if(isNumeric(frag);
 )
     {
         offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
     }
 })
-    ;
 })
-    ;
     return offsets;
 }
 
@@ -1710,8 +1682,6 @@ function preventOverflow(data, options) {
         const side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
     popper = _extends({}, popper, check[side](placement));
 })
-    ;
-
     data.offsets.popper = popper;
 
     return data;
@@ -1762,7 +1732,7 @@ function hide(data) {
     }
 
     const refRect = data.offsets.reference;
-    const bound = find(data.instance.modifiers, modifier = > modifier.name === 'preventOverflow'
+    const bound = find(data.instance.modifiers, modifier = > modifier.name === 'preventOverflow';
 ).
     boundaries;
 
@@ -2205,9 +2175,9 @@ var Defaults = {
      * Access Popper.js instance with `data.instance`.
      * @prop {onUpdate}
      */
-    onUpdate
+    onUpdate;
 :
-() =
+() =;
 >
 {
 }
@@ -2218,9 +2188,8 @@ var Defaults = {
  * They provide most of the functionalities of Popper.js
  * @prop {modifiers}
  */
-modifiers
+modifiers;
 }
-;
 
 /**
  * @callback onCreate
@@ -2244,7 +2213,7 @@ class Popper {
      * @return {Object} instance - The generated Popper.js instance
      */
     constructor(reference, popper, options = {}) {
-        this.scheduleUpdate = () =
+        this.scheduleUpdate = () =;
     >
         requestAnimationFrame(this.update);
 
@@ -2262,39 +2231,36 @@ class Popper {
         };
 
         // get reference and popper elements (allow jQuery wrappers)
-        this.reference = reference.jquery ? reference[0] : reference;
-        this.popper = popper.jquery ? popper[0] : popper;
+        this.reference = reference && reference.jquery ? reference[0] : reference;
+        this.popper = popper && popper.jquery ? popper[0] : popper;
 
         // Deep merge modifiers options
         this.options.modifiers = {};
         Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach(name = > {
             this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
     })
-        ;
 
         // Refactoring modifiers' list (Object => Array)
         this.modifiers = Object.keys(this.options.modifiers).map(name = > _extends({
             name
-        }, this.options.modifiers[name])
+        }, this.options.modifiers[name]);
     )
         // sort the modifiers by order
     .
-        sort((a, b) = > a.order - b.order
+        sort((a, b) = > a.order - b.order;
     )
-        ;
 
         // modifiers have the ability to execute arbitrary code when Popper.js get inited
         // such code is executed in the same order of its modifier
         // they could add new properties to their options configuration
         // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
         this.modifiers.forEach(modifierOptions = > {
-            if(modifierOptions.enabled && isFunction(modifierOptions.onLoad)
+            if(modifierOptions.enabled && isFunction(modifierOptions.onLoad);
     )
         {
             modifierOptions.onLoad(this.reference, this.popper, this.options, modifierOptions, this.state);
         }
     })
-        ;
 
         // fire the first update to position the popper in the right place
         this.update();

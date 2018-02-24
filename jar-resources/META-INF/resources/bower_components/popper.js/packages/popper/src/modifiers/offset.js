@@ -88,7 +88,6 @@ export function parseOffset(offset,
     const fragments = offset.split(/(\+|\-)/).map(frag = > frag.trim();
 )
 
-
     // Detect if the offset string contains a pair of values or a single one
     // they could be separated by comma or space
     const divider = fragments.indexOf(
@@ -149,7 +148,6 @@ else
 )
 )
 })
-
 
     // Loop trough the offsets arrays and execute the operations
     ops.forEach((op, index) = > {
