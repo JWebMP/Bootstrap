@@ -201,6 +201,7 @@ public enum BSTypographyOptions implements IBSComponentOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase();
+		return name().replace('_', '-')
+				       .toLowerCase();
 	}
 }
