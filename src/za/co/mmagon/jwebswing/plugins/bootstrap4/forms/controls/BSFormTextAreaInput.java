@@ -17,7 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls;
 
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroupOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
 
 /**
  * @author GedMarc

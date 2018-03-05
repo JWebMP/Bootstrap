@@ -16,19 +16,22 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets;
 
-import za.co.mmagon.jwebswing.base.html.DivSimple;
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
+import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Input;
 import za.co.mmagon.jwebswing.base.html.Span;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls.BSFormSelectInput;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls.BSFormTextAreaInput;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls.BSFormTextInput;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls.BSInput;
+import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.BSDropDown;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroup;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.Set;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSComponentInputGroupOptions.*;
 
 /**
  * Input group
@@ -38,212 +41,192 @@ import java.util.List;
  * @author GedMarc
  * @since 18 Jan 2017
  */
-public class BSFormInputGroup<J extends BSFormInputGroup<J>>
-		extends DivSimple<J>
-		implements BSFormGroupChildren, BSFormSetChildren, IBSFormInputGroup
+public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<?, ?>>
+		extends BSFormGroup<J, I>
+		implements BSFormGroupChildren, za.co.mmagon.jwebswing.plugins.bootstrap4.forms.interfaces.IBSFormInputGroup<J, I>
 {
 
 	private static final long serialVersionUID = 1L;
-	/**
-	 * The input group addons
-	 */
-	private List<Span> inputGroupAddons;
-	/**
-	 * The input group addons
-	 */
-	private List<Span> inputGroupAddonsRight;
 
-	private Input input;
+	private final Div<GlobalChildren, ?, ?, ?, ?> prependDiv;
+	private final Div<GlobalChildren, ?, ?, ?, ?> appendDiv;
 
 	/**
 	 * Input group
 	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual input's.
-	 *
-	 * @param input
-	 * @param size
+	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
 	 */
-	public BSFormInputGroup(Input input, BSComponentInputGroupOptions... size)
+	public BSFormInputGroup()
 	{
-		this.input = input;
-		addClass(BSComponentInputGroupOptions.Input_Group);
-		if (size != null && size.length > 0)
-		{
-			for (BSComponentInputGroupOptions bSComponentInputGroupOptions : size)
-			{
-				addClass(bSComponentInputGroupOptions);
-			}
-		}
+		this(null);
 	}
+
 
 	/**
 	 * Input group
 	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual input's.
-	 *
-	 * @param input
-	 * @param size
+	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
 	 */
-	public BSFormInputGroup(BSInput input, BSComponentInputGroupOptions... size)
+	public BSFormInputGroup(@Nullable Boolean largeOrSmall)
 	{
-		this.input = input;
-		addClass(BSComponentInputGroupOptions.Input_Group);
-		if (size != null && size.length > 0)
+		getClasses().clear();
+		addClass(Input_Group);
+		prependDiv = new Div<>();
+		prependDiv.addClass(Input_Group_Prepend);
+		appendDiv = new Div<>();
+		appendDiv.addClass(Input_Group_Append);
+
+		if (largeOrSmall != null)
 		{
-			for (BSComponentInputGroupOptions bSComponentInputGroupOptions : size)
+			if (largeOrSmall)
 			{
-				addClass(bSComponentInputGroupOptions);
+				addClass(Input_Group_Lg);
+			}
+			else
+			{
+				addClass(Input_Group_Sm);
 			}
 		}
 	}
 
 	/**
-	 * Input group
-	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual input's.
-	 *
-	 * @param input
-	 * @param size
-	 */
-	public BSFormInputGroup(BSFormSelectInput input, BSComponentInputGroupOptions... size)
-	{
-		this.input = input;
-		addClass(BSComponentInputGroupOptions.Input_Group);
-		if (size != null && size.length > 0)
-		{
-			for (BSComponentInputGroupOptions bSComponentInputGroupOptions : size)
-			{
-				addClass(bSComponentInputGroupOptions);
-			}
-		}
-	}
-
-	/**
-	 * Input group
-	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual input's.
-	 *
-	 * @param input
-	 * @param size
-	 */
-	public BSFormInputGroup(BSFormTextAreaInput input, BSComponentInputGroupOptions... size)
-	{
-		this.input = input;
-		addClass(BSComponentInputGroupOptions.Input_Group);
-		if (size != null && size.length > 0)
-		{
-			for (BSComponentInputGroupOptions bSComponentInputGroupOptions : size)
-			{
-				addClass(bSComponentInputGroupOptions);
-			}
-		}
-	}
-
-	@Override
-	public void init()
-	{
-		if (!isInitialized())
-		{
-			getInputGroupAddons().forEach(inputGroupAddon ->
-			                              {
-				                              inputGroupAddon.addClass(BSComponentInputGroupOptions.Input_Group_Addon);
-				                              List tempList = new ArrayList<>(getChildren());
-				                              tempList.add(0, inputGroupAddon);
-				                              setChildren(new LinkedHashSet(tempList));
-			                              });
-			if (getInput() == null)
-			{
-				setInput(new BSFormTextInput());
-			}
-			add(getInput());
-			getInputGroupAddonsRight().forEach(inputGroupAddon ->
-			                                   {
-				                                   inputGroupAddon.addClass(BSComponentInputGroupOptions.Input_Group_Addon);
-				                                   add(inputGroupAddon);
-			                                   });
-		}
-		super.init();
-	}
-
-	/**
-	 * @return
-	 */
-	@Override
-	public List<Span> getInputGroupAddons()
-	{
-		if (inputGroupAddons == null)
-		{
-			setInputGroupAddons(new ArrayList<>());
-		}
-		return inputGroupAddons;
-	}
-
-	/**
-	 * The input group addons
-	 *
-	 * @param inputGroupAddons
+	 * The text (or component.toString(0)) to prepend
 	 *
 	 * @return
 	 */
 	@Override
-	public BSFormInputGroup setInputGroupAddons(List<Span> inputGroupAddons)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J prepend(String text)
 	{
-		this.inputGroupAddons = inputGroupAddons;
-		return this;
+		Span<?, ?, ?> span = new Span<>();
+		span.addClass(Input_Group_Text);
+		span.setText(text);
+		prependDiv.add(span);
+		return (J) this;
 	}
 
 	/**
-	 * Sets the input group addons to the right
+	 * The text (or component.toString(0)) to prepend
 	 *
 	 * @return
 	 */
 	@Override
-	public List<Span> getInputGroupAddonsRight()
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J prepend(ComponentHierarchyBase component)
 	{
-		if (inputGroupAddonsRight == null)
+		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
 		{
-			setInputGroupAddonsRight(new ArrayList());
+			prependDiv.add(component);
 		}
-		return inputGroupAddonsRight;
+		else
+		{
+			Span<?, ?, ?> span = new Span<>();
+			span.addClass(Input_Group_Text);
+			span.setText(component.toString(0));
+			prependDiv.add(span);
+		}
+
+		return (J) this;
 	}
 
 	/**
-	 * Sets the input group addons to the right
+	 * The text (or component.toString(0)) to append
 	 *
-	 * @param inputGroupAddonsRight
+	 * @param text
 	 *
 	 * @return
 	 */
 	@Override
-	public BSFormInputGroup setInputGroupAddonsRight(List<Span> inputGroupAddonsRight)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J append(String text)
 	{
-		this.inputGroupAddonsRight = inputGroupAddonsRight;
-		return this;
+		Span<?, ?, ?> span = new Span<>();
+		span.setText(text);
+		span.addClass(Input_Group_Text);
+		appendDiv.add(span);
+		return (J) this;
 	}
 
 	/**
-	 * Gets the input component
+	 * The text (or component.toString(0)) to append
+	 *
+	 * @param component
 	 *
 	 * @return
 	 */
-	public Input getInput()
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J append(ComponentHierarchyBase component)
 	{
-		return input;
-	}
-
-	/**
-	 * Sets the input component
-	 *
-	 * @param input
-	 */
-	public J setInput(@NotNull Input input)
-	{
-		this.input = input;
-		if (this.input != null)
+		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
 		{
-			this.input.addClass("form-control");
+			appendDiv.add(component);
+		}
+		else
+		{
+			Span<?, ?, ?> span = new Span<>();
+			span.setText(component.toString(0));
+			span.addClass(Input_Group_Text);
+			appendDiv.add(span);
 		}
 		return (J) this;
+	}
+
+	/**
+	 * returns the prepending div as it currently is. Only add spans directly with classes??
+	 *
+	 * @return
+	 */
+	@Override
+	public Div<?, ?, ?, ?, ?> getPrependDiv()
+	{
+		return prependDiv;
+	}
+
+	/**
+	 * returns the appending div as it currently is. Only add spans directly with classes??
+	 *
+	 * @return
+	 */
+	@Override
+	public Div<?, ?, ?, ?, ?> getAppendDiv()
+	{
+		return appendDiv;
+	}
+
+	/**
+	 * Renders the label before the tag
+	 *
+	 * @return
+	 */
+	@Nullable
+	@Override
+	protected StringBuilder renderBeforeTag()
+	{
+		if (getLabel() != null)
+		{
+			return new StringBuilder(getCurrentTabIndentString() + getLabel().toString(0) + getNewLine());
+		}
+		return new StringBuilder();
+	}
+
+	@Override
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
+			getChildren().removeIf(a -> a.equals(getLabel()));
+			Set<ComponentHierarchyBase> newOrder = new LinkedHashSet<>();
+			newOrder.add(prependDiv);
+			newOrder.addAll(getChildren());
+			newOrder.add(appendDiv);
+			setChildren(newOrder);
+		}
+		super.preConfigure();
 	}
 
 	@Override

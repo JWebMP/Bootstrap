@@ -38,7 +38,9 @@ public enum BSComponentInputGroupOptions
 	/**
 	 *
 	 */
-	Input_Group_Addon,
+	Input_Group_Prepend,
+	Input_Group_Append,
+	Input_Group_Text,
 	/**
 	 * Sizing
 	 * <p>

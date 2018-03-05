@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts;
 
-import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.BSListGroupOptions;
 
 /**
  * Links and buttons Use &gt;a&lt;s or &gt;button&lt;s to create actionable list group items with hover, disabled, and active states by
@@ -26,8 +26,8 @@ import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
  * @author GedMarc
  * @since 19 Jan 2017
  */
-public class BSListGroupButtonItem
-		extends BSListGroupListItem
+public class BSListGroupButtonItem<J extends BSListGroupListItem<J>>
+		extends BSListGroupListItem<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -42,7 +42,6 @@ public class BSListGroupButtonItem
 	public BSListGroupButtonItem()
 	{
 		setTag("button");
-		addAttribute(GlobalAttributes.Type, "button");
 		addClass(BSListGroupOptions.List_Group_Item_Action);
 	}
 }

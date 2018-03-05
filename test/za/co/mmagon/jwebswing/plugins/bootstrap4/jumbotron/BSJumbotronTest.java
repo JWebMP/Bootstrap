@@ -31,7 +31,7 @@ public class BSJumbotronTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSJumbotron jumbo = new BSJumbotron(BSComponentJumbotronOptions.Jumbotron);
+		BSJumbotron jumbo = new BSJumbotron(BSJumbotronOptions.Jumbotron);
 
 		System.out.println(jumbo.toString(true));
 	}

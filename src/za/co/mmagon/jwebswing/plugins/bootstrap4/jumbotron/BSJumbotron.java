@@ -17,10 +17,17 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.jumbotron;
 
 import za.co.mmagon.jwebswing.base.html.Div;
+import za.co.mmagon.jwebswing.base.html.H1;
+import za.co.mmagon.jwebswing.base.html.HorizontalRule;
+import za.co.mmagon.jwebswing.base.html.Paragraph;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSMarginOptions;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Jumbotron
@@ -41,6 +48,7 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSJumbotron<J extends BSJumbotron<J>>
 		extends Div<GlobalChildren, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
+		implements za.co.mmagon.jwebswing.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -62,8 +70,7 @@ public class BSJumbotron<J extends BSJumbotron<J>>
 	public BSJumbotron(String text)
 	{
 		super(text);
-		addClass(BSComponentJumbotronOptions.Jumbotron);
-
+		addClass(BSJumbotronOptions.Jumbotron);
 	}
 
 	/**
@@ -71,39 +78,94 @@ public class BSJumbotron<J extends BSJumbotron<J>>
 	 *
 	 * @param jumbotronType
 	 */
-	public BSJumbotron(BSComponentJumbotronOptions... jumbotronType)
+	public BSJumbotron(BSJumbotronOptions... jumbotronType)
 	{
 		this((String) null);
-		for (BSComponentJumbotronOptions bSComponentJumbotronOptions : jumbotronType)
+		for (BSJumbotronOptions bSJumbotronOptions : jumbotronType)
 		{
-			addClass(bSComponentJumbotronOptions);
+			addClass(bSJumbotronOptions);
 		}
 	}
 
-	@Override
-	public boolean equals(Object obj)
+	/**
+	 * Simpler view of the jumbotron
+	 *
+	 * @return
+	 */
+	public IBSJumbotron<J> asMe()
 	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+		return this;
+	}
+
+	/**
+	 * Adds a large highlighted text to the jumbotron
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
+	public H1<?> addJumboText(String text)
+	{
+		H1<?> header = new H1<>(text);
+		header.addClass(BSJumbotronOptions.Display_4);
+		add(header);
+		return header;
+	}
+
+	/**
+	 * Adds a nicely indented container to place other items such as buttons
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
+	public Paragraph<?> addLead(String text)
+	{
+		Paragraph<?> p = new Paragraph<>(text);
+		p.addClass(BSJumbotronOptions.Lead);
+		add(p);
+		return p;
+	}
+
+	/**
+	 * Adds a divider with MarginBottom_3
+	 *
+	 * @return
+	 */
+	@Override
+	public HorizontalRule<?> addHorizontalRule()
+	{
+		HorizontalRule hr = HorizontalRule.getInstance()
+		                                  .addClass(BSMarginOptions.MarginBottom_3);
+		add(hr);
+		return hr;
+	}
+
+	/**
+	 * Sets if this jumbotron must take up the entire container space
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFluid()
+	{
+		addClass(BSJumbotronOptions.Jumbotron_fluid);
+		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
-
 }

@@ -2,7 +2,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.spinner;
 
 import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.base.html.Span;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.controls.BSFormNumberInput;
+import za.co.mmagon.jwebswing.base.html.inputs.InputSubmitType;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSComponentInputGroupOptions;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class BSNumberSpinner<J extends BSNumberSpinner<J>>
-		extends BSFormNumberInput<J>
+		extends InputSubmitType
 {
 	private List<Span> before = new ArrayList<>();
 	private List<Span> after = new ArrayList<>();
@@ -55,12 +55,12 @@ public class BSNumberSpinner<J extends BSNumberSpinner<J>>
 		{
 			for (Span addon : getBefore())
 			{
-				addon.addClass(BSComponentInputGroupOptions.Input_Group_Addon);
+				addon.addClass(BSComponentInputGroupOptions.Input_Group_Prepend);
 				getParent().add(addon);
 			}
 			for (Span addon : getBefore())
 			{
-				addon.addClass(BSComponentInputGroupOptions.Input_Group_Addon);
+				addon.addClass(BSComponentInputGroupOptions.Input_Group_Append);
 				getParent().add(addon);
 			}
 		}

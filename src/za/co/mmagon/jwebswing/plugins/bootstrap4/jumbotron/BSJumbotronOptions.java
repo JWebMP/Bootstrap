@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.jumbotron;
 
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.IBSComponentOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
@@ -22,60 +22,67 @@ import za.co.mmagon.jwebswing.utilities.StaticStrings;
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 
 /**
- * Dropdowns
+ * Jumbotron
  * <p>
- * Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive with the included
- * Bootstrap dropdown JavaScript plugin. They’re toggled by clicking,
- * not by hovering; this is an intentional design decision.
+ * A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.
  *
  * @author GedMarc
- * @version 1.0
- * @since 01 Jan 2017
  */
-public enum BSFormGroupOptions
+public enum BSJumbotronOptions
 		implements IBSComponentOptions
 {
 	/**
-	 * Is a form group
+	 * Jumbotron
+	 * <p>
+	 * A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.
 	 */
-	Form_Group,
+	Jumbotron,
 	/**
-	 * Denotes a specific form control
+	 * To make the jumbotron full width, and without rounded corners, add the .jumbotron-fluid modifier class and add a .container or
+	 * .container-fluid within.
 	 */
-	Form_Control,
+	Jumbotron_fluid,
 	/**
-	 * Makes a &lt;form&gt; left_aligned with inline_block controls (This only applies to forms within viewports that are at least 768px
-	 * wide)
+	 * Large display format 1
 	 */
-	Form_Inline,
+	Display_1,
 	/**
-	 * Aligns labels and groups of form controls in a horizontal layout
+	 * Large display format 2
 	 */
-	Form_Horizontal,
+	Display_2,
 	/**
-	 * File Inputs
+	 * Large display format 3
 	 */
-	Form_Control_File,
+	Display_3,
 	/**
-	 * Marks this item as a validation feedback item
+	 * Large display format 4
 	 */
-	Form_Control_Feedback,
+	Display_4,
 	/**
-	 * Checkboxes and radios
+	 * applies a lead if necessary
 	 */
-	Form_Check,
+	Lead,
 	/**
-	 * Label for checkboxes and radio button
+	 * Horizontal rule
 	 */
-	Form_Check_Label,
+	My_1,
 	/**
-	 * The input for checkbox and radio buttons
+	 * Horizontal rule
 	 */
-	Form_Check_Input,
+	My_2,
 	/**
-	 * Deprecated?
+	 * Horizontal rule
 	 */
-	Form_Text;
+	My_3,
+	/**
+	 * Horizontal rule
+	 */
+	My_4;
+
+	BSJumbotronOptions()
+	{
+
+	}
 
 	@Override
 	public String toString()
@@ -83,4 +90,5 @@ public enum BSFormGroupOptions
 		return name().toLowerCase()
 		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
+
 }

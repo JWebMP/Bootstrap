@@ -18,6 +18,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup;
 
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.BaseTestClass;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;

@@ -14,9 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts;
 
 import za.co.mmagon.jwebswing.base.html.attributes.LinkAttributes;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.BSListGroupOptions;
+
+import javax.annotation.Nullable;
+import javax.validation.constraints.NotNull;
 
 /**
  * Links and buttons Use &gt;a&lt;s or &gt;button&lt;s to create actionable list group items with hover, disabled, and active states by
@@ -45,14 +49,39 @@ public class BSListGroupLinkItem<J extends BSListGroupLinkItem<J>>
 	 * <p>
 	 * Be sure to not use the standard .btn classes here.
 	 *
+	 * @param text
+	 */
+	public BSListGroupLinkItem(String text)
+	{
+		this(null, text);
+	}
+
+	/**
+	 * Links and buttons Use &gt;a&lt;s or &gt;button&lt;s to create actionable list group items with hover, disabled, and active states by
+	 * adding .list-group-item-action. We separate these
+	 * pseudo-classes to ensure list groups made of non-interactive elements (like &gt;li&lt;s or &gt;div&lt;s) don’t provide a click or
+	 * tap
+	 * affordance.
+	 * <p>
+	 * Be sure to not use the standard .btn classes here.
+	 *
 	 * @param url
 	 * @param text
 	 */
-	public BSListGroupLinkItem(String url, String text)
+	public BSListGroupLinkItem(@Nullable String url, String text)
 	{
 		super(text);
 		setTag("a");
 		addAttribute(LinkAttributes.HRef.toString(), url);
 		addClass(BSListGroupOptions.List_Group_Item_Action);
 	}
+
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setStyle(BSListGroupOptions options)
+	{
+		addClass(options);
+		return (J) this;
+	}
+
 }

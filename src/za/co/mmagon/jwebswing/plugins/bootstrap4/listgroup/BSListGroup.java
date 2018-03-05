@@ -20,6 +20,11 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.cards.BSCardChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * List group
@@ -57,8 +62,57 @@ public class BSListGroup<J extends BSListGroup<J>>
 	{
 		setTag("ul");
 		addClass(BSListGroupOptions.List_Group);
-
 	}
+
+	@NotNull
+	public BSListGroupButtonItem<?> addButtonItem(String text)
+	{
+		BSListGroupButtonItem<?> item = new BSListGroupButtonItem<>();
+		if (text != null)
+		{
+			item.setText(text);
+		}
+		return item;
+	}
+
+	@NotNull
+	public BSListGroupLinkItem<?> addLinkItem(String text)
+	{
+		BSListGroupLinkItem<?> item = new BSListGroupLinkItem<>(text);
+		if (text != null)
+		{
+			item.setText(text);
+		}
+		return item;
+	}
+
+	@NotNull
+	public BSListGroupListItem<?> addListItem(String text)
+	{
+		BSListGroupListItem<?> item = new BSListGroupListItem<>();
+		if (text != null)
+		{
+			item.setText(text);
+		}
+		return item;
+	}
+
+	/**
+	 * Flush
+	 * Add .list-group-flush to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e
+	 * .g.,
+	 * cards).
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFlush()
+	{
+		addClass(BSListGroupOptions.List_Group_Flush);
+		return (J) this;
+	}
+
 
 	@Override
 	public boolean equals(Object o)

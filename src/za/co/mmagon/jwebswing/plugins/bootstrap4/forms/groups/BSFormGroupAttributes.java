@@ -27,6 +27,7 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 public enum BSFormGroupAttributes
 		implements AttributeDefinitions
 {
+	ReadOnly,
 	Visibility;
 
 	private boolean isKeyword;

@@ -16,11 +16,10 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets;
 
-import za.co.mmagon.jwebswing.base.html.inputs.InputCheckBoxType;
+import za.co.mmagon.jwebswing.base.html.inputs.InputRadioType;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.BSFormLabel;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroup;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
 
 import javax.validation.constraints.NotNull;
 
@@ -34,8 +33,8 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.enumeration
  * @author GedMarc
  * @since 18 Jan 2017
  */
-public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
-		extends BSFormGroup<J, InputCheckBoxType<?>>
+public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
+		extends BSFormGroup<J, InputRadioType<?>>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -44,11 +43,18 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	 * Constructs a new instance of a group of items that denote a single radio button.
 	 * <p>
 	 * Place inside a BS Form Set
+	 *
+	 * @param label
+	 * @param inputComponent
+	 * @param helpText
+	 * @param value
+	 *
+	 * @see za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSFormSet
 	 */
-	public BSFormCheckGroup()
+	public BSFormRadioGroup()
 	{
 		removeClass(BSFormGroupOptions.Form_Group);
-		addClass(Form_Check);
+		addClass(BSFormGroupOptions.Form_Check);
 	}
 
 	/**
@@ -74,18 +80,19 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	 * @return
 	 */
 	@Override
-	public InputCheckBoxType<?> addInput(InputCheckBoxType<?> inputComponent)
+	public InputRadioType<?> addInput(InputRadioType<?> inputComponent)
 	{
-		InputCheckBoxType<?> checkBoxType = super.addInput(inputComponent);
-		checkBoxType.removeClass(Form_Control);
-		checkBoxType.addClass(Form_Check_Input);
+		InputRadioType<?> radioCheckBoxType = super.addInput(inputComponent);
+		radioCheckBoxType.removeClass(BSFormGroupOptions.Form_Control);
+		radioCheckBoxType.addClass(BSFormGroupOptions.Form_Check_Input);
 		if (getLabel() != null)
 		{
 			remove(getLabel());
 			add(getLabel());
 		}
-		return checkBoxType;
+		return radioCheckBoxType;
 	}
+
 
 	/**
 	 * @return
@@ -99,7 +106,7 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 		removeClass(BSFormGroupOptions.Form_Check_Inline);
 
 		addClass("custom-control");
-		addClass("custom-checkbox");
+		addClass("custom-radio");
 
 		if (inline)
 		{
@@ -120,6 +127,7 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 		return (J) this;
 	}
 
+
 	/**
 	 * Group checkboxes or radios on the same horizontal row by adding .form-check-inline to any .form-check.
 	 *
@@ -133,35 +141,14 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	{
 		if (inline)
 		{
-			addClass(BSFormGroupOptions.Form_Check_Inline);
+			removeClass(BSFormGroupOptions.Form_Check);
+			addClass(BSFormGroupOptions.Form_Check_Input);
 		}
 		else
 		{
-			removeClass(BSFormGroupOptions.Form_Check_Inline);
+			addClass(BSFormGroupOptions.Form_Check);
+			removeClass(BSFormGroupOptions.Form_Check_Input);
 		}
 		return (J) this;
 	}
-
-	/**
-	 * Sets the item as disabled
-	 *
-	 * @param disabled
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("all")
-	@NotNull
-	public J setDisabled(boolean disabled)
-	{
-		if (disabled)
-		{
-			getInput().addClass(BSDefaultOptions.Disabled);
-		}
-		else
-		{
-			getInput().removeClass(BSDefaultOptions.Disabled);
-		}
-		return (J) this;
-	}
-
 }

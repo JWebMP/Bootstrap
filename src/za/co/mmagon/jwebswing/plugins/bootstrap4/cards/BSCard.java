@@ -23,7 +23,7 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.accordion.BSAccordionChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.cards.parts.*;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.BSListGroup;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.BSListGroupListItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.*;
 
 import javax.annotation.Nullable;

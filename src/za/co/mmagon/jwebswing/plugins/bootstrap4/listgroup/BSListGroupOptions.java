@@ -95,7 +95,13 @@ public enum BSListGroupOptions
 	 * Add .disabled to a .list-group-item to make it appear disabled. Note that some elements with .disabled will also require custom
 	 * JavaScript to fully disable their click events (e.g., links).
 	 */
-	Disabled,;
+	Disabled,
+	List_Group_Flush,
+
+	List_Group_Item_Primary,
+	List_Group_Item_Secondary,
+	List_Group_Item_Light,
+	List_Group_Item_Dark,;
 
 	BSListGroupOptions()
 	{
