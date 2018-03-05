@@ -18,7 +18,6 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.navbar;
 
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.base.html.Image;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.BSFormInline;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.brand.BSNavBarBrandImage;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarToggler;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarTogglerAlignments;
@@ -52,8 +51,6 @@ public class BSNavBarTest
 		BSNavs navs = new BSNavs();
 		navs.add(new BSNavItemDropDown());
 		navs.add(new BSNavLinkItem(STRING_HASH));
-
-		navs.add(new BSFormInline());
 
 		nav.add(toggle.createCollapsingDiv(navs));
 
