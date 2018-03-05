@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.parts;
 
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.base.html.DivSimple;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
 /**
- * @author ged_m
+ * @author GedMarc
+ * @since 14 Jan 2017
  */
-public class BootstrapClassesTest
+public class BSDropDownDivider<J extends BSDropDownDivider<J>>
+		extends DivSimple<J>
 {
 
-	public BootstrapClassesTest()
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * A divider on the bs drop down menu item
+	 * <p>
+	 */
+	public BSDropDownDivider()
 	{
+		super();
+		addClass(BSDropDownOptions.Dropdown_Divider);
 	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
 }

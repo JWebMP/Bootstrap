@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.options;
 
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.base.interfaces.ICSSClassName;
 
 /**
- * @author ged_m
+ * Defines any class that is registered as a bootstrap associated class
+ *
+ * @author GedMarc
+ * @since 2016/10/10
  */
-public class BootstrapClassesTest
+@FunctionalInterface
+public interface IBSComponentOptions
+		extends ICSSClassName
 {
 
-	public BootstrapClassesTest()
-	{
-	}
+	/**
+	 * Replaces the text with its HTML class equivalent
+	 *
+	 * @return
+	 */
+	@Override
+	String toString();
 
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
+	/**
+	 * Default name method for enumerations
+	 *
+	 * @return
+	 */
+	String name();
 }

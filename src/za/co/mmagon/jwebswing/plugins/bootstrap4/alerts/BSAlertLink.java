@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.alerts;
 
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.base.html.Link;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
 
 /**
- * @author ged_m
+ * Highlights text in an alert appropriately
+ *
+ * @author GedMarc
+ * @version 1.0
+ * @since 31 Dec 2016
  */
-public class BootstrapClassesTest
+public class BSAlertLink<J extends BSAlertLink<J>>
+		extends Link<J>
 {
 
-	public BootstrapClassesTest()
+	private static final long serialVersionUID = 1L;
+
+	public BSAlertLink()
 	{
+		super(STRING_HASH);
+		addClass(BSAlertOptions.Alert_Link);
 	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
 }

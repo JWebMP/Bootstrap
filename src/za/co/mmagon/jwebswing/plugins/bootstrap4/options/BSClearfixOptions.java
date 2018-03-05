@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
-
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.options;
 
 /**
- * @author ged_m
+ * Clearfix
+ * <p>
+ * Easily clear floats by adding .clearfix to the parent element. Utilizes the micro clearfix as popularized by Nicolas Gallagher. Can also
+ * be used as a mixin.
+ *
+ * @author GedMarc
+ * @version 1.0
+ * @since 31 Dec 2016
  */
-public class BootstrapClassesTest
+public enum BSClearfixOptions
+		implements IBSComponentOptions
 {
+	Clearfix;
 
-	public BootstrapClassesTest()
+	@Override
+	public String toString()
 	{
+		return name().toLowerCase();
 	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
 }

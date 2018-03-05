@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
-
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.options;
 
 /**
- * @author ged_m
+ * Close icon
+ * <p>
+ * Use a generic close icon for dismissing content like modals and alerts. Be sure to include text for screen readers, as we’ve done with
+ * aria-label.
+ *
+ * @author GedMarc
+ * @version 1.0
+ * @since 31 Dec 2016
  */
-public class BootstrapClassesTest
+public enum BSCloseIconOptions
+		implements IBSComponentOptions
 {
+	/**
+	 * Marks an item as a close item
+	 */
+	Close;
 
-	public BootstrapClassesTest()
+	BSCloseIconOptions()
 	{
+
 	}
 
-	@Test
-	public void testClassAddition()
+	@Override
+	public String toString()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
+		return name().toLowerCase();
 	}
 
 }

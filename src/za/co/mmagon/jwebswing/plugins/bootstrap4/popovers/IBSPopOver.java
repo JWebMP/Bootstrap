@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
-
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 
 /**
- * @author ged_m
+ * @author GedMarc
+ * @since 21 Feb 2017
  */
-public class BootstrapClassesTest
+@FunctionalInterface
+public interface IBSPopOver
 {
 
-	public BootstrapClassesTest()
-	{
-	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
+	/**
+	 * Returns the options if any is required
+	 *
+	 * @return
+	 */
+	BSPopOverOptions getOptions();
 
 }

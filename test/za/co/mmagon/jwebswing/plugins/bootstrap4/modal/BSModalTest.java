@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.close.BSCloseIcon;
 
 /**
- * @author ged_m
+ * @author GedMarc
  */
-public class BootstrapClassesTest
+public class BSModalTest
 {
 
-	public BootstrapClassesTest()
+	public BSModalTest()
 	{
 	}
 
 	@Test
-	public void testClassAddition()
+	public void testSomeMethod()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
+		BSModal modal = new BSModal();
+		modal.getModalDialog();
+		// modal.getModalHeader().add(new BSCloseIcon().setDataDismiss("modal"));
+		modal.asMe()
+		     .addDismissButton(new BSCloseIcon());
+		modal.asMe()
+		     .setKeyboard(true);
+		modal.asMe()
+		     .setBackdrop(true);
+		modal.asMe()
+		     .setFocus(true);
+		modal.asMe()
+		     .setShow(false);
+		System.out.println(modal.toString(true));
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
-
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.navs;
 
 /**
- * @author ged_m
+ * An unordered list for navigation items on the nav bar item
+ *
+ * @author GedMarc
+ * @since 23 Jan 2017
  */
-public class BootstrapClassesTest
+public class BSNavList
+		extends BSNavs
+		implements BSNavsChildren
 {
 
-	public BootstrapClassesTest()
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Constructs a new nav list for use with the bs nav widget
+	 */
+	public BSNavList()
 	{
+		setTag("ul");
+		addClass(BSNavsOptions.Navbar_Nav);
 	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
 }

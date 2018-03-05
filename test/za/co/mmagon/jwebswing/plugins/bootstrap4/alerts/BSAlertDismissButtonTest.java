@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2016 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.alerts;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.alerts.styles.BSAlertWarning;
 
 /**
- * @author ged_m
+ * @author GedMarc
  */
-public class BootstrapClassesTest
+public class BSAlertDismissButtonTest
 {
 
-	public BootstrapClassesTest()
+	public BSAlertDismissButtonTest()
 	{
 	}
 
 	@Test
-	public void testClassAddition()
+	public void testSomeMethod()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
+		BSAlertWarning alert = new BSAlertWarning();
+		BSAlertDismissButton button = new BSAlertDismissButton(alert, true);
+		System.out.println(alert.toString(true));
+		System.out.println(alert.toString());
 	}
 
 }

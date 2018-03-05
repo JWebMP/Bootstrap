@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.BaseTestClass;
+import za.co.mmagon.jwebswing.Page;
 
 /**
- * @author ged_m
+ * @author GedMarc
  */
-public class BootstrapClassesTest
+public class BSPopOverTest
+		extends BaseTestClass
 {
 
-	public BootstrapClassesTest()
+	public BSPopOverTest()
 	{
 	}
 
 	@Test
-	public void testClassAddition()
+	public void testSomeMethod()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
+		BSPopOver popOver = new BSPopOver(null);
 
+		System.out.println(popOver.toString(true));
+		System.out.println(popOver.renderJavascript());
+
+		Page p = getInstance();
+		//p.getOptions().setBootstrapEnabled(true);
+		p.getBody()
+		 .add(popOver);
+
+		System.out.println(p.toString(true));
 	}
 
 }

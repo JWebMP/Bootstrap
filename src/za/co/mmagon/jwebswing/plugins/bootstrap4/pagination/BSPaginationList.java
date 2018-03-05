@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.pagination;
 
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.base.html.List;
+import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
+import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 
 /**
- * @author ged_m
+ * The default paging list
+ *
+ * @author GedMarc
+ * @since 21 Jan 2017
  */
-public class BootstrapClassesTest
+public class BSPaginationList
+		extends List<BSPageinationListItem, NoAttributes, GlobalEvents, BSPaginationList>
+		implements BSPaginationChildren
 {
 
-	public BootstrapClassesTest()
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The default paging list
+	 */
+	public BSPaginationList()
 	{
+		addClass(BSComponentPaginationOptions.Pagination);
 	}
-
-	@Test
-	public void testClassAddition()
-	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
-	}
-
 }

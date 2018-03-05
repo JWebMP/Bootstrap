@@ -1,0 +1,13 @@
+za.co.mmagon.jwebswing.plugins.bootstrap4.alerts.events.BSAlertClosedEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.alerts.events.BSAlertCloseEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.carousel.events.BSCarouselSlideEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.carousel.events.BSCarouselSlidEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.BSModalShowEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective

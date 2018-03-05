@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
-
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.buttons;
 
 /**
- * @author ged_m
+ * Buttons
+ * <p>
+ * Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations,
+ * sizes, states, and more.
+ *
+ * @author GedMarc
+ * @version 1.0
+ * @since 01 Jan 2017
  */
-public class BootstrapClassesTest
+public class BSButtonLink<J extends BSButtonLink<J>>
+		extends BSButton<J>
 {
 
-	public BootstrapClassesTest()
-	{
-	}
+	private static final long serialVersionUID = 1L;
 
-	@Test
-	public void testClassAddition()
+	/**
+	 * Deemphasize a button by making it look like a link while maintaining button behavior
+	 */
+	public BSButtonLink()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
+		addClass(BSButtonOptions.Btn_Link);
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ged_m
+ * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.jquery.bootstrap;
+package za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar.bar;
 
-import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSDefaultOptions;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
- * @author ged_m
+ * All the options for the tooltip library
+ * <p>
+ *
+ * @author GedMarc
+ * @version 1.0
+ * 		<p>
+ * 		<p>
+ * @since Mar 4, 2015
  */
-public class BootstrapClassesTest
+public class BSProgressBarDisplayOptions
+		extends JavaScriptPart
 {
 
-	public BootstrapClassesTest()
-	{
-	}
+	private static final long serialVersionUID = 1L;
 
-	@Test
-	public void testClassAddition()
+	/**
+	 * Progress Bar Options JS
+	 */
+	public BSProgressBarDisplayOptions()
 	{
-		Div d = new Div<>();
-		d.addClass(BSDefaultOptions.Active);
-		System.out.println(d.toString(0));
-
+		//Nothing Needed
 	}
 
 }
