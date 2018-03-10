@@ -34,6 +34,8 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 public enum BSButtonSizeOptions
 		implements IBSComponentOptions
 {
+	Btn,
+	Btn_Xs,
 	/**
 	 * Makes a large button
 	 */
