@@ -23,7 +23,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.BSFormChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.BSNavBarChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSContainerOptions;
 
 import static za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSContainerOptions.Container_Fluid;

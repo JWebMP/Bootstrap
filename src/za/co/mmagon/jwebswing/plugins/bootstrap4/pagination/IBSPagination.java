@@ -16,6 +16,9 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.pagination;
 
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationLink;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationList;
+
 /**
  * @author GedMarc
  * @since 21 Feb 2017

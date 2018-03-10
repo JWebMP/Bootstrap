@@ -24,6 +24,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar;
 
 import org.junit.jupiter.api.Test;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSBackgroundOptions;
 
 /**
  * @author GedMarc
@@ -40,6 +41,11 @@ public class BSProgressBarTest
 	{
 		BSProgressBar prog = new BSProgressBar();
 		prog.getProgressBar();
+		prog.setStriped(true);
+		prog.getProgressBar()
+		    .setTheme(BSBackgroundOptions.Bg_Success);
+		prog.getProgressBar()
+		    .setAnimated(true);
 		System.out.println(prog.toString(true));
 	}
 

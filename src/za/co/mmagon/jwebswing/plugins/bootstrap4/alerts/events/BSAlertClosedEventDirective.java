@@ -25,7 +25,7 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
-class BSAlertClosedEventDirective
+public class BSAlertClosedEventDirective
 		extends AngularDirectiveBase
 {
 
@@ -47,7 +47,7 @@ class BSAlertClosedEventDirective
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(BSAlertClosedEventDirective.class, "Event")
+		return FileTemplates.getFileTemplate(BSAlertClosedEventDirective.class, "BSAlertClosedEvent", "BSAlertClosedEvent.min.js")
 		                    .toString();
 	}
 

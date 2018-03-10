@@ -176,7 +176,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public I addInput(@NotNull I inputComponent)
+	public I setInput(@NotNull I inputComponent)
 	{
 		if (input != null)
 		{
@@ -375,7 +375,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 
 	/**
 	 * Readonly plain text
-	 * If you want to have <input readonly> elements in your form styled as plain text, use the .form-control-plaintext class to remove the
+	 * If you want to have input readonly elements in your form styled as plain text, use the .form-control-plaintext class to remove the
 	 * default form field styling and preserve the correct margin and padding.
 	 *
 	 * @param asPlainText

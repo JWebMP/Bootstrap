@@ -11,20 +11,16 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @param backgroundOptions
 	 * 		background colour
-	 * @param coloursOptions
-	 * 		text colour
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setStyle(BSBackgroundOptions backgroundOptions, BSColoursOptions coloursOptions);
+	J addBackground(BSBackgroundOptions backgroundOptions);
 
 	/**
 	 * Sets the style with the given colours
 	 *
-	 * @param borderOptions
-	 * 		background colour
 	 * @param coloursOptions
 	 * 		text colour
 	 *
@@ -32,7 +28,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setStyle(BSBorderOptions borderOptions, BSColoursOptions coloursOptions);
+	J addForeground(BSColoursOptions coloursOptions);
 
 	/**
 	 * Sets the margins (without checking for previous applied)
@@ -43,7 +39,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setMargin(BSMarginOptions margin);
+	J addMargin(BSMarginOptions margin);
 
 	/**
 	 * Applies the padding to the card
@@ -54,7 +50,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setPadding(BSPaddingOptions padding);
+	J addPadding(BSPaddingOptions padding);
 
 	/**
 	 * Sets the border to the correct structure
@@ -65,5 +61,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setBorder(BSBorderOptions border);
+	J addBorder(BSBorderOptions border);
+
+
 }

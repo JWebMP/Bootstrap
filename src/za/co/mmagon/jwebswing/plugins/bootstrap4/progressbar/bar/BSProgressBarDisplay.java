@@ -20,9 +20,13 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Span;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSBackgroundOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSColoursOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayEvents;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayFeatures;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar.interfaces.IBSProgressBarDisplay;
 
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 /**
  * An implementation of the bootstrap bar
@@ -42,7 +46,6 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	private static final long serialVersionUID = 1L;
 
 	private Span span;
-	private BSProgressBarThemes theme;
 
 	/**
 	 * The min value to apply
@@ -60,6 +63,10 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	 * The label of the bar
 	 */
 	private String label;
+	/**
+	 * Sets the item animated
+	 */
+	private boolean animated;
 
 	/**
 	 * Constructs an empty progress bar display
@@ -132,38 +139,6 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 		this(0, 100, value, label);
 	}
 
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			addClass(getTheme().getClassText());
-		}
-		super.preConfigure();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSProgressBarDisplay))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSProgressBarDisplay<?> that = (BSProgressBarDisplay<?>) o;
-		return Double.compare(that.getMin(), getMin()) == 0 && Double.compare(that.getMax(), getMax()) == 0 && Double.compare(
-				that.getValue(), getValue()) == 0 && Objects.equals(getSpan(),
-		                                                            that.getSpan()) && getTheme() == that.getTheme() && Objects.equals(
-				getLabel(), that.getLabel());
-	}
-
 	/**
 	 * Returns the current min value
 	 *
@@ -182,10 +157,28 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public final J setMin(double min)
 	{
 		this.min = min;
 		addAttribute(BSProgressBarDisplayAttributes.Aria_ValueMin, Double.toString(min));
+		return (J) this;
+	}
+
+	/**
+	 * Sets the current theme
+	 *
+	 * @param theme
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTheme(BSBackgroundOptions theme)
+	{
+		addClass(theme);
 		return (J) this;
 	}
 
@@ -198,6 +191,23 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	public String getLabel()
 	{
 		return label;
+	}
+
+	/**
+	 * Sets this label
+	 *
+	 * @param label
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public final J setLabel(String label)
+	{
+		this.label = label;
+		getSpan().setText(label);
+		return (J) this;
 	}
 
 	/**
@@ -219,6 +229,8 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public final J setMax(double max)
 	{
 		this.max = max;
@@ -244,21 +256,6 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	}
 
 	/**
-	 * Returns a current theme, default is success
-	 *
-	 * @return
-	 */
-	@Override
-	public BSProgressBarThemes getTheme()
-	{
-		if (theme == null)
-		{
-			setTheme(BSProgressBarThemes.Success);
-		}
-		return theme;
-	}
-
-	/**
 	 * Returns the current percentage
 	 *
 	 * @return
@@ -277,6 +274,8 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public final J setValue(double value)
 	{
 		this.value = value;
@@ -286,45 +285,38 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	}
 
 	/**
-	 * Sets the current theme
-	 *
-	 * @param theme
+	 * If is animated
 	 *
 	 * @return
 	 */
-	@Override
-	public J setTheme(BSProgressBarThemes theme)
+	public boolean isAnimated()
 	{
-		if (this.theme != null)
-		{
-			removeClass(theme.getClassText());
-		}
-		this.theme = theme;
-		if (theme != null)
-		{
-			addClass(theme.getClassText());
-		}
-		return (J) this;
+		return animated;
 	}
 
-	/**
-	 * Sets this label
-	 *
-	 * @param label
-	 *
-	 * @return
-	 */
-	@Override
-	public final J setLabel(String label)
+	public void setAnimated(boolean animated)
 	{
-		this.label = label;
-		getSpan().setText(label);
-		return (J) this;
+		if (animated)
+		{
+			addClass("progress-bar-animated");
+		}
+		else
+		{
+			removeClass("progress-bar-animated");
+		}
+
+		this.animated = animated;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash(super.hashCode(), getSpan(), getTheme(), getMin(), getMax(), getValue(), getLabel());
+		return super.hashCode();
 	}
 }

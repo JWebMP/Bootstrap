@@ -43,13 +43,6 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	 * Constructs a new instance of a group of items that denote a single radio button.
 	 * <p>
 	 * Place inside a BS Form Set
-	 *
-	 * @param label
-	 * @param inputComponent
-	 * @param helpText
-	 * @param value
-	 *
-	 * @see za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSFormSet
 	 */
 	public BSFormRadioGroup()
 	{
@@ -80,9 +73,9 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	 * @return
 	 */
 	@Override
-	public InputRadioType<?> addInput(InputRadioType<?> inputComponent)
+	public InputRadioType<?> setInput(InputRadioType<?> inputComponent)
 	{
-		InputRadioType<?> radioCheckBoxType = super.addInput(inputComponent);
+		InputRadioType<?> radioCheckBoxType = super.setInput(inputComponent);
 		radioCheckBoxType.removeClass(BSFormGroupOptions.Form_Control);
 		radioCheckBoxType.addClass(BSFormGroupOptions.Form_Check_Input);
 		if (getLabel() != null)

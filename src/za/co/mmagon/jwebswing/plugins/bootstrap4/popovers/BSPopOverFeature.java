@@ -19,6 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
@@ -46,7 +47,6 @@ public class BSPopOverFeature
 	{
 		super("BootstrapPopoverFeature");
 		setComponent(forComponent);
-		getOptions().setSelector("[rel=bs4popover]");
 	}
 
 	/**
@@ -73,28 +73,14 @@ public class BSPopOverFeature
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
 }

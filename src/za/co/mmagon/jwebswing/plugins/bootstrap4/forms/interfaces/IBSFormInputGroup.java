@@ -64,4 +64,8 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	 * @return
 	 */
 	Div<?, ?, ?, ?, ?> getAppendDiv();
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	J append(ComponentHierarchyBase component, boolean renderInSpan);
 }

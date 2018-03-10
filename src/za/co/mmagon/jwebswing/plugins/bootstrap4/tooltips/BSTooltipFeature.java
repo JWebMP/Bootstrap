@@ -19,8 +19,8 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.tooltips;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.BSPopOverFeatures;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.BSPopOverOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
@@ -74,28 +74,14 @@ public class BSTooltipFeature
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
 }

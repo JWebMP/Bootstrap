@@ -1,60 +1,97 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.navbar;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.base.html.Image;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.brand.BSNavBarBrandImage;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarToggler;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarTogglerAlignments;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarTogglerSizes;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavItemDropDown;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavLinkItem;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavs;
+import za.co.mmagon.jwebswing.BaseTestClass;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.enumerations.BSNavBarColourSchemes;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSBackgroundOptions;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
-
-/**
- * @author GedMarc
- */
-public class BSNavBarTest
+class BSNavBarTest
+		extends BaseTestClass
 {
 
-	public BSNavBarTest()
+	@Test
+	void testText()
 	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		navBar.addBrand("New Brand");
+		System.out.println(navBar.toString(0));
 	}
 
 	@Test
-	public void testSomeMethod()
+	void testImage()
 	{
-		BSNavBar nav = new BSNavBar(BSNavBarTogglerSizes.Navbar_Toggleable_MD, BSNavBarColourSchemes.Navbar_Light,
-		                            BSNavBarColourSchemes.BG_Faded).setPositioning(BSNavBarPositioning.Fixed_Top);
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
 
-		BSNavBarToggler toggle = new BSNavBarToggler(BSNavBarTogglerAlignments.Navbar_Toggler_Right);
-		nav.add(toggle);
-		nav.add(new BSNavBarBrandImage(new Image("image")));
-
-		BSNavs navs = new BSNavs();
-		navs.add(new BSNavItemDropDown());
-		navs.add(new BSNavLinkItem(STRING_HASH));
-
-		nav.add(toggle.createCollapsingDiv(navs));
-
-		System.out.println(nav.toString(true));
+		navBar.addBrand(null, "ImageUrl");
+		System.out.println(navBar.toString(0));
 	}
 
+	@Test
+	void testBoth()
+	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		navBar.addBrand("New Brand", "ImageUrl");
+		System.out.println(navBar.toString(0));
+	}
+
+	@Test
+	void testHeader()
+	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		navBar.addHeaderText("Header Text");
+		System.out.println(navBar.toString(0));
+	}
+
+	@Test
+	void testFormInline()
+	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		navBar.addForm()
+		      .addTextInput("form.binding", "Form Binding");
+		System.out.println(navBar.toString(0));
+	}
+
+	@Test
+	void testNavCollapse()
+	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		BSNavBarToggleContainer container = navBar.addToggler();
+		container.getContent()
+		         .addItem("Home");
+
+		container.getContent()
+		         .addDropDown()
+		         .addDropDownMenu();
+
+		System.out.println(navBar.toString(0));
+	}
+
+	@Test
+	void testText2()
+	{
+		BSNavBar<?> navBar = new BSNavBar<>();
+		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
+		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
+
+		navBar.addText("This is inline text");
+		System.out.println(navBar.toString(0));
+	}
 }

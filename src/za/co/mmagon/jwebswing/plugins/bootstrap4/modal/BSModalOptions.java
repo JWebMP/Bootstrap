@@ -16,30 +16,68 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.IBSComponentOptions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 
 /**
- * All the options for the tooltip library
- * <p>
+ * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
+ * notification to completely custom content and feature a handful of
+ * helpful subcomponents, sizes, and more.
  *
  * @author GedMarc
- * @version 1.0
- * 		<p>
- * 		<p>
- * @since Mar 4, 2015
  */
-public class BSModalOptions<J extends BSModalOptions<J>>
-		extends JavaScriptPart<J>
+public enum BSModalOptions
+		implements IBSComponentOptions
 {
-
-	private static final long serialVersionUID = 1L;
-
 	/**
-	 *
+	 * Represents a Modal
 	 */
-	public BSModalOptions()
+	Modal,
+	/**
+	 * The content of the modal
+	 */
+	Modal_Content,
+	/**
+	 * The header of the modal
+	 */
+	Modal_Header,
+	/**
+	 * The body of the modal
+	 */
+	Modal_Body,
+	/**
+	 * The footer of the modal
+	 */
+	Modal_Footer,
+	/**
+	 * The modal title
+	 */
+	Modal_Title,
+	/**
+	 * The modal dialog
+	 */
+	Modal_Dialog,
+	/**
+	 * Modal large
+	 */
+	Modal_Lg,
+	/**
+	 * Modal small
+	 */
+	Modal_Sm;
+
+	BSModalOptions()
 	{
-		//Nothing Needed
+
+	}
+
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase()
+		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
 	}
 
 }

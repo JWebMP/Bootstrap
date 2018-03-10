@@ -17,15 +17,16 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.navs;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
-
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
+import za.co.mmagon.jwebswing.base.html.Div;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSAlignmentHorizontalOptions;
 
 /**
  * @author GedMarc
  */
 public class BSNavsTest
 {
+
+	BSNavs nav = new BSNavs();
 
 	public BSNavsTest()
 	{
@@ -35,37 +36,51 @@ public class BSNavsTest
 	public void testSomeMethod()
 	{
 		BSNavs nav = new BSNavs();
-		nav.add((BSNavLinkItem) new BSNavLinkItem(STRING_HASH).setText("Stff"));
+		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
+		nav.addItem("new item");
 		System.out.println(nav.toString(true));
 
-		nav = new BSNavPill();
-		nav.add(((BSNavLinkItem) new BSNavLinkItem(StaticStrings.STRING_HASH).setText("Stff")).setActive());
-		System.out.println(nav.toString(true));
+
 	}
 
 	@Test
-	public void testDropDownInTab()
+	public void testNavTabs()
+	{
+		BSNavTabs tabs = new BSNavTabs();
+		tabs.addTab("Tab Label", new Div(), true);
+		tabs.addTab("Tab Label 2", new Div(), false);
+		tabs.addTab("Tab Label 3", new Div(), false);
+		tabs.addTab("Tab Label 4", new Div(), false);
+		tabs.addTab("Tab Label 5", new Div(), false);
+
+		System.out.println(tabs.toString(true));
+	}
+
+	@Test
+	public void testSomeMethodFunctionality()
 	{
 		BSNavs nav = new BSNavs();
-		nav.add(new BSNavItemDropDown());
+		nav.addDropDown()
+		   .addDropDownMenu();
+		nav.addItem("New Nav Item");
+		nav.setAsTabs(true);
+
+		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
 		System.out.println(nav.toString(true));
 	}
 
 	@Test
-	public void testPillsDropDownInTab()
-	{
-		BSNavs nav = new BSNavPill();
-		nav.add(new BSNavItemDropDown());
-		System.out.println(nav.toString(true));
-	}
-
-	@Test
-	public void testList()
+	public void testFill()
 	{
 		BSNavs nav = new BSNavs();
-		nav.getNavigationList()
-		   .add(new BSNavListItem(new BSNavLinkItem("url")));
-
+		nav.setFill(true);
+		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
+		nav.addItem("new item");
+		nav.addItem("new item2");
+		nav.addItem("new item3");
+		nav.addItem("new item4");
+		nav.addItem("new item5");
+		nav.addItem("new item6");
 		System.out.println(nav.toString(true));
 	}
 }

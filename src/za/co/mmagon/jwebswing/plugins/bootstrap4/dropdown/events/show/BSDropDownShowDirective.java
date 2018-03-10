@@ -51,7 +51,7 @@ public class BSDropDownShowDirective
 	@NotNull
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(BSDropDownShowDirective.class, "BSDropDownShow")
+		return FileTemplates.getFileTemplate(BSDropDownShowDirective.class, "BSDropDownShow", "BSDropDownShow.min.js")
 		                    .toString();
 	}
 

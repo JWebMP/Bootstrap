@@ -2,7 +2,6 @@ za.co.mmagon.jwebswing.plugins.bootstrap4.alerts.events.BSAlertClosedEventDirect
 za.co.mmagon.jwebswing.plugins.bootstrap4.alerts.events.BSAlertCloseEventDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.carousel.events.BSCarouselSlideEventDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.carousel.events.BSCarouselSlidEventDirective
-za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.BSModalShowEventDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective
@@ -11,3 +10,11 @@ za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHidde
 za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective
 za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.hidden.BSModalHiddenDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.hide.BSModalHideDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.show.BSModalShowEventDirective
+za.co.mmagon.jwebswing.plugins.bootstrap4.modal.events.shown.BSModalShownEventDirective

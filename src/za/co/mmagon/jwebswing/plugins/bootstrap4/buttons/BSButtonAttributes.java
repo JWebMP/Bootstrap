@@ -54,6 +54,7 @@ public enum BSButtonAttributes
 	 * if it toggles something
 	 */
 	Data_Toggle,
+	Data_Dismiss,
 	Visibility;
 
 	private boolean isKeyword;

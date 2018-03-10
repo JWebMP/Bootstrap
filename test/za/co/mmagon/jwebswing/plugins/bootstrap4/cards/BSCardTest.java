@@ -51,10 +51,10 @@ public class BSCardTest
 	public void testSetStyle()
 	{
 		BSCard card = new BSCard();
-		card.setMargin(BSMarginOptions.MarginBottom_3);
-		card.setPadding(BSPaddingOptions.PaddingTop_3);
+		card.addMargin(BSMarginOptions.MarginBottom_3);
+		card.addPadding(BSPaddingOptions.PaddingTop_3);
 
-		card.setStyle(BSBackgroundOptions.Bg_Primary, BSColoursOptions.Text_White);
+		card.addBackground(BSBackgroundOptions.Bg_Primary);
 		System.out.println(card.toString(true));
 	}
 
@@ -63,9 +63,9 @@ public class BSCardTest
 	public void testSetBorder()
 	{
 		BSCard card = new BSCard();
-		card.setBorder(BSBorderOptions.Rounded_Bottom);
-		card.setBorder(BSBorderOptions.Border_Success);
-		card.setStyle(BSBackgroundOptions.Bg_Primary, BSColoursOptions.Text_White);
+		card.addBorder(BSBorderOptions.Rounded_Bottom);
+		card.addBorder(BSBorderOptions.Border_Success);
+		card.addForeground(BSColoursOptions.Text_White);
 		System.out.println(card.toString(true));
 	}
 }

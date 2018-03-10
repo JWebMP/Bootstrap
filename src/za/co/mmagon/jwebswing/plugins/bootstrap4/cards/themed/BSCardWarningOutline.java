@@ -17,7 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.cards.themed;
 
 import za.co.mmagon.jwebswing.plugins.bootstrap4.cards.BSCard;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSBackgroundOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSBorderOptions;
 
 /**
  * Background variants
@@ -43,7 +43,7 @@ public class BSCardWarningOutline
 	 */
 	public BSCardWarningOutline()
 	{
-		addClass(BSBackgroundOptions.Border_Warning);
+		addClass(BSBorderOptions.Border_Warning);
 	}
 
 }

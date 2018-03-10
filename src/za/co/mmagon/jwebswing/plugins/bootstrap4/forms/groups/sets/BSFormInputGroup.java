@@ -199,6 +199,32 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	}
 
 	/**
+	 * The text (or component.toString(0)) to append
+	 *
+	 * @param component
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J append(ComponentHierarchyBase component, boolean renderInSpan)
+	{
+		if (renderInSpan)
+		{
+			Span<?, ?, ?> span = new Span<>();
+			span.setText(component.toString(0));
+			span.addClass(Input_Group_Text);
+			appendDiv.add(span);
+		}
+		else
+		{
+			appendDiv.add(component);
+		}
+		return (J) this;
+	}
+
+	/**
 	 * Renders the label before the tag
 	 *
 	 * @return
@@ -221,9 +247,17 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
 			Set<ComponentHierarchyBase> newOrder = new LinkedHashSet<>();
-			newOrder.add(prependDiv);
+			if (!prependDiv.getChildren()
+			               .isEmpty())
+			{
+				newOrder.add(prependDiv);
+			}
 			newOrder.addAll(getChildren());
-			newOrder.add(appendDiv);
+			if (!appendDiv.getChildren()
+			              .isEmpty())
+			{
+				newOrder.add(appendDiv);
+			}
 			setChildren(newOrder);
 		}
 		super.preConfigure();

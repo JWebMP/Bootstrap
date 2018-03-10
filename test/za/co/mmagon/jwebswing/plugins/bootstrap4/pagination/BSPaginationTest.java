@@ -19,6 +19,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.pagination;
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.BaseTestClass;
 import za.co.mmagon.jwebswing.base.html.Span;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.options.BSPaginationAlignmentOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.options.BSPaginationSizingOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationLink;
 
 /**
  * @author GedMarc
@@ -48,7 +51,7 @@ public class BSPaginationTest
 	@Test
 	public void testSizes()
 	{
-		BSPagination page = new BSPagination(BSComponentPaginationSizingOptions.Pagination_Sm);
+		BSPagination page = new BSPagination(BSPaginationSizingOptions.Pagination_Sm);
 		BSPaginationLink link = page.createPageLink("AriaLabel");
 
 		link.add(new Span("&laquo;"));
@@ -62,8 +65,7 @@ public class BSPaginationTest
 	@Test
 	public void testAlignment()
 	{
-		BSPagination page = new BSPagination(BSComponentPaginationSizingOptions.Pagination_Lg,
-		                                     BSComponentPaginationAlignmentOptions.Justify_Content_Center);
+		BSPagination page = new BSPagination(BSPaginationSizingOptions.Pagination_Lg, BSPaginationAlignmentOptions.Justify_Content_Center);
 		BSPaginationLink link = page.createPageLink("AriaLabel");
 
 		link.add(new Span("&laquo;"));

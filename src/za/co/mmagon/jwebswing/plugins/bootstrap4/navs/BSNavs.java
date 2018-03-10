@@ -20,7 +20,19 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.BSNavBarChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.BSDropDown;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.interfaces.IBSNavs;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.parts.BSNavListItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSAlignmentHorizontalOptions;
+
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+
+import static za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavsOptions.*;
 
 /**
  * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. Swap
@@ -40,14 +52,10 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.BSNavBarChildren;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSNavs<J extends BSNavs<J>>
 		extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren, IBSNavs
+		implements BSNavBarChildren, za.co.mmagon.jwebswing.plugins.bootstrap4.navs.interfaces.IBSNavs<J>
 {
 
 	private static final long serialVersionUID = 1L;
-	/**
-	 * Assign the navigation list
-	 */
-	private BSNavList navigationList;
 
 	/**
 	 * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states.
@@ -55,104 +63,255 @@ public class BSNavs<J extends BSNavs<J>>
 	 */
 	public BSNavs()
 	{
-		setTag("nav");
+		setTag("ul");
 		addClass(BSNavsOptions.Nav);
-		addAttribute(BSNavsAttributes.Role, "navigation");
-
+		addAttribute(BSNavsAttributes.Role, "tablist");
 	}
 
 	/**
-	 * Assigns the navigation list
+	 * Returns a slimmer version of me
 	 *
 	 * @return
 	 */
-	@Override
-	public BSNavList getNavigationList()
+	public IBSNavs<J> asMe()
 	{
-		if (navigationList == null)
-		{
-			setNavigationList(new BSNavList());
-		}
-		return navigationList;
-	}
-
-	/**
-	 * Sets the navigation list accordingly
-	 *
-	 * @param navigationList
-	 */
-	@Override
-	public void setNavigationList(BSNavList navigationList)
-	{
-		if (this.navigationList != null)
-		{
-			getChildren().remove(this.navigationList);
-		}
-		this.navigationList = navigationList;
-		if (this.navigationList != null)
-		{
-			add(this.navigationList);
-		}
-	}
-
-	/**
-	 * Sets this navigation bar as centered
-	 *
-	 * @return
-	 */
-	@Override
-	public BSNavs setCentered()
-	{
-		addClass(BSNavsOptions.Justify_Content_Center);
 		return this;
 	}
 
 	/**
-	 * Sets this navigation bar as right aligned
+	 * Sets the actual alignment for the links, centered and right are good ones
+	 *
+	 * @param options
 	 *
 	 * @return
 	 */
 	@Override
-	public BSNavs setRightAligned()
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHorizontalAlignment(BSAlignmentHorizontalOptions options)
 	{
-		addClass(BSNavsOptions.Justify_Content_End);
-		return this;
+		addClass(options);
+		return (J) this;
 	}
 
 	/**
-	 * A neater version of only my options
+	 * Stack your navigation by changing the flex item direction with the .flex-column utility. Need to stack them on some viewports but
+	 * not
+	 * others? Use the responsive versions (e.g., .flex-sm-column).
+	 *
+	 * @param vertical
 	 *
 	 * @return
 	 */
-	public IBSNavs asMe()
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setVertical(boolean vertical)
 	{
-		return this;
+		if (vertical)
+		{
+			addClass("flex-column");
+		}
+		else
+		{
+			removeClass("flex-column");
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Tabs
+	 * Takes the basic nav from above and adds the .nav-tabs class to generate a tabbed interface. Use them to create tabbable regions with
+	 * our tab JavaScript plugin.
+	 *
+	 * @param asTabs
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAsTabs(boolean asTabs)
+	{
+		if (asTabs)
+		{
+			addClass(BSNavsOptions.Nav_Tabs);
+			addAttribute("role", "tablist");
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Nav_Tabs);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Adds a new item to the collection
+	 *
+	 * @param name
+	 * @param active
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSNavListItem<?> addItem(String name, boolean active)
+	{
+		return addItem(name, active, false);
+	}
+
+	/**
+	 * Adds a new item to the collection
+	 *
+	 * @param name
+	 * @param active
+	 * @param disabled
+	 *
+	 * @return
+	 */
+
+	@Override
+	@NotNull
+	public BSNavListItem<?> addItem(String name, boolean active, boolean disabled)
+	{
+		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
+		newLinkItem.setActive(active);
+		newLinkItem.setDisabled(disabled);
+		add(newLinkItem);
+		return newLinkItem;
+	}
+
+	/**
+	 * If the tabls should render as pills
+	 *
+	 * @param asPills
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAsPills(boolean asPills)
+	{
+		if (asPills)
+		{
+			addClass(BSNavsOptions.Nav_Pills);
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Nav_Pills);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Fill and justify
+	 * Force your .nav’s contents to extend the full available width one of two modifier classes. To proportionately fill all available
+	 * space with your .nav-items, use .nav-fill. Notice that all horizontal space is occupied, but not every nav item has the same width.
+	 *
+	 * @param fill
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFill(boolean fill)
+	{
+		if (fill)
+		{
+			addClass(Nav_Fill);
+		}
+		else
+		{
+			removeClass(Nav_Fill);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Adds a new item to the collection
+	 *
+	 * @param name
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSNavListItem<?> addItem(String name)
+	{
+		return addItem(name, true, false);
+	}
+
+	/**
+	 * Sets the buttons to equal width layout
+	 *
+	 * @param equalWidth
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEqualWidth(boolean equalWidth)
+	{
+		if (equalWidth)
+		{
+			addClass("nav-justified");
+		}
+		else
+		{
+			removeClass("nav-justified");
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Adds a drop down to the dav items
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSDropDown<?> addDropDown()
+	{
+		BSDropDown<?> dropDown = new BSDropDown<>();
+		List<String> newOrder = new ArrayList<>(dropDown.getClasses());
+		newOrder.add(0, Nav_Item.toString());
+		dropDown.setClasses(new LinkedHashSet<>(newOrder));
+		add(dropDown);
+		return dropDown;
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	@SuppressWarnings("unchecked")
+	public void preConfigure()
 	{
-		if (this == obj)
+		if (!isConfigured() && (getClasses().contains(Nav_Fill.toString()) || getClasses().contains(Nav_Justified.toString())))
 		{
-			return true;
+
+			getChildren().forEach(a ->
+			                      {
+				                      List<String> newOrder = new ArrayList<>(a.getClasses());
+				                      newOrder.add(0, Nav_Item.toString());
+				                      a.setClasses(new LinkedHashSet<>(newOrder));
+			                      });
 		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+
+		super.preConfigure();
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
 
 }

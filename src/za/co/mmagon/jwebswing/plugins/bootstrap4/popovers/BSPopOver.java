@@ -19,7 +19,10 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.BootstrapReferencePool;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.BSPopOverChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.BSPopOverEvents;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.popovers.interfaces.IBSPopOver;
 
 /**
  * Popovers
@@ -49,8 +52,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.BootstrapReferencePool;
 		description = "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
 		url = "https://v4-alpha.getbootstrap.com/components/popovers/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
-public class BSPopOver
-		extends Div<BSPopOverChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, BSPopOver>
+public class BSPopOver<J extends BSPopOver<J>>
+		extends Div<BSPopOverChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, J>
 		implements IBSPopOver
 {
 
@@ -95,14 +98,11 @@ public class BSPopOver
 	public BSPopOver(ComponentHierarchyBase displayedComponent)
 	{
 		addFeature(getFeature());
-		getJavascriptReferences().add(BootstrapReferencePool.Bootstrap4TetherReference.getJavaScriptReference());
-		addAttribute(BSPopOverAttributes.Rel, "bs4popover");
 		if (displayedComponent != null)
 		{
 			displayedComponent.setTiny(true);
 			getOptions().setContent(displayedComponent.toString(true));
 		}
-
 	}
 
 	/**
@@ -141,29 +141,14 @@ public class BSPopOver
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
-
 }

@@ -25,7 +25,7 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
-class BSCarouselSlidEventDirective
+public class BSCarouselSlidEventDirective
 		extends AngularDirectiveBase
 {
 
@@ -47,7 +47,7 @@ class BSCarouselSlidEventDirective
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(BSCarouselSlidEventDirective.class, "Event")
+		return FileTemplates.getFileTemplate(BSCarouselSlidEventDirective.class, "BSCarouselSlidEvent", "BSCarouselSlidEvent.min.js")
 		                    .toString();
 	}
 

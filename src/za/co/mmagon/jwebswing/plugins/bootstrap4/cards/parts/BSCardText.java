@@ -62,26 +62,21 @@ public class BSCardText<J extends BSCardText<J>>
 	 *
 	 * @param backgroundOptions
 	 * 		background colour
-	 * @param coloursOptions
-	 * 		text colour
 	 *
 	 * @return
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setStyle(BSBackgroundOptions backgroundOptions, BSColoursOptions coloursOptions)
+	public J addBackground(BSBackgroundOptions backgroundOptions)
 	{
 		addClass(backgroundOptions);
-		addClass(coloursOptions);
 		return (J) this;
 	}
 
 	/**
 	 * Sets the style with the given colours
 	 *
-	 * @param borderOptions
-	 * 		background colour
 	 * @param coloursOptions
 	 * 		text colour
 	 *
@@ -90,9 +85,8 @@ public class BSCardText<J extends BSCardText<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setStyle(BSBorderOptions borderOptions, BSColoursOptions coloursOptions)
+	public J addForeground(BSColoursOptions coloursOptions)
 	{
-		addClass(borderOptions);
 		addClass(coloursOptions);
 		return (J) this;
 	}
@@ -107,7 +101,7 @@ public class BSCardText<J extends BSCardText<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setMargin(BSMarginOptions margin)
+	public J addMargin(BSMarginOptions margin)
 	{
 		addClass(margin);
 		return (J) this;
@@ -123,7 +117,7 @@ public class BSCardText<J extends BSCardText<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setPadding(BSPaddingOptions padding)
+	public J addPadding(BSPaddingOptions padding)
 	{
 		addClass(padding);
 		return (J) this;
@@ -139,10 +133,10 @@ public class BSCardText<J extends BSCardText<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setBorder(BSBorderOptions border)
+	public J addBorder(BSBorderOptions border)
 	{
 		addClass(border);
 		return (J) this;
 	}
-	
+
 }

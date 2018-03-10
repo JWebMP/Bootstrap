@@ -25,6 +25,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4;
 
 import za.co.mmagon.jwebswing.BaseTestClass;
 import za.co.mmagon.jwebswing.Page;
+import za.co.mmagon.jwebswing.base.angular.AngularPageConfigurator;
 
 /**
  * @author GedMarc
@@ -40,6 +41,7 @@ public class BootstrapPageConfiguratorTest
 	public void testPageConfigurationBS4()
 	{
 		Page p = getInstance();
+		AngularPageConfigurator.setRequired(true);
 		BootstrapPageConfigurator bpc = new BootstrapPageConfigurator();
 		bpc.configure(p);
 		System.out.println(p.toString(true));

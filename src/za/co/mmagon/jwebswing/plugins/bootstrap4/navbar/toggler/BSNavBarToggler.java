@@ -17,24 +17,24 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.toggler;
 
 import za.co.mmagon.jwebswing.base.html.Button;
-import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Span;
-import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
-import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.BSComponentNavBarOptions;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.BSNavBarChildren;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavs;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.BSNavsOptions;
+import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
+import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
+import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
+import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.interfaces.IBSNavBarToggler;
 
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author GedMarc
  * @since 21 Jan 2017
  */
-public class BSNavBarToggler
-		extends Button
-		implements BSNavBarChildren, IBSNavBarToggler
+public class BSNavBarToggler<C extends GlobalChildren, A extends Enum & AttributeDefinitions, F extends GlobalFeatures, E extends
+		                                                                                                                          GlobalEvents, J extends Button<C, A, F, E, J>>
+		extends Button<C, A, F, E, J>
+		implements BSNavBarChildren, IBSNavBarToggler<C, A, F, E, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -42,19 +42,23 @@ public class BSNavBarToggler
 	/**
 	 * The specified screen reader aria label to apply when creating the div
 	 */
-	private static String AriaLabel = "Toggle Navigation";
+	private String ariaLabel = "Toggle Navigation";
 
-	private String iconClass = BSComponentNavBarOptions.Navbar_Toggler_Icon.toString();
+	private String iconClass = "navbar-toggler-icon";
+	private Span<?, ?, ?> iconSpan;
+
 
 	/**
 	 * Creates 2 new accessible objects for the nav bar
-	 *
-	 * @param togglerAlignment
 	 */
-	public BSNavBarToggler(BSNavBarTogglerAlignments togglerAlignment)
+	public BSNavBarToggler()
 	{
-		addClass(BSComponentNavBarOptions.Navbar_Toggler);
-		addClass(togglerAlignment);
+		addClass("navbar-toggler");
+	}
+
+	public IBSNavBarToggler asMe()
+	{
+		return this;
 	}
 
 	/**
@@ -62,52 +66,41 @@ public class BSNavBarToggler
 	 *
 	 * @return
 	 */
-	public static String getAriaLabel()
+	@Override
+	public String getAriaLabel()
 	{
-		return AriaLabel;
+		return ariaLabel;
 	}
 
 	/**
 	 * sets the screen reader aria label
 	 */
-	public static void setAriaLabel(String ariaLabel)
+	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setAriaLabel(String ariaLabel)
 	{
-		BSNavBarToggler.AriaLabel = ariaLabel;
+		this.ariaLabel = ariaLabel;
+		return (J) this;
 	}
 
 	/**
-	 * Nav
-	 * <p>
-	 * Navbar navigation links build on our .nav options with their own modifier class and require the use of toggler classes for proper
-	 * responsive styling.
-	 * <p>
-	 * Navigation in navbars will also grow to occupy as much horizontal space as possible to keep your navbar contents securely aligned.
-	 * <p>
-	 * Active states—with .active—to indicate the current page can be applied directly to .nav-links or their immediate parent .nav-items.
-	 *
-	 * @param <T>
-	 * @param navs
+	 * Gets the span for the navbar icon
 	 *
 	 * @return
 	 */
 	@Override
-	public <T extends Div & BSNavBarChildren> T createCollapsingDiv(BSNavs navs)
+	public Span<?, ?, ?> getIconSpan()
 	{
-		navs.removeClass(BSNavsOptions.Nav);
-		navs.addClass(BSNavsOptions.Navbar_Nav);
-
-		BSNavBarTogglerDiv div = new BSNavBarTogglerDiv();
-		div.add(navs);
-
-		addAttribute(ButtonAttributes.Data_Toggle, "collapse");
-		addAttribute(ButtonAttributes.Data_Target, div.getID(true));
-		addAttribute(GlobalAttributes.Aria_Controls, div.getID());
-		addAttribute(GlobalAttributes.Aria_Expanded, "false");
-		addAttribute(GlobalAttributes.Aria_Label, AriaLabel);
-		addAttribute(GlobalAttributes.Type, "button");
-
-
-		return (T) div;
+		if (iconSpan == null)
+		{
+			iconSpan = new Span();
+			if (iconClass != null)
+			{
+				iconSpan.addClass(iconClass);
+			}
+		}
+		return iconSpan;
 	}
 
 	/**
@@ -127,29 +120,37 @@ public class BSNavBarToggler
 	 * @param iconClass
 	 */
 	@Override
-	public void setIconClass(String iconClass)
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setIconClass(String iconClass)
 	{
 		this.iconClass = iconClass;
+		return (J) this;
 	}
 
 	/**
-	 * A neater view
+	 * Sets the icon for the span
+	 *
+	 * @param iconSpan
 	 *
 	 * @return
 	 */
-	public IBSNavBarToggler asMe()
+	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setIconSpan(Span<?, ?, ?> iconSpan)
 	{
-		return this;
+		this.iconSpan = iconSpan;
+		return (J) this;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public void preConfigure()
 	{
 		if (!isConfigured())
 		{
-			Span iconSpan = new Span();
-			iconSpan.addClass(getIconClass());
-			add(iconSpan);
+			add((C) getIconSpan());
 		}
 		super.preConfigure();
 	}
@@ -157,25 +158,12 @@ public class BSNavBarToggler
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSNavBarToggler))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSNavBarToggler that = (BSNavBarToggler) o;
-		return Objects.equals(getIconClass(), that.getIconClass());
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash(super.hashCode(), getIconClass());
+		return super.hashCode();
 	}
 }

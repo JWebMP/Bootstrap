@@ -13,7 +13,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	/**
 	 * Adds the link styling for an alert to any component
 	 *
-	 * @param <T>
 	 * @param component
 	 *
 	 * @return

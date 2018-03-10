@@ -51,7 +51,7 @@ public class BSCollapseShowDirective
 	@NotNull
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(BSCollapseShowDirective.class, "BSCollapseShow")
+		return FileTemplates.getFileTemplate(BSCollapseShowDirective.class, "BSCollapseShow", "BSCollapseShow.min.js")
 		                    .toString();
 	}
 

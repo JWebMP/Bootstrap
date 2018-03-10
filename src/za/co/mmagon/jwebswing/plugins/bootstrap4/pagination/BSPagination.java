@@ -17,10 +17,14 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.pagination;
 
 import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.options.BSPaginationAlignmentOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.options.BSPaginationSizingOptions;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationLink;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationList;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.pagination.parts.BSPaginationListItem;
 
 /**
  * Pagination
@@ -37,61 +41,8 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  * @since 17 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Pagination",
-		description = "Pagination links indicate a series of related content exists across multiple pages. Typically these are used where " +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "a " + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "multi-page" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + " " + "approach " + "" + "" + "" + "" + "" + "" + "" + "to" + "" + "" + "" + "" + "" + "" + "" + "" + " "
-				              + "" + "" + "" + "" + "long" + "" + "" + "" + " " + "" + "" + "" + "" + "" + "lists" + "" + " " + "" + "" +
-				              "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + "" + "of" + "" + "" + "" + " " + "" + "" + "" + "" + "" + "" + "" + "" + "" + "content" + "" + "" +
-				              "" + "" + "" + " " + "" + "" + "" + "" + "" + "" + "" + "" + "" + "improves" + " " + "" + "" + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "general" + "" + "" + " " + "" + "" + ""
-				              + "" + "" + "" + "" + "" + "" + "" + "" + "" + "performance," + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + " " + "" + "" + "" + "" + "" + "" + "" + "such" + "" + "" + "" + "" + "" + "" + "" + "" + ""
-				              + "" + " " + "" + "" + "as" + "" + "" + "" + "" + "" + "" + " " + "" + "" + "" + "" + "" + "" + "in" + "" +
-				              "" + "" + "" + "" + "" + " " + "" + "" + "" + "" + "" + "" + "" + "" + "search" + "" + "" + "" + "" + "" +
-				              "" + "" + "" + " " + "" + "" + "" + "" + "" + "results" + "" + "" + "" + "" + "" + "" + "" + " " + "" + "or"
-				              + "" + " " + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "inboxes.",
+		description = "Pagination\n" + "Documentation and examples for showing pagination to indicate a series of related content exists "
+				              + "across multiple pages.",
 		url = "https://v4-alpha.getbootstrap.com/components/pagination/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSPagination<J extends BSPagination<J>>
@@ -116,7 +67,7 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @param sizing
 	 * 		Fancy larger or smaller pagination? Add .pagination-lg or .pagination-sm for additional sizes.
 	 */
-	public BSPagination(BSComponentPaginationSizingOptions sizing)
+	public BSPagination(BSPaginationSizingOptions sizing)
 	{
 		this();
 		getPageList().addClass(sizing);
@@ -134,8 +85,6 @@ public class BSPagination<J extends BSPagination<J>>
 	public BSPagination()
 	{
 		setTag("nav");
-		addAttribute(GlobalAttributes.Aria_Label, "bootstrap pagination");
-
 	}
 
 	/**
@@ -148,7 +97,7 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @param alignment
 	 * 		Change the alignment of pagination components with flexbox utilities.
 	 */
-	public BSPagination(BSComponentPaginationAlignmentOptions alignment)
+	public BSPagination(BSPaginationAlignmentOptions alignment)
 	{
 		this();
 		getPageList().addClass(alignment);
@@ -167,13 +116,14 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @param sizing
 	 * 		Fancy larger or smaller pagination? Add .pagination-lg or .pagination-sm for additional sizes.
 	 */
-	public BSPagination(BSComponentPaginationSizingOptions sizing, BSComponentPaginationAlignmentOptions alignment)
+	public BSPagination(BSPaginationSizingOptions sizing, BSPaginationAlignmentOptions alignment)
 	{
 		this();
 		getPageList().addClass(sizing);
 		getPageList().addClass(alignment);
 
 	}
+
 
 	/**
 	 * Creates a new pagination button link.
@@ -185,9 +135,10 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public BSPaginationLink createPageLink(String ariaLabel)
 	{
-		BSPageinationListItem listItem = new BSPageinationListItem();
+		BSPaginationListItem listItem = new BSPaginationListItem();
 		BSPaginationLink newLink = new BSPaginationLink(ariaLabel);
 
 		listItem.add(newLink);
@@ -241,29 +192,14 @@ public class BSPagination<J extends BSPagination<J>>
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		return super.equals(obj);
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash = 7;
-		hash = 79 * hash + (getID().hashCode());
-		return hash;
+		return super.hashCode();
 	}
-
 }

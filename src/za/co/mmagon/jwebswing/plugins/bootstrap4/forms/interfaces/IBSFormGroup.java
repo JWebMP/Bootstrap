@@ -23,7 +23,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	I addInput(@NotNull I inputComponent);
+	I setInput(@NotNull I inputComponent);
 
 	/**
 	 * Adds a success feedback configured with styled if it is set before it
@@ -118,7 +118,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 
 	/**
 	 * Readonly plain text
-	 * If you want to have <input readonly> elements in your form styled as plain text, use the .form-control-plaintext class to remove the
+	 * If you want to have input readonly elements in your form styled as plain text, use the .form-control-plaintext class to remove the
 	 * default form field styling and preserve the correct margin and padding.
 	 *
 	 * @param asPlainText

@@ -27,6 +27,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.interfaces.IBSDropDown
 import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.parts.BSDropDownButton;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
 /**
  * Dropdowns
@@ -50,7 +51,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSDropDown<J extends BSDropDown<J>>
 		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
-		implements za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.interfaces.IBSDropDown<J>
+		implements za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.interfaces.IBSDropDown<J>, BSNavsChildren
 {
 
 	private static final long serialVersionUID = 1L;

@@ -16,9 +16,10 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptPartType;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -190,6 +191,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param animation
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setAnimation(Boolean animation)
 	{
 		this.animation = animation;
@@ -211,9 +214,25 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param content
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setContent(String content)
 	{
 		this.content = content;
+		return (J) this;
+	}
+
+	/**
+	 * Default content value if data-content attribute isn't present.
+	 *
+	 * @param content
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setContent(ComponentHierarchyBase content)
+	{
+		content.setTiny(true);
+		this.content = content.toString(0);
 		return (J) this;
 	}
 
@@ -236,6 +255,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param container
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setContainer(String container)
 	{
 		this.container = container;
@@ -261,6 +282,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param constraints
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setConstraints(List<String> constraints)
 	{
 		this.constraints = constraints;
@@ -290,6 +313,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param delay
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setDelay(Integer delay)
 	{
 		this.delay = delay;
@@ -315,6 +340,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param html
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setHtml(Boolean html)
 	{
 		this.html = html;
@@ -346,6 +373,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param placement
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setPlacement(String placement)
 	{
 		this.placement = placement;
@@ -371,6 +400,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param selector
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setSelector(String selector)
 	{
 		this.selector = selector;
@@ -408,6 +439,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param template
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setTemplate(String template)
 	{
 		this.template = template;
@@ -433,6 +466,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param title
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setTitle(String title)
 	{
 		this.title = title;
@@ -456,6 +491,8 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param trigger
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setTrigger(String trigger)
 	{
 		this.trigger = trigger;
@@ -477,21 +514,11 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 *
 	 * @param offset
 	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setOffset(String offset)
 	{
 		this.offset = offset;
 		return (J) this;
 	}
-
-	/**
-	 * Render as javascript
-	 *
-	 * @return
-	 */
-	@Override
-	public JavascriptPartType getJavascriptType()
-	{
-		return JavascriptPartType.Javascript;
-	}
-
 }

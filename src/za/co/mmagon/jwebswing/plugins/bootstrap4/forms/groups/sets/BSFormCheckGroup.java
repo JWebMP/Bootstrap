@@ -74,9 +74,9 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 	 * @return
 	 */
 	@Override
-	public InputCheckBoxType<?> addInput(InputCheckBoxType<?> inputComponent)
+	public InputCheckBoxType<?> setInput(InputCheckBoxType<?> inputComponent)
 	{
-		InputCheckBoxType<?> checkBoxType = super.addInput(inputComponent);
+		InputCheckBoxType<?> checkBoxType = super.setInput(inputComponent);
 		checkBoxType.removeClass(Form_Control);
 		checkBoxType.addClass(Form_Check_Input);
 		if (getLabel() != null)

@@ -17,7 +17,10 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 
 import org.junit.jupiter.api.Test;
-import za.co.mmagon.jwebswing.plugins.bootstrap4.close.BSCloseIcon;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.styles.BSButtonSuccessOutline;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalBody;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalFooter;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalHeader;
 
 /**
  * @author GedMarc
@@ -32,10 +35,22 @@ public class BSModalTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSModal modal = new BSModal();
-		modal.getModalDialog();
+		BSModal<?> modal = new BSModal();
+
+		BSModalHeader header = modal.addModalHeader(true);
+		header.addTitle("This is the title");
+		header.addDissmissIcon();
+
+		BSModalBody body = modal.addModalBody();
+		body.add("This ist he contente");
+
+		BSModalFooter footer = new BSModalFooter();
+		footer.add(new BSButtonSuccessOutline<>("Test Button Add"));
+		footer.addDismissButton();
+
+		//modal.getModalDialog();
 		// modal.getModalHeader().add(new BSCloseIcon().setDataDismiss("modal"));
-		modal.asMe()
+	/*	modal.asMe()
 		     .addDismissButton(new BSCloseIcon());
 		modal.asMe()
 		     .setKeyboard(true);
@@ -44,7 +59,7 @@ public class BSModalTest
 		modal.asMe()
 		     .setFocus(true);
 		modal.asMe()
-		     .setShow(false);
+		     .setShow(false);*/
 		System.out.println(modal.toString(true));
 	}
 

@@ -16,29 +16,41 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.progressbar;
 
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.options.IBSComponentOptions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
 
 /**
- * All the options for the tooltip library
+ * Pagination
  * <p>
+ * Pagination links indicate a series of related content exists across multiple pages. Typically these are used where a multi-page approach
+ * to long lists of content improves general performance, such
+ * as in search results or inboxes.<p>
+ * Included is support for left and right aligned content, content alignment options, nesting, and more.
  *
  * @author GedMarc
  * @version 1.0
- * 		<p>
- * 		<p>
- * @since Mar 4, 2015
+ * @since 31 Dec 2016
  */
-public class BSProgressBarOptions
-		extends JavaScriptPart
+public enum BSProgressBarOptions
+		implements IBSComponentOptions
 {
+	Progress,
+	Progress_Bar,
+	Progress_Bar_Striped,
+	Progress_Bar_Animated;
 
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * JS Options for the progress bar
-	 */
-	public BSProgressBarOptions()
+	BSProgressBarOptions()
 	{
-		//Nothing Needed
+
 	}
+
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase()
+		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH);
+	}
+
 }

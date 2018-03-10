@@ -82,7 +82,8 @@ public enum BSBorderOptions
 	/**
 	 * Sets to warning theme
 	 */
-	Border_Warning;
+	Border_Warning,
+	Border_Info;
 
 	@Override
 	public String toString()

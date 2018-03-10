@@ -17,17 +17,7 @@ public enum BSBackgroundOptions
 	Bg_Info,
 	Bg_Light,
 	Bg_Dark,
-	Bg_Transparent,
-
-
-	Border_Primary,
-	Border_Secondary,
-	Border_Success,
-	Border_Warning,
-	Border_Danger,
-	Border_Info,
-	Border_Light,
-	Border_Dark,;
+	Bg_Transparent,;
 
 	@Override
 	public String toString()

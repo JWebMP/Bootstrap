@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.popovers;
 import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_DASH;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc
@@ -60,6 +60,6 @@ public enum BSPopOverAttributes
 	{
 		return name().toLowerCase()
 		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH)
-		             .replace("$", "");
+		             .replace(STRING_DOLLAR, STRING_EMPTY);
 	}
 }

@@ -30,6 +30,7 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSFormCheckGr
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.BSFormRadioGroup;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.interfaces.IBSForm;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
@@ -58,7 +59,7 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.enumeration
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSForm<J extends BSForm<J>>
 		extends AngularForm<J>
-		implements za.co.mmagon.jwebswing.plugins.bootstrap4.forms.interfaces.IBSForm<J>
+		implements za.co.mmagon.jwebswing.plugins.bootstrap4.forms.interfaces.IBSForm<J>, BSNavBarChildren
 {
 
 	private static final long serialVersionUID = 1L;
@@ -108,7 +109,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputTextType inputTextType = new InputTextType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 
 		add(group);
@@ -123,7 +124,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputTextType inputTextType = new InputTextType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 
 		add(group);
@@ -138,7 +139,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputTextAreaType inputTextType = new InputTextAreaType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 
 		add(group);
@@ -153,7 +154,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputTextAreaType inputTextType = new InputTextAreaType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 
 		add(group);
@@ -168,7 +169,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputEmailType inputEmailType = new InputEmailType();
-		group.addInput(inputEmailType);
+		group.setInput(inputEmailType);
 		inputEmailType.bind(binding);
 
 		add(group);
@@ -183,7 +184,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputEmailType inputEmailType = new InputEmailType();
-		group.addInput(inputEmailType);
+		group.setInput(inputEmailType);
 		inputEmailType.bind(binding);
 
 		add(group);
@@ -224,7 +225,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputSelectType inputSelectType = new InputSelectType();
-		group.addInput(inputSelectType);
+		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 
 		add(group);
@@ -239,7 +240,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputSelectType inputSelectType = new InputSelectType();
-		group.addInput(inputSelectType);
+		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 
 		add(group);
@@ -254,7 +255,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputCheckBoxType<?> inputTextType = new InputCheckBoxType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 
 		add(group);
@@ -269,7 +270,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputRadioType<?> inputTextType = new InputRadioType();
-		group.addInput(inputTextType);
+		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		inputTextType.setGroup(groupName);
 		add(group);
@@ -286,7 +287,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputFileType inputSelectType = new InputFileType();
-		group.addInput(inputSelectType);
+		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 
 		if (styled)
@@ -314,7 +315,7 @@ public class BSForm<J extends BSForm<J>>
 		group.addLabel(label);
 
 		InputFileType inputSelectType = new InputFileType();
-		group.addInput(inputSelectType);
+		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 
 		if (styled)
@@ -485,4 +486,15 @@ public class BSForm<J extends BSForm<J>>
 		super.preConfigure();
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
 }

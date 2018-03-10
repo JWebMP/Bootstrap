@@ -52,7 +52,7 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	/**
 	 * The actual close icon
 	 */
-	private Span closeIcon;
+	private Span<?, ?, ?> closeIcon;
 	/**
 	 * The actual text for the close icon
 	 */
@@ -68,7 +68,6 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 		addClass(BSCloseIconOptions.Close);
 		addAttribute(GlobalAttributes.Type, ComponentTypes.Button.getComponentTag());
 		getCloseIcon();
-
 	}
 
 	/**
@@ -89,7 +88,7 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	 *
 	 * @return
 	 */
-	public Span getCloseIcon()
+	public Span<?, ?, ?> getCloseIcon()
 	{
 		if (closeIcon == null)
 		{
@@ -105,7 +104,9 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	 *
 	 * @return
 	 */
-	public BSCloseIcon setCloseIcon(Span closeIcon)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCloseIcon(Span closeIcon)
 	{
 		if (this.closeIcon != null)
 		{
@@ -118,7 +119,7 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 			add(this.closeIcon);
 			this.closeIcon.addAttribute(GlobalAttributes.Aria_Hidden, Boolean.toString(true));
 		}
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -128,12 +129,27 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	 *
 	 * @return
 	 */
-	public BSCloseIcon setDataDismiss(String dismiss)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataDismiss(String dismiss)
 	{
 		addAttribute(ButtonAttributes.Data_Dismiss.toString(), dismiss);
-		return this;
+		return (J) this;
 	}
 
+	/**
+	 * Sets the close icon as a data dismissable
+	 * *
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDismissModel()
+	{
+		addAttribute(ButtonAttributes.Data_Dismiss.toString(), "modal");
+		return (J) this;
+	}
 
 	@Override
 	public boolean equals(Object o)

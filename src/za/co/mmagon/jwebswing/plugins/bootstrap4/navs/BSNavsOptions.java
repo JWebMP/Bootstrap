@@ -45,6 +45,7 @@ public enum BSNavsOptions
 	 * Nav List Item
 	 */
 	Nav_Item,
+	Nav_Justified,
 	/**
 	 * An actual navigation link
 	 */

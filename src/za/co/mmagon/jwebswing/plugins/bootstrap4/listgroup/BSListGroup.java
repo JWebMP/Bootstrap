@@ -46,7 +46,7 @@ import javax.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSListGroup<J extends BSListGroup<J>>
 		extends Div<BSListGroupChildren, BSListGroupAttributes, GlobalFeatures, BSListGroupEvents, J>
-		implements BSCardChildren
+		implements BSCardChildren, IBSListGroup<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -64,6 +64,24 @@ public class BSListGroup<J extends BSListGroup<J>>
 		addClass(BSListGroupOptions.List_Group);
 	}
 
+	/**
+	 * The slimmer version
+	 *
+	 * @return
+	 */
+	public IBSListGroup<J> asMe()
+	{
+		return this;
+	}
+
+	/**
+	 * Adds a new button item to the list group
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
 	@NotNull
 	public BSListGroupButtonItem<?> addButtonItem(String text)
 	{
@@ -75,6 +93,14 @@ public class BSListGroup<J extends BSListGroup<J>>
 		return item;
 	}
 
+	/**
+	 * Adds a new link item to the list group
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
 	@NotNull
 	public BSListGroupLinkItem<?> addLinkItem(String text)
 	{
@@ -86,6 +112,14 @@ public class BSListGroup<J extends BSListGroup<J>>
 		return item;
 	}
 
+	/**
+	 * Adds a new listem item to the list group
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
 	@NotNull
 	public BSListGroupListItem<?> addListItem(String text)
 	{
@@ -105,6 +139,7 @@ public class BSListGroup<J extends BSListGroup<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setFlush()
