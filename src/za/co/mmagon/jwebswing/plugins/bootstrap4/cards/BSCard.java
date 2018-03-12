@@ -45,8 +45,7 @@ import java.util.List;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Card",
-		description = "A card is a flexible and extensible content container. It includes options for headers and footers," + " a wide " +
-				              "variety of content,  contextual background colors, and powerful display options.",
+		description = "A card is a flexible and extensible content container. It includes options for headers and footers," + " a wide " + "variety of content,  contextual background colors, and powerful display options.",
 		url = "https://v4-alpha.getbootstrap.com/components/card/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
@@ -160,10 +159,11 @@ public class BSCard<J extends BSCard<J>>
 	 * @return
 	 */
 	@NotNull
-	public BSListGroup<?> addListGroup(List<BSListGroupListItem> items)
+	public BSListGroup<?> addListGroup(List<BSListGroupListItem<?>> items)
 	{
 		BSListGroup<?> listGroup = new BSListGroup<>();
 		items.forEach(listGroup::add);
+		add(listGroup);
 		return listGroup;
 	}
 
