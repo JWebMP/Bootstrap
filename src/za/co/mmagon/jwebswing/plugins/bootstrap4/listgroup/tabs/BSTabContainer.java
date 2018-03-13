@@ -42,6 +42,10 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	{
 		this(tabContent, text);
 		this.active = active;
+		if (active)
+		{
+			buttonItem.setActive();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -75,6 +79,12 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 		tabPane.addAttribute("role", "tabpanel");
 		tabPane.addAttribute(GlobalAttributes.Aria_LabelledBy, getButtonItem().getID());
 
+		if (active)
+		{
+			tabPane.addClass(BSDefaultOptions.Active);
+			tabPane.addClass(BSDefaultOptions.Show);
+		}
+
 		buttonItem.addAttribute("role", "tab");
 		buttonItem.addAttribute(BSButtonAttributes.Data_Toggle.toString(), "list");
 		buttonItem.addAttribute("href", tabPane.getID(true));
@@ -87,10 +97,23 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 			BSDropDownToggle menu = (BSDropDownToggle) iterator.next();
 			List<String> newOrder = new ArrayList<>(menu.getClasses());
 			newOrder.add(0, Nav_Link.toString());
+			newOrder.add(0, "data-toggle-tag");
 			menu.setClasses(new LinkedHashSet<>(newOrder));
-
-
 		}
+
+		listItem.setActive(active);
+		if (active)
+		{
+			listItem.getLinkItem()
+			        .addClass("active");
+
+			listItem.getLinkItem()
+			        .addClass("show");
+		}
+		listItem.getLinkItem()
+		        .addAttribute("data-toggle", "tab");
+		listItem.getLinkItem()
+		        .addAttribute("href", tabPane.getID(true));
 	}
 
 	/**

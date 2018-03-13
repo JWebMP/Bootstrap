@@ -673,7 +673,8 @@ public enum BSMarginOptions
 	/**
 	 * Separates from the Top 5matically
 	 */
-	MarginTop_Xl_5("mt-xl-5"),;
+	MarginTop_Xl_5("mt-xl-5"),
+	Margin_1("m-1");
 
 	private String className;
 

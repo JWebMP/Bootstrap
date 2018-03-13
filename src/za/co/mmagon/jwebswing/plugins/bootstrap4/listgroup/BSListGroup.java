@@ -39,9 +39,7 @@ import javax.validation.constraints.NotNull;
  * @since 17 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap ListGroup",
-		description = "List groups are a flexible and powerful component for displaying a series of content. List group items can be " +
-				              "modified and extended to support just about any content within. They can also be used as navigation with "
-				              + "the right modifier class.",
+		description = "List groups are a flexible and powerful component for displaying a series of content. List group items can be " + "modified and extended to support just about any content within. They can also be used as navigation with " + "the right modifier class.",
 		url = "https://v4-alpha.getbootstrap.com/components/list-group/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSListGroup<J extends BSListGroup<J>>
@@ -90,6 +88,7 @@ public class BSListGroup<J extends BSListGroup<J>>
 		{
 			item.setText(text);
 		}
+		add(item);
 		return item;
 	}
 
@@ -109,6 +108,7 @@ public class BSListGroup<J extends BSListGroup<J>>
 		{
 			item.setText(text);
 		}
+		add(item);
 		return item;
 	}
 
@@ -128,6 +128,7 @@ public class BSListGroup<J extends BSListGroup<J>>
 		{
 			item.setText(text);
 		}
+		add(item);
 		return item;
 	}
 

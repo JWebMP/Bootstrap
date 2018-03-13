@@ -32,7 +32,7 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 {
 
 	private static final long serialVersionUID = 1L;
-	private final BSNavLinkItem linkItem;
+	private final BSNavLinkItem<?> linkItem;
 
 	/**
 	 * Constructs a list item with a link item inside
@@ -82,6 +82,17 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 			removeClass(BSNavsOptions.Disabled);
 		}
 		return (J) this;
+	}
+
+	/**
+	 * Returns the associated Link Item
+	 *
+	 * @return
+	 */
+	@NotNull
+	public BSNavLinkItem<?> getLinkItem()
+	{
+		return linkItem;
 	}
 
 	@Override

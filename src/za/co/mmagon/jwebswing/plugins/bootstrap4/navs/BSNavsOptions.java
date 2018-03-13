@@ -41,6 +41,7 @@ public enum BSNavsOptions
 	 * with our tab JavaScript plugin.
 	 */
 	Nav_Tabs,
+	Tab_Bordered,
 	/**
 	 * Nav List Item
 	 */
@@ -81,7 +82,8 @@ public enum BSNavsOptions
 	/**
 	 * Fill and Justify
 	 */
-	Nav_Fill;
+	Nav_Fill,
+	Tabs_Bordered;
 
 	BSNavsOptions()
 	{
