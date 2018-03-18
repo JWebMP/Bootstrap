@@ -23,6 +23,7 @@ import za.co.mmagon.jwebswing.base.angular.forms.enumerations.InputErrorValidati
 import za.co.mmagon.jwebswing.base.html.*;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.inputs.InputFileType;
+import za.co.mmagon.jwebswing.base.html.inputs.InputTextType;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
@@ -173,6 +174,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return label;
 	}
 
+
 	@Override
 	@NotNull
 	@SuppressWarnings("unchecked")
@@ -262,9 +264,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * @return
 	 */
 	@Override
-	@Nullable
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public I getInput()
 	{
+		if (input == null)
+		{
+			input = (I) new InputTextType<>();
+		}
 		return input;
 	}
 
@@ -273,7 +280,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@SuppressWarnings("unchecked")
 	public SmallText<?> addHelpText(String text)
 	{
-		SmallText<?> smallText = new SmallText<>();
+		SmallText<?> smallText = new SmallText<>(text);
 		smallText.addClass(BSFormGroupOptions.Form_Text);
 		smallText.addClass(BSTypographyOptions.Text_Muted);
 		add(smallText);
@@ -432,9 +439,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		if (getLabel() == null)
 		{
-			log.warning(
-					"Label span set where no label exists. Make sure to add the label before setting as horizontal layout or it may " +
-							"appear funny.");
+			log.warning("Label span set where no label exists. Make sure to add the label before setting as horizontal layout or it may " + "appear funny.");
 		}
 		else
 		{

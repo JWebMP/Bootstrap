@@ -16,8 +16,10 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.forms;
 
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.angular.AngularAttributes;
 import za.co.mmagon.jwebswing.base.angular.forms.AngularForm;
+import za.co.mmagon.jwebswing.base.html.Input;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.inputs.*;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
@@ -53,8 +55,7 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.enumeration
  * @since 14 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Forms",
-		description = "Bootstrap provides several form control styles, layout options, and custom components for creating a wide variety "
-				              + "of forms.",
+		description = "Bootstrap provides several form control styles, layout options, and custom components for creating a wide variety " + "of forms.",
 		url = "https://v4-alpha.getbootstrap.com/components/forms/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSForm<J extends BSForm<J>>
@@ -132,6 +133,21 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
+	public BSFormInputGroup<?, InputPasswordType<?>> addPasswordInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputPasswordType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputPasswordType inputTextType = new InputPasswordType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
 	public BSFormGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label)
 	{
 		BSFormGroup<?, InputTextAreaType<?>> group = new BSFormGroup<>();
@@ -192,8 +208,7 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled,
-	                                                            @Nullable Boolean largeOrSmall)
+	public BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, @Nullable Boolean largeOrSmall)
 	{
 		BSFormGroup<?, InputSelectType<?>> group = addSelectDropdown(binding, label);
 		group.setForm(this);
@@ -477,13 +492,59 @@ public class BSForm<J extends BSForm<J>>
 			{
 				addAttribute(GlobalAttributes.Name, getID());
 			}
-			if (styleInputs)
-			{
-				applyClassesToAngularMessages();
-			}
 		}
 
 		super.preConfigure();
+
+		if (styleInputs)
+		{
+			applyClassesToAngularMessages();
+		}
+	}
+
+	/**
+	 * Protected method to call when all inputs are available to apply the classes
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	protected J applyClassesToAngularMessages()
+	{
+		getChildrenHierarchy(true).forEach(a ->
+		                                   {
+			                                   Input linkedInput;
+			                                   if (Input.class.isAssignableFrom(a.getClass()))
+			                                   {
+				                                   Input input = (Input) a;
+				                                   linkedInput = input;
+				                                   input.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+
+				                                   if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
+				                                                                                .getClass()))
+				                                   {
+					                                   BSFormInputGroup inputGroup = (BSFormInputGroup) a.getParent();
+					                                   inputGroup.getPrependDiv()
+					                                             .getChildren()
+					                                             .forEach(b ->
+					                                                      {
+						                                                      ComponentHierarchyBase child = (ComponentHierarchyBase) b;
+						                                                      child.addClass("form-control");
+						                                                      child.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+					                                                      });
+					                                   inputGroup.getAppendDiv()
+					                                             .getChildren()
+					                                             .forEach(b ->
+					                                                      {
+						                                                      ComponentHierarchyBase child = (ComponentHierarchyBase) b;
+						                                                      child.addClass("form-control");
+						                                                      child.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+					                                                      });
+				                                   }
+			                                   }
+		                                   });
+		return (J) this;
 	}
 
 	@Override

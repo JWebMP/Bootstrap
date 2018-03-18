@@ -19,12 +19,15 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets;
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.Input;
+import za.co.mmagon.jwebswing.base.html.SmallText;
 import za.co.mmagon.jwebswing.base.html.Span;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.BSDropDown;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroup;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.parts.InputGroupAppendItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.groups.sets.parts.InputGroupPrependItem;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.forms.interfaces.IBSFormInputGroup;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
@@ -48,8 +51,12 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 
 	private static final long serialVersionUID = 1L;
 
-	private final Div<GlobalChildren, ?, ?, ?, ?> prependDiv;
-	private final Div<GlobalChildren, ?, ?, ?, ?> appendDiv;
+	private final InputGroupPrependItem<?> prependDiv;
+	private final InputGroupAppendItem<?> appendDiv;
+
+	private SmallText helpText;
+
+	private boolean styleInputGroupTextWithValidation;
 
 	/**
 	 * Input group
@@ -71,11 +78,10 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	{
 		getClasses().clear();
 		addClass(Input_Group);
-		prependDiv = new Div<>();
+		prependDiv = new InputGroupPrependItem<>();
 		prependDiv.addClass(Input_Group_Prepend);
-		appendDiv = new Div<>();
+		appendDiv = new InputGroupAppendItem<>();
 		appendDiv.addClass(Input_Group_Append);
-
 		if (largeOrSmall != null)
 		{
 			if (largeOrSmall)
@@ -225,7 +231,32 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	}
 
 	/**
-	 * Renders the label before the tag
+	 * Sets whether or not the text of the input group must be validated
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isStyleInputGroupTextWithValidation()
+	{
+		return styleInputGroupTextWithValidation;
+	}
+
+	/**
+	 * Sets whether or not the text of the input group must be validated
+	 *
+	 * @param styleInputGroupTextWithValidation
+	 *
+	 * @return
+	 */
+	@Override
+	public J setStyleInputGroupTextWithValidation(boolean styleInputGroupTextWithValidation)
+	{
+		this.styleInputGroupTextWithValidation = styleInputGroupTextWithValidation;
+		return (J) this;
+	}
+
+	/**
+	 * Renders the label, help text and validation messages before the tag
 	 *
 	 * @return
 	 */
@@ -233,11 +264,17 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@Override
 	protected StringBuilder renderBeforeTag()
 	{
-		if (getLabel() != null)
+		StringBuilder output = new StringBuilder();
+
+		if (getLabel() != null && getLabel().getText() != null)
 		{
-			return new StringBuilder(getCurrentTabIndentString() + getLabel().toString(0) + getNewLine());
+			output.append(new StringBuilder(getCurrentTabIndentString() + getLabel().toString(0) + getNewLine()));
 		}
-		return new StringBuilder();
+		if (helpText != null)
+		{
+			output.append(new StringBuilder(getCurrentTabIndentString() + helpText.toString(0) + getNewLine()));
+		}
+		return output;
 	}
 
 	@Override
@@ -261,6 +298,21 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 			setChildren(newOrder);
 		}
 		super.preConfigure();
+	}
+
+	@Override
+	public IBSFormInputGroup<J, I> asMe()
+	{
+		return this;
+	}
+
+	@Override
+	public SmallText<?> addHelpText(String text)
+	{
+		SmallText sm = super.addHelpText(text);
+		getChildren().remove(sm);
+		helpText = sm;
+		return sm;
 	}
 
 	@Override

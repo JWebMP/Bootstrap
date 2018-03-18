@@ -22,6 +22,8 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormInputGroup<?, InputTextType<?>> addTextInput(String binding, String label, boolean inputGroup);
 
+	BSFormInputGroup<?, InputPasswordType<?>> addPasswordInput(String binding, String label, boolean inputGroup);
+
 	BSFormGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label);
 
 	BSFormInputGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label, boolean inputGroup);
@@ -30,8 +32,7 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormInputGroup<?, InputEmailType<?>> addEmailInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled,
-	                                                     @Nullable Boolean largeOrSmall);
+	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, @Nullable Boolean largeOrSmall);
 
 	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label);
 

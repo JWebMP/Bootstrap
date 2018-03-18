@@ -68,4 +68,8 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J append(ComponentHierarchyBase component, boolean renderInSpan);
+
+	boolean isStyleInputGroupTextWithValidation();
+
+	J setStyleInputGroupTextWithValidation(boolean styleInputGroupTextWithValidation);
 }
