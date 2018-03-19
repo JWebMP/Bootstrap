@@ -486,12 +486,9 @@ public class BSForm<J extends BSForm<J>>
 	@Override
 	public void preConfigure()
 	{
-		if (!isConfigured())
+		if (!isConfigured() && Objects.isNull(getAttribute(GlobalAttributes.Name)))
 		{
-			if (Objects.isNull(getAttribute(GlobalAttributes.Name)))
-			{
-				addAttribute(GlobalAttributes.Name, getID());
-			}
+			addAttribute(GlobalAttributes.Name, getID());
 		}
 
 		super.preConfigure();
