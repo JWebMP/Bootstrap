@@ -16,6 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
@@ -43,8 +44,7 @@ import javax.validation.constraints.NotNull;
  * @since 9 Nov 2016
  */
 @ComponentInformation(name = "Bootstrap Modals",
-		description = "Modal\n" + "Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for" + " lightboxes, user " +
-				              "notifications, or " + "completely " + "custom " + "" + "content.",
+		description = "Modal\n" + "Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for" + " lightboxes, user " + "notifications, or " + "completely " + "custom " + "" + "content.",
 		url = "https://getbootstrap.com/docs/4.0/components/modal/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSModal<J extends BSModal<J>>
@@ -196,18 +196,25 @@ public class BSModal<J extends BSModal<J>>
 		return modalFooter;
 	}
 
+	@Override
+	public BSButton<?> createDismissButton()
+	{
+		BSButton<?> button = new BSButton<>();
+		return createDismissButton(button);
+	}
+
 	/**
 	 * Adds the dismiss button to the modal
 	 *
 	 * @return
 	 */
 	@Override
-	public BSButton<?> createDismissButton()
+	public <T extends ComponentHierarchyBase> T createDismissButton(T component)
 	{
-		BSButton<?> button = new BSButton<>();
-		button.addAttribute("data-toggle", "modal");
-		button.addAttribute("data-target", getID(true));
-		return button;
+		component.addAttribute("data-dismiss", "modal");
+		component.setTag("button");
+		component.addAttribute("type", "button");
+		return component;
 	}
 
 	/**
@@ -222,9 +229,7 @@ public class BSModal<J extends BSModal<J>>
 	@NotNull
 	public J addOpenButton(Button button)
 	{
-		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), "modal");
-		button.addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
-		return (J) this;
+		return addOpenButton((ComponentHierarchyBase) button);
 	}
 
 	/**
@@ -325,7 +330,6 @@ public class BSModal<J extends BSModal<J>>
 		return (J) this;
 	}
 
-
 	/**
 	 * Sets the dialog content container
 	 */
@@ -335,6 +339,24 @@ public class BSModal<J extends BSModal<J>>
 	public J setModalDialogCenter(boolean centered)
 	{
 		getModalDialog().addClass("model-dialog-centered");
+		return (J) this;
+	}
+
+	/**
+	 * Adds a button that will open up the modal
+	 *
+	 * @param button
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addOpenButton(ComponentHierarchyBase button)
+	{
+		button.setTag("button");
+		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), "modal");
+		button.addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
 		return (J) this;
 	}
 
@@ -358,6 +380,6 @@ public class BSModal<J extends BSModal<J>>
 	 */
 	public IBSModal asMe()
 	{
-		return null;
+		return this;
 	}
 }

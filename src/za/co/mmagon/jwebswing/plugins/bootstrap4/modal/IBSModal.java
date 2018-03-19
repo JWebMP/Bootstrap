@@ -1,5 +1,6 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalBody;
@@ -37,6 +38,8 @@ public interface IBSModal<J extends BSModal<J>>
 	 * @return
 	 */
 	BSButton<?> createDismissButton();
+
+	<T extends ComponentHierarchyBase> T createDismissButton(T component);
 
 	/**
 	 * Adds a button that will open up the modal
@@ -111,4 +114,8 @@ public interface IBSModal<J extends BSModal<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J setModalDialogCenter(boolean centered);
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	J addOpenButton(ComponentHierarchyBase button);
 }
