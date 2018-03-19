@@ -21,6 +21,7 @@ import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.attributes.ButtonAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
+import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalBody;
@@ -211,9 +212,10 @@ public class BSModal<J extends BSModal<J>>
 	@Override
 	public <T extends ComponentHierarchyBase> T createDismissButton(T component)
 	{
-		component.addAttribute("data-dismiss", "modal");
-		component.setTag("button");
-		component.addAttribute("type", "button");
+		component.addAttribute("data-dismiss", BSModalOptions.Modal.toString());
+		component.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
+		component.setTag(ComponentTypes.Button.getComponentTag());
+		component.addAttribute("type", ComponentTypes.Button.getComponentTag());
 		return component;
 	}
 
@@ -355,10 +357,11 @@ public class BSModal<J extends BSModal<J>>
 	public J addOpenButton(ComponentHierarchyBase button)
 	{
 		button.setTag("button");
-		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), "modal");
+		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
 		button.addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
 		return (J) this;
 	}
+
 
 	@Override
 	public boolean equals(Object o)

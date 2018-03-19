@@ -514,11 +514,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		getChildrenHierarchy(true).forEach(a ->
 		                                   {
-			                                   Input linkedInput;
+
 			                                   if (Input.class.isAssignableFrom(a.getClass()))
 			                                   {
 				                                   Input input = (Input) a;
-				                                   linkedInput = input;
 				                                   input.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 
 				                                   if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
