@@ -118,4 +118,8 @@ public interface IBSModal<J extends BSModal<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J addOpenButton(ComponentHierarchyBase button);
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	J addOpenButton(ComponentHierarchyBase button, boolean setButtonTag);
 }

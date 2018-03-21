@@ -106,7 +106,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			}
 			else
 			{
-				List<ComponentHierarchyBase> children = new ArrayList<>(getChildren());
+				List<ComponentHierarchyBase<?, ?, ?, ?, ?>> children = new ArrayList<>(getChildren());
 				children.add(0, getMessages());
 				setChildren(new LinkedHashSet<>(children));
 			}

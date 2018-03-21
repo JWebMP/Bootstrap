@@ -356,7 +356,25 @@ public class BSModal<J extends BSModal<J>>
 	@NotNull
 	public J addOpenButton(ComponentHierarchyBase button)
 	{
-		button.setTag("button");
+		return addOpenButton(button, true);
+	}
+
+	/**
+	 * Adds a button that will open up the modal
+	 *
+	 * @param button
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addOpenButton(ComponentHierarchyBase button, boolean setButtonTag)
+	{
+		if (setButtonTag)
+		{
+			button.setTag("button");
+		}
 		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
 		button.addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
 		return (J) this;

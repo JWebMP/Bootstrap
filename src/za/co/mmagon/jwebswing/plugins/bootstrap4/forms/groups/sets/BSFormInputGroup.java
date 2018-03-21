@@ -283,7 +283,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		if (!isConfigured())
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
-			Set<ComponentHierarchyBase> newOrder = new LinkedHashSet<>();
+			Set<ComponentHierarchyBase<?, ?, ?, ?, ?>> newOrder = new LinkedHashSet<>();
 			if (!prependDiv.getChildren()
 			               .isEmpty())
 			{
