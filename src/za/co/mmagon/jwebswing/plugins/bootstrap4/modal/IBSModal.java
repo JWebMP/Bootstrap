@@ -3,6 +3,9 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.modal;
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.Button;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalHideFeature;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalShowFeature;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalToggleFeature;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalBody;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalFooter;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalHeader;
@@ -122,4 +125,10 @@ public interface IBSModal<J extends BSModal<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J addOpenButton(ComponentHierarchyBase button, boolean setButtonTag);
+
+	BSModalShowFeature createShowFeature();
+
+	BSModalHideFeature createHideFeature();
+
+	BSModalToggleFeature createToggleFeature();
 }

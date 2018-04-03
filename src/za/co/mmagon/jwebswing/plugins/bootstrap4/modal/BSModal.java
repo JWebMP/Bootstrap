@@ -24,6 +24,9 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.buttons.BSButton;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalHideFeature;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalShowFeature;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.features.BSModalToggleFeature;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalBody;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalFooter;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.modal.parts.BSModalHeader;
@@ -380,13 +383,44 @@ public class BSModal<J extends BSModal<J>>
 		return (J) this;
 	}
 
+	/**
+	 * Creates a show event for the create show feature
+	 *
+	 * @return
+	 */
+	@Override
+	public BSModalShowFeature createShowFeature()
+	{
+		return new BSModalShowFeature(this);
+	}
+
+	/**
+	 * Creates the hide feature
+	 *
+	 * @return
+	 */
+	@Override
+	public BSModalHideFeature createHideFeature()
+	{
+		return new BSModalHideFeature(this);
+	}
+
+	/**
+	 * Creates the toggle feature
+	 *
+	 * @return
+	 */
+	@Override
+	public BSModalToggleFeature createToggleFeature()
+	{
+		return new BSModalToggleFeature(this);
+	}
 
 	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
 	}
-
 
 	@Override
 	public int hashCode()

@@ -1,5 +1,6 @@
 package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup;
 
+import za.co.mmagon.jwebswing.base.html.interfaces.children.ListItemChildren;
 import za.co.mmagon.jwebswing.base.interfaces.ICssStructure;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
@@ -19,6 +20,9 @@ public interface IBSListGroup<J extends BSListGroup<J>>
 	 */
 	@NotNull
 	BSListGroupButtonItem<?> addButtonItem(String text);
+
+	@NotNull
+	BSListGroupButtonItem<?> addButtonItem(ListItemChildren icon, String text);
 
 	/**
 	 * Adds a new link item to the list group

@@ -4,6 +4,7 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.dropdown.BSDropDown;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
+import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.interfaces.IBSNavTabs;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.navs.parts.BSNavListItem;
 
 import javax.validation.constraints.NotNull;
@@ -40,6 +41,11 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 		navs.setAsTabs(true);
 		tabContents = new DivSimple();
 		tabContents.addClass("tab-content");
+	}
+
+	public IBSNavTabs asMe()
+	{
+		return this;
 	}
 
 	/**
@@ -129,8 +135,10 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	{
 		if (!isConfigured())
 		{
+
 			add(navs);
 			add(tabContents);
+
 			tabs.forEach(a ->
 			             {
 				             a.configure();

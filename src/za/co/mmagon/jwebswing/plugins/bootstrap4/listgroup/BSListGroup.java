@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup;
 
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
+import za.co.mmagon.jwebswing.base.html.interfaces.children.ListItemChildren;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.cards.BSCardChildren;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
@@ -25,6 +26,8 @@ import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupLink
 import za.co.mmagon.jwebswing.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 
 import javax.validation.constraints.NotNull;
+
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.HTML_TAB;
 
 /**
  * List group
@@ -87,6 +90,28 @@ public class BSListGroup<J extends BSListGroup<J>>
 		if (text != null)
 		{
 			item.setText(text);
+		}
+		add(item);
+		return item;
+	}
+
+	/**
+	 * Adds a new button item to the list group
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSListGroupButtonItem<?> addButtonItem(ListItemChildren icon, String text)
+	{
+		BSListGroupButtonItem<?> item = new BSListGroupButtonItem<>();
+		item.add(icon);
+		item.setRenderTextBeforeChildren(false);
+		if (text != null)
+		{
+			item.setText(HTML_TAB + text);
 		}
 		add(item);
 		return item;
