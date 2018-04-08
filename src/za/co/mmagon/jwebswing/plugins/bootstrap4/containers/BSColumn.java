@@ -16,7 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.bootstrap4.containers;
 
-import za.co.mmagon.jwebswing.base.html.Div;
+import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.plugins.bootstrap4.options.IBSComponentOptions;
 
 import static za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSColumnOptions.Col;
@@ -28,8 +28,8 @@ import static za.co.mmagon.jwebswing.plugins.bootstrap4.options.BSColumnOptions.
  * @version 1.0
  * @since Oct 10, 2016
  */
-public class BSColumn
-		extends Div
+public class BSColumn<J extends BSColumn<J>>
+		extends DivSimple<J>
 {
 
 	private static final long serialVersionUID = 1L;
