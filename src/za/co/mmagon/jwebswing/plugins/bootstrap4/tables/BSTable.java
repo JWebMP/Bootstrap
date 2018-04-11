@@ -13,6 +13,7 @@ public class BSTable<J extends BSTable<J>>
 		addClass(BSTableOptions.Table);
 	}
 
+	
 	/**
 	 * Sets this table as striped or not
 	 *
