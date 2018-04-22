@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.buttons.toolbars;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.buttons.groups.BSButtonGroup;
 import com.jwebmp.plugins.bootstrap4.buttons.styles.BSButtonSuccess;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSButtonToolbarTest
-		extends BaseTestClass
+
 {
 
 	public BSButtonToolbarTest()

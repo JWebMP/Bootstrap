@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.columnlayout;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.containers.BSColumn;
 import com.jwebmp.plugins.bootstrap4.containers.BSContainer;
 import com.jwebmp.plugins.bootstrap4.containers.BSRow;
@@ -29,7 +28,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.Container
  * @author GedMarc
  */
 public class BSContainerTest
-		extends BaseTestClass
+
 {
 
 	public BSContainerTest()
@@ -54,7 +53,6 @@ public class BSContainerTest
 		b.setContainerType(Container);
 		System.out.println(b.toString(true));
 		Assertions.assertEquals("<div class=\"container\" id=\"id\"></div>", b.toString(true));
-		soutDivider();
 
 		b.add(BSRow.newInstance()
 		           .add(BSColumn.newInstance()));

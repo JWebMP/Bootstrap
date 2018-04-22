@@ -17,14 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.navbar;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarColourSchemes;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
 import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
 import org.junit.jupiter.api.Test;
 
 class BSNavBarTest
-		extends BaseTestClass
+
 {
 
 	@Test

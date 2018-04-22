@@ -1,6 +1,5 @@
 package com.jwebmp.plugins.bootstrap4.forms.groups.sets;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBox;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
@@ -8,7 +7,7 @@ import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import org.junit.jupiter.api.Test;
 
 class BSFormInputGroupTest
-		extends BaseTestClass
+
 {
 
 	@Test

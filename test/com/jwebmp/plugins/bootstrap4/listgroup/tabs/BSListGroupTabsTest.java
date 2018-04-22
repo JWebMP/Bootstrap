@@ -17,12 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.html.Div;
 import org.junit.jupiter.api.Test;
 
 class BSListGroupTabsTest
-		extends BaseTestClass
+
 {
 
 	@Test

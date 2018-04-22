@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.accordion;
 
-import com.jwebmp.BaseTestClass;
+
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSAccordionTest
-		extends BaseTestClass
+
 {
 
 	public BSAccordionTest()

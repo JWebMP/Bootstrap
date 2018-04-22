@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.containers.BSColumn;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSColumnTest
-		extends BaseTestClass
+
 {
 
 	public BSColumnTest()

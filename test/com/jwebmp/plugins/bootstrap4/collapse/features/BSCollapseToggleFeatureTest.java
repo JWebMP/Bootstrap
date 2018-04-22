@@ -17,12 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.collapse.features;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.html.Div;
 import org.junit.jupiter.api.Test;
 
 class BSCollapseToggleFeatureTest
-		extends BaseTestClass
+
 {
 
 	@Test

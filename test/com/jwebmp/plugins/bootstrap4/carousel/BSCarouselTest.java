@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.carousel;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselCaption;
 import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselItem;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSCarouselTest
-		extends BaseTestClass
+
 {
 
 	public BSCarouselTest()

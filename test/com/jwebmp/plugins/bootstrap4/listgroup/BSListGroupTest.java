@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.listgroup;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
@@ -29,7 +28,7 @@ import static com.jwebmp.utilities.StaticStrings.STRING_HASH;
  * @author GedMarc
  */
 public class BSListGroupTest
-		extends BaseTestClass
+
 {
 
 	public BSListGroupTest()

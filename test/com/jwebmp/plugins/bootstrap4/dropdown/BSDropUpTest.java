@@ -17,11 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.dropdown;
 
-import com.jwebmp.BaseTestClass;
 import org.junit.jupiter.api.Test;
 
 class BSDropUpTest
-		extends BaseTestClass
+
 {
 
 	@Test

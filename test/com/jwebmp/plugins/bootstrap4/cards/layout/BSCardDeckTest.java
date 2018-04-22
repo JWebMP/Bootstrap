@@ -17,11 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.layout;
 
-import com.jwebmp.BaseTestClass;
 import org.junit.jupiter.api.Test;
 
 class BSCardDeckTest
-		extends BaseTestClass
+
 {
 
 	@Test

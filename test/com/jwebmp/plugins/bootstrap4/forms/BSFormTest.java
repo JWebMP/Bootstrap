@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.base.html.inputs.InputEmailType;
 import com.jwebmp.base.html.inputs.InputSelectType;
@@ -31,7 +30,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSColumnOptions.Col_Sm_2;
  * @author GedMarc
  */
 public class BSFormTest
-		extends BaseTestClass
+
 {
 	public BSFormTest()
 	{

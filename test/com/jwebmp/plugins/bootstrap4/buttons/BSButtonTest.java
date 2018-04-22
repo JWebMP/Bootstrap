@@ -16,14 +16,13 @@
  */
 package com.jwebmp.plugins.bootstrap4.buttons;
 
-import com.jwebmp.BaseTestClass;
 import org.junit.jupiter.api.Test;
 
 /**
  * @author GedMarc
  */
 public class BSButtonTest
-		extends BaseTestClass
+
 {
 
 	public BSButtonTest()

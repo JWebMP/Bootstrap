@@ -17,14 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.html.attributes.HeaderTypes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import org.junit.jupiter.api.Test;
 
 class BSCardBodyTest
-		extends BaseTestClass
+
 {
 
 	@Test

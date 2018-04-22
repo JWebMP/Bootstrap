@@ -17,12 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.cards.prebuilt.DefaultCardTest;
 import org.junit.jupiter.api.Test;
 
 public class BSCardImageOverlayTest
-		extends BaseTestClass
+
 {
 
 	@Test

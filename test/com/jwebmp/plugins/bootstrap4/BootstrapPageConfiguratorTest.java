@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.Page;
 import com.jwebmp.base.angular.AngularPageConfigurator;
 
@@ -24,7 +23,7 @@ import com.jwebmp.base.angular.AngularPageConfigurator;
  * @author GedMarc
  */
 public class BootstrapPageConfiguratorTest
-		extends BaseTestClass
+
 {
 	public BootstrapPageConfiguratorTest()
 	{
@@ -33,7 +32,7 @@ public class BootstrapPageConfiguratorTest
 	@org.junit.jupiter.api.Test
 	public void testPageConfigurationBS4()
 	{
-		Page p = getInstance();
+		Page p = new Page();
 		AngularPageConfigurator.setRequired(true);
 		BootstrapPageConfigurator bpc = new BootstrapPageConfigurator();
 		bpc.configure(p);

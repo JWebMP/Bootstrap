@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.pagination;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationAlignmentOptions;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationSizingOptions;
@@ -27,7 +26,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSPaginationTest
-		extends BaseTestClass
+
 {
 
 	public BSPaginationTest()

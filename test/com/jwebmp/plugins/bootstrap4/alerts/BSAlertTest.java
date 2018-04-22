@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.alerts;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.Page;
 import com.jwebmp.base.ajax.AjaxCall;
 import com.jwebmp.base.ajax.AjaxResponse;
@@ -31,7 +30,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class BSAlertTest
-		extends BaseTestClass
+
 {
 
 	public BSAlertTest()
@@ -139,7 +138,7 @@ public class BSAlertTest
 	@Test
 	public void testInPage()
 	{
-		Page p = getInstance();
+		Page p = new Page();
 		p.getBody()
 		 .add(new BSAlert());
 		System.out.println(p.toString(true));

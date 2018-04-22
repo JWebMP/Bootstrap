@@ -17,12 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.parts.styles;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeaderNav;
 import org.junit.jupiter.api.Test;
 
 class BSCardHeaderNavTest
-		extends BaseTestClass
+
 {
 	@Test
 	public void testMe()
@@ -31,11 +30,9 @@ class BSCardHeaderNavTest
 		nav.addItem("Text", true);
 		System.out.println(nav.toString(0));
 
-		super.soutDivider();
 		nav.asPills();
 		System.out.println(nav.toString(0));
 
-		super.soutDivider();
 		nav.addItem("Another Item");
 		System.out.println(nav.toString(0));
 	}

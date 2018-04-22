@@ -17,12 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.themed;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import org.junit.jupiter.api.Test;
 
 public class BSCardDangerTest
-		extends BaseTestClass
+
 {
 	@Test
 	public void testPrimary()

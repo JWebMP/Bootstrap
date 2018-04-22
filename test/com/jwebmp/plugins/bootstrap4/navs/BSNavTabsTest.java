@@ -17,11 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.navs;
 
-import com.jwebmp.BaseTestClass;
 import org.junit.jupiter.api.Test;
 
 class BSNavTabsTest
-		extends BaseTestClass
+
 {
 
 	@Test

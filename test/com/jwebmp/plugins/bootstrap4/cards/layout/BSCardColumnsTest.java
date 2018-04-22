@@ -1,11 +1,10 @@
 package com.jwebmp.plugins.bootstrap4.cards.layout;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.plugins.bootstrap4.BSSizes;
 import org.junit.jupiter.api.Test;
 
 class BSCardColumnsTest
-		extends BaseTestClass
+
 {
 
 	@Test
