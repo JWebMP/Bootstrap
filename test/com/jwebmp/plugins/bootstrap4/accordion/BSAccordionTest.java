@@ -37,8 +37,6 @@ public class BSAccordionTest
 		BSAccordion accordion = new BSAccordion();
 		accordion.setID("test");
 		accordion.addCard("Accordion Header", new BSCardBody<>(), true);
-
-
 		System.out.println(accordion.toString(true));
 	}
 
