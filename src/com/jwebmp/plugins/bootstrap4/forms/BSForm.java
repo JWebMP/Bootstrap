@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms;
 
-import com.jwebmp.base.ComponentHierarchyBase;
 import com.jwebmp.base.angular.AngularAttributes;
 import com.jwebmp.base.angular.forms.AngularForm;
 import com.jwebmp.base.html.Input;
@@ -807,26 +806,23 @@ public class BSForm<J extends BSForm<J>>
 			                                   {
 				                                   Input input = (Input) a;
 				                                   input.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
-
 				                                   if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
 				                                                                                .getClass()))
 				                                   {
-					                                   BSFormInputGroup inputGroup = (BSFormInputGroup) a.getParent();
+					                                   BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup) a.getParent();
 					                                   inputGroup.getPrependDiv()
 					                                             .getChildren()
 					                                             .forEach(b ->
 					                                                      {
-						                                                      ComponentHierarchyBase child = (ComponentHierarchyBase) b;
-						                                                      child.addClass("form-control");
-						                                                      child.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+						                                                      b.addClass("form-control");
+						                                                      b.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 					                                   inputGroup.getAppendDiv()
 					                                             .getChildren()
 					                                             .forEach(b ->
 					                                                      {
-						                                                      ComponentHierarchyBase child = (ComponentHierarchyBase) b;
-						                                                      child.addClass("form-control");
-						                                                      child.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+						                                                      b.addClass("form-control");
+						                                                      b.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 				                                   }
 			                                   }
