@@ -131,6 +131,36 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
+	public BSFormGroup<?, InputSearchType<?>> addSearchInput(String binding, String label)
+	{
+		BSFormGroup<?, InputSearchType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputSearchType inputTextType = new InputSearchType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputSearchType<?>> addSearchInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputSearchType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputSearchType inputTextType = new InputSearchType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
 	public BSFormInputGroup<?, InputPasswordType<?>> addPasswordInput(String binding, String label, boolean inputGroup)
 	{
 		BSFormInputGroup<?, InputPasswordType<?>> group = new BSFormInputGroup<>();
@@ -292,8 +322,52 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
+	public BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label)
+	{
+		BSFormGroup<?, InputFileType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputFileType inputSelectType = new InputFileType();
+		group.setInput(inputSelectType);
+		inputSelectType.bind(binding);
+		inputSelectType.addClass(BSFormGroupOptions.Form_Control_File);
+		add(group);
+
+		return group;
+	}
+
+	@Override
 	@SuppressWarnings("")
 	public BSFormInputGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputFileType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputFileType inputFileType = new InputFileType();
+		group.setInput(inputFileType);
+		inputFileType.bind(binding);
+
+		if (styled)
+		{
+			group.removeClass(BSFormGroupOptions.Form_Group);
+			group.addClass("custom-file");
+			inputFileType.addClass("custom-file-input");
+			group.getLabel()
+			     .addClass("custom-file-label");
+		}
+		else
+		{
+			inputFileType.addClass(BSFormGroupOptions.Form_Control_File);
+		}
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled)
 	{
 		BSFormInputGroup<?, InputFileType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
@@ -321,28 +395,165 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled)
+	public BSFormInputGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label, boolean inputGroup)
 	{
-		BSFormGroup<?, InputFileType<?>> group = new BSFormGroup<>();
+		BSFormInputGroup<?, InputTelephoneType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
 		group.addLabel(label);
 
-		InputFileType inputSelectType = new InputFileType();
-		group.setInput(inputSelectType);
-		inputSelectType.bind(binding);
+		InputTelephoneType inputTextType = new InputTelephoneType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
 
-		if (styled)
-		{
-			group.removeClass(BSFormGroupOptions.Form_Group);
-			group.addClass("custom-file");
-			inputSelectType.addClass("custom-file-input");
-			group.getLabel()
-			     .addClass("custom-file-label");
-		}
-		else
-		{
-			inputSelectType.addClass(BSFormGroupOptions.Form_Control_File);
-		}
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label)
+	{
+		BSFormGroup<?, InputTelephoneType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputTelephoneType inputTextType = new InputTelephoneType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputDateType<?>> addDateInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputDateType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputDateType inputTextType = new InputDateType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputDateTimeType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputDateTimeType inputTextType = new InputDateTimeType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputNumberType<?>> addNumberInput(String binding, String label)
+	{
+		BSFormGroup<?, InputNumberType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputNumberType inputTextType = new InputNumberType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputNumberType<?>> addNumberInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputNumberType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputNumberType inputTextType = new InputNumberType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputTimeType<?>> addTimeInput(String binding, String label)
+	{
+		BSFormGroup<?, InputTimeType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputTimeType inputTextType = new InputTimeType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputTimeType<?>> addTimeInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputTimeType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputTimeType inputTextType = new InputTimeType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputUrlType<?>> addUrlInput(String binding, String label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputUrlType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputUrlType inputTextType = new InputUrlType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputUrlType<?>> addUrlInput(String binding, String label)
+	{
+		BSFormGroup<?, InputUrlType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputUrlType inputTextType = new InputUrlType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputHiddenType<?>> addHiddenInput(String binding, String label)
+	{
+		BSFormGroup<?, InputHiddenType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputHiddenType inputTextType = new InputHiddenType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
 
 		add(group);
 		return group;
@@ -478,6 +689,88 @@ public class BSForm<J extends BSForm<J>>
 		return (J) this;
 	}
 
+	@Override
+	public BSFormGroup<?, InputDateType<?>> addDateInput(String binding, String label)
+	{
+		BSFormGroup<?, InputDateType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputDateType inputTextType = new InputDateType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label)
+	{
+		BSFormGroup<?, InputDateTimeType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputDateTimeType inputTextType = new InputDateTimeType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		add(group);
+		return group;
+	}
+
+	@Override
+	public BSButton<?> addCancelButton()
+	{
+		return addCancelButton(null, null);
+	}
+
+	@Override
+	public BSButton<?> addCancelButton(BSButtonOptions options, BSButtonSizeOptions sizes)
+	{
+		BSButton<?> button = new BSButton<>();
+		button.addAttribute(AngularAttributes.ngDisabled, "jw.isLoading");
+		button.addAttribute(GlobalAttributes.Type, "cancel");
+
+		if (options != null)
+		{
+			button.addClass(options);
+		}
+		if (sizes != null)
+		{
+			button.addClass(sizes);
+		}
+
+		add(button);
+		return button;
+	}
+
+	@Override
+	public BSButton<?> addResetButton()
+	{
+		return addResetButton(null, null);
+	}
+
+	@Override
+	public BSButton<?> addResetButton(BSButtonOptions options, BSButtonSizeOptions sizes)
+	{
+		BSButton<?> button = new BSButton<>();
+		button.addAttribute(AngularAttributes.ngDisabled, "jw.isLoading");
+		button.addAttribute(GlobalAttributes.Type, "reset");
+
+		if (options != null)
+		{
+			button.addClass(options);
+		}
+		if (sizes != null)
+		{
+			button.addClass(sizes);
+		}
+
+		add(button);
+		return button;
+	}
+
 	/**
 	 * Pre configures the item with a name
 	 */
@@ -542,14 +835,14 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

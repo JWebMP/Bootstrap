@@ -26,6 +26,7 @@ import com.jwebmp.base.html.inputs.InputFileType;
 import com.jwebmp.base.html.inputs.InputTextType;
 import com.jwebmp.base.html.interfaces.GlobalChildren;
 import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.base.html.interfaces.children.FormChildren;
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.generics.TopOrBottom;
 import com.jwebmp.plugins.bootstrap4.forms.BSComponentFormOptions;
@@ -65,7 +66,7 @@ import static com.jwebmp.generics.TopOrBottom.Bottom;
  */
 public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		extends Div<GlobalChildren, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren, IBSFormGroup<J, I>
+		implements BSFormChildren, IBSFormGroup<J, I>, FormChildren
 {
 
 	private static final Logger log = LogFactory.getLog("BSFormGroup");
@@ -518,14 +519,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	}
 
 	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

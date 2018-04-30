@@ -20,6 +20,7 @@ import com.jwebmp.base.html.Button;
 import com.jwebmp.base.html.attributes.GlobalAttributes;
 import com.jwebmp.base.html.attributes.InputButtonTypeAttributes;
 import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
@@ -45,7 +46,7 @@ import com.jwebmp.utilities.StaticStrings;
 		url = "https://v4-alpha.getbootstrap.com/components/buttons/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSButton<J extends BSButton<J>>
-		extends Button<BSButtonChildren, BSButtonAttributes, GlobalFeatures, BSButtonEvents, J>
+		extends Button<BSButtonChildren, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSDropDownChildren, BSFormChildren, IBSButton<J>
 {
 

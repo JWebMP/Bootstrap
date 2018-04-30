@@ -39,6 +39,10 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormInputGroup<?, InputTextType<?>> addTextInput(String binding, String label, boolean inputGroup);
 
+	BSFormGroup<?, InputSearchType<?>> addSearchInput(String binding, String label);
+
+	BSFormGroup<?, InputSearchType<?>> addSearchInput(String binding, String label, boolean inputGroup);
+
 	BSFormInputGroup<?, InputPasswordType<?>> addPasswordInput(String binding, String label, boolean inputGroup);
 
 	BSFormGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label);
@@ -59,10 +63,33 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormRadioGroup<?> addRadioInput(String binding, String label, String groupName);
 
-	@SuppressWarnings("")
+	BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label);
+
 	BSFormInputGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled, boolean inputGroup);
 
 	BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled);
+
+	BSFormInputGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label, boolean inputGroup);
+
+	BSFormGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label);
+
+	BSFormInputGroup<?, InputDateType<?>> addDateInput(String binding, String label, boolean inputGroup);
+
+	BSFormInputGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label, boolean inputGroup);
+
+	BSFormGroup<?, InputNumberType<?>> addNumberInput(String binding, String label);
+
+	BSFormInputGroup<?, InputNumberType<?>> addNumberInput(String binding, String label, boolean inputGroup);
+
+	BSFormGroup<?, InputTimeType<?>> addTimeInput(String binding, String label);
+
+	BSFormInputGroup<?, InputTimeType<?>> addTimeInput(String binding, String label, boolean inputGroup);
+
+	BSFormInputGroup<?, InputUrlType<?>> addUrlInput(String binding, String label, boolean inputGroup);
+
+	BSFormGroup<?, InputUrlType<?>> addUrlInput(String binding, String label);
+
+	BSFormGroup<?, InputHiddenType<?>> addHiddenInput(String binding, String label);
 
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -123,4 +150,16 @@ public interface IBSForm<J extends BSForm<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J setStyleInput(boolean styleInput);
+
+	BSFormGroup<?, InputDateType<?>> addDateInput(String binding, String label);
+
+	BSFormGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label);
+
+	BSButton<?> addCancelButton();
+
+	BSButton<?> addCancelButton(BSButtonOptions options, BSButtonSizeOptions sizes);
+
+	BSButton<?> addResetButton();
+
+	BSButton<?> addResetButton(BSButtonOptions options, BSButtonSizeOptions sizes);
 }
