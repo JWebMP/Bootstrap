@@ -127,6 +127,9 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		{
 			messages = new AngularInputMessages(form, input);
 			messages.addClass("is-invalid");
+			messages.addStyle("display", "inherit");
+			messages.addAttribute("ng-class", getForm().buildValidationClass(input)
+			                                           .replace("is-invalid", "invalid-feedback"));
 		}
 
 		return messages;

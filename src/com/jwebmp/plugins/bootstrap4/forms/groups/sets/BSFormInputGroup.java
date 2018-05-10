@@ -296,6 +296,12 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 				newOrder.add(appendDiv);
 			}
 			setChildren(newOrder);
+
+			if (isStyleInputGroupTextWithValidation())
+			{
+				getMessages().addAttribute("ng-class", getForm().buildValidationClass(getInput())
+				                                                .replace("is-invalid", "invalid-feedback"));
+			}
 		}
 		super.preConfigure();
 	}
