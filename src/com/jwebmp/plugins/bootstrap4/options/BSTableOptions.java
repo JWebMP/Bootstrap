@@ -16,6 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.options;
 
+import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
+import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
+
 /**
  * Clearfix
  * <p>
@@ -63,6 +66,8 @@ public enum BSTableOptions
 	 * Applies a dark theme to the table
 	 */
 	Table_Dark,
+
+
 	/**
 	 * For THead items, makes the table header dark
 	 */
@@ -80,6 +85,7 @@ public enum BSTableOptions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase();
+		return name().toLowerCase()
+		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

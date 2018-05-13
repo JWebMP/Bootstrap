@@ -24,12 +24,34 @@ import javax.validation.constraints.NotNull;
 
 public class BSTable<J extends BSTable<J>>
 		extends Table<J>
+		implements IBSTable<J>
 {
+	/**
+	 * Creates a new BS Table
+	 */
 	public BSTable()
 	{
 		addClass(BSTableOptions.Table);
 	}
 
+	/**
+	 * The smaller neater version of this class
+	 *
+	 * @return
+	 */
+	public IBSTable<J> asMe()
+	{
+		return this;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addTheme(BSTableOptions options)
+	{
+		addClass(options);
+		return (J) this;
+	}
 
 	/**
 	 * Sets this table as striped or not
@@ -38,6 +60,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setStriped(boolean striped)
@@ -60,6 +83,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setBordered(boolean bordered)
@@ -82,6 +106,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setHover(boolean hovered)
@@ -104,6 +129,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setSmall(boolean small)
@@ -126,6 +152,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setResponsive(boolean responsive)
@@ -148,6 +175,7 @@ public class BSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setResponsive(BSTableOptions responsive)

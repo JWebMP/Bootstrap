@@ -26,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSTableOptions;
  *
  * @param <J>
  */
-public abstract class BSTableRow<J extends BSTableRow<J>>
+public class BSTableRow<J extends BSTableRow<J>>
 		extends TableRow<J>
 {
 	/**
