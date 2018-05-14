@@ -78,6 +78,14 @@ public class BSListGroupLinkItem<J extends BSListGroupLinkItem<J>>
 
 	@NotNull
 	@SuppressWarnings("unchecked")
+	public J setUrl(String url)
+	{
+		addAttribute(LinkAttributes.HRef.toString(), url);
+		return (J) this;
+	}
+
+	@NotNull
+	@SuppressWarnings("unchecked")
 	public J setStyle(BSListGroupOptions options)
 	{
 		addClass(options);
