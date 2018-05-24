@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 import com.jwebmp.base.html.Div;
 import com.jwebmp.base.html.attributes.HeaderTypes;
 import com.jwebmp.base.html.attributes.NoAttributes;
+import com.jwebmp.base.html.interfaces.GlobalChildren;
 import com.jwebmp.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
@@ -40,7 +41,7 @@ import javax.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardBody<J extends BSCardBody<J>>
-		extends Div<BSCardChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSCardChildren, IBSCardBody<J>
 {
 

@@ -78,7 +78,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 	 * @return
 	 */
 	@Override
-	public BSAccordionCollection<?> addCard(String headerText, BSCardBody<?> bodyContent, boolean show)
+	public BSAccordionCollection<?> addCard(String headerText, BSCardBody<?> bodyContent, boolean hideOnStart)
 	{
 		BSCard<?> card = new BSCard<>();
 
@@ -95,7 +95,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 		h5.add(collapseButton);
 		header.add(h5);
 
-		BSCollapse.link(collapseButton, body, show);
+		BSCollapse.link(collapseButton, body, hideOnStart);
 
 		body.addAttribute(GlobalAttributes.Aria_LabelledBy, header.getID());
 		body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));

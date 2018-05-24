@@ -97,4 +97,26 @@ public class BSCollapse
 		buttonController.addAttribute(BSToggleAttributes.Data_Target.toString(), display.getID(true));
 		buttonController.addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
 	}
+
+	/**
+	 * Attempts to link any component
+	 *
+	 * @param anyComponent
+	 * @param display
+	 * @param hideOnStart
+	 */
+	public static void link(ComponentHierarchyBase anyComponent, @NotNull ComponentHierarchyBase display, boolean hideOnStart)
+	{
+		display.addClass(Collapse);
+		if (!hideOnStart)
+		{
+			display.addClass(BSDefaultOptions.Show);
+			display.addAttribute(GlobalAttributes.Aria_LabelledBy, anyComponent.getID());
+			anyComponent.addAttribute(GlobalAttributes.Aria_Expanded.toString(), "true");
+		}
+		anyComponent.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
+		anyComponent.addAttribute(BSToggleAttributes.Data_Toggle.toString(), Collapse);
+		anyComponent.addAttribute(BSToggleAttributes.Data_Target.toString(), display.getID(true));
+		anyComponent.addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
+	}
 }
