@@ -24,15 +24,14 @@ import com.jwebmp.base.angular.AngularPageConfigurator;
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.events.activate.ActivateDirective;
 import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
-import za.co.mmagon.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_ANGULAR_EVENT_START;
-import static com.jwebmp.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.

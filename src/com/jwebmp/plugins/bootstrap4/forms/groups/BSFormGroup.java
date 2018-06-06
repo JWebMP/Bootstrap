@@ -29,6 +29,7 @@ import com.jwebmp.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.base.html.interfaces.children.FormChildren;
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.generics.TopOrBottom;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.bootstrap4.forms.BSComponentFormOptions;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
@@ -40,7 +41,6 @@ import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 import com.jwebmp.utilities.StaticStrings;
-import za.co.mmagon.logger.LogFactory;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
@@ -49,7 +49,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static com.jwebmp.generics.TopOrBottom.Bottom;
+import static com.jwebmp.generics.TopOrBottom.*;
 
 /**
  * An implementation of
