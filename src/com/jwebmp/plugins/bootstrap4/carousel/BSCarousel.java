@@ -52,7 +52,7 @@ import java.util.List;
 @ComponentInformation(name = "Bootstrap Carousel",
 		description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
 		url = "https://v4-alpha.getbootstrap.com/components/carousel/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebSwing-Bootstrap4Plugin/wiki")
 public class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
 		implements com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel<J>
