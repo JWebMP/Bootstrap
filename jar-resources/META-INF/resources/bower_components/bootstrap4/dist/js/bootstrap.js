@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap v4.0.0 (https://getbootstrap.com)
+  * Bootstrap v4.1.1 (https://getbootstrap.com/)
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -29,22 +29,38 @@
         return Constructor;
     }
 
-    function _extends() {
-        _extends = Object.assign || function (target) {
-            for (var i = 1; i < arguments.length; i++) {
-                var source = arguments[i];
+    function _defineProperty(obj, key, value) {
+        if (key in obj) {
+            Object.defineProperty(obj, key, {
+                value: value,
+                enumerable: true,
+                configurable: true,
+                writable: true
+            });
+        } else {
+            obj[key] = value;
+        }
 
-                for (var key in source) {
-                    if (Object.prototype.hasOwnProperty.call(source, key)) {
-                        target[key] = source[key];
-                    }
-                }
+        return obj;
+    }
+
+    function _objectSpread(target) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i] != null ? arguments[i] : {};
+            var ownKeys = Object.keys(source);
+
+            if (typeof Object.getOwnPropertySymbols === 'function') {
+                ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+                    return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+                }));
             }
 
-            return target;
-        };
+            ownKeys.forEach(function (key) {
+                _defineProperty(target, key, source[key]);
+            });
+        }
 
-        return _extends.apply(this, arguments);
+        return target;
     }
 
     function _inheritsLoose(subClass, superClass) {
@@ -55,7 +71,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): util.js
+     * Bootstrap (v4.1.1): util.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -66,17 +82,18 @@
          * Private TransitionEnd Helpers
          * ------------------------------------------------------------------------
          */
-        var transition = false;
-        var MAX_UID = 1000000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+        var TRANSITION_END = 'transitionend';
+        var MAX_UID = 1000000;
+        var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
         function toType(obj) {
-            return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+            return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
         }
 
         function getSpecialTransitionEndEvent() {
             return {
-                bindType: transition.end,
-                delegateType: transition.end,
+                bindType: TRANSITION_END,
+                delegateType: TRANSITION_END,
                 handle: function handle(event) {
                     if ($$$1(event.target).is(this)) {
                         return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
@@ -84,16 +101,6 @@
 
                     return undefined; // eslint-disable-line no-undefined
                 }
-            };
-        }
-
-        function transitionEndTest() {
-            if (typeof window !== 'undefined' && window.QUnit) {
-                return false;
-            }
-
-            return {
-                end: 'transitionend'
             };
         }
 
@@ -113,19 +120,8 @@
         }
 
         function setTransitionEndSupport() {
-            transition = transitionEndTest();
             $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-
-            if (Util.supportsTransitionEnd()) {
-                $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-            }
-        }
-
-        function escapeId(selector) {
-            // We escape IDs in case of special selectors (selector = '#myId:something')
-            // $.escapeSelector does not exist in jQuery < 3
-            selector = typeof $$$1.escapeSelector === 'function' ? $$$1.escapeSelector(selector).substr(1) : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
-            return selector;
+            $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
         }
 
         /**
@@ -150,11 +146,6 @@
 
                 if (!selector || selector === '#') {
                     selector = element.getAttribute('href') || '';
-                } // If it's an ID
-
-
-                if (selector.charAt(0) === '#') {
-                    selector = escapeId(selector);
                 }
 
                 try {
@@ -164,14 +155,32 @@
                     return null;
                 }
             },
+            getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
+                if (!element) {
+                    return 0;
+                } // Get transition-duration of the element
+
+
+                var transitionDuration = $$$1(element).css('transition-duration');
+                var floatTransitionDuration = parseFloat(transitionDuration); // Return 0 if element or transition duration is not found
+
+                if (!floatTransitionDuration) {
+                    return 0;
+                } // If multiple durations are defined, take the first
+
+
+                transitionDuration = transitionDuration.split(',')[0];
+                return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER;
+            },
             reflow: function reflow(element) {
                 return element.offsetHeight;
             },
             triggerTransitionEnd: function triggerTransitionEnd(element) {
-                $$$1(element).trigger(transition.end);
+                $$$1(element).trigger(TRANSITION_END);
             },
+            // TODO: Remove in v5
             supportsTransitionEnd: function supportsTransitionEnd() {
-                return Boolean(transition);
+                return Boolean(TRANSITION_END);
             },
             isElement: function isElement(obj) {
                 return (obj[0] || obj).nodeType;
@@ -196,7 +205,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): alert.js
+     * Bootstrap (v4.1.1): alert.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -208,12 +217,11 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'alert';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.alert';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 150;
         var Selector = {
             DISMISS: '[data-dismiss="alert"]'
         };
@@ -246,9 +254,11 @@
 
                 // Public
                 _proto.close = function close(element) {
-                    element = element || this._element;
+                    var rootElement = this._element;
 
-                    var rootElement = this._getRootElement(element);
+                    if (element) {
+                        rootElement = this._getRootElement(element);
+                    }
 
                     var customEvent = this._triggerCloseEvent(rootElement);
 
@@ -291,15 +301,16 @@
 
                     $$$1(element).removeClass(ClassName.SHOW);
 
-                    if (!Util.supportsTransitionEnd() || !$$$1(element).hasClass(ClassName.FADE)) {
+                    if (!$$$1(element).hasClass(ClassName.FADE)) {
                         this._destroyElement(element);
 
                         return;
                     }
 
+                    var transitionDuration = Util.getTransitionDurationFromElement(element);
                     $$$1(element).one(Util.TRANSITION_END, function (event) {
                         return _this._destroyElement(element, event);
-                    }).emulateTransitionEnd(TRANSITION_DURATION);
+                    }).emulateTransitionEnd(transitionDuration);
                 };
 
                 _proto._destroyElement = function _destroyElement(element) {
@@ -339,6 +350,7 @@
                         return VERSION;
                     }
                 }]);
+
                 return Alert;
             }();
         /**
@@ -368,7 +380,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): button.js
+     * Bootstrap (v4.1.1): button.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -380,7 +392,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'button';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.button';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -490,6 +502,7 @@
                         return VERSION;
                     }
                 }]);
+
                 return Button;
             }();
         /**
@@ -531,7 +544,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): carousel.js
+     * Bootstrap (v4.1.1): carousel.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -543,12 +556,11 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'carousel';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.carousel';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 600;
         var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
 
         var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
@@ -657,7 +669,7 @@
                         this._isPaused = true;
                     }
 
-                    if ($$$1(this._element).find(Selector.NEXT_PREV)[0] && Util.supportsTransitionEnd()) {
+                    if ($$$1(this._element).find(Selector.NEXT_PREV)[0]) {
                         Util.triggerTransitionEnd(this._element);
                         this.cycle(true);
                     }
@@ -725,7 +737,7 @@
 
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, Default, config);
+                    config = _objectSpread({}, Default, config);
                     Util.typeCheckConfig(NAME, config, DefaultType);
                     return config;
                 };
@@ -896,11 +908,12 @@
                         to: nextElementIndex
                     });
 
-                    if (Util.supportsTransitionEnd() && $$$1(this._element).hasClass(ClassName.SLIDE)) {
+                    if ($$$1(this._element).hasClass(ClassName.SLIDE)) {
                         $$$1(nextElement).addClass(orderClassName);
                         Util.reflow(nextElement);
                         $$$1(activeElement).addClass(directionalClassName);
                         $$$1(nextElement).addClass(directionalClassName);
+                        var transitionDuration = Util.getTransitionDurationFromElement(activeElement);
                         $$$1(activeElement).one(Util.TRANSITION_END, function () {
                             $$$1(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(ClassName.ACTIVE);
                             $$$1(activeElement).removeClass(ClassName.ACTIVE + " " + orderClassName + " " + directionalClassName);
@@ -908,7 +921,7 @@
                             setTimeout(function () {
                                 return $$$1(_this3._element).trigger(slidEvent);
                             }, 0);
-                        }).emulateTransitionEnd(TRANSITION_DURATION);
+                        }).emulateTransitionEnd(transitionDuration);
                     } else {
                         $$$1(activeElement).removeClass(ClassName.ACTIVE);
                         $$$1(nextElement).addClass(ClassName.ACTIVE);
@@ -926,10 +939,10 @@
                     return this.each(function () {
                         var data = $$$1(this).data(DATA_KEY);
 
-                        var _config = _extends({}, Default, $$$1(this).data());
+                        var _config = _objectSpread({}, Default, $$$1(this).data());
 
                         if (typeof config === 'object') {
-                            _config = _extends({}, _config, config);
+                            _config = _objectSpread({}, _config, config);
                         }
 
                         var action = typeof config === 'string' ? config : _config.slide;
@@ -967,7 +980,8 @@
                         return;
                     }
 
-                    var config = _extends({}, $$$1(target).data(), $$$1(this).data());
+                    var config = _objectSpread({}, $$$1(target).data(), $$$1(this).data());
+
                     var slideIndex = this.getAttribute('data-slide-to');
 
                     if (slideIndex) {
@@ -994,6 +1008,7 @@
                         return Default;
                     }
                 }]);
+
                 return Carousel;
             }();
         /**
@@ -1030,7 +1045,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): collapse.js
+     * Bootstrap (v4.1.1): collapse.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -1042,12 +1057,11 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'collapse';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.collapse';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 600;
         var Default = {
             toggle: true,
             parent: ''
@@ -1189,14 +1203,10 @@
                         $$$1(_this._element).trigger(Event.SHOWN);
                     };
 
-                    if (!Util.supportsTransitionEnd()) {
-                        complete();
-                        return;
-                    }
-
                     var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
                     var scrollSize = "scroll" + capitalizedDimension;
-                    $$$1(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+                    var transitionDuration = Util.getTransitionDurationFromElement(this._element);
+                    $$$1(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
                     this._element.style[dimension] = this._element[scrollSize] + "px";
                 };
 
@@ -1244,13 +1254,8 @@
                     };
 
                     this._element.style[dimension] = '';
-
-                    if (!Util.supportsTransitionEnd()) {
-                        complete();
-                        return;
-                    }
-
-                    $$$1(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+                    var transitionDuration = Util.getTransitionDurationFromElement(this._element);
+                    $$$1(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
                 };
 
                 _proto.setTransitioning = function setTransitioning(isTransitioning) {
@@ -1268,7 +1273,7 @@
 
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, Default, config);
+                    config = _objectSpread({}, Default, config);
                     config.toggle = Boolean(config.toggle); // Coerce string values
 
                     Util.typeCheckConfig(NAME, config, DefaultType);
@@ -1323,7 +1328,7 @@
                         var $this = $$$1(this);
                         var data = $this.data(DATA_KEY);
 
-                        var _config = _extends({}, Default, $this.data(), typeof config === 'object' && config);
+                        var _config = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
                         if (!data && _config.toggle && /show|hide/.test(config)) {
                             _config.toggle = false;
@@ -1355,6 +1360,7 @@
                         return Default;
                     }
                 }]);
+
                 return Collapse;
             }();
         /**
@@ -1399,7 +1405,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): dropdown.js
+     * Bootstrap (v4.1.1): dropdown.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -1411,7 +1417,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'dropdown';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.dropdown';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -1454,7 +1460,7 @@
             FORM_CHILD: '.dropdown form',
             MENU: '.dropdown-menu',
             NAVBAR_NAV: '.navbar-nav',
-            VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled)'
+            VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
         };
         var AttachmentMap = {
             TOP: 'top-start',
@@ -1469,12 +1475,16 @@
         var Default = {
             offset: 0,
             flip: true,
-            boundary: 'scrollParent'
+            boundary: 'scrollParent',
+            reference: 'toggle',
+            display: 'dynamic'
         };
         var DefaultType = {
             offset: '(number|string|function)',
             flip: 'boolean',
-            boundary: '(string|element)'
+            boundary: '(string|element)',
+            reference: '(string|element)',
+            display: 'string'
             /**
              * ------------------------------------------------------------------------
              * Class Definition
@@ -1535,11 +1545,15 @@
                             throw new TypeError('Bootstrap dropdown require Popper.js (https://popper.js.org)');
                         }
 
-                        var element = this._element; // For dropup with alignment we use the parent as popper container
+                        var referenceElement = this._element;
 
-                        if ($$$1(parent).hasClass(ClassName.DROPUP)) {
-                            if ($$$1(this._menu).hasClass(ClassName.MENULEFT) || $$$1(this._menu).hasClass(ClassName.MENURIGHT)) {
-                                element = parent;
+                        if (this._config.reference === 'parent') {
+                            referenceElement = parent;
+                        } else if (Util.isElement(this._config.reference)) {
+                            referenceElement = this._config.reference; // Check if it's jQuery element
+
+                            if (typeof this._config.reference.jquery !== 'undefined') {
+                                referenceElement = this._config.reference[0];
                             }
                         } // If boundary is not `scrollParent`, then set position to `static`
                         // to allow the menu to "escape" the scroll parent's boundaries
@@ -1550,7 +1564,7 @@
                             $$$1(parent).addClass(ClassName.POSITION_STATIC);
                         }
 
-                        this._popper = new Popper(element, this._menu, this._getPopperConfig());
+                        this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
                     } // If this is a touch-enabled device we add extra
                     // empty mouseover listeners to the body's immediate children;
                     // only needed because of broken event delegation on iOS
@@ -1558,7 +1572,7 @@
 
 
                     if ('ontouchstart' in document.documentElement && $$$1(parent).closest(Selector.NAVBAR_NAV).length === 0) {
-                        $$$1('body').children().on('mouseover', null, $$$1.noop);
+                        $$$1(document.body).children().on('mouseover', null, $$$1.noop);
                     }
 
                     this._element.focus();
@@ -1603,7 +1617,7 @@
                 };
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, this.constructor.Default, $$$1(this._element).data(), config);
+                    config = _objectSpread({}, this.constructor.Default, $$$1(this._element).data(), config);
                     Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
                     return config;
                 };
@@ -1650,7 +1664,7 @@
 
                     if (typeof this._config.offset === 'function') {
                         offsetConf.fn = function (data) {
-                            data.offsets = _extends({}, data.offsets, _this2._config.offset(data.offsets) || {});
+                            data.offsets = _objectSpread({}, data.offsets, _this2._config.offset(data.offsets) || {});
                             return data;
                         };
                     } else {
@@ -1667,8 +1681,16 @@
                             preventOverflow: {
                                 boundariesElement: this._config.boundary
                             }
-                        }
+                        } // Disable Popper.js if we have a static display
+
                     };
+
+                    if (this._config.display === 'static') {
+                        popperConfig.modifiers.applyStyle = {
+                            enabled: false
+                        };
+                    }
+
                     return popperConfig;
                 }; // Static
 
@@ -1733,7 +1755,7 @@
 
 
                         if ('ontouchstart' in document.documentElement) {
-                            $$$1('body').children().off('mouseover', null, $$$1.noop);
+                            $$$1(document.body).children().off('mouseover', null, $$$1.noop);
                         }
 
                         toggles[i].setAttribute('aria-expanded', 'false');
@@ -1828,6 +1850,7 @@
                         return DefaultType;
                     }
                 }]);
+
                 return Dropdown;
             }();
         /**
@@ -1864,7 +1887,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): modal.js
+     * Bootstrap (v4.1.1): modal.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -1876,13 +1899,11 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'modal';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.modal';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 300;
-        var BACKDROP_TRANSITION_DURATION = 150;
         var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
         var Default = {
@@ -1943,7 +1964,6 @@
                     this._isShown = false;
                     this._isBodyOverflowing = false;
                     this._ignoreBackdropClick = false;
-                    this._originalBodyPadding = 0;
                     this._scrollbarWidth = 0;
                 } // Getters
 
@@ -1962,7 +1982,7 @@
                         return;
                     }
 
-                    if (Util.supportsTransitionEnd() && $$$1(this._element).hasClass(ClassName.FADE)) {
+                    if ($$$1(this._element).hasClass(ClassName.FADE)) {
                         this._isTransitioning = true;
                     }
 
@@ -2024,7 +2044,7 @@
                     }
 
                     this._isShown = false;
-                    var transition = Util.supportsTransitionEnd() && $$$1(this._element).hasClass(ClassName.FADE);
+                    var transition = $$$1(this._element).hasClass(ClassName.FADE);
 
                     if (transition) {
                         this._isTransitioning = true;
@@ -2040,9 +2060,10 @@
                     $$$1(this._dialog).off(Event.MOUSEDOWN_DISMISS);
 
                     if (transition) {
+                        var transitionDuration = Util.getTransitionDurationFromElement(this._element);
                         $$$1(this._element).one(Util.TRANSITION_END, function (event) {
                             return _this2._hideModal(event);
-                        }).emulateTransitionEnd(TRANSITION_DURATION);
+                        }).emulateTransitionEnd(transitionDuration);
                     } else {
                         this._hideModal();
                     }
@@ -2067,7 +2088,7 @@
 
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, Default, config);
+                    config = _objectSpread({}, Default, config);
                     Util.typeCheckConfig(NAME, config, DefaultType);
                     return config;
                 };
@@ -2075,7 +2096,7 @@
                 _proto._showElement = function _showElement(relatedTarget) {
                     var _this3 = this;
 
-                    var transition = Util.supportsTransitionEnd() && $$$1(this._element).hasClass(ClassName.FADE);
+                    var transition = $$$1(this._element).hasClass(ClassName.FADE);
 
                     if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
                         // Don't move modal's DOM position
@@ -2112,7 +2133,8 @@
                     };
 
                     if (transition) {
-                        $$$1(this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(TRANSITION_DURATION);
+                        var transitionDuration = Util.getTransitionDurationFromElement(this._element);
+                        $$$1(this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
                     } else {
                         transitionComplete();
                     }
@@ -2190,7 +2212,6 @@
                     var animate = $$$1(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
 
                     if (this._isShown && this._config.backdrop) {
-                        var doAnimate = Util.supportsTransitionEnd() && animate;
                         this._backdrop = document.createElement('div');
                         this._backdrop.className = ClassName.BACKDROP;
 
@@ -2216,7 +2237,7 @@
                             }
                         });
 
-                        if (doAnimate) {
+                        if (animate) {
                             Util.reflow(this._backdrop);
                         }
 
@@ -2226,12 +2247,13 @@
                             return;
                         }
 
-                        if (!doAnimate) {
+                        if (!animate) {
                             callback();
                             return;
                         }
 
-                        $$$1(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+                        var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
+                        $$$1(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
                     } else if (!this._isShown && this._backdrop) {
                         $$$1(this._backdrop).removeClass(ClassName.SHOW);
 
@@ -2243,8 +2265,10 @@
                             }
                         };
 
-                        if (Util.supportsTransitionEnd() && $$$1(this._element).hasClass(ClassName.FADE)) {
-                            $$$1(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+                        if ($$$1(this._element).hasClass(ClassName.FADE)) {
+                            var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
+
+                            $$$1(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
                         } else {
                             callbackRemove();
                         }
@@ -2306,8 +2330,8 @@
                         }); // Adjust body padding
 
                         var actualPadding = document.body.style.paddingRight;
-                        var calculatedPadding = $$$1('body').css('padding-right');
-                        $$$1('body').data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
+                        var calculatedPadding = $$$1(document.body).css('padding-right');
+                        $$$1(document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
                     }
                 };
 
@@ -2329,10 +2353,10 @@
                         }
                     }); // Restore body padding
 
-                    var padding = $$$1('body').data('padding-right');
+                    var padding = $$$1(document.body).data('padding-right');
 
                     if (typeof padding !== 'undefined') {
-                        $$$1('body').css('padding-right', padding).removeData('padding-right');
+                        $$$1(document.body).css('padding-right', padding).removeData('padding-right');
                     }
                 };
 
@@ -2351,7 +2375,7 @@
                     return this.each(function () {
                         var data = $$$1(this).data(DATA_KEY);
 
-                        var _config = _extends({}, Modal.Default, $$$1(this).data(), typeof config === 'object' && config);
+                        var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
 
                         if (!data) {
                             data = new Modal(this, _config);
@@ -2381,6 +2405,7 @@
                         return Default;
                     }
                 }]);
+
                 return Modal;
             }();
         /**
@@ -2400,7 +2425,7 @@
                 target = $$$1(selector)[0];
             }
 
-            var config = $$$1(target).data(DATA_KEY) ? 'toggle' : _extends({}, $$$1(target).data(), $$$1(this).data());
+            var config = $$$1(target).data(DATA_KEY) ? 'toggle' : _objectSpread({}, $$$1(target).data(), $$$1(this).data());
 
             if (this.tagName === 'A' || this.tagName === 'AREA') {
                 event.preventDefault();
@@ -2440,7 +2465,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): tooltip.js
+     * Bootstrap (v4.1.1): tooltip.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -2452,11 +2477,10 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tooltip';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.tooltip';
         var EVENT_KEY = "." + DATA_KEY;
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 150;
         var CLASS_PREFIX = 'bs-tooltip';
         var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
         var DefaultType = {
@@ -2702,7 +2726,7 @@
                         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
                         if ('ontouchstart' in document.documentElement) {
-                            $$$1('body').children().on('mouseover', null, $$$1.noop);
+                            $$$1(document.body).children().on('mouseover', null, $$$1.noop);
                         }
 
                         var complete = function complete() {
@@ -2719,8 +2743,9 @@
                             }
                         };
 
-                        if (Util.supportsTransitionEnd() && $$$1(this.tip).hasClass(ClassName.FADE)) {
-                            $$$1(this.tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(Tooltip._TRANSITION_DURATION);
+                        if ($$$1(this.tip).hasClass(ClassName.FADE)) {
+                            var transitionDuration = Util.getTransitionDurationFromElement(this.tip);
+                            $$$1(this.tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
                         } else {
                             complete();
                         }
@@ -2763,15 +2788,16 @@
                     // empty mouseover listeners we added for iOS support
 
                     if ('ontouchstart' in document.documentElement) {
-                        $$$1('body').children().off('mouseover', null, $$$1.noop);
+                        $$$1(document.body).children().off('mouseover', null, $$$1.noop);
                     }
 
                     this._activeTrigger[Trigger.CLICK] = false;
                     this._activeTrigger[Trigger.FOCUS] = false;
                     this._activeTrigger[Trigger.HOVER] = false;
 
-                    if (Util.supportsTransitionEnd() && $$$1(this.tip).hasClass(ClassName.FADE)) {
-                        $$$1(tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+                    if ($$$1(this.tip).hasClass(ClassName.FADE)) {
+                        var transitionDuration = Util.getTransitionDurationFromElement(tip);
+                        $$$1(tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
                     } else {
                         complete();
                     }
@@ -2862,7 +2888,7 @@
                     });
 
                     if (this.config.selector) {
-                        this.config = _extends({}, this.config, {
+                        this.config = _objectSpread({}, this.config, {
                             trigger: 'manual',
                             selector: ''
                         });
@@ -2956,7 +2982,7 @@
                 };
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, this.constructor.Default, $$$1(this.element).data(), config);
+                    config = _objectSpread({}, this.constructor.Default, $$$1(this.element).data(), typeof config === 'object' && config ? config : {});
 
                     if (typeof config.delay === 'number') {
                         config.delay = {
@@ -3083,6 +3109,7 @@
                         return DefaultType;
                     }
                 }]);
+
                 return Tooltip;
             }();
         /**
@@ -3105,7 +3132,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): popover.js
+     * Bootstrap (v4.1.1): popover.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -3117,21 +3144,24 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'popover';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.popover';
         var EVENT_KEY = "." + DATA_KEY;
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
         var CLASS_PREFIX = 'bs-popover';
         var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
-        var Default = _extends({}, Tooltip.Default, {
+
+        var Default = _objectSpread({}, Tooltip.Default, {
             placement: 'right',
             trigger: 'click',
             content: '',
             template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
         });
-        var DefaultType = _extends({}, Tooltip.DefaultType, {
+
+        var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
             content: '(string|element|function)'
         });
+
         var ClassName = {
             FADE: 'fade',
             SHOW: 'show'
@@ -3276,6 +3306,7 @@
                         return DefaultType;
                     }
                 }]);
+
                 return Popover;
             }(Tooltip);
         /**
@@ -3298,7 +3329,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): scrollspy.js
+     * Bootstrap (v4.1.1): scrollspy.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -3310,7 +3341,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'scrollspy';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.scrollspy';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -3437,7 +3468,7 @@
 
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _extends({}, Default, config);
+                    config = _objectSpread({}, Default, typeof config === 'object' && config ? config : {});
 
                     if (typeof config.target !== 'string') {
                         var id = $$$1(config.target).attr('id');
@@ -3572,6 +3603,7 @@
                         return Default;
                     }
                 }]);
+
                 return ScrollSpy;
             }();
         /**
@@ -3609,7 +3641,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): tab.js
+     * Bootstrap (v4.1.1): tab.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -3621,12 +3653,11 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tab';
-        var VERSION = '4.0.0';
+        var VERSION = '4.1.1';
         var DATA_KEY = 'bs.tab';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-        var TRANSITION_DURATION = 150;
         var Event = {
             HIDE: "hide" + EVENT_KEY,
             HIDDEN: "hidden" + EVENT_KEY,
@@ -3745,14 +3776,15 @@
                     }
 
                     var active = activeElements[0];
-                    var isTransitioning = callback && Util.supportsTransitionEnd() && active && $$$1(active).hasClass(ClassName.FADE);
+                    var isTransitioning = callback && active && $$$1(active).hasClass(ClassName.FADE);
 
                     var complete = function complete() {
                         return _this2._transitionComplete(element, active, callback);
                     };
 
                     if (active && isTransitioning) {
-                        $$$1(active).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+                        var transitionDuration = Util.getTransitionDurationFromElement(active);
+                        $$$1(active).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
                     } else {
                         complete();
                     }
@@ -3823,6 +3855,7 @@
                         return VERSION;
                     }
                 }]);
+
                 return Tab;
             }();
         /**
@@ -3856,7 +3889,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0-alpha.6): index.js
+     * Bootstrap (v4.1.1): index.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
