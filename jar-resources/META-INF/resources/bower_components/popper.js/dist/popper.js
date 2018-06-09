@@ -390,9 +390,9 @@ function getBoundingClientRect(element) {
             rect.left += scrollLeft;
             rect.bottom += scrollTop;
             rect.right += scrollLeft;
-    } else {
+        } else {
             rect = element.getBoundingClientRect();
-    }
+        }
     } catch (e) {
     }
 
@@ -785,17 +785,17 @@ function runModifiers(modifiers, data, ends) {
         if (modifier['function']) {
             // eslint-disable-line dot-notation
             console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
-    }
-    const fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
-    if (modifier.enabled && isFunction(fn)) {
-        // Add properties to offsets to make them a complete clientRect object
-        // we do this before each modifier to make sure the previous one doesn't
-        // mess with these values
-        data.offsets.popper = getClientRect(data.offsets.popper);
-        data.offsets.reference = getClientRect(data.offsets.reference);
+        }
+        const fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+        if (modifier.enabled && isFunction(fn)) {
+            // Add properties to offsets to make them a complete clientRect object
+            // we do this before each modifier to make sure the previous one doesn't
+            // mess with these values
+            data.offsets.popper = getClientRect(data.offsets.popper);
+            data.offsets.reference = getClientRect(data.offsets.reference);
 
-        data = fn(data, modifier);
-    }
+            data = fn(data, modifier);
+        }
     });
 
     return data;
@@ -1027,11 +1027,11 @@ function isNumeric(n) {
 function setStyles(element, styles) {
     Object.keys(styles).forEach(prop => {
         let unit = '';
-    // add unit if the value is numeric and is one of the following
-    if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
-        unit = 'px';
-    }
-    element.style[prop] = styles[prop] + unit;
+        // add unit if the value is numeric and is one of the following
+        if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+            unit = 'px';
+        }
+        element.style[prop] = styles[prop] + unit;
     });
 }
 
@@ -1423,49 +1423,49 @@ function flip(data, options) {
     flipOrder.forEach((step, index) => {
         if (placement !== step || flipOrder.length === index + 1) {
             return data;
-    }
-
-    placement = data.placement.split('-')[0];
-    placementOpposite = getOppositePlacement(placement);
-
-    const popperOffsets = data.offsets.popper;
-    const refOffsets = data.offsets.reference;
-
-    // using floor because the reference offsets may contain decimals we are not going to consider here
-    const floor = Math.floor;
-    const overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
-
-    const overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
-    const overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
-    const overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
-    const overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
-
-    const overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
-
-    // flip the variation if required
-    const isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
-    const flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
-
-    if (overlapsRef || overflowsBoundaries || flippedVariation) {
-        // this boolean to detect any flip loop
-        data.flipped = true;
-
-        if (overlapsRef || overflowsBoundaries) {
-            placement = flipOrder[index + 1];
         }
 
-        if (flippedVariation) {
-            variation = getOppositeVariation(variation);
+        placement = data.placement.split('-')[0];
+        placementOpposite = getOppositePlacement(placement);
+
+        const popperOffsets = data.offsets.popper;
+        const refOffsets = data.offsets.reference;
+
+        // using floor because the reference offsets may contain decimals we are not going to consider here
+        const floor = Math.floor;
+        const overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
+
+        const overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
+        const overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
+        const overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
+        const overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
+
+        const overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
+
+        // flip the variation if required
+        const isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+        const flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+        if (overlapsRef || overflowsBoundaries || flippedVariation) {
+            // this boolean to detect any flip loop
+            data.flipped = true;
+
+            if (overlapsRef || overflowsBoundaries) {
+                placement = flipOrder[index + 1];
+            }
+
+            if (flippedVariation) {
+                variation = getOppositeVariation(variation);
+            }
+
+            data.placement = placement + (variation ? '-' + variation : '');
+
+            // this object contains `position`, we want to preserve it along with
+            // any additional property we may add in the future
+            data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
+
+            data = runModifiers(data.instance.modifiers, data, 'flip');
         }
-
-        data.placement = placement + (variation ? '-' + variation : '');
-
-        // this object contains `position`, we want to preserve it along with
-        // any additional property we may add in the future
-        data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
-
-        data = runModifiers(data.instance.modifiers, data, 'flip');
-    }
     });
     return data;
 }
@@ -1589,32 +1589,32 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
     ops = ops.map((op, index) => {
         // Most of the units rely on the orientation of the popper
         const measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
-    let mergeWithPrevious = false;
-    return op
-    // This aggregates any `+` or `-` sign that aren't considered operators
-    // e.g.: 10 + +5 => [10, +, +5]
-        .reduce((a, b) => {
-            if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
-        a[a.length - 1] = b;
-        mergeWithPrevious = true;
-        return a;
-            } else if (mergeWithPrevious) {
-        a[a.length - 1] += b;
-        mergeWithPrevious = false;
-        return a;
-            } else {
-        return a.concat(b);
-            }
-        }, [])
-    // Here we convert the string values into number values (in px)
-        .map(str => toValue(str, measurement, popperOffsets, referenceOffsets));
+        let mergeWithPrevious = false;
+        return op
+        // This aggregates any `+` or `-` sign that aren't considered operators
+        // e.g.: 10 + +5 => [10, +, +5]
+            .reduce((a, b) => {
+                if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+                    a[a.length - 1] = b;
+                    mergeWithPrevious = true;
+                    return a;
+                } else if (mergeWithPrevious) {
+                    a[a.length - 1] += b;
+                    mergeWithPrevious = false;
+                    return a;
+                } else {
+                    return a.concat(b);
+                }
+            }, [])
+            // Here we convert the string values into number values (in px)
+            .map(str => toValue(str, measurement, popperOffsets, referenceOffsets));
     });
 
     // Loop trough the offsets arrays and execute the operations
     ops.forEach((op, index) => {
         op.forEach((frag, index2) => {
             if (isNumeric(frag)) {
-        offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
+                offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
             }
         });
     });
@@ -1719,7 +1719,7 @@ function preventOverflow(data, options) {
 
     order.forEach(placement => {
         const side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
-    popper = _extends({}, popper, check[side](placement));
+        popper = _extends({}, popper, check[side](placement));
     });
 
     data.offsets.popper = popper;

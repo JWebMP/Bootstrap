@@ -329,9 +329,9 @@ function getBoundingClientRect(element) {
             rect.left += scrollLeft;
             rect.bottom += scrollTop;
             rect.right += scrollLeft;
-    } else {
+        } else {
             rect = element.getBoundingClientRect();
-    }
+        }
     } catch (e) {
     }
 
@@ -915,17 +915,17 @@ function runModifiers(modifiers, data, ends) {
         if (modifier['function']) {
             // eslint-disable-line dot-notation
             console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
-    }
-    const fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
-    if (modifier.enabled && isFunction(fn)) {
-        // Add properties to offsets to make them a complete clientRect object
-        // we do this before each modifier to make sure the previous one doesn't
-        // mess with these values
-        data.offsets.popper = getClientRect(data.offsets.popper);
-        data.offsets.reference = getClientRect(data.offsets.reference);
+        }
+        const fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+        if (modifier.enabled && isFunction(fn)) {
+            // Add properties to offsets to make them a complete clientRect object
+            // we do this before each modifier to make sure the previous one doesn't
+            // mess with these values
+            data.offsets.popper = getClientRect(data.offsets.popper);
+            data.offsets.reference = getClientRect(data.offsets.reference);
 
-        data = fn(data, modifier);
-    }
+            data = fn(data, modifier);
+        }
     });
 
     return data;
@@ -961,11 +961,11 @@ function setAttributes(element, attributes) {
 function setStyles(element, styles) {
     Object.keys(styles).forEach(prop => {
         let unit = '';
-    // add unit if the value is numeric and is one of the following
-    if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
-        unit = 'px';
-    }
-    element.style[prop] = styles[prop] + unit;
+        // add unit if the value is numeric and is one of the following
+        if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+            unit = 'px';
+        }
+        element.style[prop] = styles[prop] + unit;
     });
 }
 

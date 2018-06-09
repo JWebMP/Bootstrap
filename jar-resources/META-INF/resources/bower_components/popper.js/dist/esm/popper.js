@@ -441,9 +441,9 @@ function getBoundingClientRect(element) {
             rect.left += scrollLeft;
             rect.bottom += scrollTop;
             rect.right += scrollLeft;
-    } else {
+        } else {
             rect = element.getBoundingClientRect();
-    }
+        }
     } catch (e) {
     }
 
