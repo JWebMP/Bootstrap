@@ -21,7 +21,6 @@ import com.jwebmp.base.html.Image;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -73,7 +72,7 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 	 * @return
 	 */
 	@NotNull
-	public BSNavBarBrandImage<?> addImage(@Nullable String imageUrl, @Nullable final String textAfter)
+	public BSNavBarBrandImage<?> addImage(String imageUrl, String textAfter)
 	{
 		Image image = new Image(imageUrl);
 		BSNavBarBrandImage<?> brandImage = new BSNavBarBrandImage(image);

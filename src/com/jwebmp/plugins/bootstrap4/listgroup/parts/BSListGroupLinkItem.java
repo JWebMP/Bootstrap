@@ -19,7 +19,6 @@ package com.jwebmp.plugins.bootstrap4.listgroup.parts;
 import com.jwebmp.base.html.attributes.LinkAttributes;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -68,7 +67,7 @@ public class BSListGroupLinkItem<J extends BSListGroupLinkItem<J>>
 	 * @param url
 	 * @param text
 	 */
-	public BSListGroupLinkItem(@Nullable String url, String text)
+	public BSListGroupLinkItem(String url, String text)
 	{
 		super(text);
 		setTag("a");

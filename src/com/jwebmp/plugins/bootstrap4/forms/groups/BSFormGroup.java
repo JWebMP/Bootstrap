@@ -42,7 +42,6 @@ import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 import com.jwebmp.utilities.StaticStrings;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -177,7 +176,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		add(label);
 		return label;
 	}
-
 
 	@Override
 	@NotNull
@@ -416,7 +414,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return (J) this;
 	}
 
-
 	/**
 	 * Horizontal form
 	 * Create horizontal forms with the grid by adding the .row class to form groups and using the .col-*-* classes to specify the width of
@@ -474,7 +471,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * @return
 	 */
 	@Override
-	@Nullable
+
 	public BSFormLabel<?> getLabel()
 	{
 		return label;

@@ -36,7 +36,6 @@ import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggler;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 import com.jwebmp.plugins.bootstrap4.options.*;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -49,7 +48,8 @@ import javax.validation.constraints.NotNull;
  * @since 13 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Navbar",
-		description = "The navbar is a wrapper that positions branding, navigation, and other elements in a concise header. It’s easily " + "extensible and, thanks to our Collapse plugin, can easily integrate responsive behaviors.",
+		description = "The navbar is a wrapper that positions branding, navigation, and other elements in a concise header. It’s easily " +
+		              "extensible and, thanks to our Collapse plugin, can easily integrate responsive behaviors.",
 		url = "https://v4-alpha.getbootstrap.com/components/navbar/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSNavBar<J extends BSNavBar<J>>
@@ -86,7 +86,6 @@ public class BSNavBar<J extends BSNavBar<J>>
 		addAttribute(BSNavBarAttributes.Role, "navigation");
 	}
 
-
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -118,7 +117,7 @@ public class BSNavBar<J extends BSNavBar<J>>
 	 * @return
 	 */
 	@Override
-	public BSNavBarBrand<?> addBrand(@Nullable String brandName, @Nullable String brandImage)
+	public BSNavBarBrand<?> addBrand(String brandName, String brandImage)
 	{
 		BSNavBarBrand<?> brand = new BSNavBarBrand<>();
 		if (brandImage != null)

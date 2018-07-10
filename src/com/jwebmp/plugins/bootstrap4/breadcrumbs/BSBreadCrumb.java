@@ -26,7 +26,6 @@ import com.jwebmp.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsAttributes;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -52,7 +51,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	 *
 	 * @param optionalAriaLabel
 	 */
-	public BSBreadCrumb(@Nullable String... optionalAriaLabel)
+	public BSBreadCrumb(String... optionalAriaLabel)
 	{
 		super(ComponentTypes.Navigation);
 		if (optionalAriaLabel != null)

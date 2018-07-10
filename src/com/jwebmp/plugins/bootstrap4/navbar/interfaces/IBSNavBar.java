@@ -28,7 +28,6 @@ import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarText;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 public interface IBSNavBar<J extends BSNavBar<J>>
@@ -55,7 +54,7 @@ public interface IBSNavBar<J extends BSNavBar<J>>
 	 *
 	 * @return
 	 */
-	BSNavBarBrand<?> addBrand(@Nullable String brandName, @Nullable String brandImage);
+	BSNavBarBrand<?> addBrand(String brandName, String brandImage);
 
 	/**
 	 * Adds a new brand with the given text

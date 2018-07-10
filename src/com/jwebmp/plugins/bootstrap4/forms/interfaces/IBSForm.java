@@ -29,7 +29,6 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormRadioGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 public interface IBSForm<J extends BSForm<J>>
@@ -53,7 +52,7 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormInputGroup<?, InputEmailType<?>> addEmailInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, @Nullable Boolean largeOrSmall);
+	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, Boolean largeOrSmall);
 
 	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label);
 

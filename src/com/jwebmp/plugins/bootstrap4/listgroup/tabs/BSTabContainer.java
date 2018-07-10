@@ -27,7 +27,6 @@ import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.toggle.BSDropDownToggle;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.Nav_Link;
+import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
 
 /**
  * A list group tab to add (Container)
@@ -54,8 +53,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	private BSNavListItem<?> listItem;
 	private BSDropDown<?> dropDownItem;
 
-
-	public BSTabContainer(boolean active, @NotNull Div<?, ?, ?, ?, ?> tabContent, @Nullable String text)
+	public BSTabContainer(boolean active, @NotNull Div<?, ?, ?, ?, ?> tabContent, String text)
 	{
 		this(tabContent, text);
 		this.active = active;

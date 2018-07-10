@@ -30,7 +30,6 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardBody;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -182,7 +181,7 @@ public class BSCardBody<J extends BSCardBody<J>>
 	 */
 	@Override
 	@NotNull
-	public BSCardBlockQuote<?> addBlockQuote(String text, @Nullable BSCardBlockQuoteFooter footer)
+	public BSCardBlockQuote<?> addBlockQuote(String text, BSCardBlockQuoteFooter footer)
 	{
 		BSCardBlockQuote<?> quote = new BSCardBlockQuote<>();
 		quote.add(text);
@@ -204,7 +203,7 @@ public class BSCardBody<J extends BSCardBody<J>>
 	 */
 	@Override
 	@NotNull
-	public BSCardBlockQuote<?> addBlockQuote(String text, @Nullable String footer)
+	public BSCardBlockQuote<?> addBlockQuote(String text, String footer)
 	{
 		BSCardBlockQuote<?> quote = new BSCardBlockQuote<>();
 		quote.add(text);
@@ -289,6 +288,5 @@ public class BSCardBody<J extends BSCardBody<J>>
 		addClass(border);
 		return (J) this;
 	}
-
 
 }

@@ -27,7 +27,6 @@ import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -46,7 +45,9 @@ import java.util.List;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Card",
-		description = "A card is a flexible and extensible content container. It includes options for headers and footers," + " a wide " + "variety of content,  contextual background colors, and powerful display options.",
+		description = "A card is a flexible and extensible content container. It includes options for headers and footers," +
+		              " a wide " +
+		              "variety of content,  contextual background colors, and powerful display options.",
 		url = "https://v4-alpha.getbootstrap.com/components/card/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
@@ -176,7 +177,7 @@ public class BSCard<J extends BSCard<J>>
 	 * @return
 	 */
 	@NotNull
-	public BSCardFooter<?> addFooter(@Nullable String text)
+	public BSCardFooter<?> addFooter(String text)
 	{
 		BSCardFooter<?> footer = new BSCardFooter<>();
 		footer.setText(text);

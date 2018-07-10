@@ -23,7 +23,6 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -107,7 +106,7 @@ public class BSAccordionCollection<J extends BSAccordionCollection<J>>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	public BSCardHeader<?> getHeader()
 	{
 		return header;
@@ -159,7 +158,7 @@ public class BSAccordionCollection<J extends BSAccordionCollection<J>>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	public BSButton<?> getHeadingButton()
 	{
 		return headingButton;

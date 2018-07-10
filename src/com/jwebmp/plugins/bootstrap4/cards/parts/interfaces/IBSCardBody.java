@@ -24,7 +24,6 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.annotation.Nullable;
 import java.util.Comparator;
 
 public interface IBSCardBody<J extends BSCardBody<J>>
@@ -96,7 +95,7 @@ public interface IBSCardBody<J extends BSCardBody<J>>
 	 *
 	 * @return
 	 */
-	BSCardBlockQuote<?> addBlockQuote(String text, @Nullable BSCardBlockQuoteFooter footer);
+	BSCardBlockQuote<?> addBlockQuote(String text, BSCardBlockQuoteFooter footer);
 
 	/**
 	 * Adds the block quote with the givne text (or component.toString(0)) and a nullable footer
@@ -106,5 +105,5 @@ public interface IBSCardBody<J extends BSCardBody<J>>
 	 *
 	 * @return
 	 */
-	BSCardBlockQuote<?> addBlockQuote(String text, @Nullable String footer);
+	BSCardBlockQuote<?> addBlockQuote(String text, String footer);
 }

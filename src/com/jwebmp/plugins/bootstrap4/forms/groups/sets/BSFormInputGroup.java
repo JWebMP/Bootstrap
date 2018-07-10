@@ -29,7 +29,6 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts.InputGroupAppendIte
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts.InputGroupPrependItem;
 import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSFormInputGroup;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -68,13 +67,12 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		this(null);
 	}
 
-
 	/**
 	 * Input group
 	 * <p>
 	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
 	 */
-	public BSFormInputGroup(@Nullable Boolean largeOrSmall)
+	public BSFormInputGroup(Boolean largeOrSmall)
 	{
 		getClasses().clear();
 		addClass(Input_Group);
@@ -260,7 +258,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	@Override
 	protected StringBuilder renderBeforeTag()
 	{

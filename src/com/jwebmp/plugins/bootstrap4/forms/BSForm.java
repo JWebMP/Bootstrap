@@ -35,7 +35,6 @@ import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 import com.jwebmp.utilities.StaticStrings;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -235,7 +234,7 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, @Nullable Boolean largeOrSmall)
+	public BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, Boolean largeOrSmall)
 	{
 		BSFormGroup<?, InputSelectType<?>> group = addSelectDropdown(binding, label);
 		group.setForm(this);

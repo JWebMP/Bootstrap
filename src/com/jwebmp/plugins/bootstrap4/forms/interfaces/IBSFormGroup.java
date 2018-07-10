@@ -28,7 +28,6 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupSizes;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
@@ -79,7 +78,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	I getInput();
 
 	@NotNull
@@ -170,7 +169,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	BSFormLabel<?> getLabel();
 
 	/**

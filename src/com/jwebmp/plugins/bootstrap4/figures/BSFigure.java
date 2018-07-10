@@ -24,7 +24,6 @@ import com.jwebmp.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.bootstrap4.options.BSFigureOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -91,7 +90,7 @@ public class BSFigure<J extends BSFigure<J>>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	public ComponentHierarchyBase getHeader()
 	{
 		return header;

@@ -22,7 +22,6 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -260,7 +259,7 @@ public class DefaultCard<J extends DefaultCard<J>>
 	 *
 	 * @return
 	 */
-	@Nullable
+
 	public String getFooterText()
 	{
 		if (footerText == null)
