@@ -5,6 +5,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	requires com.jwebmp.logmaster;
 	requires java.logging;
 	requires com.google.common;
+	requires com.fasterxml.jackson.annotation;
 
 	exports com.jwebmp.plugins.bootstrap4;
 	exports com.jwebmp.plugins.bootstrap4.accordion;
