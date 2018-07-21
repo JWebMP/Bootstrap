@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms;
 
-import com.jwebmp.base.angular.forms.enumerations.InputErrorValidations;
-import com.jwebmp.base.html.inputs.InputEmailType;
-import com.jwebmp.base.html.inputs.InputSelectType;
+import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.jwebmp.core.base.html.inputs.InputEmailType;
+import com.jwebmp.core.base.html.inputs.InputSelectType;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupSizes;
 import org.junit.jupiter.api.Test;

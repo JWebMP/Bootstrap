@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jquery.bootstrap;
+package com.jwebmp.core.plugins.jquery.bootstrap;
 
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import org.junit.jupiter.api.Test;
 

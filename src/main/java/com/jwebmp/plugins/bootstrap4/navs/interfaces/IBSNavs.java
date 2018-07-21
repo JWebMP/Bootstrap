@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;

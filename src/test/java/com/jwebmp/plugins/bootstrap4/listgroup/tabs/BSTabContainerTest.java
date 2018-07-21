@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.base.html.Div;
 import org.junit.jupiter.api.Test;
 
 class BSTabContainerTest

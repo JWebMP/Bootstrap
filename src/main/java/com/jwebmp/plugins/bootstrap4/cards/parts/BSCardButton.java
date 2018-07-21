@@ -16,18 +16,18 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardButton;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
-import com.jwebmp.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc

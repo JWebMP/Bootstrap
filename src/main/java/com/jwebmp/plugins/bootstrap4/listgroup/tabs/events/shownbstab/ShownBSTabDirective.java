@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 
 import javax.validation.constraints.NotNull;
 

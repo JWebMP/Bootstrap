@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup;
 
-import com.jwebmp.base.html.interfaces.children.ListItemChildren;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;

@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.bootstrap4.badge;
 
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.html.attributes.ALinkAttributes;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.plugins.ComponentInformation;
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.attributes.ALinkAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 

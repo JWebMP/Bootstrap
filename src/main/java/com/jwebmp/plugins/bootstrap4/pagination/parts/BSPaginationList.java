@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.pagination.parts;
 
-import com.jwebmp.base.html.List;
-import com.jwebmp.base.html.attributes.NoAttributes;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.pagination.BSPaginationChildren;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
 

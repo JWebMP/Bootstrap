@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.alerts;
 
-import com.jwebmp.base.html.attributes.ButtonAttributes;
+import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.close.BSCloseIcon;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 

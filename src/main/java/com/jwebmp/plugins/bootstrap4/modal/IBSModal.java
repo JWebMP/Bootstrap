@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.modal;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Button;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Button;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalHideFeature;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalShowFeature;

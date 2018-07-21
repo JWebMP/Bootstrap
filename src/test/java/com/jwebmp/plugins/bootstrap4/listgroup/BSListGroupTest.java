@@ -16,13 +16,13 @@
  */
 package com.jwebmp.plugins.bootstrap4.listgroup;
 
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
-import com.jwebmp.utilities.StaticStrings;
 import org.junit.jupiter.api.Test;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc

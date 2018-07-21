@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.groups.enumerations;
 
-import com.jwebmp.base.interfaces.ICSSClassName;
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.utilities.StaticStrings;
 
 /**
  * The form group sizes available

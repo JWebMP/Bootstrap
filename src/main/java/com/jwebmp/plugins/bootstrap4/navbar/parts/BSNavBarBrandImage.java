@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.navbar.parts;
 
-import com.jwebmp.base.html.DivSimple;
-import com.jwebmp.base.html.Image;
+import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.html.Image;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDisplayOptions;

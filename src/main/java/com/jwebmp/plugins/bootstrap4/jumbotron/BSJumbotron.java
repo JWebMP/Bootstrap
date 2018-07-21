@@ -16,14 +16,14 @@
  */
 package com.jwebmp.plugins.bootstrap4.jumbotron;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.H1;
-import com.jwebmp.base.html.HorizontalRule;
-import com.jwebmp.base.html.Paragraph;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.H1;
+import com.jwebmp.core.base.html.HorizontalRule;
+import com.jwebmp.core.base.html.Paragraph;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron;
 import com.jwebmp.plugins.bootstrap4.options.BSMarginOptions;
 

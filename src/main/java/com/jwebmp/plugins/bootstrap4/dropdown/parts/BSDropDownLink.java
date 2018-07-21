@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.dropdown.parts;
 
-import com.jwebmp.base.html.Link;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;

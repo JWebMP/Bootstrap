@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.navbar.interfaces;
 
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.navbar.BSNavBar;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarColourSchemes;

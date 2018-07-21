@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.alerts;
 
-import com.jwebmp.base.html.H4;
+import com.jwebmp.core.base.html.H4;
 
 public class BSAlertHeading<J extends BSAlertHeading<J>>
 		extends H4<J>

@@ -16,13 +16,13 @@
  */
 package com.jwebmp.plugins.bootstrap4.modal;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Button;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.attributes.ButtonAttributes;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.ButtonAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalHideFeature;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalShowFeature;

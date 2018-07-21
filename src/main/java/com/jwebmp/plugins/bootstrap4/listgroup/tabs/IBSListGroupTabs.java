@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
 import javax.validation.constraints.NotNull;

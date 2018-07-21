@@ -16,22 +16,22 @@
  */
 package com.jwebmp.plugins.bootstrap4.collapse.events.shown;
 
-import com.jwebmp.Component;
-import com.jwebmp.Event;
-import com.jwebmp.base.ajax.AjaxCall;
-import com.jwebmp.base.ajax.AjaxResponse;
-import com.jwebmp.base.angular.AngularPageConfigurator;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.events.activate.ActivateDirective;
-import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Event;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.events.activate.ActivateDirective;
+import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.logger.LogFactory;
-import com.jwebmp.plugins.ComponentInformation;
-import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
 
 import javax.validation.constraints.NotNull;
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.

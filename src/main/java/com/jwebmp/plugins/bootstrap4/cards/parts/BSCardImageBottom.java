@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.html.Image;
-import com.jwebmp.base.html.attributes.ImageAttributes;
+import com.jwebmp.core.base.html.Image;
+import com.jwebmp.core.base.html.attributes.ImageAttributes;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 

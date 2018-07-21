@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.html.HeaderText;
-import com.jwebmp.base.html.attributes.HeaderTypes;
+import com.jwebmp.core.base.html.HeaderText;
+import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;

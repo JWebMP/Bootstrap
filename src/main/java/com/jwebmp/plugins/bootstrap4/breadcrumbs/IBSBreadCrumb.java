@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 
 import javax.validation.constraints.NotNull;
 import java.util.Comparator;

@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms.groups.sets;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.Input;
-import com.jwebmp.base.html.SmallText;
-import com.jwebmp.base.html.Span;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.html.SmallText;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;

@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.parts.interfaces;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeaderNav;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;

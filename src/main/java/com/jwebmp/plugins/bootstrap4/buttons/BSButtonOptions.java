@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.buttons;
 
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
-import com.jwebmp.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Buttons

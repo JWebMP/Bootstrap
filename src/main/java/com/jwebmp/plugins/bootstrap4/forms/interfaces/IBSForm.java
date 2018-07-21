@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.interfaces;
 
-import com.jwebmp.base.html.inputs.*;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.html.inputs.*;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;

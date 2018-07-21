@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.carousel.parts;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
 

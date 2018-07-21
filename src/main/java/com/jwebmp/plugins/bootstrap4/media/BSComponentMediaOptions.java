@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.media;
 
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
-import com.jwebmp.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * The media object is an abstract element used as the basis for building more complex and repetitive components (like blog comments,

@@ -17,9 +17,9 @@
 
 package com.jwebmp.plugins.bootstrap4.buttons.checkbox;
 
-import com.jwebmp.base.html.DivSimple;
-import com.jwebmp.base.html.Label;
-import com.jwebmp.base.html.inputs.InputCheckBoxType;
+import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.html.Label;
+import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 

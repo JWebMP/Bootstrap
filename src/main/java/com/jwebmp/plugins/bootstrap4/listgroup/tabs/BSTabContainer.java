@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;

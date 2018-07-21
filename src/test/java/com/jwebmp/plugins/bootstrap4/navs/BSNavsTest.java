@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.navs;
 
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentHorizontalOptions;
 import org.junit.jupiter.api.Test;
 

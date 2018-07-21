@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 

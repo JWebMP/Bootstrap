@@ -1,9 +1,9 @@
 package com.jwebmp.plugins.bootstrap4.forms.interfaces;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.Input;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 
 import javax.validation.constraints.NotNull;

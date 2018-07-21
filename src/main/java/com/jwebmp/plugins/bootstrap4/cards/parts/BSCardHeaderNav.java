@@ -17,15 +17,15 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.List;
-import com.jwebmp.base.html.ListItem;
-import com.jwebmp.base.html.attributes.NoAttributes;
-import com.jwebmp.base.html.interfaces.children.ListChildren;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
-import com.jwebmp.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 

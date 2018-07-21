@@ -17,13 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.navbar.interfaces;
 
-import com.jwebmp.base.html.Button;
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 
 public interface IBSNavBarToggler<C extends GlobalChildren, A extends Enum & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
 		extends ICssStructure<J>

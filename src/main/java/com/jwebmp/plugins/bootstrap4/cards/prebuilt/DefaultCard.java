@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.cards.prebuilt;
 
-import com.jwebmp.base.html.H1;
+import com.jwebmp.core.base.html.H1;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;

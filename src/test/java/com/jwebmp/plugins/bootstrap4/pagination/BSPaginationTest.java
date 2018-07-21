@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.pagination;
 
-import com.jwebmp.base.html.Span;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationAlignmentOptions;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationSizingOptions;
 import com.jwebmp.plugins.bootstrap4.pagination.parts.BSPaginationLink;

@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.accordion;
 
-import com.jwebmp.base.html.HeaderText;
+import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;

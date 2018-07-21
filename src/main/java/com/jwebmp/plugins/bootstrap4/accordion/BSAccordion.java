@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.bootstrap4.accordion;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.HeaderText;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
-import com.jwebmp.base.html.attributes.LinkAttributes;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.HeaderText;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;

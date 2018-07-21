@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.progressbar;
 
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
 
 /**
  * @author GedMarc

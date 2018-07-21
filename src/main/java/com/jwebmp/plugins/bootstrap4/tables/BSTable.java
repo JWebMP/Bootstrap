@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.tables;
 
-import com.jwebmp.base.html.Table;
+import com.jwebmp.core.base.html.Table;
 import com.jwebmp.plugins.bootstrap4.options.BSTableOptions;
 
 import javax.validation.constraints.NotNull;

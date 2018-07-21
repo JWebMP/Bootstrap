@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.options.interfaces;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.accordion.BSAccordion;
 import com.jwebmp.plugins.bootstrap4.accordion.BSAccordionCollection;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;

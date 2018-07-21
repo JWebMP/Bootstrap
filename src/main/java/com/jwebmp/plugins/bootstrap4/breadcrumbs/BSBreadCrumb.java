@@ -17,13 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
-import com.jwebmp.base.html.attributes.NoAttributes;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsAttributes;
 
 import javax.validation.constraints.NotNull;

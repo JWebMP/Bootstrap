@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.options;
 
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Responsive embeds

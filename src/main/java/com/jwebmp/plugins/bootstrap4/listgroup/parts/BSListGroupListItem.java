@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.listgroup.parts;
 
-import com.jwebmp.base.html.ListItem;
+import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.plugins.bootstrap4.badge.BSBadge;
 import com.jwebmp.plugins.bootstrap4.badge.BSBadgeOptions;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupChildren;

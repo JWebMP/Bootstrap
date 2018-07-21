@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.modal.parts;
 
-import com.jwebmp.base.html.DivSimple;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.bootstrap4.close.BSCloseIcon;
 import com.jwebmp.plugins.bootstrap4.modal.BSModalOptions;
 

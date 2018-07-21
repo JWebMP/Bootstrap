@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.dropdown;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;

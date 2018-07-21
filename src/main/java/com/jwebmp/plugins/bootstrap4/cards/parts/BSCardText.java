@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.html.Paragraph;
+import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;

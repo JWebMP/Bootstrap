@@ -17,11 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.interfaces;
 
-import com.jwebmp.base.angular.forms.enumerations.InputErrorValidations;
-import com.jwebmp.base.html.Input;
-import com.jwebmp.base.html.SmallText;
-import com.jwebmp.base.interfaces.ICssStructure;
-import com.jwebmp.generics.TopOrBottom;
+import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.html.SmallText;
+import com.jwebmp.core.base.interfaces.ICssStructure;
+import com.jwebmp.core.generics.TopOrBottom;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;

@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.modal;
 
-import com.jwebmp.Component;
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents

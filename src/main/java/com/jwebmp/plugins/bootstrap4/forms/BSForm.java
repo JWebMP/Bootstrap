@@ -16,12 +16,13 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms;
 
-import com.jwebmp.base.angular.AngularAttributes;
-import com.jwebmp.base.angular.forms.AngularForm;
-import com.jwebmp.base.html.Input;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
-import com.jwebmp.base.html.inputs.*;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.angular.AngularAttributes;
+import com.jwebmp.core.base.angular.forms.AngularForm;
+import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.inputs.*;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
@@ -33,7 +34,6 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormRadioGroup;
 import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSForm;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
-import com.jwebmp.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 import java.util.Objects;

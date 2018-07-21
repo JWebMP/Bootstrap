@@ -16,19 +16,20 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms.groups;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.angular.AngularAttributes;
-import com.jwebmp.base.angular.forms.AngularInputMessages;
-import com.jwebmp.base.angular.forms.enumerations.InputErrorValidations;
-import com.jwebmp.base.html.*;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
-import com.jwebmp.base.html.inputs.InputFileType;
-import com.jwebmp.base.html.inputs.InputTextType;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.children.FormChildren;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.generics.TopOrBottom;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.angular.AngularAttributes;
+import com.jwebmp.core.base.angular.forms.AngularInputMessages;
+import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.inputs.InputFileType;
+import com.jwebmp.core.base.html.inputs.InputTextType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.children.FormChildren;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.generics.TopOrBottom;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.bootstrap4.forms.BSComponentFormOptions;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
@@ -40,7 +41,6 @@ import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSFormGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
-import com.jwebmp.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static com.jwebmp.generics.TopOrBottom.*;
+import static com.jwebmp.core.generics.TopOrBottom.*;
 
 /**
  * An implementation of
@@ -78,7 +78,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 
 	private BSForm<?> form;
 
-	private TopOrBottom messagePlacement = TopOrBottom.Bottom;
+	private TopOrBottom messagePlacement = Bottom;
 
 	/**
 	 * The input component for the form group

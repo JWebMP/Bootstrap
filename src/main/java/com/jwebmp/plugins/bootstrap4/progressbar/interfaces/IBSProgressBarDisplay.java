@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.progressbar.interfaces;
 
-import com.jwebmp.base.html.Span;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
 import com.jwebmp.plugins.bootstrap4.progressbar.bar.BSProgressBarDisplay;
 

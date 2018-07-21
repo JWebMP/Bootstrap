@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.alerts;
 
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
 
 /**
  * Alerts

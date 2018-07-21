@@ -17,10 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.figures;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.DivSimple;
-import com.jwebmp.base.html.TableCaption;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.html.TableCaption;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.bootstrap4.options.BSFigureOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 

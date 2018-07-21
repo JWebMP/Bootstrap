@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.bootstrap4.navs.parts;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
-import com.jwebmp.utilities.StaticStrings;
 
 /**
  * A navigation link item

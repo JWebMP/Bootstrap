@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.containers;
 
-import com.jwebmp.base.html.DivSimple;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
 
 import static com.jwebmp.plugins.bootstrap4.options.BSColumnOptions.*;

@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.bootstrap4.alerts.styles;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.Span;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.alerts.BSAlert;
 import org.junit.jupiter.api.Test;
 

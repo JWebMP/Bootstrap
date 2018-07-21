@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.bootstrap4.pagination.parts;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
-import com.jwebmp.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
-import com.jwebmp.utilities.StaticStrings;
 
 /**
  * A pagination link for an item, usually auto generated from BSPagination

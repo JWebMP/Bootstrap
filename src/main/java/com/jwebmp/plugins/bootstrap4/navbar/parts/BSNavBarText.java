@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.navbar.parts;
 
-import com.jwebmp.base.html.Span;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 

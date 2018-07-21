@@ -1,10 +1,10 @@
 package com.jwebmp.plugins.bootstrap4.media;
 
-import com.jwebmp.base.html.DivSimple;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
-import static com.jwebmp.base.servlets.enumarations.ComponentTypes.*;
+import static com.jwebmp.core.base.servlets.enumarations.ComponentTypes.*;
 
 /**
  * Media list

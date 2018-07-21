@@ -16,15 +16,15 @@
  */
 package com.jwebmp.plugins.bootstrap4.media;
 
-import com.jwebmp.Component;
-import com.jwebmp.base.html.*;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.options.BSSpacingOptions;
 
 import java.util.Objects;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Media object

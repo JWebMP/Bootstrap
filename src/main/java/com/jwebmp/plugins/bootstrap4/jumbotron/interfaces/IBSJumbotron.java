@@ -17,10 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.jumbotron.interfaces;
 
-import com.jwebmp.base.html.H1;
-import com.jwebmp.base.html.HorizontalRule;
-import com.jwebmp.base.html.Paragraph;
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.html.H1;
+import com.jwebmp.core.base.html.HorizontalRule;
+import com.jwebmp.core.base.html.Paragraph;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.jumbotron.BSJumbotron;
 
 import javax.validation.constraints.NotNull;

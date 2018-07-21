@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.bootstrap4.navbar.toggler;
 
-import com.jwebmp.base.html.Button;
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.IBSNavBarToggler;
 

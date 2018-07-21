@@ -17,11 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap4.toggle;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Button;
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.List;
-import com.jwebmp.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 
 import javax.validation.constraints.NotNull;
 

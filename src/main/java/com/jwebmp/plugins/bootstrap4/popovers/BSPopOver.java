@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.popovers;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverChildren;
 import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverEvents;
 import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;

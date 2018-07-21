@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.Link;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;

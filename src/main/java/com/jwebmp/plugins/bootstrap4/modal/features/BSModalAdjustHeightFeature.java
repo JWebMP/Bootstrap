@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.modal.features;
 
-import com.jwebmp.Feature;
+import com.jwebmp.core.Feature;
 import com.jwebmp.plugins.bootstrap4.modal.BSModal;
 
 /**

@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.buttons;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 
 import java.util.Comparator;
 

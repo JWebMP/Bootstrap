@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.ListItem;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
-import com.jwebmp.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 

@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.options.interfaces;
 
-import com.jwebmp.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarousel;
 import com.jwebmp.plugins.bootstrap4.carousel.features.*;
 import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselControl;

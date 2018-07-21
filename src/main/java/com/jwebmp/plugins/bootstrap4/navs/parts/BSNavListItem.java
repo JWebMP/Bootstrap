@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.navs.parts;
 
-import com.jwebmp.base.html.ListItem;
+import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
