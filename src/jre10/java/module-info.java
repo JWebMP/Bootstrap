@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
+
 module com.jwebmp.plugins.bootstrap4 {
 
 	requires com.jwebmp.core;
@@ -99,5 +102,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.tables;
 	exports com.jwebmp.plugins.bootstrap4.toggle;
 	exports com.jwebmp.plugins.bootstrap4.tooltips;
+
+	provides IPageConfigurator with BootstrapPageConfigurator;
 
 }
