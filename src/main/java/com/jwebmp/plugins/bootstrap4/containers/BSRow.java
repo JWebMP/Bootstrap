@@ -24,6 +24,8 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 
+import javax.validation.constraints.NotNull;
+
 import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
 
 /**
@@ -59,5 +61,17 @@ public class BSRow<J extends BSRow<J>>
 	public static BSRow newInstance()
 	{
 		return new BSRow();
+	}
+	/**
+	 * Sets padding and margin left nad right to 0 on the element
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J resetHorizontalSinks()
+	{
+		addStyle("margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px;");
+		return (J) this;
 	}
 }
