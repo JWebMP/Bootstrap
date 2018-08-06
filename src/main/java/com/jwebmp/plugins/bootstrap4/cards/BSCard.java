@@ -20,7 +20,6 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap4.accordion.BSAccordionChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
@@ -44,6 +43,7 @@ import java.util.List;
  * @version 1.0
  * @since 29 Aug 2015
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 @ComponentInformation(name = "Bootstrap Card",
 		description = "A card is a flexible and extensible content container. It includes options for headers and footers," +
 		              " a wide " +
@@ -52,7 +52,7 @@ import java.util.List;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
-		implements IBSLayout<J>, BSAccordionChildren
+		implements IBSLayout<J>, IBSCard<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -81,6 +81,7 @@ public class BSCard<J extends BSCard<J>>
 	 * is available as modifier classes for cards.
 	 *
 	 * @param text
+	 * 		The text to add
 	 */
 	public BSCard(String text)
 	{
@@ -100,6 +101,7 @@ public class BSCard<J extends BSCard<J>>
 	 * This card is inversed
 	 *
 	 * @param inverse
+	 * 		If this card is displayed as inverse
 	 */
 	public BSCard(boolean inverse)
 	{
@@ -111,12 +113,24 @@ public class BSCard<J extends BSCard<J>>
 	}
 
 	/**
+	 * Returns the slimmer version of this object
+	 *
+	 * @return THe interface for this object
+	 */
+	public IBSCard<J> asMe()
+	{
+		return this;
+	}
+
+	/**
 	 * Adds the text to the card with the card text
 	 *
 	 * @param textToAdd
+	 * 		The text to add to the card
 	 *
-	 * @return
+	 * @return The given card text added
 	 */
+	@Override
 	@NotNull
 	public BSCardText addCardText(String textToAdd)
 	{
@@ -129,9 +143,11 @@ public class BSCard<J extends BSCard<J>>
 	 * Creates and adds a new card image top with the given URL
 	 *
 	 * @param url
+	 * 		The URL of the image to use
 	 *
-	 * @return
+	 * @return The card top image object
 	 */
+	@Override
 	@NotNull
 	public BSCardImageTop<?> addCardImageTop(String url)
 	{
@@ -143,8 +159,9 @@ public class BSCard<J extends BSCard<J>>
 	/**
 	 * Creates and adds a new card body
 	 *
-	 * @return
+	 * @return The BS Card Body Object
 	 */
+	@Override
 	@NotNull
 	public BSCardBody<?> addCardBody()
 	{
@@ -157,9 +174,11 @@ public class BSCard<J extends BSCard<J>>
 	 * Adds a list group to the card
 	 *
 	 * @param items
+	 * 		A list of items to add
 	 *
-	 * @return
+	 * @return The newly created group with the items added on
 	 */
+	@Override
 	@NotNull
 	public BSListGroup<?> addListGroup(List<BSListGroupListItem<?>> items)
 	{
@@ -172,10 +191,26 @@ public class BSCard<J extends BSCard<J>>
 	/**
 	 * Adds a footer to the bs cards
 	 *
-	 * @param text
-	 *
-	 * @return
+	 * @return The new card footer
 	 */
+	@Override
+	@NotNull
+	public BSCardFooter<?> addFooter()
+	{
+		BSCardFooter<?> footer = new BSCardFooter<>();
+		add(footer);
+		return footer;
+	}
+
+	/**
+	 * Adds a footer to the bs cards
+	 *
+	 * @param text
+	 * 		The tetx to use on the footer
+	 *
+	 * @return The new card footer
+	 */
+	@Override
 	@NotNull
 	public BSCardFooter<?> addFooter(String text)
 	{
@@ -189,9 +224,11 @@ public class BSCard<J extends BSCard<J>>
 	 * Sets text center
 	 *
 	 * @param center
+	 * 		The center to add to the center of this card?
 	 *
-	 * @return
+	 * @return Always this object
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setTextCenter(boolean center)
@@ -209,12 +246,15 @@ public class BSCard<J extends BSCard<J>>
 	}
 
 	/**
+	 * e
 	 * Sets align right
 	 *
 	 * @param right
+	 * 		Sets the text to display right
 	 *
-	 * @return
+	 * @return Always this object
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J setTextRight(boolean right)
@@ -232,49 +272,16 @@ public class BSCard<J extends BSCard<J>>
 	}
 
 	/**
-	 * Adds the tabs to the card with the given contents
-	 *
-	 * @param tabNames
-	 * @param contents
-	 *
-	 * @return
-	 */
-	@NotNull
-	@SuppressWarnings("unchecked")
-	public J addTabs(String[] tabNames, List<BSCardBody<?>> contents)
-	{
-		addTabHeaders(tabNames);
-		for (BSCardBody<?> content : contents)
-		{
-			add(content);
-		}
-		return (J) this;
-	}
-
-	/**
-	 * Tabs
-	 *
-	 * @param tabNames
-	 *
-	 * @return
-	 */
-	public BSCardHeader<?> addTabHeaders(@NotNull String[] tabNames)
-	{
-		BSCardHeader<?> header = addHeader(null);
-		header.addTabHeader(tabNames);
-		add(header);
-		return header;
-	}
-
-	/**
 	 * Adds a header
 	 *
 	 * @param text
+	 * 		The text to add to the header
 	 *
-	 * @return
+	 * @return The newly created BSCardHeader
 	 */
+	@Override
 	@NotNull
-	public BSCardHeader<?> addHeader(String text)
+	public BSCardHeader<?> addCardHeader(String text)
 	{
 		BSCardHeader<?> header = new BSCardHeader<>();
 		header.setText(text);
@@ -286,9 +293,11 @@ public class BSCard<J extends BSCard<J>>
 	 * Adds to the card image bottom
 	 *
 	 * @param url
+	 * 		The URL of the image to add to the bottom
 	 *
-	 * @return
+	 * @return The card image bottom object
 	 */
+	@Override
 	public BSCardImageBottom<?> addCardImageBottom(String url)
 	{
 		BSCardImageBottom<?> bottom = new BSCardImageBottom<>(url);
@@ -300,11 +309,15 @@ public class BSCard<J extends BSCard<J>>
 	 * Adds a card image overlay to the previously added card image (top or bottom)
 	 *
 	 * @param title
+	 * 		The title of the image
 	 * @param subTitle
+	 * 		The subtitle of the image
 	 * @param parargaphs
+	 * 		The paragraph to apply
 	 *
-	 * @return
+	 * @return The new BSCardImageOverlay that has been configured
 	 */
+	@Override
 	public BSCardImageOverlay<?> addCardImageOverlay(String title, String subTitle, String... parargaphs)
 	{
 		BSCardImageOverlay<?> overlay = new BSCardImageOverlay<>();
@@ -328,7 +341,7 @@ public class BSCard<J extends BSCard<J>>
 	 * @param backgroundOptions
 	 * 		background colour
 	 *
-	 * @return
+	 * @return Always this
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -345,7 +358,7 @@ public class BSCard<J extends BSCard<J>>
 	 * @param coloursOptions
 	 * 		text colour
 	 *
-	 * @return
+	 * @return Always this
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -360,8 +373,9 @@ public class BSCard<J extends BSCard<J>>
 	 * Sets the margins (without checking for previous applied)
 	 *
 	 * @param margin
+	 * 		The margin to apply
 	 *
-	 * @return
+	 * @return Always this
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -376,8 +390,9 @@ public class BSCard<J extends BSCard<J>>
 	 * Applies the padding to the card
 	 *
 	 * @param padding
+	 * 		The padding to apply
 	 *
-	 * @return
+	 * @return Always this
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -392,8 +407,9 @@ public class BSCard<J extends BSCard<J>>
 	 * Sets the border to the correct structure
 	 *
 	 * @param border
+	 * 		The border to apply
 	 *
-	 * @return
+	 * @return Always This
 	 */
 	@Override
 	@SuppressWarnings("unchecked")

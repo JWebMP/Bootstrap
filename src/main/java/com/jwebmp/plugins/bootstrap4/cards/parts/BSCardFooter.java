@@ -68,16 +68,6 @@ public class BSCardFooter<J extends BSCardFooter<J>>
 		addClass(BSCardOptions.Card_Footer);
 	}
 
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
-	{
-		return this;
-	}
-
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull

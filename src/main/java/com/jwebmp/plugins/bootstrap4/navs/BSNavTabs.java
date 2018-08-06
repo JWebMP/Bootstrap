@@ -17,6 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.navs;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
+import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
 
 /**
  * Constructs the container for NS Nav Tabs
@@ -43,7 +46,9 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	private final Set<BSTabContainer<?>> tabs;
 
 	private final BSNavs<?> navs;
-	private final Div tabContents;
+	private final ComponentHierarchyBase tabContents;
+
+	private boolean tabsFirst = true;
 
 	/**
 	 * Constructs the container for NS Nav Tabs
@@ -54,7 +59,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 		navs = new BSNavs<>();
 		navs.setAsTabs(true);
 		tabContents = new DivSimple();
-		tabContents.addClass("tab-content");
+		tabContents.addClass(Tab_Content);
 	}
 
 	public IBSNavTabs asMe()
@@ -65,11 +70,11 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	/**
 	 * Adds a tab to the BSNavTabs
 	 *
-	 * @param label
-	 * @param content
-	 * @param active
+	 * @param label The label to apply
+	 * @param content A type safe div
+	 * @param active if the tab must be active - restrict to one active at a time
 	 *
-	 * @return
+	 * @return The generated tab container object
 	 */
 	@Override
 	@NotNull
@@ -86,7 +91,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	/**
 	 * Returns the set of tabs currently registered
 	 *
-	 * @return
+	 * @return The set of Tab Containers that will be rendered
 	 */
 	@Override
 	@NotNull
@@ -98,7 +103,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	/**
 	 * Returns the BS Navs Portion of the Tab Display
 	 *
-	 * @return
+	 * @return The navs object (tag UL class NAV)
 	 */
 	@Override
 	@NotNull
@@ -110,10 +115,10 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	/**
 	 * Gets the Tab Group List for the contents
 	 *
-	 * @return
+	 * @return The actual div for the tab contents which has all the tab panes inside
 	 */
 	@Override
-	public Div getTabContents()
+	public ComponentHierarchyBase getTabContents()
 	{
 		return tabContents;
 	}
@@ -123,13 +128,14 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 * <p>
 	 * Remember to add the drop down menu and select to the drop down! xD
 	 *
-	 * @return
+	 * @return The tab container for the drop down tab item
 	 */
 	@NotNull
 	@SuppressWarnings("unchecked")
+	@Override
 	public BSTabContainer<?> addDropDownTab(String label, Div<?, ?, ?, ?, ?> content, boolean active)
 	{
-		BSTabContainer output = new BSTabContainer(active, tabContents, label);
+		BSTabContainer output = new BSTabContainer(active, content, label);
 
 		BSDropDown<?> dropDown = new BSDropDown<>();
 		dropDown.setTag("li");
@@ -149,9 +155,16 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	{
 		if (!isConfigured())
 		{
-
-			add(navs);
-			add(tabContents);
+			if (tabsFirst)
+			{
+				add(navs);
+				add(tabContents);
+			}
+			else
+			{
+				add(tabContents);
+				add(navs);
+			}
 
 			tabs.forEach(a ->
 			             {
@@ -161,6 +174,123 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 			             });
 		}
 		super.preConfigure();
+	}
+
+	/**
+	 * Sets the tab display to bordered
+	 *
+	 * @param bordered
+	 * 		If must be bordered
+	 *
+	 * @return This object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J setBordered(boolean bordered)
+	{
+		if (bordered)
+		{
+			addClass(BSNavsOptions.Tabs_Bordered);
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Tabs_Bordered);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Sets the tab display to justified
+	 *
+	 * @param justified
+	 * 		If must be justified
+	 *
+	 * @return always this object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J setJustified(boolean justified)
+	{
+		if (justified)
+		{
+			addClass(BSNavsOptions.Nav_Justified);
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Nav_Justified);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Sets the tab display to justified
+	 *
+	 * @param verticalLeftTabs
+	 * 		If must be vertical and left
+	 *
+	 * @return always this object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J setVerticalLeftTabs(boolean verticalLeftTabs)
+	{
+		if (verticalLeftTabs)
+		{
+			addClass(BSNavsOptions.Tabs_Vertical_Env);
+			getNavs().addClass(Tabs_Vertical);
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Tabs_Vertical_Env);
+			getNavs().removeClass(Tabs_Vertical);
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Sets the tab display to justified
+	 *
+	 * @param verticalLeftTabs
+	 * 		If must be vertical and left
+	 *
+	 * @return always this object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J setVerticalRightTabs(boolean verticalLeftTabs)
+	{
+		if (verticalLeftTabs)
+		{
+			addClass(BSNavsOptions.Tabs_Vertical_Env);
+			addClass(BSNavsOptions.Tabs_Vertical_Env_Right);
+			getNavs().addClass(Tabs_Vertical);
+			tabsFirst = false;
+		}
+		else
+		{
+			removeClass(BSNavsOptions.Tabs_Vertical_Env);
+			removeClass(BSNavsOptions.Tabs_Vertical_Env_Right);
+			getNavs().removeClass(Tabs_Vertical);
+			tabsFirst = true;
+		}
+		return (J) this;
+	}
+
+	/**
+	 * Removes the padding top from the tab-contents to align exactly to the tab
+	 * @return Always this
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J removeSpacingTop()
+	{
+		getTabContents().addStyle("padding-top:0px;");
+		return (J)this;
 	}
 
 	@Override

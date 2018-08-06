@@ -106,4 +106,7 @@ public interface IBSCardBody<J extends BSCardBody<J>>
 	 * @return
 	 */
 	BSCardBlockQuote<?> addBlockQuote(String text, String footer);
+
+	@SuppressWarnings("unchecked")
+	J removePadding();
 }

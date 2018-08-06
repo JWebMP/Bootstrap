@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
+
 /**
  * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. Swap
  * modifier classes to switch between each style.
@@ -255,11 +257,11 @@ public class BSNavs<J extends BSNavs<J>>
 	{
 		if (equalWidth)
 		{
-			addClass("nav-justified");
+			addClass(Nav_Justified);
 		}
 		else
 		{
-			removeClass("nav-justified");
+			removeClass(Nav_Justified);
 		}
 		return (J) this;
 	}
@@ -285,7 +287,7 @@ public class BSNavs<J extends BSNavs<J>>
 	@SuppressWarnings("unchecked")
 	public void preConfigure()
 	{
-		if (!isConfigured() && (getClasses().contains(BSNavsOptions.Nav_Fill.toString()) || getClasses().contains(BSNavsOptions.Nav_Justified.toString())))
+		if (!isConfigured() && (getClasses().contains(BSNavsOptions.Nav_Fill.toString()) || getClasses().contains(Nav_Justified.toString())))
 		{
 
 			getChildren().forEach(a ->

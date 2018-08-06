@@ -18,6 +18,7 @@
 package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
@@ -81,6 +82,25 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	{
 		crumbs.add(item);
 		return (J) this;
+	}
+
+	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active)
+	{
+		return addBreadCrumbItem(text, active, null);
+	}
+
+	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url)
+	{
+		return addBreadCrumbItem(text, active,url, null);
+	}
+
+	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url, String tooltip)
+	{
+		BSBreadCrumbItem item = new BSBreadCrumbItem<>().setText(text);
+		item.setActive(active);
+		item.setCrumbLink(new Link(url));
+		crumbs.add(item);
+		return item;
 	}
 
 	@Override

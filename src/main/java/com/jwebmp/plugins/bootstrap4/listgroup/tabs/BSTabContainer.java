@@ -17,6 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
@@ -47,13 +48,13 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	private boolean active;
 	private boolean fade;
 
-	private Div<?, ?, ?, ?, ?> tabPane;
+	private ComponentHierarchyBase<?, ?, ?, ?, ?> tabPane;
 
 	private BSListGroupButtonItem<?> buttonItem;
 	private BSNavListItem<?> listItem;
 	private BSDropDown<?> dropDownItem;
 
-	public BSTabContainer(boolean active, @NotNull Div<?, ?, ?, ?, ?> tabContent, String text)
+	public BSTabContainer(boolean active, @NotNull ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, String text)
 	{
 		this(tabContent, text);
 		this.active = active;
@@ -64,7 +65,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	}
 
 	@SuppressWarnings("unchecked")
-	public BSTabContainer(Div<?, ?, ?, ?, ?> tabContent, String text)
+	public BSTabContainer(ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, String text)
 	{
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
@@ -211,7 +212,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	 *
 	 * @return
 	 */
-	public Div<?, ?, ?, ?, ?> getTabPane()
+	public ComponentHierarchyBase<?, ?, ?, ?, ?> getTabPane()
 	{
 		return tabPane;
 	}
@@ -225,7 +226,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setTabPane(Div<?, ?, ?, ?, ?> tabPane)
+	public J setTabPane(ComponentHierarchyBase<?, ?, ?, ?, ?> tabPane)
 	{
 		this.tabPane = tabPane;
 		return (J) this;

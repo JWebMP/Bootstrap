@@ -17,8 +17,10 @@
 
 package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
+import com.jwebmp.plugins.bootstrap4.navs.BSNavTabs;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 
 import javax.validation.constraints.NotNull;
@@ -27,38 +29,33 @@ import java.util.Set;
 public interface IBSNavTabs
 
 {
-	/**
-	 * Adds a tab to the BSNavTabs
-	 *
-	 * @param label
-	 * @param content
-	 * @param active
-	 *
-	 * @return
-	 */
 	@NotNull
 	BSTabContainer<?> addTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
 
-	/**
-	 * Returns the set of tabs currently registered
-	 *
-	 * @return
-	 */
 	@NotNull
 	Set<BSTabContainer<?>> getTabs();
 
-	/**
-	 * Returns the BS Navs Portion of the Tab Display
-	 *
-	 * @return
-	 */
 	@NotNull
 	BSNavs<?> getNavs();
 
-	/**
-	 * Gets the Tab Group List for the contents
-	 *
-	 * @return
-	 */
-	Div getTabContents();
+	ComponentHierarchyBase getTabContents();
+
+	@NotNull
+	@SuppressWarnings("unchecked")
+	BSTabContainer<?> addDropDownTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
+
+	@SuppressWarnings("unchecked")
+	BSNavTabs setBordered(boolean bordered);
+
+	@SuppressWarnings("unchecked")
+	BSNavTabs setJustified(boolean justified);
+
+	@SuppressWarnings("unchecked")
+	BSNavTabs setVerticalLeftTabs(boolean verticalLeftTabs);
+
+	@SuppressWarnings("unchecked")
+	BSNavTabs setVerticalRightTabs(boolean verticalLeftTabs);
+
+	@SuppressWarnings("unchecked")
+	BSNavTabs removeSpacingTop();
 }

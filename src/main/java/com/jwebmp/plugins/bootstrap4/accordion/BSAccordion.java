@@ -81,7 +81,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 	{
 		BSCard<?> card = new BSCard<>();
 
-		BSCardHeader<?> header = card.addHeader(null);
+		BSCardHeader<?> header = card.addCardHeader(null);
 		BSCardBody<?> body = bodyContent == null ? new BSCardBody<>() : bodyContent;
 
 		BSButton<?> collapseButton = new BSButton<>().setText(headerText);

@@ -289,4 +289,16 @@ public class BSCardBody<J extends BSCardBody<J>>
 		return (J) this;
 	}
 
+	/**
+	 * Removes the padding from the card body to align to the card
+	 * @return This object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J removePadding()
+	{
+		addStyle("padding:0px");
+		return (J) this;
+	}
 }

@@ -80,4 +80,13 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	@NotNull
 	J addBorder(BSBorderOptions border);
 
+	/**
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return The IBSLayout Options
+	 */
+	default IBSLayout asLayout()
+	{
+		return this;
+	}
 }
