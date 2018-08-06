@@ -32,6 +32,9 @@ public interface IBSTable<J extends BSTable<J>>
 	@NotNull
 	J setBordered(boolean bordered);
 
+	@SuppressWarnings("unchecked")
+	J fitInContainer();
+
 	/**
 	 * Add .table-hover to enable a hover state on table rows within a tbody.
 	 *
