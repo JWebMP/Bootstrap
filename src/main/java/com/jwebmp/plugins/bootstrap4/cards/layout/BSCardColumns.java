@@ -68,6 +68,7 @@ public class BSCardColumns<J extends BSCardColumns<J>>
 	}
 
 	@Override
+	@NotNull
 	public StringBuilder renderCss(int tabCount, boolean renderOpening, boolean renderInQuotations, boolean isAjaxCall)
 	{
 		StringBuilder sb = super.renderCss(tabCount, renderOpening, renderInQuotations, isAjaxCall);

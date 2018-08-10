@@ -17,14 +17,14 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.groups.enumerations;
 
-import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICssClassName;
 import com.jwebmp.core.utilities.StaticStrings;
 
 /**
  * The form group sizes available
  */
 public enum BSFormGroupSizes
-		implements ICSSClassName
+		implements ICssClassName
 {
 	Form_Control_Lg,
 	Form_Control_Sm,

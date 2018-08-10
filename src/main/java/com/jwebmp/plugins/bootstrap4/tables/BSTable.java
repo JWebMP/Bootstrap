@@ -114,6 +114,20 @@ public class BSTable<J extends BSTable<J>>
 	}
 
 	/**
+	 * Forces the cells to fit on the screen
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J fitInContainerBreakWord()
+	{
+		addStyle("word-wrap:break-word;table-layout:fixed;");
+		return (J) this;
+	}
+
+	/**
 	 * Add .table-hover to enable a hover state on table rows within a tbody.
 	 *
 	 * @param hovered

@@ -35,6 +35,9 @@ public interface IBSTable<J extends BSTable<J>>
 	@SuppressWarnings("unchecked")
 	J fitInContainer();
 
+	@SuppressWarnings("unchecked")
+	J fitInContainerBreakWord();
+
 	/**
 	 * Add .table-hover to enable a hover state on table rows within a tbody.
 	 *
