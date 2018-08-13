@@ -3702,10 +3702,10 @@
      * structure of this object, example:
      * ```
      * new Popper(ref, pop, {
-   *   modifiers: {
-   *     preventOverflow: { enabled: false }
-   *   }
-   * })
+     *   modifiers: {
+     *     preventOverflow: { enabled: false }
+     *   }
+     * })
      * ```
      * @type {Object}
      * @static
