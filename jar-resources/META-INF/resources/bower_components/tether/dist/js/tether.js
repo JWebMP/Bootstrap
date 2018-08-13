@@ -161,7 +161,7 @@
             document.body.removeChild(zeroElement);
         }
         zeroElement = null;
-    }
+    };
 
     function getBounds(el) {
         var doc = undefined;
@@ -510,6 +510,7 @@
                     _x8 = receiver;
                     _again = true;
                     desc = parent = undefined;
+                    continue _function;
                 }
             } else if ('value' in desc) {
                 return desc.value;
@@ -1138,7 +1139,7 @@
                     if (ret === false) {
                         return false;
                     } else if (typeof ret === 'undefined' || typeof ret !== 'object') {
-
+                        continue;
                     } else {
                         top = ret.top;
                         left = ret.left;
