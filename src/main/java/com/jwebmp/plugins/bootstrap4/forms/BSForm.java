@@ -21,6 +21,7 @@ import com.jwebmp.core.base.angular.forms.AngularForm;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.inputs.*;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
@@ -56,7 +57,7 @@ import java.util.Objects;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSForm<J extends BSForm<J>>
 		extends AngularForm<J>
-		implements IBSForm<J>, BSNavBarChildren
+		implements IBSForm<J>, BSNavBarChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -814,14 +815,16 @@ public class BSForm<J extends BSForm<J>>
 					                                             .forEach(b ->
 					                                                      {
 						                                                      b.addClass("form-control");
-						                                                      b.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+						                                                      b.asAttributeBase()
+						                                                       .addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 					                                   inputGroup.getAppendDiv()
 					                                             .getChildren()
 					                                             .forEach(b ->
 					                                                      {
 						                                                      b.addClass("form-control");
-						                                                      b.addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
+						                                                      b.asAttributeBase()
+						                                                       .addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 				                                   }
 			                                   }

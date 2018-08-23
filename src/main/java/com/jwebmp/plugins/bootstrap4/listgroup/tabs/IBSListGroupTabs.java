@@ -18,10 +18,9 @@
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
 import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
 import javax.validation.constraints.NotNull;
@@ -60,7 +59,7 @@ public interface IBSListGroupTabs<J extends BSListGroupTabs<J>>
 	 *
 	 * @return
 	 */
-	BSTabContainer<?> addTab(String label, Div< GlobalChildren,?,GlobalFeatures, GlobalEvents, ?> content, boolean active);
+	BSTabContainer<?> addTab(String label, Div<IComponentHierarchyBase, ?, GlobalFeatures, GlobalEvents, ?> content, boolean active);
 
 	/**
 	 * Returns the set of tabs currently registered

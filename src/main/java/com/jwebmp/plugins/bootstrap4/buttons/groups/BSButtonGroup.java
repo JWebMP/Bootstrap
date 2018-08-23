@@ -47,7 +47,7 @@ import javax.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSButtonGroup<J extends BSButtonGroup<J>>
 		extends Div<BSButtonGroupChildren, BSButtonGroupAttributes, GlobalFeatures, BSButtonGroupEvents, J>
-		implements BSButtonToolbarChildren, IBSButtonGroup
+		implements BSButtonToolbarChildren<BSButtonGroupChildren, J>, IBSButtonGroup
 {
 
 	private static final long serialVersionUID = 1L;

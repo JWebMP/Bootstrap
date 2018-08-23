@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.dropdown.parts;
 
 import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
@@ -37,7 +38,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSDropDownLink<J extends BSDropDownLink<J>>
 		extends Link<J>
-		implements BSDropDownChildren
+		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
 	private static final long serialVersionUID = 1L;
 
@@ -94,14 +95,14 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
-		return super.equals(obj);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj);
 	}
 }

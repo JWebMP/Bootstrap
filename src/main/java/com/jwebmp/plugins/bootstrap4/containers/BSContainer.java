@@ -18,9 +18,9 @@ package com.jwebmp.plugins.bootstrap4.containers;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
@@ -44,8 +44,8 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  * @since Oct 11, 2016
  */
 public class BSContainer<J extends BSContainer<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren, BSFormChildren, BSFormGroupChildren
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSNavBarChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

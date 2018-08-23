@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.Paragraph;
+import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
@@ -32,7 +33,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSCardText<J extends BSCardText<J>>
 		extends Paragraph<J>
-		implements BSCardChildren, IBSLayout<J>
+		implements BSCardChildren<ParagraphChildren, J>, IBSLayout<J>
 {
 
 	private static final long serialVersionUID = 1L;

@@ -19,10 +19,6 @@ package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.containers.BSRow;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
@@ -136,7 +132,7 @@ public class BSListGroupTabs<J extends BSListGroupTabs<J>>
 	 * @return
 	 */
 	@Override
-	public BSTabContainer<?> addTab(String label, Div< GlobalChildren,?,GlobalFeatures, GlobalEvents, ?> content, boolean active)
+	public BSTabContainer<?> addTab(String label, Div content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
 		getTabs().add(tab);
@@ -156,14 +152,14 @@ public class BSListGroupTabs<J extends BSListGroupTabs<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

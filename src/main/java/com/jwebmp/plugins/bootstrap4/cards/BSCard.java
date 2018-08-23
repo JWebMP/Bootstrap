@@ -52,7 +52,7 @@ import java.util.List;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
-		implements IBSLayout<J>, IBSCard<J>
+		implements IBSLayout<J>, IBSCard<BSCardChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -117,7 +117,7 @@ public class BSCard<J extends BSCard<J>>
 	 *
 	 * @return THe interface for this object
 	 */
-	public IBSCard<J> asMe()
+	public IBSCard<BSCardChildren, J> asMe()
 	{
 		return this;
 	}

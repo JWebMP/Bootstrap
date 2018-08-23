@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.navs.parts;
 
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
@@ -30,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
  */
 public class BSNavLinkItem<J extends BSNavLinkItem<J>>
 		extends Link<J>
-		implements BSNavsChildren
+		implements BSNavsChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -71,14 +72,14 @@ public class BSNavLinkItem<J extends BSNavLinkItem<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

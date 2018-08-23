@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
+import com.jwebmp.plugins.bootstrap4.buttons.BSButtonChildren;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardButton;
@@ -35,7 +36,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  */
 public class BSCardButton<J extends BSCardButton<J>>
 		extends BSButton<J>
-		implements BSCardChildren, IBSCardButton<J>
+		implements BSCardChildren<BSButtonChildren, J>, IBSCardButton<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -59,16 +60,6 @@ public class BSCardButton<J extends BSCardButton<J>>
 		super(text);
 		setTag("a");
 		addAttribute(LinkAttributes.HRef.toString(), StaticStrings.STRING_HASH);
-	}
-
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
-	{
-		return this;
 	}
 
 	/**
@@ -149,6 +140,17 @@ public class BSCardButton<J extends BSCardButton<J>>
 	{
 		addClass(border);
 		return (J) this;
+	}
+
+	/**
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return
+	 */
+	@Override
+	public IBSLayout<J> asLayout()
+	{
+		return this;
 	}
 
 }

@@ -52,7 +52,7 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSDropDown<J extends BSDropDown<J>>
 		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
-		implements IBSDropDown<J>, BSNavsChildren
+		implements IBSDropDown<J>, BSNavsChildren<BSDropDownChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -131,14 +131,14 @@ public class BSDropDown<J extends BSDropDown<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

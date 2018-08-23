@@ -18,7 +18,6 @@ package com.jwebmp.plugins.bootstrap4.cards.layout;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
@@ -34,7 +33,7 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardDeck;
  */
 public class BSCardDeck<J extends BSCardDeck<J>>
 		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements GlobalChildren, IBSCardDeck<J>
+		implements IBSCardDeck<J>
 {
 
 	private static final long serialVersionUID = 1L;

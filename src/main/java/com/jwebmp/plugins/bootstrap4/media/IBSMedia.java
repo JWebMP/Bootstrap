@@ -17,9 +17,9 @@
 package com.jwebmp.plugins.bootstrap4.media;
 
 import com.jwebmp.core.Component;
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.HeaderText;
-import com.jwebmp.core.base.html.Link;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaBody;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaHeaderText;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaLink;
 
 /**
  * @author GedMarc
@@ -33,7 +33,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	Div getMediaBody();
+	BSMediaBody<?> getMediaBody();
 
 	/**
 	 * Returns the component displayed inside the link that is used for display
@@ -47,14 +47,14 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	HeaderText getMediaHeader();
+	BSMediaHeaderText<?> getMediaHeader();
 
 	/**
 	 * Returns the associated media link, never null
 	 *
 	 * @return
 	 */
-	Link getMediaLink();
+	BSMediaLink<?> getMediaLink();
 
 	/**
 	 * Sets the media body and adds it to this object
@@ -63,7 +63,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaBody(Div mediaBody);
+	BSMedia setMediaBody(BSMediaBody<?> mediaBody);
 
 	/**
 	 * Sets the component displayed to the left or right (set that in the link)
@@ -81,7 +81,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaHeader(HeaderText mediaHeader);
+	BSMedia setMediaHeader(BSMediaHeaderText<?> mediaHeader);
 
 	/**
 	 * Sets the media link, and moves the media object into the new link if necessary
@@ -91,6 +91,6 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaLink(Link mediaLink, boolean left);
+	BSMedia setMediaLink(BSMediaLink<?> mediaLink, boolean left);
 
 }

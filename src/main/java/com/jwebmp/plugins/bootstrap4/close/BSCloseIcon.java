@@ -20,9 +20,9 @@ import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.options.BSCloseIconOptions;
@@ -44,7 +44,7 @@ import javax.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/utilities/close-icon/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSCloseIcon<J extends BSCloseIcon<J>>
-		extends Button<GlobalChildren, ButtonAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Button<IComponentHierarchyBase, ButtonAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -151,15 +151,15 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	/**

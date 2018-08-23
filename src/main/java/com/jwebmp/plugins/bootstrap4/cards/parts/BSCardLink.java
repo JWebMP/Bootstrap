@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
@@ -34,7 +35,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSCardLink<J extends BSCardLink<J>>
 		extends Link<J>
-		implements BSCardChildren, IBSLayout<J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -94,16 +95,6 @@ public class BSCardLink<J extends BSCardLink<J>>
 	{
 		super(directToAddress, targetFrameName, component);
 		addClass(BSCardOptions.Card_Link);
-	}
-
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
-	{
-		return this;
 	}
 
 	@Override
@@ -170,6 +161,17 @@ public class BSCardLink<J extends BSCardLink<J>>
 	{
 		addClass(border);
 		return (J) this;
+	}
+
+	/**
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return
+	 */
+	@Override
+	public IBSLayout<J> asLayout()
+	{
+		return this;
 	}
 
 }

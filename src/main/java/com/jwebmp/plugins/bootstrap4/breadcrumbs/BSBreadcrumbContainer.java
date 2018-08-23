@@ -18,8 +18,6 @@ package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
 import com.jwebmp.core.base.html.List;
 
-import java.util.ArrayList;
-
 /**
  * Breadcrumb
  * <p>
@@ -52,26 +50,14 @@ class BSBreadcrumbContainer<J extends BSBreadcrumbContainer<J>>
 	}
 
 	@Override
-	public void preConfigure()
+	public int hashCode()
 	{
-		if (!isConfigured())
-		{
-			getChildren().forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
-			new ArrayList<>(getChildren()).get(getChildren().size() - 1)
-			                              .addClass(BSComponentBreadcrumbOptions.Active);
-		}
-		super.preConfigure();
+		return super.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj)
 	{
 		return super.equals(obj);
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
 	}
 }

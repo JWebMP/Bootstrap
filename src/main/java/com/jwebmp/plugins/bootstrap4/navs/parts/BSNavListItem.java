@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.navs.parts;
 
 import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
@@ -28,7 +29,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSNavListItem<J extends BSNavListItem<J>>
 		extends ListItem<J>
-		implements BSNavsChildren
+		implements BSNavsChildren<ListItemChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -96,14 +97,14 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

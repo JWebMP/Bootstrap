@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.listgroup.parts;
 
 import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.badge.BSBadge;
 import com.jwebmp.plugins.bootstrap4.badge.BSBadgeOptions;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupChildren;
@@ -36,7 +37,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSListGroupListItem<J extends BSListGroupListItem<J>>
 		extends ListItem<J>
-		implements BSListGroupChildren, IBSListGroupListItem<J>
+		implements BSListGroupChildren<ListItemChildren, J>, IBSListGroupListItem<J>
 {
 
 	private static final long serialVersionUID = 1L;

@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.dropdown.parts;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
+import com.jwebmp.plugins.bootstrap4.buttons.BSButtonChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
@@ -28,7 +29,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownButton<J extends BSDropDownButton<J>>
 		extends BSButton<J>
-		implements BSDropDownChildren
+		implements BSDropDownChildren<BSButtonChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;

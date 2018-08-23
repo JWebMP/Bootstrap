@@ -20,6 +20,7 @@ import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.logger.LogFactory;
@@ -36,7 +37,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @author Marc Magon
  */
 public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
-		extends Event<J>
+		extends Event<GlobalFeatures, J>
 		implements GlobalEvents
 {
 
@@ -68,7 +69,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		}
 		catch (Exception e)
 		{
-			LOG.log(Level.SEVERE, "Error In Firing Event", e);
+			BSCarouselSlideEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
 

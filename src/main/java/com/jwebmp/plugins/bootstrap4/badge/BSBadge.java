@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap4.badge;
 
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.ALinkAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.utilities.StaticStrings;
@@ -45,7 +45,7 @@ import javax.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 
 public class BSBadge<J extends BSBadge<J>>
-		extends Span<GlobalChildren, BSBadgeAttributes, J>
+		extends Span<IComponentHierarchyBase, BSBadgeAttributes, J>
 		implements IBSBadge<J>
 {
 
@@ -377,15 +377,15 @@ public class BSBadge<J extends BSBadge<J>>
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
-		return super.equals(obj);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj);
 	}
 
 }

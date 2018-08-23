@@ -19,7 +19,6 @@ package com.jwebmp.plugins.bootstrap4.carousel.features;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarousel;
-import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselFeatures;
 import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
 
 import javax.validation.constraints.NotNull;
@@ -33,8 +32,7 @@ import java.util.Objects;
  * @since 2013/01/16
  */
 public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFeature<J>>
-		extends Feature<BSCarouselOptions, J>
-		implements BSCarouselFeatures, GlobalFeatures
+		extends Feature<GlobalFeatures, BSCarouselOptions, J>
 {
 
 	private static final long serialVersionUID = 1L;

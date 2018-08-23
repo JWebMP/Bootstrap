@@ -24,6 +24,8 @@ import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarChildre
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarEvents;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarFeatures;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Progress
  * <p>
@@ -46,6 +48,9 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		extends Div<BSProgressBarChildren, BSProgressBarAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {
 
+	/**
+	 * Field serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -118,15 +123,15 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	/**
@@ -134,7 +139,6 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 *
 	 * @return
 	 */
-
 	public boolean isActive()
 	{
 		return active;
@@ -145,8 +149,9 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 *
 	 * @param active
 	 */
-
-	public final void setActive(boolean active)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setActive(boolean active)
 	{
 		this.active = active;
 		if (active)
@@ -157,6 +162,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		{
 			getProgressBar().removeClass(BSDefaultOptions.Active);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -175,8 +181,9 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 *
 	 * @param animated
 	 */
-
-	public void setAnimated(boolean animated)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAnimated(boolean animated)
 	{
 		this.animated = animated;
 		if (animated)
@@ -187,6 +194,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 		{
 			getProgressBar().removeClass(BSProgressBarOptions.Progress_Bar_Animated);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -195,7 +203,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 * @return
 	 */
 
-	public BSProgressBarDisplay getProgressBar()
+	public BSProgressBarDisplay<?> getProgressBar()
 	{
 		if (progressBar == null)
 		{
@@ -210,15 +218,17 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 *
 	 * @param progressBar
 	 */
-
-	public final void setProgressBar(BSProgressBarDisplay progressBar)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public final J setProgressBar(BSProgressBarDisplay<?> progressBar)
 	{
-		getChildren().remove(this.progressBar);
+		remove(this.progressBar);
 		this.progressBar = progressBar;
 		if (progressBar != null)
 		{
-			getChildren().add(progressBar);
+			add(progressBar);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -237,7 +247,8 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 *
 	 * @param striped
 	 */
-
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public final J setStriped(boolean striped)
 	{
 		this.striped = striped;
@@ -260,6 +271,8 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 * @return
 	 */
 
+	@SuppressWarnings("unchecked")
+	@NotNull
 	public J setPercentage(double percent)
 	{
 		getProgressBar().setValue(percent);

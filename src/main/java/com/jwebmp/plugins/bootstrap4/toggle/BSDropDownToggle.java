@@ -24,8 +24,8 @@ import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
 import javax.validation.constraints.NotNull;
@@ -53,7 +53,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	/**
 	 * The title component for this drop down
 	 */
-	private Component<GlobalChildren, ?, ?, ?, ?> title;
+	private Component<IComponentHierarchyBase, ?, ?, ?, ?> title;
 	/**
 	 * A list of the contents for this drop down
 	 */
@@ -112,7 +112,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 			tempList.add(0, this.title);
 			setChildren(new LinkedHashSet<>(tempList));
 			this.title.addClass(BSDropDownOptions.Dropdown_Toggle);
-			title.addAttribute(ButtonAttributes.Data_Toggle, ToggleString);
+			title.addAttribute(ButtonAttributes.Data_Toggle, BSDropDownToggle.ToggleString);
 			if (contents != null)
 			{
 				title.addAttribute(ButtonAttributes.Data_Target, contents.getID(true));
@@ -151,7 +151,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 			tempList.add(0, this.title);
 			setChildren(new LinkedHashSet<>(tempList));
 			this.title.addClass(BSDropDownOptions.Dropdown_Toggle);
-			title.addAttribute(LinkAttributes.Data_Toggle, ToggleString);
+			title.addAttribute(LinkAttributes.Data_Toggle, BSDropDownToggle.ToggleString);
 			if (contents != null)
 			{
 				title.addAttribute(LinkAttributes.Data_Target, contents.getID(true));
@@ -187,7 +187,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 		if (contents != null)
 		{
 			contents.addClass(BSDropDownOptions.Dropdown_Menu);
-			title.addAttribute(ButtonAttributes.Data_Toggle.toString(), ToggleString);
+			title.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSDropDownToggle.ToggleString);
 			title.addAttribute(ButtonAttributes.Data_Target.toString(), contents.getID(true));
 		}
 		return (J) this;
@@ -204,15 +204,15 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 }

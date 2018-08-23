@@ -17,13 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.navbar.interfaces;
 
-import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.navbar.BSNavBar;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarColourSchemes;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarPositioning;
 import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarBrand;
+import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarHeaderSpan;
 import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarText;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
@@ -83,7 +83,7 @@ public interface IBSNavBar<J extends BSNavBar<J>>
 	 *
 	 * @return
 	 */
-	Span<?, ?, ?> addHeaderText(String text);
+	BSNavBarHeaderSpan<?, ?> addHeaderText(String text);
 
 	/**
 	 * Adds a configured form to the nav bar

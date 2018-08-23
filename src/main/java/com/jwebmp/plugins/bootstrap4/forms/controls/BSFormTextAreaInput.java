@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms.controls;
 
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
 
@@ -23,9 +24,9 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOption
  * @author GedMarc
  * @since 17 Jan 2017
  */
-public class BSFormTextAreaInput
-		extends BSInput<BSFormTextAreaInput>
-		implements BSFormGroupChildren
+public class BSFormTextAreaInput<J extends BSFormTextAreaInput<J>>
+		extends BSInput<J>
+		implements BSFormGroupChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

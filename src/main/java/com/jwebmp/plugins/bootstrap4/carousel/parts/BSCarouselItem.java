@@ -18,9 +18,9 @@ package com.jwebmp.plugins.bootstrap4.carousel.parts;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
 
 /**
@@ -31,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
  * @since 01 Jan 2017
  */
 public class BSCarouselItem<J extends BSCarouselItem<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;

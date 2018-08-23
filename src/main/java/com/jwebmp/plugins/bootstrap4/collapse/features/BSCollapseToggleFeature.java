@@ -19,13 +19,14 @@ package com.jwebmp.plugins.bootstrap4.collapse.features;
 
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * @param <J>
  */
 public class BSCollapseToggleFeature<J extends BSCollapseToggleFeature<J>>
-		extends Feature<JavaScriptPart, J>
+		extends Feature<GlobalFeatures, JavaScriptPart, J>
 {
 	public BSCollapseToggleFeature(ComponentHierarchyBase component)
 	{

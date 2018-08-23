@@ -18,9 +18,9 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardBlockQuote;
@@ -37,8 +37,8 @@ import javax.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardBlockQuote<J extends BSCardBlockQuote<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren, IBSCardBlockQuote<J>, IBSLayout<J>
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardBlockQuote<J>, IBSLayout<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -76,16 +76,6 @@ public class BSCardBlockQuote<J extends BSCardBlockQuote<J>>
 	 * @return
 	 */
 	public IBSCardBlockQuote<J> asMe()
-	{
-		return this;
-	}
-
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
 	{
 		return this;
 	}
@@ -154,5 +144,16 @@ public class BSCardBlockQuote<J extends BSCardBlockQuote<J>>
 	{
 		addClass(border);
 		return (J) this;
+	}
+
+	/**
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return
+	 */
+	@Override
+	public IBSLayout<J> asLayout()
+	{
+		return this;
 	}
 }

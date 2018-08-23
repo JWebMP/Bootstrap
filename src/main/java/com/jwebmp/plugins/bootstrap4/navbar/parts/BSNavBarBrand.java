@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.navbar.parts;
 
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Image;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 
@@ -34,7 +35,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		extends DivSimple<J>
-		implements BSNavBarChildren
+		implements BSNavBarChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

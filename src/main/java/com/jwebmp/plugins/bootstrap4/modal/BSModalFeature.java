@@ -29,8 +29,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @since 2013/01/16
  */
 public class BSModalFeature
-		extends Feature<JavaScriptPart, BSModalFeature>
-		implements BSModalFeatures, GlobalFeatures
+		extends Feature<GlobalFeatures, JavaScriptPart, BSModalFeature>
 {
 
 	private static final long serialVersionUID = 1L;

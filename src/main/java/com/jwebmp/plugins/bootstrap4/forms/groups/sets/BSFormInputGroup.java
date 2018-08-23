@@ -21,6 +21,7 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.SmallText;
 import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
@@ -45,7 +46,7 @@ import static com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSComponentInputGr
  */
 public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<?, ?>>
 		extends BSFormGroup<J, I>
-		implements BSFormGroupChildren, IBSFormInputGroup<J, I>
+		implements BSFormGroupChildren<IComponentHierarchyBase, J>, IBSFormInputGroup<J, I>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -281,7 +282,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		if (!isConfigured())
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
-			Set<ComponentHierarchyBase<?, ?, ?, ?, ?>> newOrder = new LinkedHashSet<>();
+			Set<IComponentHierarchyBase> newOrder = new LinkedHashSet<>();
 			if (!prependDiv.getChildren()
 			               .isEmpty())
 			{
@@ -320,14 +321,14 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

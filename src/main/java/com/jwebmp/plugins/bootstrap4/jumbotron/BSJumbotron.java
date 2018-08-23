@@ -20,9 +20,9 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.H1;
 import com.jwebmp.core.base.html.HorizontalRule;
 import com.jwebmp.core.base.html.Paragraph;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron;
 import com.jwebmp.plugins.bootstrap4.options.BSMarginOptions;
@@ -46,7 +46,7 @@ import javax.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/components/jumbotron/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSJumbotron<J extends BSJumbotron<J>>
-		extends Div<GlobalChildren, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<IComponentHierarchyBase, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSJumbotron<J>
 {
 
@@ -157,14 +157,14 @@ public class BSJumbotron<J extends BSJumbotron<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

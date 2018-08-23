@@ -19,9 +19,10 @@ package com.jwebmp.plugins.bootstrap4.progressbar.bar;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
+import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarChildren;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayEvents;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayFeatures;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.IBSProgressBarDisplay;
@@ -39,8 +40,8 @@ import javax.validation.constraints.NotNull;
  * @since 29 Aug 2015
  */
 public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
-		extends Div<GlobalChildren, BSProgressBarDisplayAttributes, BSProgressBarDisplayFeatures, BSProgressBarDisplayEvents, J>
-		implements IBSProgressBarDisplay<J>
+		extends Div<IComponentHierarchyBase, BSProgressBarDisplayAttributes, BSProgressBarDisplayFeatures, BSProgressBarDisplayEvents, J>
+		implements IBSProgressBarDisplay<J>, BSProgressBarChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -309,14 +310,14 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 
@@ -31,7 +32,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
  */
 public class BSCardImageOverlay<J extends BSCardImageOverlay<J>>
 		extends BSCardBody<J>
-		implements BSCardChildren
+		implements BSCardChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

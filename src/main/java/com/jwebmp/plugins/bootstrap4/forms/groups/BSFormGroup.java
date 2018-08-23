@@ -24,10 +24,10 @@ import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.inputs.InputFileType;
 import com.jwebmp.core.base.html.inputs.InputTextType;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.children.FormChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.generics.TopOrBottom;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.logger.LogFactory;
@@ -64,8 +64,8 @@ import static com.jwebmp.core.generics.TopOrBottom.*;
  * @since 17 Jan 2017
  */
 public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
-		extends Div<GlobalChildren, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren, IBSFormGroup<J, I>, FormChildren
+		extends Div<IComponentHierarchyBase, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSFormChildren<IComponentHierarchyBase, J>, IBSFormGroup<J, I>, FormChildren<IComponentHierarchyBase, J>
 {
 
 	private static final Logger log = LogFactory.getLog("BSFormGroup");
@@ -106,7 +106,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			}
 			else
 			{
-				List<ComponentHierarchyBase<?, ?, ?, ?, ?>> children = new ArrayList<>(getChildren());
+				List<IComponentHierarchyBase> children = new ArrayList<>(getChildren());
 				children.add(0, getMessages());
 				setChildren(new LinkedHashSet<>(children));
 			}
@@ -440,7 +440,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		if (getLabel() == null)
 		{
-			log.warning("Label span set where no label exists. Make sure to add the label before setting as horizontal layout or it may " + "appear funny.");
+			BSFormGroup.log.warning("Label span set where no label exists. Make sure to add the label before setting as horizontal layout or it may " + "appear funny.");
 		}
 		else
 		{
@@ -519,14 +519,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

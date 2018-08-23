@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.carousel.parts;
 
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselChildren;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
 
@@ -26,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
  */
 public class BSCarouselSlides<J extends BSCarouselSlides<J>>
 		extends DivSimple<J>
-		implements BSCarouselChildren
+		implements BSCarouselChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

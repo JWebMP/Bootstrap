@@ -17,7 +17,6 @@
 package com.jwebmp.plugins.bootstrap4.navbar;
 
 import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.collapse.BSCollapse;
@@ -30,6 +29,7 @@ import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarEvents;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.IBSNavBar;
 import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarBrand;
+import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarHeaderSpan;
 import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarText;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggler;
@@ -170,12 +170,10 @@ public class BSNavBar<J extends BSNavBar<J>>
 	 * @return
 	 */
 	@Override
-	public Span<?, ?, ?> addHeaderText(String text)
+	public BSNavBarHeaderSpan<?, ?> addHeaderText(String text)
 	{
-		Span<?, ?, ?> span = new Span<>();
-		span.addClass(BSMarginOptions.MarginBottom_0);
-		span.addClass("h1");
-		getChildren().add(span);
+		BSNavBarHeaderSpan<?, ?> span = new BSNavBarHeaderSpan<>();
+		add(span);
 		return span;
 	}
 
@@ -251,7 +249,6 @@ public class BSNavBar<J extends BSNavBar<J>>
 	public J addForeground(BSColoursOptions coloursOptions)
 	{
 		addClass(coloursOptions);
-
 		return (J) this;
 	}
 

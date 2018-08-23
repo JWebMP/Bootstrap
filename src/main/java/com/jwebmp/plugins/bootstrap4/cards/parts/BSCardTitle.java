@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
@@ -38,7 +39,7 @@ import javax.validation.constraints.NotNull;
  */
 public class BSCardTitle<J extends BSCardTitle<J>>
 		extends HeaderText<J>
-		implements BSCardChildren, IBSLayout<J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
 	private static final long serialVersionUID = 1L;

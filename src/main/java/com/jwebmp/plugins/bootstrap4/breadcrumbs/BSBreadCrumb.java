@@ -23,11 +23,15 @@ import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsAttributes;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.
@@ -57,13 +61,13 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 		super(ComponentTypes.Navigation);
 		if (optionalAriaLabel != null)
 		{
-			addAttribute(GlobalAttributes.Aria_Label, optionalAriaLabel.length > 0 ? optionalAriaLabel[0] : BreadCrumbsString);
+			addAttribute(GlobalAttributes.Aria_Label, optionalAriaLabel.length > 0 ? optionalAriaLabel[0] : BSBreadCrumb.BreadCrumbsString);
 		}
 		else
 		{
-			addAttribute(GlobalAttributes.Aria_Label, BreadCrumbsString);
+			addAttribute(GlobalAttributes.Aria_Label, BSBreadCrumb.BreadCrumbsString);
 		}
-		addAttribute(BSNavsAttributes.Role.toString(), NavigationString);
+		addAttribute(BSNavsAttributes.Role.toString(), BSBreadCrumb.NavigationString);
 		crumbs = new BSBreadcrumbContainer();
 		add(crumbs);
 	}
@@ -84,16 +88,52 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 		return (J) this;
 	}
 
+	/**
+	 * Method addBreadCrumbItem ...
+	 *
+	 * @param text
+	 * 		of type String
+	 * @param active
+	 * 		of type boolean
+	 *
+	 * @return BSBreadCrumbItem
+	 */
 	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active)
 	{
 		return addBreadCrumbItem(text, active, null);
 	}
 
+	/**
+	 * Method addBreadCrumbItem ...
+	 *
+	 * @param text
+	 * 		of type String
+	 * @param active
+	 * 		of type boolean
+	 * @param url
+	 * 		of type String
+	 *
+	 * @return BSBreadCrumbItem
+	 */
 	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url)
 	{
-		return addBreadCrumbItem(text, active,url, null);
+		return addBreadCrumbItem(text, active, url, null);
 	}
 
+	/**
+	 * Method addBreadCrumbItem ...
+	 *
+	 * @param text
+	 * 		of type String
+	 * @param active
+	 * 		of type boolean
+	 * @param url
+	 * 		of type String
+	 * @param tooltip
+	 * 		of type String
+	 *
+	 * @return BSBreadCrumbItem
+	 */
 	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url, String tooltip)
 	{
 		BSBreadCrumbItem item = new BSBreadCrumbItem<>().setText(text);
@@ -104,14 +144,29 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public void preConfigure()
 	{
-		return super.equals(o);
+		@SuppressWarnings("unchecked")
+		Set<IComponentHierarchyBase> crumbs = this.crumbs.getChildren();
+		if (!crumbs.isEmpty())
+		{
+			crumbs.forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
+			List<IComponentHierarchyBase> sortedCrumbs = new ArrayList<>(crumbs);
+			sortedCrumbs.get(sortedCrumbs.size() + (sortedCrumbs.size() > 1 ? -1 : 0))
+			            .addClass(BSComponentBreadcrumbOptions.Active);
+		}
+		super.preConfigure();
 	}
 
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

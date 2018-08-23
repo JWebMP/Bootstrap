@@ -20,9 +20,9 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardHeader;
@@ -42,8 +42,8 @@ import javax.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardHeader<J extends BSCardHeader<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren, IBSCardHeader<J>
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardHeader<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -90,16 +90,6 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	 * @return
 	 */
 	public IBSCardHeader<J> asMe()
-	{
-		return this;
-	}
-
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
 	{
 		return this;
 	}
@@ -205,5 +195,16 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	{
 		addClass(border);
 		return (J) this;
+	}
+
+	/**
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return
+	 */
+	@Override
+	public IBSLayout<J> asLayout()
+	{
+		return this;
 	}
 }

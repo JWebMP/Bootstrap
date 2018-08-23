@@ -47,6 +47,10 @@ public enum BSCardOptions
 	 */
 	Card,
 	/**
+	 * The actual box for a card
+	 */
+	Card_Box,
+	/**
 	 * Formats as a card header object
 	 */
 	Card_Header,

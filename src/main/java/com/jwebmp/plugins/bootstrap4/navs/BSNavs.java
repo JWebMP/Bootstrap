@@ -52,7 +52,7 @@ import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSNavs<J extends BSNavs<J>>
 		extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren, IBSNavs<J>
+		implements BSNavBarChildren<BSNavsChildren, J>, IBSNavs<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -302,15 +302,15 @@ public class BSNavs<J extends BSNavs<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 }

@@ -19,9 +19,9 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
@@ -40,8 +40,8 @@ import javax.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardBody<J extends BSCardBody<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren, IBSCardBody<J>
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardBody<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -57,16 +57,6 @@ public class BSCardBody<J extends BSCardBody<J>>
 	 * @return
 	 */
 	public IBSCardBody asMe()
-	{
-		return this;
-	}
-
-	/**
-	 * Returns the Bootstrap layout options
-	 *
-	 * @return
-	 */
-	public IBSLayout<J> asLayout()
 	{
 		return this;
 	}
@@ -216,6 +206,20 @@ public class BSCardBody<J extends BSCardBody<J>>
 	}
 
 	/**
+	 * Removes the padding from the card body to align to the card
+	 *
+	 * @return This object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	@Override
+	public J removePadding()
+	{
+		addStyle("padding:0px");
+		return (J) this;
+	}
+
+	/**
 	 * Sets the style with the given colours
 	 *
 	 * @param backgroundOptions
@@ -290,15 +294,13 @@ public class BSCardBody<J extends BSCardBody<J>>
 	}
 
 	/**
-	 * Removes the padding from the card body to align to the card
-	 * @return This object
+	 * Returns the Bootstrap layout options
+	 *
+	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
 	@Override
-	public J removePadding()
+	public IBSLayout<J> asLayout()
 	{
-		addStyle("padding:0px");
-		return (J) this;
+		return this;
 	}
 }

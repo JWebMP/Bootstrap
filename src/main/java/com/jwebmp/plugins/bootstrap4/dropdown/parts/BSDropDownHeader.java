@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.dropdown.parts;
 
 import com.jwebmp.core.base.html.H6;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
@@ -30,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownHeader<J extends BSDropDownHeader<J>>
 		extends H6<J>
-		implements BSDropDownChildren
+		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;

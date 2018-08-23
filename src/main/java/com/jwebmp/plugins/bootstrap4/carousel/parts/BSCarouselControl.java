@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.carousel.parts;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarousel;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselChildren;
 
@@ -33,7 +34,7 @@ import java.util.Objects;
  */
 public class BSCarouselControl<J extends BSCarouselControl<J>>
 		extends Link<J>
-		implements BSCarouselChildren
+		implements BSCarouselChildren<IComponentHierarchyBase, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -127,15 +128,15 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
-		return false;
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getIcon());
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return false;
 	}
 
 	/**

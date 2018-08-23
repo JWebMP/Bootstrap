@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
  */
 public class BSPaginationList<J extends BSPaginationList<J>>
 		extends List<BSPaginationListItem, NoAttributes, GlobalEvents, J>
-		implements BSPaginationChildren
+		implements BSPaginationChildren<BSPaginationListItem, J>
 {
 
 	private static final long serialVersionUID = 1L;

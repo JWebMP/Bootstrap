@@ -20,7 +20,6 @@ import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.bootstrap4.popovers.BSPopOverOptions;
-import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
@@ -32,8 +31,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @since 2013/01/16
  */
 public class BSTooltipFeature
-		extends Feature<BSPopOverOptions, BSTooltipFeature>
-		implements BSPopOverFeatures, GlobalFeatures
+		extends Feature<GlobalFeatures, BSPopOverOptions, BSTooltipFeature>
 {
 
 	private static final long serialVersionUID = 1L;

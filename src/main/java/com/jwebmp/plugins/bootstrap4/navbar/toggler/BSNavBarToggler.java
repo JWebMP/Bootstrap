@@ -19,9 +19,9 @@ package com.jwebmp.plugins.bootstrap4.navbar.toggler;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.IBSNavBarToggler;
 
@@ -31,9 +31,9 @@ import javax.validation.constraints.NotNull;
  * @author GedMarc
  * @since 21 Jan 2017
  */
-public class BSNavBarToggler<C extends GlobalChildren, A extends Enum & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
+public class BSNavBarToggler<C extends IComponentHierarchyBase, A extends Enum & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
 		extends Button<C, A, F, E, J>
-		implements BSNavBarChildren, IBSNavBarToggler<C, A, F, E, J>
+		implements BSNavBarChildren<C, J>, IBSNavBarToggler<C, A, F, E, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -154,14 +154,14 @@ public class BSNavBarToggler<C extends GlobalChildren, A extends Enum & Attribut
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

@@ -20,16 +20,13 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalHideFeature;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalShowFeature;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalToggleFeature;
-import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalBody;
-import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalFooter;
-import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalHeader;
+import com.jwebmp.plugins.bootstrap4.modal.parts.*;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
@@ -60,7 +57,7 @@ import javax.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
-		implements BSNavBarChildren, IBSModal<J>
+		implements BSNavBarChildren<BSModalChildren, J>, IBSModal<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -68,11 +65,11 @@ public class BSModal<J extends BSModal<J>>
 	/**
 	 * The modal dialog
 	 */
-	private Div<GlobalChildren, ?, ?, ?, ?> modalDialog;
+	private BSModalDialog<?> modalDialog;
 	/**
 	 * The modal content
 	 */
-	private Div<GlobalChildren, ?, ?, ?, ?> modalContent;
+	private BSModalContent<?> modalContent;
 
 	/**
 	 * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
@@ -119,20 +116,20 @@ public class BSModal<J extends BSModal<J>>
 	 * @return
 	 */
 
-	public Div<GlobalChildren, ?, ?, ?, ?> getModalContent()
+	public BSModalContent<?> getModalContent()
 	{
 		if (modalContent == null)
 		{
-			setModalContent(new Div());
+			setModalContent(new BSModalContent<>());
 		}
 		return modalContent;
 	}
 
-	public Div<GlobalChildren, ?, ?, ?, ?> getModalDialog()
+	public BSModalDialog<?> getModalDialog()
 	{
 		if (modalDialog == null)
 		{
-			setModalDialog(new Div());
+			setModalDialog(new BSModalDialog());
 		}
 		return modalDialog;
 	}
@@ -146,15 +143,14 @@ public class BSModal<J extends BSModal<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setModalDialog(Div modalDialog)
+	public J setModalDialog(BSModalDialog<?> modalDialog)
 	{
-		getChildren().remove(this.modalDialog);
+		remove(this.modalDialog);
 		this.modalDialog = modalDialog;
 		if (this.modalDialog != null)
 		{
-			getChildren().add(modalDialog);
-			modalDialog.addClass(BSModalOptions.Modal_Dialog);
-			modalDialog.addAttribute(BSModalAttributes.Role, "document");
+			add(modalDialog);
+
 		}
 		return (J) this;
 	}
@@ -168,7 +164,7 @@ public class BSModal<J extends BSModal<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setModalContent(Div modalContent)
+	public J setModalContent(BSModalContent<?> modalContent)
 	{
 		getModalDialog().remove(this.modalContent);
 		this.modalContent = modalContent;
@@ -423,15 +419,15 @@ public class BSModal<J extends BSModal<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	/**

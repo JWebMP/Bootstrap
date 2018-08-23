@@ -17,12 +17,15 @@
 package com.jwebmp.plugins.bootstrap4.media;
 
 import com.jwebmp.core.Component;
-import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaBody;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaHeaderText;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaImage;
+import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaLink;
 import com.jwebmp.plugins.bootstrap4.options.BSSpacingOptions;
-
-import java.util.Objects;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
@@ -50,23 +53,26 @@ public class BSMedia<J extends BSMedia<J>>
 		implements IBSMedia
 {
 
+	/**
+	 * Field serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The media image
 	 */
-	private Image mediaImage;
+	private BSMediaImage<?> mediaImage;
 	/**
 	 * The link for the media object
 	 */
-	private Link mediaLink;
+	private BSMediaLink<?> mediaLink;
 	/**
 	 * The body for the media object
 	 */
-	private Div mediaBody;
+	private BSMediaBody<?> mediaBody;
 	/**
 	 * The header for the media object
 	 */
-	private HeaderText mediaHeader;
+	private BSMediaHeaderText<?> mediaHeader;
 	/**
 	 * The media object being displayed (usually image or something)
 	 */
@@ -84,17 +90,56 @@ public class BSMedia<J extends BSMedia<J>>
 
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	/**
+	 * Gets the media image
+	 *
+	 * @return
+	 */
+	public BSMediaImage<?> getMediaImage()
+	{
+		return mediaImage;
+	}
+
+	/**
+	 * Sets the media image
+	 *
+	 * @param mediaImage
+	 */
+	@SuppressWarnings("unchecked")
+	public J setMediaImage(BSMediaImage<?> mediaImage)
+	{
+		this.mediaImage = mediaImage;
+		if (mediaImage != null)
+		{
+			mediaImage.addClass(BSSpacingOptions.Margin_Right_3);
+			add(mediaImage);
+		}
+		return (J) this;
+	}
+
 	/**
 	 * Returns the body portion of this media object
 	 *
 	 * @return
 	 */
 	@Override
-	public Div getMediaBody()
+	public BSMediaBody<?> getMediaBody()
 	{
 		if (mediaBody == null)
 		{
-			setMediaBody(new Div());
+			setMediaBody(new BSMediaBody<>());
 		}
 		return mediaBody;
 	}
@@ -107,19 +152,15 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public BSMedia setMediaBody(Div mediaBody)
+	public BSMedia setMediaBody(BSMediaBody<?> mediaBody)
 	{
 		if (this.mediaBody != null)
 		{
-			getChildren().remove(this.mediaBody);
+			remove(this.mediaBody);
 			this.mediaBody = null;
 		}
 		this.mediaBody = mediaBody;
-		if (this.mediaBody != null)
-		{
-			this.mediaBody.addClass(BSComponentMediaOptions.Media_Body);
-		}
-		getChildren().add(mediaBody);
+		add(mediaBody);
 		return this;
 	}
 
@@ -144,11 +185,12 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public HeaderText getMediaHeader()
+	public BSMediaHeaderText<?> getMediaHeader()
 	{
 		if (mediaHeader == null)
 		{
-			setMediaHeader(new H4(""));
+			setMediaHeader(new BSMediaHeaderText<>().setText("")
+			                                        .setHeaderType(HeaderTypes.H1));
 		}
 		return mediaHeader;
 	}
@@ -159,11 +201,11 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public Link getMediaLink()
+	public BSMediaLink getMediaLink()
 	{
 		if (mediaLink == null)
 		{
-			setMediaLink(new Link(STRING_HASH), true);
+			setMediaLink(new BSMediaLink(STRING_HASH), true);
 		}
 		return mediaLink;
 	}
@@ -174,7 +216,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @param mediaLink
 	 */
 	@SuppressWarnings("unchecked")
-	public J setMediaLink(Link mediaLink)
+	public J setMediaLink(BSMediaLink mediaLink)
 	{
 		this.mediaLink = mediaLink;
 		return (J) this;
@@ -189,19 +231,17 @@ public class BSMedia<J extends BSMedia<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J setMediaHeader(HeaderText mediaHeader)
+	public J setMediaHeader(BSMediaHeaderText mediaHeader)
 	{
 		if (this.mediaHeader != null)
 		{
-			getMediaBody().remove(this.mediaHeader);
+			remove(this.mediaHeader);
 			this.mediaHeader = null;
 		}
 		this.mediaHeader = mediaHeader;
 		if (this.mediaHeader != null)
 		{
-			this.mediaHeader.addClass(BSComponentMediaOptions.Media_Heading);
-			this.mediaHeader.addClass(BSSpacingOptions.Margin_Top_1);
-			getMediaBody().add(this.mediaHeader);
+			add(this.mediaHeader);
 		}
 		return (J) this;
 	}
@@ -216,26 +256,18 @@ public class BSMedia<J extends BSMedia<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J setMediaLink(Link mediaLink, boolean left)
+	public J setMediaLink(BSMediaLink<?> mediaLink, boolean left)
 	{
 		if (this.mediaLink != null)
 		{
 			mediaLink.add(getMediaComponent());
-			getChildren().remove(this.mediaLink);
+			remove(this.mediaLink);
 			this.mediaLink = null;
 		}
 		this.mediaLink = mediaLink;
 		if (this.mediaLink != null)
 		{
-			if (left)
-			{
-				this.mediaLink.addClass(BSComponentMediaOptions.Media_Left);
-			}
-			else
-			{
-				this.mediaLink.addClass(BSComponentMediaOptions.Media_Right);
-			}
-			getChildren().add(this.mediaLink);
+			add(this.mediaLink);
 		}
 		return (J) this;
 	}
@@ -265,60 +297,4 @@ public class BSMedia<J extends BSMedia<J>>
 		return (J) this;
 	}
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof BSMedia))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-		BSMedia<?> bsMedia = (BSMedia<?>) o;
-		return Objects.equals(getMediaLink(), bsMedia.getMediaLink()) &&
-		       Objects.equals(getMediaBody(), bsMedia.getMediaBody()) &&
-		       Objects.equals(getMediaHeader(),
-		                      bsMedia.getMediaHeader()) &&
-		       Objects.equals(
-				       getMediaComponent(), bsMedia.getMediaComponent());
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return Objects.hash(super.hashCode(), getMediaLink(), getMediaBody(), getMediaHeader(), getMediaComponent());
-	}
-
-	/**
-	 * Gets the media image
-	 *
-	 * @return
-	 */
-	public Image getMediaImage()
-	{
-		return mediaImage;
-	}
-
-	/**
-	 * Sets the media image
-	 *
-	 * @param mediaImage
-	 */
-	@SuppressWarnings("unchecked")
-	public J setMediaImage(Image mediaImage)
-	{
-		this.mediaImage = mediaImage;
-		if (mediaImage != null)
-		{
-			mediaImage.addClass(BSSpacingOptions.Margin_Right_3);
-			getChildren().add(mediaImage);
-		}
-		return (J) this;
-	}
 }

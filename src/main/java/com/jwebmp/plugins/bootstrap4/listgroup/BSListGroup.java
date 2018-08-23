@@ -49,7 +49,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSListGroup<J extends BSListGroup<J>>
 		extends Div<BSListGroupChildren, BSListGroupAttributes, GlobalFeatures, BSListGroupEvents, J>
-		implements BSCardChildren, IBSListGroup<J>
+		implements BSCardChildren<BSListGroupChildren, J>, IBSListGroup<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -177,14 +177,14 @@ public class BSListGroup<J extends BSListGroup<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

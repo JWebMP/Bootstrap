@@ -35,7 +35,7 @@ import java.util.Objects;
  */
 public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		extends List<ListChildren, NoAttributes, BSCarouselEvents, J>
-		implements BSCarouselChildren
+		implements BSCarouselChildren<ListChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -73,15 +73,15 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getCarousel());
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	/**

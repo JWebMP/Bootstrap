@@ -19,7 +19,6 @@ package com.jwebmp.plugins.bootstrap4.popovers;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
@@ -29,8 +28,7 @@ import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverFeatures;
  * @since 2013/01/16
  */
 public class BSPopOverFeature
-		extends Feature<BSPopOverOptions, BSPopOverFeature>
-		implements BSPopOverFeatures, GlobalFeatures
+		extends Feature<GlobalFeatures, BSPopOverOptions, BSPopOverFeature>
 {
 
 	private static final long serialVersionUID = 1L;

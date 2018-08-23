@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.pagination.parts;
 
 import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
 
@@ -29,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
  */
 public class BSPaginationListItem<J extends BSPaginationListItem<J>>
 		extends ListItem<J>
-		implements ListChildren
+		implements ListChildren<ListItemChildren, J>
 {
 
 	private static final long serialVersionUID = 1L;

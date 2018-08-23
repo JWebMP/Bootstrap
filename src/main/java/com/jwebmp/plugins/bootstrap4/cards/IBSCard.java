@@ -1,10 +1,11 @@
 package com.jwebmp.plugins.bootstrap4.cards;
 
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.ComponentBase;
 import com.jwebmp.core.base.html.interfaces.children.AreaChildren;
 import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.ImageMapChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.accordion.BSAccordionChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
@@ -14,8 +15,8 @@ import com.jwebmp.plugins.bootstrap4.options.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-public interface IBSCard<J extends BSCard<J>>
-		extends GlobalChildren, BodyChildren, ImageMapChildren, AreaChildren, ListItemChildren, BSAccordionChildren
+public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentBase>
+		extends BodyChildren<C, J>, ImageMapChildren<C, J>, AreaChildren<C, J>, ListItemChildren<C, J>, BSAccordionChildren<C, J>
 {
 	/**
 	 * Adds the text to the card with the card text
@@ -25,7 +26,8 @@ public interface IBSCard<J extends BSCard<J>>
 	 *
 	 * @return The given card text added
 	 */
-	@NotNull BSCardText addCardText(String textToAdd);
+	@NotNull
+	BSCardText addCardText(String textToAdd);
 
 	/**
 	 * Creates and adds a new card image top with the given URL
@@ -35,14 +37,16 @@ public interface IBSCard<J extends BSCard<J>>
 	 *
 	 * @return The card top image object
 	 */
-	@NotNull BSCardImageTop<?> addCardImageTop(String url);
+	@NotNull
+	BSCardImageTop<?> addCardImageTop(String url);
 
 	/**
 	 * Creates and adds a new card body
 	 *
 	 * @return The BS Card Body Object
 	 */
-	@NotNull BSCardBody<?> addCardBody();
+	@NotNull
+	BSCardBody<?> addCardBody();
 
 	/**
 	 * Adds a list group to the card
@@ -52,14 +56,16 @@ public interface IBSCard<J extends BSCard<J>>
 	 *
 	 * @return The newly created group with the items added on
 	 */
-	@NotNull BSListGroup<?> addListGroup(List<BSListGroupListItem<?>> items);
+	@NotNull
+	BSListGroup<?> addListGroup(List<BSListGroupListItem<?>> items);
 
 	/**
 	 * Adds a footer to the bs cards
 	 *
 	 * @return The new card footer
 	 */
-	@NotNull BSCardFooter<?> addFooter();
+	@NotNull
+	BSCardFooter<?> addFooter();
 
 	/**
 	 * Adds a footer to the bs cards
@@ -69,7 +75,8 @@ public interface IBSCard<J extends BSCard<J>>
 	 *
 	 * @return The new card footer
 	 */
-	@NotNull BSCardFooter<?> addFooter(String text);
+	@NotNull
+	BSCardFooter<?> addFooter(String text);
 
 	/**
 	 * Sets text center
@@ -97,16 +104,19 @@ public interface IBSCard<J extends BSCard<J>>
 	/**
 	 * Adds a header
 	 *
-	 * @param text The text to add to the header
+	 * @param text
+	 * 		The text to add to the header
 	 *
 	 * @return The newly created BSCardHeader
 	 */
-	@NotNull BSCardHeader<?> addCardHeader(String text);
+	@NotNull
+	BSCardHeader<?> addCardHeader(String text);
 
 	/**
 	 * Adds to the card image bottom
 	 *
-	 * @param url The URL of the image to add to the bottom
+	 * @param url
+	 * 		The URL of the image to add to the bottom
 	 *
 	 * @return The card image bottom object
 	 */
@@ -115,9 +125,12 @@ public interface IBSCard<J extends BSCard<J>>
 	/**
 	 * Adds a card image overlay to the previously added card image (top or bottom)
 	 *
-	 * @param title The title of the image
-	 * @param subTitle The subtitle of the image
-	 * @param parargaphs The paragraph to apply
+	 * @param title
+	 * 		The title of the image
+	 * @param subTitle
+	 * 		The subtitle of the image
+	 * @param parargaphs
+	 * 		The paragraph to apply
 	 *
 	 * @return The new BSCardImageOverlay that has been configured
 	 */
@@ -148,7 +161,8 @@ public interface IBSCard<J extends BSCard<J>>
 	/**
 	 * Sets the margins (without checking for previous applied)
 	 *
-	 * @param margin The margin to apply
+	 * @param margin
+	 * 		The margin to apply
 	 *
 	 * @return Always this
 	 */
@@ -158,7 +172,8 @@ public interface IBSCard<J extends BSCard<J>>
 	/**
 	 * Applies the padding to the card
 	 *
-	 * @param padding The padding to apply
+	 * @param padding
+	 * 		The padding to apply
 	 *
 	 * @return Always this
 	 */
@@ -168,7 +183,8 @@ public interface IBSCard<J extends BSCard<J>>
 	/**
 	 * Sets the border to the correct structure
 	 *
-	 * @param border The border to apply
+	 * @param border
+	 * 		The border to apply
 	 *
 	 * @return Always This
 	 */

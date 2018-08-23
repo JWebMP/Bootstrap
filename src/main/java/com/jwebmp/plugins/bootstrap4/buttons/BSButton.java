@@ -48,7 +48,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSButton<J extends BSButton<J>>
 		extends Button<BSButtonChildren, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSDropDownChildren, BSFormChildren, IBSButton<J>
+		implements BSDropDownChildren<BSButtonChildren, J>, BSFormChildren<BSButtonChildren, J>, IBSButton<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -72,7 +72,7 @@ public class BSButton<J extends BSButton<J>>
 	public BSButton()
 	{
 		addClass(BSButtonOptions.Btn);
-		addAttribute(GlobalAttributes.Type, roleAttribute);
+		addAttribute(GlobalAttributes.Type, BSButton.roleAttribute);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class BSButton<J extends BSButton<J>>
 		if (!isConfigured() && ComponentTypes.Link.getComponentTag()
 		                                          .equalsIgnoreCase(getTag()))
 		{
-			addAttribute(BSButtonAttributes.Role, roleAttribute);
+			addAttribute(BSButtonAttributes.Role, BSButton.roleAttribute);
 		}
 		super.preConfigure();
 	}
@@ -480,12 +480,12 @@ public class BSButton<J extends BSButton<J>>
 	{
 		if (toggle)
 		{
-			addAttribute(BSButtonAttributes.Data_Toggle, roleAttribute);
+			addAttribute(BSButtonAttributes.Data_Toggle, BSButton.roleAttribute);
 			addAttribute(InputButtonTypeAttributes.AutoComplete.toString(), "off");
 		}
 		else
 		{
-			getAttributes().remove(BSButtonAttributes.Data_Toggle.toString(), roleAttribute);
+			getAttributes().remove(BSButtonAttributes.Data_Toggle.toString(), BSButton.roleAttribute);
 			getAttributes().remove(InputButtonTypeAttributes.AutoComplete.toString());
 		}
 		return (J) this;
@@ -536,14 +536,14 @@ public class BSButton<J extends BSButton<J>>
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
-		return super.equals(obj);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj);
 	}
 }

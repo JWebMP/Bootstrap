@@ -20,8 +20,8 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Link;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertEvents;
 
@@ -43,7 +43,7 @@ import javax.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/components/alerts/",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
 public class BSAlert<J extends BSAlert<J>>
-		extends Div<GlobalChildren, BSAlertAttributes, GlobalFeatures, BSAlertEvents, J>
+		extends Div<IComponentHierarchyBase, BSAlertAttributes, GlobalFeatures, BSAlertEvents, J>
 		implements IBSAlerts<J>
 {
 

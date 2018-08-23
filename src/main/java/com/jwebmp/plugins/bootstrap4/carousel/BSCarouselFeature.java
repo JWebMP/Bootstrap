@@ -29,8 +29,7 @@ import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
  * @since 2013/01/16
  */
 public class BSCarouselFeature<J extends BSCarouselFeature<J>>
-		extends Feature<BSCarouselOptions, J>
-		implements BSCarouselFeatures, GlobalFeatures
+		extends Feature<GlobalFeatures, BSCarouselOptions, J>
 {
 
 	private static final long serialVersionUID = 1L;
