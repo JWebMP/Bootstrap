@@ -190,7 +190,7 @@ public class BSMedia<J extends BSMedia<J>>
 		if (mediaHeader == null)
 		{
 			setMediaHeader(new BSMediaHeaderText<>().setText("")
-			                                        .setHeaderType(HeaderTypes.H1));
+			                                        .setHeaderType(HeaderTypes.H4));
 		}
 		return mediaHeader;
 	}
@@ -235,13 +235,13 @@ public class BSMedia<J extends BSMedia<J>>
 	{
 		if (this.mediaHeader != null)
 		{
-			remove(this.mediaHeader);
+			getMediaBody().remove(this.mediaHeader);
 			this.mediaHeader = null;
 		}
 		this.mediaHeader = mediaHeader;
 		if (this.mediaHeader != null)
 		{
-			add(this.mediaHeader);
+			getMediaBody().add(this.mediaHeader);
 		}
 		return (J) this;
 	}

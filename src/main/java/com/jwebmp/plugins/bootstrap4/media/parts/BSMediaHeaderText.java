@@ -1,6 +1,7 @@
 package com.jwebmp.plugins.bootstrap4.media.parts;
 
 import com.jwebmp.core.base.html.HeaderText;
+import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.media.BSComponentMediaOptions;
 import com.jwebmp.plugins.bootstrap4.media.BSMediaChildren;
@@ -15,6 +16,7 @@ public class BSMediaHeaderText<J extends BSMediaHeaderText<J>>
 	 */
 	public BSMediaHeaderText()
 	{
+		setHeaderType(HeaderTypes.H4);
 		addClass(BSComponentMediaOptions.Media_Heading);
 		addClass(BSSpacingOptions.Margin_Top_1);
 	}

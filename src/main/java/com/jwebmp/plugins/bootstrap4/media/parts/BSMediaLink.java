@@ -25,6 +25,7 @@ public class BSMediaLink<J extends BSMediaLink<J>>
 	public BSMediaLink(String image)
 	{
 		super(image);
+		addClass(BSComponentMediaOptions.Media_Left);
 	}
 
 	/**
@@ -40,10 +41,12 @@ public class BSMediaLink<J extends BSMediaLink<J>>
 		if (left)
 		{
 			addClass(BSComponentMediaOptions.Media_Left);
+			removeClass(BSComponentMediaOptions.Media_Right);
 		}
 		else
 		{
 			addClass(BSComponentMediaOptions.Media_Right);
+			removeClass(BSComponentMediaOptions.Media_Left);
 		}
 		return (J) this;
 	}

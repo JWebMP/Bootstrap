@@ -152,7 +152,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 		{
 			crumbs.forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
 			List<IComponentHierarchyBase> sortedCrumbs = new ArrayList<>(crumbs);
-			sortedCrumbs.get(sortedCrumbs.size() + (sortedCrumbs.size() > 1 ? -1 : 0))
+			sortedCrumbs.get(sortedCrumbs.size() + (sortedCrumbs.size() > 0 ? -1 : 0))
 			            .addClass(BSComponentBreadcrumbOptions.Active);
 		}
 		super.preConfigure();
