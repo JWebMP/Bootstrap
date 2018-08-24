@@ -16,16 +16,11 @@
  */
 package com.jwebmp.plugins.bootstrap4.toggle;
 
-import com.jwebmp.core.Component;
-import com.jwebmp.core.base.ComponentHierarchyBase;
-import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
 import javax.validation.constraints.NotNull;
@@ -47,13 +42,12 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 		implements IBSDropDownToggle<J>
 {
 
+	public static final String ToggleString = "dropdown";
 	private static final long serialVersionUID = 1L;
-	private static final String ToggleString = "dropdown";
-
 	/**
 	 * The title component for this drop down
 	 */
-	private Component<IComponentHierarchyBase, ?, ?, ?, ?> title;
+	private BSToggleChildren title;
 	/**
 	 * A list of the contents for this drop down
 	 */
@@ -68,7 +62,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unused")
 	@NotNull
-	public BSDropDownToggle(Link titleItem, List contents)
+	public BSDropDownToggle(BSDropDownToggleTitleLink titleItem, List contents)
 	{
 		setTag(titleItem.getTag());
 		setTitle(titleItem);
@@ -85,7 +79,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unused")
 	@NotNull
-	public BSDropDownToggle(Button titleItem, List contents)
+	public BSDropDownToggle(BSDropDownToggleTitleButton titleItem, List contents)
 	{
 		setTag(titleItem.getTag());
 		setTitle(titleItem);
@@ -101,18 +95,15 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public final J setTitle(Button title)
+	public final J setTitle(BSDropDownToggleTitleButton title)
 	{
-		getChildren().remove(this.title);
-
+		remove(this.title);
 		this.title = title;
 		if (title != null)
 		{
 			java.util.List tempList = new ArrayList<>(getChildren());
 			tempList.add(0, this.title);
 			setChildren(new LinkedHashSet<>(tempList));
-			this.title.addClass(BSDropDownOptions.Dropdown_Toggle);
-			title.addAttribute(ButtonAttributes.Data_Toggle, BSDropDownToggle.ToggleString);
 			if (contents != null)
 			{
 				title.addAttribute(ButtonAttributes.Data_Target, contents.getID(true));
@@ -128,7 +119,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@Override
 	@NotNull
-	public ComponentHierarchyBase getTitle()
+	public BSToggleChildren getTitle()
 	{
 		return title;
 	}
@@ -141,17 +132,15 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public final J setTitle(Link title)
+	public final J setTitle(BSDropDownToggleTitleLink title)
 	{
-		getChildren().remove(this.title);
+		remove(this.title);
 		this.title = title;
 		if (title != null)
 		{
 			java.util.List tempList = new ArrayList<>(getChildren());
 			tempList.add(0, this.title);
 			setChildren(new LinkedHashSet<>(tempList));
-			this.title.addClass(BSDropDownOptions.Dropdown_Toggle);
-			title.addAttribute(LinkAttributes.Data_Toggle, BSDropDownToggle.ToggleString);
 			if (contents != null)
 			{
 				title.addAttribute(LinkAttributes.Data_Target, contents.getID(true));
@@ -187,8 +176,8 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 		if (contents != null)
 		{
 			contents.addClass(BSDropDownOptions.Dropdown_Menu);
-			title.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSDropDownToggle.ToggleString);
-			title.addAttribute(ButtonAttributes.Data_Target.toString(), contents.getID(true));
+			title.asAttributeBase()
+			     .addAttribute(ButtonAttributes.Data_Target.toString(), contents.getID(true));
 		}
 		return (J) this;
 	}

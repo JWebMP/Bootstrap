@@ -45,17 +45,17 @@ public class BSFormTest
 	{
 		BSForm<?> form = new BSForm<>();
 
-		BSFormGroup<?, InputEmailType<?>> input = form.addEmailInput("binded", "This is the label");
+		BSFormGroup<?, InputEmailType<?>> input = form.createEmailInput("binded", "This is the label");
 		input.getInput()
 		     .setPlaceholder("Input Placeholder");
 		input.getInput()
 		     .setRequired();
 
-		form.addCheckboxInput("checkBound", "Checkbox Label");
+		form.createCheckboxInput("checkBound", "Checkbox Label");
 
-		form.addSubmitButton();
+		form.createSubmitButton();
 
-		BSFormGroup<?, InputSelectType<?>> selectGroup = form.addSelectDropdown("selectBound", "Select");
+		BSFormGroup<?, InputSelectType<?>> selectGroup = form.createSelectDropdown("selectBound", "Select");
 		selectGroup.getInput()
 		           .addOption("Option 1", "Value 1");
 		selectGroup.getInput()
@@ -63,7 +63,7 @@ public class BSFormTest
 		selectGroup.getInput()
 		           .addOption("Option 3", "Value 3");
 
-		BSFormGroup<?, InputSelectType<?>> selectGroupMultiple = form.addSelectDropdown("selectBoundMulti", "Select Multi", true);
+		BSFormGroup<?, InputSelectType<?>> selectGroupMultiple = form.createSelectDropdown("selectBoundMulti", "Select Multi", true);
 		selectGroupMultiple.getInput()
 		                   .addOption("Option 1", "Value 1");
 		selectGroupMultiple.getInput()
@@ -71,45 +71,45 @@ public class BSFormTest
 		selectGroupMultiple.getInput()
 		                   .addOption("Option 3", "Value 3");
 
-		form.addFileInput("filebinding", "File Input Default", false);
+		form.createFileInput("filebinding", "File Input Default", false);
 
-		form.addTextInput("textBinding", "Texzt Input")
+		form.createTextInput("textBinding", "Texzt Input")
 		    .setReadOnly(true)
 		    .setSize(BSFormGroupSizes.Form_Control_Lg);
 
-		form.addTextInput("textBinding", "Texzt Input")
+		form.createTextInput("textBinding", "Texzt Input")
 		    .setPlainText(true);
 
-		form.addRadioInput("radioBound1", "Radio Button Label", "Radio Group");
-		form.addRadioInput("radioBound2", "Radio Button Label2", "Radio Group");
-		form.addRadioInput("radioBound3", "Radio Button Label3", "Radio Group")
+		form.createRadioInput("radioBound1", "Radio Button Label", "Radio Group");
+		form.createRadioInput("radioBound2", "Radio Button Label2", "Radio Group");
+		form.createRadioInput("radioBound3", "Radio Button Label3", "Radio Group")
 		    .setInline(true);
 
-		form.addFormRow()
-		    .addTextInput("innerformrow", "Inner form row");
+		form.createFormRow()
+		    .createTextInput("innerformrow", "Inner form row");
 
-		form.addFormRow()
-		    .addTextInput("innerformrow", "Inner form row");
+		form.createFormRow()
+		    .createTextInput("innerformrow", "Inner form row");
 
-		form.addTextInput("textInput", "Text Input for horizontal")
+		form.createTextInput("textInput", "Text Input for horizontal")
 		    .asHorizontalLayout(Col_Sm_2, Col_Sm_10);
 
-		form.addTextInput("helptext", "help text")
+		form.createTextInput("helptext", "help text")
 		    .addHelpText("Help Text Example in small and muted hopefully");
 
-		form.addFieldSet(true)
-		    .addTextInput("fieldsSetTextInput", "Fieldset");
+		form.createFieldSet(true)
+		    .createTextInput("fieldsSetTextInput", "Fieldset");
 
-		form.addTextInput("textWithmessages", "textwithmessage")
+		form.createTextInput("textWithmessages", "textwithmessage")
 		    .addMessage(InputErrorValidations.maxlength, "You have reached the maximum length for input", false);
 
-		form.addTextInput("textWithmessages", "textwithmessage")
+		form.createTextInput("textWithmessages", "textwithmessage")
 		    .addMessage(InputErrorValidations.maxlength, "You have reached the maximum length for input", false);
 
-		form.addCheckboxInput("checkboxCustom", "custom checkbox")
+		form.createCheckboxInput("checkboxCustom", "custom checkbox")
 		    .setCustomControl(false);
 
-		form.addCheckboxInput("checkboxCustominline", "custom checkbox inline")
+		form.createCheckboxInput("checkboxCustominline", "custom checkbox inline")
 		    .setCustomControl(true);
 
 		System.out.println(form.toString(0));
@@ -118,18 +118,18 @@ public class BSFormTest
 		form.setConfigured(false);
 		form.setInitialized(false);
 
-		form.addTextInput("testvalidatoin", "successvalidation")
+		form.createTextInput("testvalidatoin", "successvalidation")
 		    .addSuccessFeedback("This is the feedback", true);
 		System.out.println(form.toString(0));
 
-		form.addSelectDropdown("boundddd,", "select drop down large", true, true, true)
+		form.createSelectDropdown("boundddd,", "select drop down large", true, true, true)
 		    .getInput()
 		    .addOption("Optionable", "value");
 
-		form.addTextInput("testvalidatoin", "successvalidation")
+		form.createTextInput("testvalidatoin", "successvalidation")
 		    .setDisplayValidity(true);
 
-		form.addFileInput("filebinding", "File Input Default", true);
+		form.createFileInput("filebinding", "File Input Default", true);
 
 		form.setStyleInput(true);
 		form.setConfigured(false);

@@ -14,16 +14,16 @@ class BSFormInputGroupTest
 	void getInputGroupAddons()
 	{
 		BSForm<?> form = new BSForm<>();
-		form.addTextInput("Binding", "Label", true)
+		form.createTextInput("Binding", "Label", true)
 		    .append("Appending")
 		    .prepend("Prepending");
 
 		System.out.println(form.toString(0));
 
-		form.addTextInput("checkbox", "label", true)
+		form.createTextInput("checkbox", "label", true)
 		    .append(new BSCheckBox<>().setInput(new InputCheckBoxType<>()));
 
-		form.addTextInput("dropdowns?", "dropdowns", true)
+		form.createTextInput("dropdowns?", "dropdowns", true)
 		    .prepend(new BSDropDown<>().addDropDownButton());
 
 		System.out.println(form.toString(0));

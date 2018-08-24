@@ -147,12 +147,12 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	public void preConfigure()
 	{
 		@SuppressWarnings("unchecked")
-		Set<IComponentHierarchyBase> crumbs = this.crumbs.getChildren();
-		if (!crumbs.isEmpty())
+		Set<IComponentHierarchyBase> crumbChildren = this.crumbs.getChildren();
+		if (!crumbChildren.isEmpty())
 		{
-			crumbs.forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
-			List<IComponentHierarchyBase> sortedCrumbs = new ArrayList<>(crumbs);
-			sortedCrumbs.get(sortedCrumbs.size() + (sortedCrumbs.size() > 0 ? -1 : 0))
+			crumbChildren.forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
+			List<IComponentHierarchyBase> sortedCrumbs = new ArrayList<>(crumbChildren);
+			sortedCrumbs.get(sortedCrumbs.size() + (!sortedCrumbs.isEmpty() ? -1 : 0))
 			            .addClass(BSComponentBreadcrumbOptions.Active);
 		}
 		super.preConfigure();

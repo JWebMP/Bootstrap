@@ -34,61 +34,61 @@ import javax.validation.constraints.NotNull;
 public interface IBSForm<J extends BSForm<J>>
 		extends ICssStructure<J>
 {
-	BSFormGroup<?, InputTextType<?>> addTextInput(String binding, String label);
+	BSFormGroup<?, InputTextType<?>> createTextInput(String binding, String label);
 
-	BSFormInputGroup<?, InputTextType<?>> addTextInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputSearchType<?>> addSearchInput(String binding, String label);
+	BSFormGroup<?, InputSearchType<?>> createSearchInput(String binding, String label);
 
-	BSFormGroup<?, InputSearchType<?>> addSearchInput(String binding, String label, boolean inputGroup);
+	BSFormGroup<?, InputSearchType<?>> createSearchInput(String binding, String label, boolean inputGroup);
 
-	BSFormInputGroup<?, InputPasswordType<?>> addPasswordInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputPasswordType<?>> createPasswordInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label);
+	BSFormGroup<?, InputTextAreaType<?>> createTextArea(String binding, String label);
 
-	BSFormInputGroup<?, InputTextAreaType<?>> addTextArea(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputTextAreaType<?>> createTextArea(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputEmailType<?>> addEmailInput(String binding, String label);
+	BSFormGroup<?, InputEmailType<?>> createEmailInput(String binding, String label);
 
-	BSFormInputGroup<?, InputEmailType<?>> addEmailInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputEmailType<?>> createEmailInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean multiple, boolean styled, Boolean largeOrSmall);
+	BSFormGroup<?, InputSelectType<?>> createSelectDropdown(String binding, String label, boolean multiple, boolean styled, Boolean largeOrSmall);
 
-	BSFormGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label);
+	BSFormGroup<?, InputSelectType<?>> createSelectDropdown(String binding, String label);
 
-	BSFormInputGroup<?, InputSelectType<?>> addSelectDropdown(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputSelectType<?>> createSelectDropdown(String binding, String label, boolean inputGroup);
 
-	BSFormCheckGroup<?> addCheckboxInput(String binding, String label);
+	BSFormCheckGroup<?> createCheckboxInput(String binding, String label);
 
-	BSFormRadioGroup<?> addRadioInput(String binding, String label, String groupName);
+	BSFormRadioGroup<?> createRadioInput(String binding, String label, String groupName);
 
-	BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label);
+	BSFormGroup<?, InputFileType<?>> createFileInput(String binding, String label);
 
-	BSFormInputGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled, boolean inputGroup);
+	BSFormInputGroup<?, InputFileType<?>> createFileInput(String binding, String label, boolean styled, boolean inputGroup);
 
-	BSFormGroup<?, InputFileType<?>> addFileInput(String binding, String label, boolean styled);
+	BSFormGroup<?, InputFileType<?>> createFileInput(String binding, String label, boolean styled);
 
-	BSFormInputGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputTelephoneType<?>> createTelephoneInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputTelephoneType<?>> addTelephoneInput(String binding, String label);
+	BSFormGroup<?, InputTelephoneType<?>> createTelephoneInput(String binding, String label);
 
-	BSFormInputGroup<?, InputDateType<?>> addDateInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputDateType<?>> createDateInput(String binding, String label, boolean inputGroup);
 
-	BSFormInputGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputNumberType<?>> addNumberInput(String binding, String label);
+	BSFormGroup<?, InputNumberType<?>> createNumberInput(String binding, String label);
 
-	BSFormInputGroup<?, InputNumberType<?>> addNumberInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputNumberType<?>> createNumberInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputTimeType<?>> addTimeInput(String binding, String label);
+	BSFormGroup<?, InputTimeType<?>> createTimeInput(String binding, String label);
 
-	BSFormInputGroup<?, InputTimeType<?>> addTimeInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputTimeType<?>> createTimeInput(String binding, String label, boolean inputGroup);
 
-	BSFormInputGroup<?, InputUrlType<?>> addUrlInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputUrlType<?>> createUrlInput(String binding, String label, boolean inputGroup);
 
-	BSFormGroup<?, InputUrlType<?>> addUrlInput(String binding, String label);
+	BSFormGroup<?, InputUrlType<?>> createUrlInput(String binding, String label);
 
-	BSFormGroup<?, InputHiddenType<?>> addHiddenInput(String binding, String label);
+	BSFormGroup<?, InputHiddenType<?>> createHiddenInput(String binding, String label);
 
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -99,7 +99,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 *
 	 * @return
 	 */
-	BSForm<?> addFormRow();
+	BSForm<?> createFormRow();
 
 	/**
 	 * Returns a new form row inside of this form
@@ -107,7 +107,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 *
 	 * @return
 	 */
-	BSForm<?> addFieldSet(boolean disabled);
+	BSForm<?> createFieldSet(boolean disabled);
 
 	/**
 	 * Auto-sizing
@@ -129,7 +129,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 * @return
 	 */
 	@NotNull
-	BSButton<?> addSubmitButton();
+	BSButton<?> createSubmitButton();
 
 	/**
 	 * Configures a component as the submit button for this component
@@ -137,7 +137,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 * @return
 	 */
 	@NotNull
-	BSButton<?> addSubmitButton(BSButtonOptions options, BSButtonSizeOptions sizes);
+	BSButton<?> createSubmitButton(BSButtonOptions options, BSButtonSizeOptions sizes);
 
 	/**
 	 * Instructs to add the styling options to input fields
@@ -150,15 +150,15 @@ public interface IBSForm<J extends BSForm<J>>
 	@NotNull
 	J setStyleInput(boolean styleInput);
 
-	BSFormGroup<?, InputDateType<?>> addDateInput(String binding, String label);
+	BSFormGroup<?, InputDateType<?>> createDateInput(String binding, String label);
 
-	BSFormGroup<?, InputDateTimeType<?>> addDateTimeInput(String binding, String label);
+	BSFormGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, String label);
 
-	BSButton<?> addCancelButton();
+	BSButton<?> createCancelButton();
 
-	BSButton<?> addCancelButton(BSButtonOptions options, BSButtonSizeOptions sizes);
+	BSButton<?> createCancelButton(BSButtonOptions options, BSButtonSizeOptions sizes);
 
-	BSButton<?> addResetButton();
+	BSButton<?> createResetButton();
 
-	BSButton<?> addResetButton(BSButtonOptions options, BSButtonSizeOptions sizes);
+	BSButton<?> createResetButton(BSButtonOptions options, BSButtonSizeOptions sizes);
 }

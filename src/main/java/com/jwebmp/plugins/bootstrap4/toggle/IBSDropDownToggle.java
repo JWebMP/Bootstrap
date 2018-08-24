@@ -17,9 +17,6 @@
 
 package com.jwebmp.plugins.bootstrap4.toggle;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
-import com.jwebmp.core.base.html.Button;
-import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 
@@ -34,7 +31,7 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setTitle(Button title);
+	J setTitle(BSDropDownToggleTitleButton title);
 
 	/**
 	 * Returns the title component
@@ -42,7 +39,7 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 * @return
 	 */
 	@NotNull
-	ComponentHierarchyBase getTitle();
+	BSToggleChildren getTitle();
 
 	/**
 	 * Sets the title
@@ -51,7 +48,7 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	J setTitle(Link title);
+	J setTitle(BSDropDownToggleTitleLink title);
 
 	/**
 	 * Returns the contents

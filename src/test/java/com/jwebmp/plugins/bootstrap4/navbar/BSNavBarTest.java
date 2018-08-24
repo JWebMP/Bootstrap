@@ -78,7 +78,7 @@ class BSNavBarTest
 		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
 
 		navBar.addForm()
-		      .addTextInput("form.binding", "Form Binding");
+		      .createTextInput("form.binding", "Form Binding");
 		System.out.println(navBar.toString(0));
 	}
 
