@@ -33,7 +33,7 @@ public interface IBSTable<J extends BSTable<J>>
 	J setBordered(boolean bordered);
 
 	@SuppressWarnings("unchecked")
-	J fitInContainer();
+	J fitInContainerBreakAll();
 
 	@SuppressWarnings("unchecked")
 	J fitInContainerBreakWord();
@@ -81,4 +81,7 @@ public interface IBSTable<J extends BSTable<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	J setResponsive(BSTableOptions responsive);
+
+	@SuppressWarnings("unchecked")
+	J setEvenWidthCells();
 }

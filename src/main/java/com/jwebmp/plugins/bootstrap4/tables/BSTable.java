@@ -107,9 +107,9 @@ public class BSTable<J extends BSTable<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J fitInContainer()
+	public J fitInContainerBreakAll()
 	{
-		addStyle("word-wrap:break-all;table-layout:fixed;");
+		addStyle("word-wrap:break-all;");
 		return (J) this;
 	}
 
@@ -123,7 +123,7 @@ public class BSTable<J extends BSTable<J>>
 	@NotNull
 	public J fitInContainerBreakWord()
 	{
-		addStyle("word-wrap:break-word;table-layout:fixed;");
+		addStyle("word-wrap:break-word;");
 		return (J) this;
 	}
 
@@ -209,6 +209,20 @@ public class BSTable<J extends BSTable<J>>
 	public J setResponsive(BSTableOptions responsive)
 	{
 		addClass(responsive);
+		return (J) this;
+	}
+
+	/**
+	 * Forces the cells to fit on the screen, evenly spaced between
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEvenWidthCells()
+	{
+		addStyle("table-layout:fixed;");
 		return (J) this;
 	}
 }

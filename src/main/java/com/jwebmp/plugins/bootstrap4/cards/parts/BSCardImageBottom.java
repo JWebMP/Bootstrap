@@ -22,6 +22,8 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Image overlays
  * <p>
@@ -67,4 +69,16 @@ public class BSCardImageBottom<J extends BSCardImageBottom<J>>
 		addClass(BSCardOptions.Card_Img_Bottom);
 	}
 
+	/**
+	 * Centers this image
+	 *
+	 * @return this object
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCentered()
+	{
+		addClass("d-block mx-auto");
+		return (J) this;
+	}
 }
