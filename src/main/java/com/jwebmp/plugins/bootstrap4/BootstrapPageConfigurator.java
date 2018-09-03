@@ -54,7 +54,10 @@ public class BootstrapPageConfigurator
 		implements IPageConfigurator
 {
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
 	/**
 	 * If bootstrap 4 must include the reboot css
 	 */
@@ -69,13 +72,38 @@ public class BootstrapPageConfigurator
 	}
 
 	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return BootstrapPageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		BootstrapPageConfigurator.enabled = mustEnable;
+	}
+
+	/**
 	 * If bootstrap 4 must include the reboot css class
 	 *
 	 * @return
 	 */
 	public static boolean isBootstrap4Reboot()
 	{
-		return bootstrap4Reboot;
+		return BootstrapPageConfigurator.bootstrap4Reboot;
 	}
 
 	/**
@@ -128,7 +156,7 @@ public class BootstrapPageConfigurator
 			page.getBody()
 			    .addCssReference(BootstrapReferencePool.Bootstrap4CoreReference.getCssReference());
 
-			if (bootstrap4Reboot)
+			if (BootstrapPageConfigurator.bootstrap4Reboot)
 			{
 				page.getBody()
 				    .addCssReference(BootstrapReferencePool.Bootstrap4RebootReference.getCssReference());
@@ -144,6 +172,12 @@ public class BootstrapPageConfigurator
 
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return BootstrapPageConfigurator.enabled;
 	}
 
 }
