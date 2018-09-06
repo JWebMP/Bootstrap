@@ -62,20 +62,20 @@ public class BSColumn<J extends BSColumn<J>>
 	 *
 	 * @return
 	 */
-	public static BSColumn newInstance(IBSComponentOptions... columnOptions)
+	public static BSColumn<?> newInstance(IBSComponentOptions... columnOptions)
 	{
 		return new BSColumn(columnOptions);
-	}
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		return false;
 	}
 
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return false;
 	}
 }
