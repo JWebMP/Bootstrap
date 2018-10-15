@@ -52,7 +52,7 @@ import java.util.List;
 @ComponentInformation(name = "Bootstrap Carousel",
 		description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
 		url = "https://v4-alpha.getbootstrap.com/components/carousel/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-Bootstrap4Plugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
 public class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
 		implements com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel<J>
@@ -153,14 +153,6 @@ public class BSCarousel<J extends BSCarousel<J>>
 
 		}
 		super.init();
-	}
-
-	@Override
-	public void preConfigure()
-	{
-		addClass("carousel slide");
-
-		super.preConfigure();
 	}
 
 	/**
@@ -524,6 +516,14 @@ public class BSCarousel<J extends BSCarousel<J>>
 		return new BSCarouselSlideToNumberFeature<>(this).setSlideNumber(slideNumber);
 	}
 
+	@Override
+	public void preConfigure()
+	{
+		addClass("carousel slide");
+
+		super.preConfigure();
+	}
+
 	/**
 	 * Returns a slimmed down version of this class
 	 *
@@ -535,14 +535,14 @@ public class BSCarousel<J extends BSCarousel<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

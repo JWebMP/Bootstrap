@@ -41,7 +41,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 @ComponentInformation(name = "BS DropDown Show Event",
 		description = "Server Side Event for BS DropDown Show.",
 		url = "https://www.armineasy.com/JWebSwing",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class BSDropDownShowAdapter
 		extends Event
 		implements GlobalEvents

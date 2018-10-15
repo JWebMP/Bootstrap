@@ -43,7 +43,7 @@ import javax.validation.constraints.NotNull;
 @ComponentInformation(name = "Bootstrap Progress Bars",
 		description = "Use our custom progress component for displaying simple or complex progress bars.",
 		url = "https://v4-alpha.getbootstrap.com/components/progress/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSProgressBar<J extends BSProgressBar<J>>
 		extends Div<BSProgressBarChildren, BSProgressBarAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {

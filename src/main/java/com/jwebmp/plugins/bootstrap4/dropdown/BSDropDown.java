@@ -49,7 +49,7 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 		              " the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering;" +
 		              "  this  is an intentional design  decision.",
 		url = "https://v4-alpha.getbootstrap.com/components/dropdowns/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSDropDown<J extends BSDropDown<J>>
 		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
 		implements IBSDropDown<J>, BSNavsChildren<BSDropDownChildren, J>

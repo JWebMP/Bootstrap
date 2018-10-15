@@ -227,7 +227,7 @@ import javax.validation.constraints.NotNull;
 		              "" +
 		              "JavaScript.",
 		url = "https://v4-alpha.getbootstrap.com/components/collapse/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSCollapse
 {
 	private static final String Collapse = "collapse";

@@ -54,7 +54,7 @@ import javax.validation.constraints.NotNull;
 		              "" +
 		              "content.",
 		url = "https://getbootstrap.com/docs/4.0/components/modal/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
 		implements BSNavBarChildren<BSModalChildren, J>, IBSModal<J>

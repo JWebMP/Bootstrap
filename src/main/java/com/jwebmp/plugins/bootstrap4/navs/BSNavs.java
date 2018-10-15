@@ -49,7 +49,7 @@ import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
 		description = "Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and " +
 		              "disabled states. Swap modifier classes to switch between each style.",
 		url = "https://v4-alpha.getbootstrap.com/components/navs/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSNavs<J extends BSNavs<J>>
 		extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSNavBarChildren<BSNavsChildren, J>, IBSNavs<J>

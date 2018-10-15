@@ -44,7 +44,7 @@ import javax.validation.constraints.NotNull;
 @ComponentInformation(name = "Bootstrap Jumbotron",
 		description = "A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing " + "messages" + " on your site.",
 		url = "https://v4-alpha.getbootstrap.com/components/jumbotron/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSJumbotron<J extends BSJumbotron<J>>
 		extends Div<IComponentHierarchyBase, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSJumbotron<J>

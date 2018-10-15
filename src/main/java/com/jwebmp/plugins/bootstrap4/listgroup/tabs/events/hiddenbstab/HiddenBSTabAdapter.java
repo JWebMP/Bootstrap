@@ -41,7 +41,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 @ComponentInformation(name = "BS DropDown Hiddenn Event",
 		description = "Server Side Event for BS DropDown Hiddenn.",
 		url = "https://www.armineasy.com/JWebSwing",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class HiddenBSTabAdapter
 		extends Event
 		implements GlobalEvents

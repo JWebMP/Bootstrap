@@ -53,7 +53,7 @@ import javax.validation.constraints.NotNull;
 @ComponentInformation(name = "Bootstrap Forms",
 		description = "Bootstrap provides several form control styles, layout options, and custom components for creating a wide variety " + "of forms.",
 		url = "https://v4-alpha.getbootstrap.com/components/forms/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSForm<J extends BSForm<J>>
 		extends AngularForm<J>
 		implements IBSForm<J>, BSNavBarChildren<IComponentHierarchyBase, J>
@@ -773,14 +773,14 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

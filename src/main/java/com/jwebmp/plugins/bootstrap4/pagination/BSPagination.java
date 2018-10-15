@@ -43,7 +43,7 @@ import com.jwebmp.plugins.bootstrap4.pagination.parts.BSPaginationListItem;
 @ComponentInformation(name = "Bootstrap Pagination",
 		description = "Pagination\n" + "Documentation and examples for showing pagination to indicate a series of related content exists " + "across multiple pages.",
 		url = "https://v4-alpha.getbootstrap.com/components/pagination/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSPagination<J extends BSPagination<J>>
 		extends Div<BSPaginationChildren, BSPaginationAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSPagination

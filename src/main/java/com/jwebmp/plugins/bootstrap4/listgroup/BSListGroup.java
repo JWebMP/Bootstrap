@@ -46,7 +46,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		              "modified and extended to support just about any content within. They can also be used as navigation with " +
 		              "the right modifier class.",
 		url = "https://v4-alpha.getbootstrap.com/components/list-group/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSListGroup<J extends BSListGroup<J>>
 		extends Div<BSListGroupChildren, BSListGroupAttributes, GlobalFeatures, BSListGroupEvents, J>
 		implements BSCardChildren<BSListGroupChildren, J>, IBSListGroup<J>

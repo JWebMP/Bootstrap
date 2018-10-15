@@ -41,7 +41,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 @ComponentInformation(name = "Activate Event",
 		description = "Server Side Event for Active Adapter.",
 		url = "https://www.armineasy.com/JWebSwing",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class BSCollapseShowAdapter
 		extends Event
 		implements GlobalEvents

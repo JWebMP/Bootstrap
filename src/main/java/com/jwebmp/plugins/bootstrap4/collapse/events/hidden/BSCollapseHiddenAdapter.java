@@ -41,7 +41,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 @ComponentInformation(name = "BS Collapse Hide Event",
 		description = "Server Side Event for BS Collapse Hidden Adapter.",
 		url = "https://www.armineasy.com/JWebSwing",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class BSCollapseHiddenAdapter
 		extends Event
 		implements GlobalEvents

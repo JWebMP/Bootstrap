@@ -47,7 +47,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		description = "The media object helps build complex and repetitive components where some media is positioned alongside content " +
 		              "that doesn’t wrap around said media. Plus, it does this with only two required classes thanks to flexbox.",
 		url = "https://v4-alpha.getbootstrap.com/layout/media-object/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSMedia<J extends BSMedia<J>>
 		extends Div<BSMediaChildren, BSMediaAttributes, GlobalFeatures, BSMediaEvents, J>
 		implements IBSMedia

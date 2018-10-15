@@ -49,7 +49,7 @@ import java.util.List;
 		              " a wide " +
 		              "variety of content,  contextual background colors, and powerful display options.",
 		url = "https://v4-alpha.getbootstrap.com/components/card/",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-BootstrapPlugin/wiki")
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
 		implements IBSLayout<J>, IBSCard<BSCardChildren, J>
