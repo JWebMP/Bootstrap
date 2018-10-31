@@ -41,7 +41,6 @@ public class BSDropDownSplitButton<J extends BSDropDownSplitButton<J>>
 		implements IBSDropDownSplitButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Split button dropdowns

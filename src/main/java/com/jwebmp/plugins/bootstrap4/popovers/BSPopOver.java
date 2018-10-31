@@ -57,7 +57,7 @@ public class BSPopOver<J extends BSPopOver<J>>
 		implements IBSPopOver
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * P
 	 */
@@ -141,14 +141,14 @@ public class BSPopOver<J extends BSPopOver<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

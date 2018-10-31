@@ -40,7 +40,6 @@ public class BSCardBlockQuoteFooter<J extends BSCardBlockQuoteFooter<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Block quote format for inside a bootstrap card

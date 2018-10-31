@@ -31,7 +31,6 @@ public class BSDropUp<J extends BSDropUp<J>>
 		extends BSDropDown<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Dropup variation

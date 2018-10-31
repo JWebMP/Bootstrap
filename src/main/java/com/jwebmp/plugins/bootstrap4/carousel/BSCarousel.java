@@ -58,7 +58,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		implements com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private BSCarouselFeature feature;
 
 	/**

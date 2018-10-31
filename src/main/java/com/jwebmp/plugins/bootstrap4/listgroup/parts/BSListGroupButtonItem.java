@@ -30,7 +30,6 @@ public class BSListGroupButtonItem<J extends BSListGroupListItem<J>>
 		extends BSListGroupListItem<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Links and buttons Use &gt;a&lt;s or &gt;button&lt;s to create actionable list group items with hover, disabled, and active states by

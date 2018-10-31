@@ -47,7 +47,6 @@ public class BSAlert<J extends BSAlert<J>>
 		implements IBSAlerts<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Alerts

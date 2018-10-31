@@ -32,7 +32,6 @@ public class BSColumn<J extends BSColumn<J>>
 		extends DivSimple<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Supply a list of column options for this div

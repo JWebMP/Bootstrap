@@ -55,7 +55,6 @@ public class BSNavs<J extends BSNavs<J>>
 		implements BSNavBarChildren<BSNavsChildren, J>, IBSNavs<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states.

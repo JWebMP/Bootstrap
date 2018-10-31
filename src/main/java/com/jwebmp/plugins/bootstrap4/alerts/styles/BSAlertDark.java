@@ -32,7 +32,6 @@ public class BSAlertDark<J extends BSAlertDark<J>>
 		extends BSAlert<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Alerts

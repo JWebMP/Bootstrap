@@ -38,7 +38,6 @@ public class BSCardLink<J extends BSCardLink<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * In the same way, links are added and placed next to each other by adding .card-link to a &lt;a&gt; tag.

@@ -33,7 +33,6 @@ public class BSButtonBlock<J extends BSButtonBlock<J>>
 		extends BSButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Indicates a successful or positive action

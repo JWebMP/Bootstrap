@@ -34,7 +34,6 @@ class BSBreadcrumbContainer<J extends BSBreadcrumbContainer<J>>
 		extends List<BSBreadcrumbsChildren, BSBreadcrumbsAttributes, BSBreadcrumbsEvents, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Breadcrumbs

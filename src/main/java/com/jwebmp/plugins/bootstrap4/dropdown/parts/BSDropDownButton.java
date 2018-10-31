@@ -32,7 +32,6 @@ public class BSDropDownButton<J extends BSDropDownButton<J>>
 		implements BSDropDownChildren<BSButtonChildren, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public BSDropDownButton()
 	{

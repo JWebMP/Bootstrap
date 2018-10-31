@@ -42,7 +42,6 @@ public class BSCardTitle<J extends BSCardTitle<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Subtitles are used by adding a .card-subtitle to an h* tag.

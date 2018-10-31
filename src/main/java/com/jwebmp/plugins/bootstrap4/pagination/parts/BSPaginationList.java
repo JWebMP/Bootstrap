@@ -33,7 +33,6 @@ public class BSPaginationList<J extends BSPaginationList<J>>
 		implements BSPaginationChildren<BSPaginationListItem, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The default paging list

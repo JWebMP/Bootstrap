@@ -38,7 +38,6 @@ public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 		implements BSBreadcrumbsChildren<ListItemChildren, J>, IBSBreadCrumbItem<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The actual link for the crumb

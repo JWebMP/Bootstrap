@@ -37,7 +37,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 		implements BSCarouselChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The actual carousel
 	 */

@@ -24,7 +24,6 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 /**
  * A returnable collection of items when adding according items
@@ -32,10 +31,9 @@ import java.io.Serializable;
  * @param <J>
  */
 public class BSAccordionCollection<J extends BSAccordionCollection<J>>
-		implements Serializable
+
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private BSCard<?> card;
 	private BSCardBody<?> body;

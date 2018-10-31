@@ -46,7 +46,7 @@ public abstract class BSModalHiddenAdapter<J extends BSModalHiddenAdapter<J>>
 	 */
 	private static final Logger LOG = LogFactory.getInstance()
 	                                            .getLogger("BootstrapHiddenModal");
-	private static final long serialVersionUID = 1L;
+
 	private BSModalHiddenDirective directive;
 
 	/**

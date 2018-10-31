@@ -57,7 +57,6 @@ public class BSNavBar<J extends BSNavBar<J>>
 		implements IBSNavBar<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The navbar is a wrapper that positions branding, navigation, and other elements in a concise header. It’s easily extensible and,

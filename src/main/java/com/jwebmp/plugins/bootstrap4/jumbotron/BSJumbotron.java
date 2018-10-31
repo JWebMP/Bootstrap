@@ -50,7 +50,6 @@ public class BSJumbotron<J extends BSJumbotron<J>>
 		implements IBSJumbotron<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a new instance

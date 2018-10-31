@@ -34,7 +34,6 @@ public class BSCarouselItem<J extends BSCarouselItem<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Contains each carousel slide

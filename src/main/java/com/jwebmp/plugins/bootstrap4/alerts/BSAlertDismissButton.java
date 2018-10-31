@@ -44,7 +44,6 @@ public class BSAlertDismissButton<J extends BSAlertDismissButton<J>>
 		extends BSCloseIcon<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs and adds a dismiss button to the alert

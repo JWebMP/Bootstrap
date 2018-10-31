@@ -49,7 +49,6 @@ public class BSPagination<J extends BSPagination<J>>
 		implements IBSPagination
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The actual list for the pagination
@@ -190,14 +189,14 @@ public class BSPagination<J extends BSPagination<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

@@ -33,7 +33,6 @@ public class BSButtonLight<J extends BSButtonLight<J>>
 		extends BSButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Provides extra visual weight and identifies the primary action in a set of buttons

@@ -42,7 +42,6 @@ public class BSCardFooter<J extends BSCardFooter<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Header and footer

@@ -32,7 +32,7 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 		implements BSNavsChildren<ListItemChildren, J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private final BSNavLinkItem<?> linkItem;
 
 	/**

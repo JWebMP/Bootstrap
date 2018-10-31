@@ -35,7 +35,6 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 		extends BSFormGroup<J, InputRadioType<?>>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a new instance of a group of items that denote a single radio button.

@@ -32,7 +32,6 @@ public class BSPaginationLink<J extends BSPaginationLink<J>>
 		extends Link<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * A pagination link for an item, usually auto generated from BSPagination

@@ -59,7 +59,6 @@ public class BSForm<J extends BSForm<J>>
 		implements IBSForm<J>, BSNavBarChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private boolean styleInputs;
 

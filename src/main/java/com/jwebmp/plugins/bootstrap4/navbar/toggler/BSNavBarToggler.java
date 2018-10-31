@@ -36,7 +36,6 @@ public class BSNavBarToggler<C extends IComponentHierarchyBase, A extends Enum &
 		implements BSNavBarChildren<C, J>, IBSNavBarToggler<C, A, F, E, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The specified screen reader aria label to apply when creating the div

@@ -27,7 +27,6 @@ public class BSDropDownDivider<J extends BSDropDownDivider<J>>
 		extends DivSimple<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * A divider on the bs drop down menu item

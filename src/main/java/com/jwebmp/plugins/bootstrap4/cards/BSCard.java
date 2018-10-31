@@ -55,7 +55,6 @@ public class BSCard<J extends BSCard<J>>
 		implements IBSLayout<J>, IBSCard<BSCardChildren, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Cards

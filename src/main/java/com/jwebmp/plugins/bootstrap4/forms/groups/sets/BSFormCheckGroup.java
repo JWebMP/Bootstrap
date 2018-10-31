@@ -36,7 +36,6 @@ public class BSFormCheckGroup<J extends BSFormCheckGroup<J>>
 		extends BSFormGroup<J, InputCheckBoxType<?>>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a new instance of a group of items that denote a single radio button.

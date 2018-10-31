@@ -30,7 +30,6 @@ public class BSButtonLink<J extends BSButtonLink<J>>
 		extends BSButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Deemphasize a button by making it look like a link while maintaining button behavior

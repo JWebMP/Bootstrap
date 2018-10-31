@@ -34,7 +34,6 @@ public class BSDropDownHeader<J extends BSDropDownHeader<J>>
 		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Menu headers

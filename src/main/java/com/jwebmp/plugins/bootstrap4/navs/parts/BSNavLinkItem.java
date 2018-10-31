@@ -34,7 +34,6 @@ public class BSNavLinkItem<J extends BSNavLinkItem<J>>
 		implements BSNavsChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * A navigation link item

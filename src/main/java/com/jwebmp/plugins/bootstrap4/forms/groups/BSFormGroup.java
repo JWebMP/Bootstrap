@@ -69,7 +69,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 {
 
 	private static final Logger log = LogFactory.getLog("BSFormGroup");
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * The label

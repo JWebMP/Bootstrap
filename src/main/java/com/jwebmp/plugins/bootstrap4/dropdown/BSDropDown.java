@@ -55,7 +55,6 @@ public class BSDropDown<J extends BSDropDown<J>>
 		implements IBSDropDown<J>, BSNavsChildren<BSDropDownChildren, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Construct a new bootstrap drop down

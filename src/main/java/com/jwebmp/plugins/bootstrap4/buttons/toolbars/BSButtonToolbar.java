@@ -40,7 +40,6 @@ public class BSButtonToolbar<J extends BSButtonToolbar<J>>
 		implements IBSButtonToolbar
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Button toolbar
@@ -79,14 +78,14 @@ public class BSButtonToolbar<J extends BSButtonToolbar<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

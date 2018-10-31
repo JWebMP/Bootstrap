@@ -33,7 +33,6 @@ public class BSButtonInfoOutline<J extends BSButtonInfoOutline<J>>
 		extends BSButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Contextual button for informational alert messages

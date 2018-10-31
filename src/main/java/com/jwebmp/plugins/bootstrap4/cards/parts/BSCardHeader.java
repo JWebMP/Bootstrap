@@ -46,7 +46,6 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardHeader<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Header and footer

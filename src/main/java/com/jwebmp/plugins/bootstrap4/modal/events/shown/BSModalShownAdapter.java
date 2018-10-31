@@ -46,7 +46,7 @@ public abstract class BSModalShownAdapter<J extends BSModalShownAdapter<J>>
 	 */
 	private static final Logger LOG = LogFactory.getInstance()
 	                                            .getLogger("BootstrapShownModal");
-	private static final long serialVersionUID = 1L;
+
 	private BSModalShownEventDirective directive;
 
 	/**

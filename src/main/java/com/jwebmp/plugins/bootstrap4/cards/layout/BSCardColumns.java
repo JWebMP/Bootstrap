@@ -48,7 +48,6 @@ public class BSCardColumns<J extends BSCardColumns<J>>
 		implements GlobalChildren
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private Map<BSSizes, Integer> breakpointColumnCount;
 
@@ -113,14 +112,14 @@ public class BSCardColumns<J extends BSCardColumns<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

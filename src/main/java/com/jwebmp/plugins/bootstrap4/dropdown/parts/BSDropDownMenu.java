@@ -30,7 +30,6 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifies a drop down menu

@@ -36,7 +36,6 @@ public class BSCardDeck<J extends BSCardDeck<J>>
 		implements IBSCardDeck<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Need a set of equal width and height cards that aren’t attached to one another? Use card decks. By default, card decks require two

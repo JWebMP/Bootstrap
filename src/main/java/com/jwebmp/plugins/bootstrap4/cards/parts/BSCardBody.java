@@ -44,7 +44,6 @@ public class BSCardBody<J extends BSCardBody<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardBody<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public BSCardBody()
 	{

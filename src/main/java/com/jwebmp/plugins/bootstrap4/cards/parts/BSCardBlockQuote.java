@@ -41,7 +41,6 @@ public class BSCardBlockQuote<J extends BSCardBlockQuote<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardBlockQuote<J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Block quote format for inside a bootstrap card

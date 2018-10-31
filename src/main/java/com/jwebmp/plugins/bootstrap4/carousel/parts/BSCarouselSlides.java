@@ -30,7 +30,6 @@ public class BSCarouselSlides<J extends BSCarouselSlides<J>>
 		implements BSCarouselChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public BSCarouselSlides()
 	{

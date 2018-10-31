@@ -32,7 +32,6 @@ public class BSCarouselNavigationLink<J extends BSCarouselNavigationLink<J>>
 		extends Link<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public BSCarouselNavigationLink(boolean isPrevious)
 	{

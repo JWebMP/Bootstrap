@@ -38,7 +38,6 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		implements BSNavBarChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Brand

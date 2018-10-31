@@ -231,7 +231,7 @@ import javax.validation.constraints.NotNull;
 public class BSCollapse
 {
 	private static final String Collapse = "collapse";
-	private static final long serialVersionUID = 1L;
+
 
 	private BSCollapse()
 	{

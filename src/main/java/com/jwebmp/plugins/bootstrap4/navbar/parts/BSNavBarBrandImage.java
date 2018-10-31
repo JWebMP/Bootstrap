@@ -35,7 +35,6 @@ public class BSNavBarBrandImage<J extends BSNavBarBrandImage<J>>
 		implements BSNavBarChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to

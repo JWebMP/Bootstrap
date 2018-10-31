@@ -43,7 +43,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 {
 
 	public static final String ToggleString = "dropdown";
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The title component for this drop down
 	 */

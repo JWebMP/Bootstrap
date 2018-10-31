@@ -39,7 +39,6 @@ public class BSCardGroup<J extends BSCardGroup<J>>
 		implements com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardGroup<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Groups

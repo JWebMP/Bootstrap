@@ -34,7 +34,6 @@ public class BSCardWarning
 		extends BSCard
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Background variants

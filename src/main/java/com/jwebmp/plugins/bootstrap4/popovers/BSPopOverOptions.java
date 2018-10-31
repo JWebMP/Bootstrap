@@ -64,7 +64,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Apply a CSS fade transition to the popover
 	 */
@@ -216,9 +216,10 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setContent(String content)
+	public J setContent(ComponentHierarchyBase content)
 	{
-		this.content = content;
+		content.setTiny(true);
+		this.content = content.toString(0);
 		return (J) this;
 	}
 
@@ -229,10 +230,9 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setContent(ComponentHierarchyBase content)
+	public J setContent(String content)
 	{
-		content.setTiny(true);
-		this.content = content.toString(0);
+		this.content = content;
 		return (J) this;
 	}
 

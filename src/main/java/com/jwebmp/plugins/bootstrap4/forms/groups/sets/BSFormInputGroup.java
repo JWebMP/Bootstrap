@@ -49,7 +49,6 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		implements BSFormGroupChildren<IComponentHierarchyBase, J>, IBSFormInputGroup<J, I>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private final InputGroupPrependItem<?> prependDiv;
 	private final InputGroupAppendItem<?> appendDiv;

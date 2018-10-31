@@ -39,7 +39,6 @@ public class BSCardButton<J extends BSCardButton<J>>
 		implements BSCardChildren<BSButtonChildren, J>, IBSCardButton<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a new card button (a link behaving as a button)

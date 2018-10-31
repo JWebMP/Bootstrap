@@ -50,7 +50,6 @@ public class BSButtonGroup<J extends BSButtonGroup<J>>
 		implements BSButtonToolbarChildren<BSButtonGroupChildren, J>, IBSButtonGroup
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Button group

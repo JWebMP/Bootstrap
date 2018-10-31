@@ -20,16 +20,13 @@ package com.jwebmp.plugins.bootstrap4.navbar.toggler;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 
-import java.io.Serializable;
-
 /**
  * A container for the objects that adding a toggler create
  */
 public class BSNavBarToggleContainer<J extends BSNavBarToggleContainer<J>>
-		implements Serializable
+
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private final BSNavBarToggler toggler;
 	private final BSNavs<?> content;

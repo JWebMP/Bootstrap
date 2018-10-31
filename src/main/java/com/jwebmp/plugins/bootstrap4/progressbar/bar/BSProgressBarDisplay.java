@@ -44,7 +44,6 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 		implements IBSProgressBarDisplay<J>, BSProgressBarChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private Span span;
 

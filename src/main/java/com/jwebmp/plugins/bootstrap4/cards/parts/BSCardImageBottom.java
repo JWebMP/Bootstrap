@@ -39,7 +39,6 @@ public class BSCardImageBottom<J extends BSCardImageBottom<J>>
 		implements BSCardChildren<IComponentHierarchyBase, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Image overlays

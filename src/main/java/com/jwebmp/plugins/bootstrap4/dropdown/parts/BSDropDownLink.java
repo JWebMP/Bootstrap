@@ -40,7 +40,7 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 		extends Link<J>
 		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * Constructs a new bootstrap drop down link item

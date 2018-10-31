@@ -52,7 +52,7 @@ public abstract class BSCollapseShownAdapter
 	 */
 	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
 	                                                              .getLogger("BSCollapseShown");
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The directive for this adapter
 	 */

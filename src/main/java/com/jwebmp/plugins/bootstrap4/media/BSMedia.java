@@ -56,7 +56,7 @@ public class BSMedia<J extends BSMedia<J>>
 	/**
 	 * Field serialVersionUID
 	 */
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The media image
 	 */

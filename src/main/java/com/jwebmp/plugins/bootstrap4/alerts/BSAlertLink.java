@@ -31,7 +31,6 @@ public class BSAlertLink<J extends BSAlertLink<J>>
 		extends Link<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public BSAlertLink()
 	{

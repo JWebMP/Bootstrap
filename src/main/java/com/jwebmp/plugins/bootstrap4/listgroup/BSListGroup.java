@@ -52,7 +52,6 @@ public class BSListGroup<J extends BSListGroup<J>>
 		implements BSCardChildren<BSListGroupChildren, J>, IBSListGroup<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * List group

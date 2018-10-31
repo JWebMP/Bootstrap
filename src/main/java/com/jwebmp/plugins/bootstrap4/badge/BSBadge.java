@@ -49,7 +49,6 @@ public class BSBadge<J extends BSBadge<J>>
 		implements IBSBadge<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * With badges

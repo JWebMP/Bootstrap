@@ -34,7 +34,6 @@ public class BSTooltipFeature
 		extends Feature<GlobalFeatures, BSPopOverOptions, BSTooltipFeature>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component

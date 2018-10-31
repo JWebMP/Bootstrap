@@ -41,7 +41,7 @@ public class BSRow<J extends BSRow<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * Rows are horizontal groups of columns that ensure your columns are lined up properly.

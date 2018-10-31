@@ -36,7 +36,6 @@ public class BSCardText<J extends BSCardText<J>>
 		implements BSCardChildren<ParagraphChildren, J>, IBSLayout<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Standard paragraph format for card text
