@@ -1,5 +1,8 @@
 import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
+import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
+import com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 
 module com.jwebmp.plugins.bootstrap4 {
 
@@ -9,6 +12,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	requires java.logging;
 	requires com.google.common;
 	requires com.fasterxml.jackson.annotation;
+	requires com.jwebmp.guicedinjection;
 
 	exports com.jwebmp.plugins.bootstrap4;
 	exports com.jwebmp.plugins.bootstrap4.accordion;
@@ -104,6 +108,9 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.tooltips;
 
 	provides IPageConfigurator with BootstrapPageConfigurator;
+
+	provides IGuiceScanJarExclusions with Bootstrap4ExclusionsModule;
+	provides IGuiceScanModuleExclusions with Bootstrap4ExclusionsModule;
 
 	opens com.jwebmp.plugins.bootstrap4 to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.accordion to com.fasterxml.jackson.databind, com.jwebmp.core;
