@@ -47,14 +47,14 @@ public class DefaultCard<J extends DefaultCard<J>>
 
 	private BSCardBody cardBody;
 
-	private transient Optional<String> headerText;
-	private transient Optional<String> footerText;
+	private Optional<String> headerText;
+	private Optional<String> footerText;
 
-	private transient Optional<String> cardImage;
-	private transient Optional<BSCardImageOverlay> cardImageOverlay;
-	private transient Optional<String> cardTitle;
-	private transient Optional<String> cardSubTitle;
-	private transient Optional<LocalDateTime> cardDate;
+	private Optional<String> cardImage;
+	private Optional<BSCardImageOverlay> cardImageOverlay;
+	private Optional<String> cardTitle;
+	private Optional<String> cardSubTitle;
+	private Optional<LocalDateTime> cardDate;
 
 	public DefaultCard()
 	{
@@ -543,14 +543,14 @@ public class DefaultCard<J extends DefaultCard<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }
