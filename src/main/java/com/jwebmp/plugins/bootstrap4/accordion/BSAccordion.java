@@ -29,6 +29,9 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 import com.jwebmp.plugins.bootstrap4.collapse.BSCollapse;
 import com.jwebmp.plugins.bootstrap4.options.BSMarginOptions;
 
+import static com.jwebmp.core.base.html.attributes.LinkAttributes.*;
+import static com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions.*;
+
 /**
  * Extend the default collapse behavior to create an accordion.
  * <p>
@@ -80,10 +83,21 @@ public class BSAccordion<J extends BSAccordion<J>>
 	{
 		BSCard<?> card = new BSCard<>();
 
-		BSCardHeader<?> header = card.addCardHeader(null);
+		BSCardHeader<?> header = card.addCardHeader(null).addClass("font-16");
+
+		BSAccordionBodyWrapper<?> wrapper = new BSAccordionBodyWrapper();
+
+		card.add(wrapper);
+
 		BSCardBody<?> body = bodyContent == null ? new BSCardBody<>() : bodyContent;
+		wrapper.add(body);
+		wrapper.addAttribute(Data_Parent.toString(), getID(true));
+		wrapper.addAttribute(GlobalAttributes.Aria_LabelledBy, header.getID());
 
 		BSButton<?> collapseButton = new BSButton<>().setText(headerText);
+		collapseButton.addClass(Btn_Link);
+		collapseButton.addAttribute(GlobalAttributes.Aria_Controls,wrapper.getID());
+		collapseButton.addAttribute(GlobalAttributes.Aria_Expanded, Boolean.toString(!hideOnStart));
 
 		HeaderText<?> h5 = (HeaderText<?>) header.getChildren()
 		                                         .iterator()
@@ -93,12 +107,12 @@ public class BSAccordion<J extends BSAccordion<J>>
 		h5.add(collapseButton);
 		header.add(h5);
 
-		BSCollapse.link(collapseButton, body, hideOnStart);
+		BSCollapse.link(collapseButton, wrapper, hideOnStart);
 
-		body.addAttribute(GlobalAttributes.Aria_LabelledBy, header.getID());
-		body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));
 
-		card.add(body);
+	//	body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));
+
+		card.add(wrapper);
 		add(card);
 
 		BSAccordionCollection<?> collection = new BSAccordionCollection<>();

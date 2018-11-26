@@ -18,6 +18,7 @@
 package com.jwebmp.plugins.bootstrap4.accordion;
 
 import com.jwebmp.core.base.html.HeaderText;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;
@@ -40,6 +41,7 @@ public class BSAccordionCollection<J extends BSAccordionCollection<J>>
 	private BSCardHeader<?> header;
 	private HeaderText<?> heading;
 	private BSButton<?> headingButton;
+	private Link<?> headingLink;
 
 	/**
 	 * A returnable collection of items when adding according items
@@ -175,5 +177,25 @@ public class BSAccordionCollection<J extends BSAccordionCollection<J>>
 	{
 		this.headingButton = headingButton;
 		return (J) this;
+	}
+
+	/**
+	 * Gets the assigned link for the accordion
+	 * @return
+	 */
+	public Link<?> getHeadingLink()
+	{
+		return headingLink;
+	}
+
+	/**
+	 * Sets the link for the accordion
+	 * @param headingLink
+	 * @return
+	 */
+	public BSAccordionCollection<J> setHeadingLink(Link<?> headingLink)
+	{
+		this.headingLink = headingLink;
+		return this;
 	}
 }
