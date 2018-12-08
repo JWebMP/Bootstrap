@@ -102,7 +102,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputTextType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTextType inputTextType = new InputTextType();
 		group.setInput(inputTextType);
@@ -116,7 +119,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputTextType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTextType inputTextType = new InputTextType();
 		group.setInput(inputTextType);
@@ -130,7 +136,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputSearchType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputSearchType inputTextType = new InputSearchType();
 		group.setInput(inputTextType);
@@ -144,7 +153,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputSearchType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputSearchType inputTextType = new InputSearchType();
 		group.setInput(inputTextType);
@@ -158,7 +170,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputPasswordType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputPasswordType inputTextType = new InputPasswordType();
 		group.setInput(inputTextType);
@@ -186,7 +201,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputTextAreaType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTextAreaType inputTextType = new InputTextAreaType();
 		group.setInput(inputTextType);
@@ -200,7 +218,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputEmailType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputEmailType inputEmailType = new InputEmailType();
 		group.setInput(inputEmailType);
@@ -214,7 +235,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputEmailType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputEmailType inputEmailType = new InputEmailType();
 		group.setInput(inputEmailType);
@@ -253,7 +277,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputSelectType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputSelectType inputSelectType = new InputSelectType();
 		group.setInput(inputSelectType);
@@ -267,7 +294,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputSelectType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputSelectType inputSelectType = new InputSelectType();
 		group.setInput(inputSelectType);
@@ -281,7 +311,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormCheckGroup<?> group = new BSFormCheckGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputCheckBoxType<?> inputTextType = new InputCheckBoxType();
 		group.setInput(inputTextType);
@@ -295,7 +328,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormRadioGroup<?> group = new BSFormRadioGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputRadioType<?> inputTextType = new InputRadioType();
 		group.setInput(inputTextType);
@@ -311,7 +347,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputFileType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputFileType inputSelectType = new InputFileType();
 		group.setInput(inputSelectType);
@@ -327,7 +366,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputFileType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputFileType inputFileType = new InputFileType();
 		group.setInput(inputFileType);
@@ -360,7 +402,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputTelephoneType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTelephoneType inputTextType = new InputTelephoneType();
 		group.setInput(inputTextType);
@@ -374,7 +419,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputTelephoneType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTelephoneType inputTextType = new InputTelephoneType();
 		group.setInput(inputTextType);
@@ -388,7 +436,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputDateType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputDateType inputTextType = new InputDateType();
 		group.setInput(inputTextType);
@@ -402,7 +453,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputDateTimeType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputDateTimeType inputTextType = new InputDateTimeType();
 		group.setInput(inputTextType);
@@ -416,7 +470,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputNumberType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputNumberType inputTextType = new InputNumberType();
 		group.setInput(inputTextType);
@@ -430,7 +487,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputNumberType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputNumberType inputTextType = new InputNumberType();
 		group.setInput(inputTextType);
@@ -444,7 +504,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputTimeType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTimeType inputTextType = new InputTimeType();
 		group.setInput(inputTextType);
@@ -458,7 +521,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputTimeType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputTimeType inputTextType = new InputTimeType();
 		group.setInput(inputTextType);
@@ -472,7 +538,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormInputGroup<?, InputUrlType<?>> group = new BSFormInputGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputUrlType inputTextType = new InputUrlType();
 		group.setInput(inputTextType);
@@ -486,7 +555,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputUrlType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputUrlType inputTextType = new InputUrlType();
 		group.setInput(inputTextType);
@@ -500,7 +572,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputHiddenType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputHiddenType inputTextType = new InputHiddenType();
 		group.setInput(inputTextType);
@@ -641,7 +716,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputDateType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputDateType inputTextType = new InputDateType();
 		group.setInput(inputTextType);
@@ -655,7 +733,10 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFormGroup<?, InputDateTimeType<?>> group = new BSFormGroup<>();
 		group.setForm(this);
-		group.addLabel(label);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
 
 		InputDateTimeType inputTextType = new InputDateTimeType();
 		group.setInput(inputTextType);
