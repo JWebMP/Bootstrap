@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab;
 
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
 
 import javax.validation.constraints.NotNull;
 
@@ -28,10 +29,8 @@ import javax.validation.constraints.NotNull;
  * @since 25 Jun 2016
  */
 public class ShownBSTabDirective
-		extends AngularDirectiveBase
+		extends AngularDirectiveBase<ShownBSTabDirective>
 {
-
-
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
 	 * <p>
@@ -54,4 +53,9 @@ public class ShownBSTabDirective
 		                    .toString();
 	}
 
+	@Override
+	public boolean enabled()
+	{
+		return BootstrapPageConfigurator.isEnabled();
+	}
 }

@@ -491,7 +491,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		{
 			throw new UnsupportedOperationException("Can't set update features without an input component to do it on.");
 		}
-		getInput().addAttribute(AngularAttributes.ngModelOptions, "{updateOn:'blur'}");
+		getInput().addAttribute(AngularAttributes.ngModelOptions.getAttributeName(), "{updateOn:'blur'}");
 		return (J) this;
 	}
 

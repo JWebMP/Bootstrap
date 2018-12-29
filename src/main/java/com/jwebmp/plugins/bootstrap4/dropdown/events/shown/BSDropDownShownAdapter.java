@@ -22,7 +22,6 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.events.activate.ActivateDirective;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
@@ -56,7 +55,7 @@ public abstract class BSDropDownShownAdapter
 	/**
 	 * The directive for this adapter
 	 */
-	private ActivateDirective directive;
+	private BSDropDownShownDirective directive;
 
 	/**
 	 * Performs a click
@@ -135,11 +134,11 @@ public abstract class BSDropDownShownAdapter
 	 * @return
 	 */
 	@NotNull
-	public ActivateDirective getDirective()
+	public BSDropDownShownDirective getDirective()
 	{
 		if (directive == null)
 		{
-			directive = new ActivateDirective();
+			directive = new BSDropDownShownDirective();
 		}
 		return directive;
 	}
@@ -149,7 +148,7 @@ public abstract class BSDropDownShownAdapter
 	 *
 	 * @param directive
 	 */
-	public void setDirective(ActivateDirective directive)
+	public void setDirective(BSDropDownShownDirective directive)
 	{
 		this.directive = directive;
 	}

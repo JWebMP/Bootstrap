@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.modal.events.hidden;
 
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
 
 /**
  * Maps to the angular function of right click
@@ -26,7 +27,7 @@ import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
  * @since 25 Jun 2016
  */
 public class BSModalHiddenDirective
-		extends AngularDirectiveBase
+		extends AngularDirectiveBase<BSModalHiddenDirective>
 {
 
 
@@ -50,4 +51,9 @@ public class BSModalHiddenDirective
 		                    .toString();
 	}
 
+	@Override
+	public boolean enabled()
+	{
+		return BootstrapPageConfigurator.isEnabled();
+	}
 }

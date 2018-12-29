@@ -1,8 +1,21 @@
+import com.jwebmp.core.base.angular.services.IAngularDirective;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
 import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
+import com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective;
+import com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective;
+import com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective;
+import com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective;
+import com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective;
+import com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective;
+import com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective;
+import com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective;
 import com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
+import com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective;
+import com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective;
+import com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective;
+import com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective;
 
 module com.jwebmp.plugins.bootstrap4 {
 
@@ -13,6 +26,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	requires com.google.common;
 	requires com.fasterxml.jackson.annotation;
 	requires com.jwebmp.guicedinjection;
+	requires com.jwebmp.core.angularjs;
 
 	exports com.jwebmp.plugins.bootstrap4;
 	exports com.jwebmp.plugins.bootstrap4.accordion;
@@ -107,10 +121,15 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.toggle;
 	exports com.jwebmp.plugins.bootstrap4.tooltips;
 
-	provides IPageConfigurator with BootstrapPageConfigurator;
 
+	provides IPageConfigurator with BootstrapPageConfigurator;
 	provides IGuiceScanJarExclusions with Bootstrap4ExclusionsModule;
 	provides IGuiceScanModuleExclusions with Bootstrap4ExclusionsModule;
+
+	provides IAngularDirective with BSCollapseShowDirective, BSCollapseShownDirective, BSCollapseHideDirective, BSCollapseHiddenDirective,
+			                           BSDropDownShowDirective, BSDropDownShownDirective, BSDropDownHiddenDirective, BSDropDownHideDirective,
+			                           HiddenBSTabDirective, HideBSTabDirective, ShowBSTabDirective, ShownBSTabDirective;
+
 
 	opens com.jwebmp.plugins.bootstrap4 to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.accordion to com.fasterxml.jackson.databind, com.jwebmp.core;

@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab;
 
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
 
 import javax.validation.constraints.NotNull;
 
@@ -28,7 +29,7 @@ import javax.validation.constraints.NotNull;
  * @since 25 Jun 2016
  */
 public class HideBSTabDirective
-		extends AngularDirectiveBase
+		extends AngularDirectiveBase<HideBSTabDirective>
 {
 
 
@@ -54,4 +55,9 @@ public class HideBSTabDirective
 		                    .toString();
 	}
 
+	@Override
+	public boolean enabled()
+	{
+		return BootstrapPageConfigurator.isEnabled();
+	}
 }

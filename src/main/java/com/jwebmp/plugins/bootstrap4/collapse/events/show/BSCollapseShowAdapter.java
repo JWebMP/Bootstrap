@@ -22,7 +22,6 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.events.activate.ActivateDirective;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
@@ -56,7 +55,8 @@ public abstract class BSCollapseShowAdapter
 	/**
 	 * The directive for this adapter
 	 */
-	private ActivateDirective directive;
+	private BSCollapseShowDirective directive;
+
 
 	/**
 	 * Performs a click
@@ -135,11 +135,11 @@ public abstract class BSCollapseShowAdapter
 	 * @return
 	 */
 	@NotNull
-	public ActivateDirective getDirective()
+	public BSCollapseShowDirective getDirective()
 	{
 		if (directive == null)
 		{
-			directive = new ActivateDirective();
+			directive = new BSCollapseShowDirective();
 		}
 		return directive;
 	}
@@ -149,7 +149,7 @@ public abstract class BSCollapseShowAdapter
 	 *
 	 * @param directive
 	 */
-	public void setDirective(ActivateDirective directive)
+	public void setDirective(BSCollapseShowDirective directive)
 	{
 		this.directive = directive;
 	}

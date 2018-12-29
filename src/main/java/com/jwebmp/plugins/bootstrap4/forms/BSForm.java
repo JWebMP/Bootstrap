@@ -680,7 +680,7 @@ public class BSForm<J extends BSForm<J>>
 	public BSButton<?> createSubmitButton(BSButtonOptions options, BSButtonSizeOptions sizes)
 	{
 		BSButton<?> button = new BSButton<>();
-		button.addAttribute(AngularAttributes.ngDisabled, getID() + ".$invalid || jw.isLoading");
+		button.addAttribute(AngularAttributes.ngDisabled.getAttributeName(), getID() + ".$invalid || jw.isLoading");
 		button.addAttribute(GlobalAttributes.Type, "submit");
 
 		if (options != null)
@@ -755,7 +755,7 @@ public class BSForm<J extends BSForm<J>>
 	public BSButton<?> createCancelButton(BSButtonOptions options, BSButtonSizeOptions sizes)
 	{
 		BSButton<?> button = new BSButton<>();
-		button.addAttribute(AngularAttributes.ngDisabled, "jw.isLoading");
+		button.addAttribute(AngularAttributes.ngDisabled.getAttributeName(), "jw.isLoading");
 		button.addAttribute(GlobalAttributes.Type, "cancel");
 
 		if (options != null)
@@ -780,7 +780,7 @@ public class BSForm<J extends BSForm<J>>
 	public BSButton<?> createResetButton(BSButtonOptions options, BSButtonSizeOptions sizes)
 	{
 		BSButton<?> button = new BSButton<>();
-		button.addAttribute(AngularAttributes.ngDisabled, "jw.isLoading");
+		button.addAttribute(AngularAttributes.ngDisabled.getAttributeName(), "jw.isLoading");
 		button.addAttribute(GlobalAttributes.Type, "reset");
 
 		if (options != null)
