@@ -72,6 +72,7 @@ public class BSFormTest
 		                   .addOption("Option 3", "Value 3");
 
 		form.createFileInput("filebinding", "File Input Default", false);
+		form.createFileInput("filebinding2", "File Input Styled", true);
 
 		form.createTextInput("textBinding", "Texzt Input")
 		    .setReadOnly(true)
@@ -125,6 +126,7 @@ public class BSFormTest
 		form.createSelectDropdown("boundddd,", "select drop down large", true, true, true)
 		    .getInput()
 		    .addOption("Optionable", "value");
+
 
 		form.createTextInput("testvalidatoin", "successvalidation")
 		    .setDisplayValidity(true);
