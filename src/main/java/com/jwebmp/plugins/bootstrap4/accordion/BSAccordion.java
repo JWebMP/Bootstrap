@@ -19,7 +19,6 @@ package com.jwebmp.plugins.bootstrap4.accordion;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
@@ -83,7 +82,8 @@ public class BSAccordion<J extends BSAccordion<J>>
 	{
 		BSCard<?> card = new BSCard<>();
 
-		BSCardHeader<?> header = card.addCardHeader(null).addClass("font-16");
+		BSCardHeader<?> header = card.addCardHeader((String) null)
+		                             .addClass("font-16");
 
 		BSAccordionBodyWrapper<?> wrapper = new BSAccordionBodyWrapper();
 
@@ -96,7 +96,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 
 		BSButton<?> collapseButton = new BSButton<>().setText(headerText);
 		collapseButton.addClass(Btn_Link);
-		collapseButton.addAttribute(GlobalAttributes.Aria_Controls,wrapper.getID());
+		collapseButton.addAttribute(GlobalAttributes.Aria_Controls, wrapper.getID());
 		collapseButton.addAttribute(GlobalAttributes.Aria_Expanded, Boolean.toString(!hideOnStart));
 
 		HeaderText<?> h5 = (HeaderText<?>) header.getChildren()
@@ -110,7 +110,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 		BSCollapse.link(collapseButton, wrapper, hideOnStart);
 
 
-	//	body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));
+		//	body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));
 
 		card.add(wrapper);
 		add(card);

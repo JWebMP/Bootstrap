@@ -1,6 +1,7 @@
 package com.jwebmp.plugins.bootstrap4.cards;
 
 import com.jwebmp.core.base.ComponentBase;
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.interfaces.children.AreaChildren;
 import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.ImageMapChildren;
@@ -111,6 +112,12 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 */
 	@NotNull
 	BSCardHeader<?> addCardHeader(String text);
+
+	@NotNull BSCardHeader<?> addCardHeader(ComponentHierarchyBase component);
+
+	@NotNull BSCardFooter<?> addCardFooter(String text);
+
+	@NotNull BSCardFooter<?> addCardFooter(ComponentHierarchyBase componentHierarchyBase);
 
 	/**
 	 * Adds to the card image bottom

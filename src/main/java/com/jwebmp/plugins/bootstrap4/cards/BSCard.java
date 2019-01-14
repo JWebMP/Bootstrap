@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
@@ -284,6 +285,62 @@ public class BSCard<J extends BSCard<J>>
 	{
 		BSCardHeader<?> header = new BSCardHeader<>();
 		header.setText(text);
+		add(header);
+		return header;
+	}
+
+	/**
+	 * Adds a header
+	 *
+	 * @param component
+	 * 		Any component to add
+	 *
+	 * @return The newly created BSCardHeader
+	 */
+	@Override
+	@NotNull
+	public BSCardHeader<?> addCardHeader(ComponentHierarchyBase component)
+	{
+		BSCardHeader<?> header = new BSCardHeader<>();
+		header.add(component);
+		add(header);
+		return header;
+	}
+
+
+	/**
+	 * Adds a header
+	 *
+	 * @param text
+	 * 		The text to add to the header
+	 *
+	 * @return The newly created BSCardHeader
+	 */
+	@Override
+	@NotNull
+	public BSCardFooter<?> addCardFooter(String text)
+	{
+		BSCardFooter<?> header = new BSCardFooter<>();
+		header.setText(text);
+		add(header);
+		return header;
+	}
+
+
+	/**
+	 * Adds a header
+	 *
+	 * @param componentHierarchyBase
+	 * 		The text to add to the header
+	 *
+	 * @return The newly created BSCardHeader
+	 */
+	@Override
+	@NotNull
+	public BSCardFooter<?> addCardFooter(ComponentHierarchyBase componentHierarchyBase)
+	{
+		BSCardFooter<?> header = new BSCardFooter<>();
+		header.add(componentHierarchyBase);
 		add(header);
 		return header;
 	}
