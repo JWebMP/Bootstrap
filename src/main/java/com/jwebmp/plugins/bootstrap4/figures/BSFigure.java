@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Marc Magon
+ * Copyright (C) 2017 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -130,14 +130,14 @@ public class BSFigure<J extends BSFigure<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }
