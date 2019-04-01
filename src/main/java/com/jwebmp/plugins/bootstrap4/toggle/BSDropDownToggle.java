@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.toggle;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
@@ -68,6 +69,8 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 		setTitle(titleItem);
 		setContents(contents);
 
+		addAttribute(GlobalAttributes.Aria_HasPopup, "false");
+		addAttribute(GlobalAttributes.Aria_Expanded, "false");
 	}
 
 	/**
@@ -84,7 +87,6 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 		setTag(titleItem.getTag());
 		setTitle(titleItem);
 		setContents(contents);
-
 	}
 
 	/**
