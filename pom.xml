@@ -7,7 +7,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jwebmp-bootstrap4</artifactId>
+    <artifactId>jwebmp-bootstrap</artifactId>
     <packaging>jar</packaging>
 
     <name>Bootstrap 4</name>
@@ -27,7 +27,6 @@
         <dependency>
             <groupId>com.jwebmp.plugins.angular</groupId>
             <artifactId>jwebmp-plugins-angularjs</artifactId>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
