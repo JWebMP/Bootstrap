@@ -21,7 +21,6 @@ import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
-import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarChildren;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayEvents;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayFeatures;
@@ -251,7 +250,7 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 			span = new Span();
 			add(span);
 		}
-		span.addClass(BSColoursOptions.Sr_Only);
+		//span.addClass(BSColoursOptions.Sr_Only);
 		return span;
 	}
 
