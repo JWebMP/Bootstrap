@@ -23,21 +23,20 @@ import com.jwebmp.plugins.bootstrap4.modal.BSModal;
  * @author GedMarc
  * @since 21 Feb 2017
  */
-public class BSModalHideFeature
+public class BSModalBackdropHideFeature
 		extends Feature
 {
 
 
-	public BSModalHideFeature(BSModal modal)
+	public BSModalBackdropHideFeature(BSModal modal)
 	{
-		super("BSModalHideFeature", modal);
+		super("BSModalBackdropHideFeature", modal);
 		setComponent(modal);
 	}
 
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "modal('hide');");
 		addQuery("$('body').removeClass('modal-open');");
 		addQuery("$('.modal-backdrop').remove();");
 	}
