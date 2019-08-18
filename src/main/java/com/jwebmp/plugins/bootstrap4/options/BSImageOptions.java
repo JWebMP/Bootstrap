@@ -16,6 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.options;
 
+import static com.jwebmp.core.utilities.StaticStrings.*;
+
 /**
  * Clearfix
  * <p>
@@ -44,11 +46,15 @@ public enum BSImageOptions
 	/**
 	 * Makes an image responsive (will scale nicely to the parent element)
 	 */
-	Img_Fluid;
+	Img_Fluid,
+	/**
+	 * Makes an image responsive (will scale nicely to the parent element), used in some
+	 */
+	Img_Responsive;
 
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase();
+		return name().toLowerCase().replace(CHAR_UNDERSCORE,CHAR_DASH);
 	}
 }

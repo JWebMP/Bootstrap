@@ -63,6 +63,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts;
 	exports com.jwebmp.plugins.bootstrap4.forms.controls;
 	exports com.jwebmp.plugins.bootstrap4.forms.interfaces;
+	exports com.jwebmp.plugins.bootstrap4.images;
 	exports com.jwebmp.plugins.bootstrap4.jumbotron;
 	exports com.jwebmp.plugins.bootstrap4.jumbotron.interfaces;
 	exports com.jwebmp.plugins.bootstrap4.listgroup;

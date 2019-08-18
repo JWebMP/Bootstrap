@@ -166,17 +166,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@NotNull
 	public J append(ComponentHierarchyBase component)
 	{
-		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
-		{
-			appendDiv.add(component);
-		}
-		else
-		{
-			Span<?, ?, ?> span = new Span<>();
-			span.setText(component.toString(0));
-			span.addClass(Input_Group_Text);
-			appendDiv.add(span);
-		}
+		appendDiv.add(component);
 		return (J) this;
 	}
 
@@ -266,11 +256,15 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 
 		if (getLabel() != null && getLabel().getText() != null)
 		{
-			output.append(new StringBuilder(getCurrentTabIndentString() + getLabel().toString(0) + getNewLine()));
+			output.append(getCurrentTabIndentString())
+			      .append(getLabel().toString(0))
+			      .append(getNewLine());
 		}
 		if (helpText != null)
 		{
-			output.append(new StringBuilder(getCurrentTabIndentString() + helpText.toString(0) + getNewLine()));
+			output.append(getCurrentTabIndentString())
+			      .append(helpText.toString(0))
+			      .append(getNewLine());
 		}
 		return output;
 	}
