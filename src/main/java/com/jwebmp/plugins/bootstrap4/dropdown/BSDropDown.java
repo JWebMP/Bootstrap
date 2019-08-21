@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4.dropdown;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
@@ -26,6 +28,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownEvents;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.IBSDropDown;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownButton;
+import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownLink;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
@@ -51,8 +54,8 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 		url = "https://v4-alpha.getbootstrap.com/components/dropdowns/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSDropDown<J extends BSDropDown<J>>
-		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
-		implements IBSDropDown<J>, BSNavsChildren<BSDropDownChildren, J>
+		extends Div<ComponentHierarchyBase, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
+		implements IBSDropDown<J>, BSNavsChildren<ComponentHierarchyBase, J>
 {
 
 
@@ -122,7 +125,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 	 * @return
 	 */
 	@Override
-	public BSDropDownMenu<?> addDropDownMenu()
+	public BSDropDownMenu<?> addDropDownNotificationsMenu()
 	{
 		BSDropDownMenu<?> menu = new BSDropDownMenu();
 		add(menu);

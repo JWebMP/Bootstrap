@@ -22,6 +22,7 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownButton;
+import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownLink;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
 
 import java.util.Comparator;
@@ -52,5 +53,5 @@ public interface IBSDropDown<J extends BSDropDown<J>>
 	 *
 	 * @return
 	 */
-	BSDropDownMenu<?> addDropDownMenu();
+	BSDropDownMenu<?> addDropDownNotificationsMenu();
 }

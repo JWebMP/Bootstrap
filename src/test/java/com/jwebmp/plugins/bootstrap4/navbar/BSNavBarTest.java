@@ -95,7 +95,7 @@ class BSNavBarTest
 
 		container.getContent()
 		         .addDropDown()
-		         .addDropDownMenu();
+		         .addDropDownNotificationsMenu();
 
 		System.out.println(navBar.toString(0));
 	}

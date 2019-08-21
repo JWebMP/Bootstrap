@@ -35,7 +35,7 @@ public class BSDropDownTest
 	{
 		BSDropDown drop = new BSDropDown();
 		drop.addDropDownButton();
-		BSDropDownMenu<?> menu = drop.addDropDownMenu();
+		BSDropDownMenu<?> menu = drop.addDropDownNotificationsMenu();
 		menu.addItem("new Item");
 		menu.addDivider();
 		menu.addHeader("Header");
@@ -57,7 +57,7 @@ public class BSDropDownTest
 
 		splitButton.addDropDownButton();
 		splitButton.addSplitButton();
-		splitButton.addDropDownMenu();
+		splitButton.addDropDownNotificationsMenu();
 
 		System.out.println(splitButton.toString(true));
 	}

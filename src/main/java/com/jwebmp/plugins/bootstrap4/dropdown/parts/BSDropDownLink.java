@@ -47,6 +47,7 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 	 */
 	public BSDropDownLink()
 	{
+		super("#");
 		addClass(BSDropDownOptions.Dropdown_Item);
 	}
 
