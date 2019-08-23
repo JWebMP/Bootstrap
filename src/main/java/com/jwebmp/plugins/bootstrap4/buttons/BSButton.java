@@ -19,8 +19,10 @@ package com.jwebmp.plugins.bootstrap4.buttons;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.InputButtonTypeAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.utilities.StaticStrings;
@@ -47,8 +49,8 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 		url = "https://v4-alpha.getbootstrap.com/components/buttons/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSButton<J extends BSButton<J>>
-		extends Button<BSButtonChildren, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSDropDownChildren<BSButtonChildren, J>, BSFormChildren<BSButtonChildren, J>, IBSButton<J>
+		extends Button<IComponentHierarchyBase, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSDropDownChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, IBSButton<J>
 {
 
 

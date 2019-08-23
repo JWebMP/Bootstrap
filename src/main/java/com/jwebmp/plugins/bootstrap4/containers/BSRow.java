@@ -58,7 +58,7 @@ public class BSRow<J extends BSRow<J>>
 	 *
 	 * @return
 	 */
-	public static BSRow newInstance()
+	public static BSRow<?> newInstance()
 	{
 		return new BSRow();
 	}

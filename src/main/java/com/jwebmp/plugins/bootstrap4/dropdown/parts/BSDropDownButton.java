@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.dropdown.parts;
 
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonChildren;
@@ -29,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownButton<J extends BSDropDownButton<J>>
 		extends BSButton<J>
-		implements BSDropDownChildren<BSButtonChildren, J>
+		implements BSDropDownChildren<IComponentHierarchyBase, J>
 {
 
 

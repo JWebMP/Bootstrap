@@ -49,9 +49,9 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 *
 	 * @return
 	 */
-	public BSDropDownLink addItem(String text)
+	public BSDropDownLink<?> addItem(String text)
 	{
-		BSDropDownLink link = new BSDropDownLink();
+		BSDropDownLink<?> link = new BSDropDownLink<>();
 		link.setText(text);
 		add(link);
 		return link;

@@ -51,6 +51,12 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 		addClass(BSDropDownOptions.Dropdown_Item);
 	}
 
+	public BSDropDownLink(String text)
+	{
+		this();
+		setText(text);
+	}
+
 	/**
 	 * Set the style to active using the "active" class
 	 *

@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonChildren;
@@ -36,7 +37,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  */
 public class BSCardButton<J extends BSCardButton<J>>
 		extends BSButton<J>
-		implements BSCardChildren<BSButtonChildren, J>, IBSCardButton<J>
+		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardButton<J>
 {
 
 

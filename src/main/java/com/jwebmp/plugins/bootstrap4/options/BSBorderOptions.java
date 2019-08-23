@@ -55,6 +55,10 @@ public enum BSBorderOptions
 	 */
 	Rounded_Circle,
 	/**
+	 * Defines a border
+	 */
+	Border,
+	/**
 	 * Sets primary
 	 */
 	Border_Primary,

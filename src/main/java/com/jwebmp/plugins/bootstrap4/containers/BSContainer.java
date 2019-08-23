@@ -75,7 +75,7 @@ public class BSContainer<J extends BSContainer<J>>
 	 *
 	 * @return
 	 */
-	public static BSContainer newInstance(BSContainerOptions type)
+	public static BSContainer<?> newInstance(BSContainerOptions type)
 	{
 		return new BSContainer(type);
 	}
