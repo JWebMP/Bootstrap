@@ -25,6 +25,9 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
 import javax.validation.constraints.NotNull;
 
+import static com.jwebmp.core.base.html.attributes.InputCheckBoxTypeAttributes.*;
+import static com.jwebmp.plugins.bootstrap4.toggle.BSToggleAttributes.*;
+
 /**
  * Checkbox and radio buttons
  * Bootstrap’s .button styles can be applied to other elements, such as lt;labelgt;s, to provide checkbox or radio style button toggling.
@@ -52,6 +55,10 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 	 * The input component
 	 */
 	private InputCheckBoxType<?> input;
+	/**
+	 * The text for the input control
+	 */
+	private String labelText;
 
 	/**
 	 * Checkbox and radio buttons
@@ -71,18 +78,43 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 	{
 		addClass(BSButtonOptions.Btn_Group);
 		addClass(BSButtonOptions.Btn_Group_Toggle);
-		addAttribute("data-toggle", "buttons");
+		addAttribute(Data_Toggle.toString(), "buttons");
 		setLabel(new Label());
 		setInput(new InputCheckBoxType());
 	}
+
+	/**
+	 * Checkbox and radio buttons
+	 * Bootstrap’s .button styles can be applied to other elements, such as &lt;labelgt;s, to provide checkbox or radio style button
+	 * toggling.
+	 * Add data-toggle="buttons" to a .btn-group containing those modified buttons to enable their toggling behavior via JavaScript and add
+	 * .btn-group-toggle to style the &lt;inputgt;s within your buttons. Note that you can create single input-powered buttons or groups of
+	 * them.
+	 * &lt;pgt;
+	 * The checked state for these buttons is only updated via click event on the button. If you use another method to update the
+	 * input—e.g., with &lt;input type="reset"gt; or by manually applying the input’s checked property—you’ll need to toggle .active on the
+	 * &lt;labelgt; manually.
+	 * &lt;pgt;
+	 * Note that pre-checked buttons require you to manually add the .active class to the input’s &lt;labelgt;.
+	 */
+	public BSCheckBox(String text)
+	{
+		this();
+		labelText = text;
+	}
+
 
 	@Override
 	public void preConfigure()
 	{
 		if (!isConfigured())
 		{
-			add(label);
-			add(input);
+			if (label != null)
+			{
+				add(label);
+				label.add(input);
+			}
+			input.setText(labelText);
 		}
 		super.preConfigure();
 	}
@@ -159,8 +191,30 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 	public J setInput(@NotNull InputCheckBoxType<?> input)
 	{
 		this.input = input;
-		input.addAttribute("autocomplete", "off");
+		input.addAttribute(AutoComplete, "off");
 		return (J) this;
+	}
+
+	/**
+	 * Getter for property 'labelText'.
+	 *
+	 * @return Value for property 'labelText'.
+	 */
+	public String getLabelText()
+	{
+		return labelText;
+	}
+
+	/**
+	 * Setter for property 'labelText'.
+	 *
+	 * @param labelText
+	 * 		Value to set for property 'labelText'.
+	 */
+	public J setLabelText(String labelText)
+	{
+		this.labelText = labelText;
+		return (J)this;
 	}
 
 	@Override

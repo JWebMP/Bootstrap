@@ -25,6 +25,9 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
 import javax.validation.constraints.NotNull;
 
+import static com.jwebmp.core.base.html.attributes.InputRadioTypeAttributes.*;
+import static com.jwebmp.plugins.bootstrap4.toggle.BSToggleAttributes.*;
+
 /**
  * Checkbox and radio buttons
  * Bootstrap’s .button styles can be applied to other elements, such as lt;labelgt;s, to provide checkbox or radio style button toggling.
@@ -52,6 +55,10 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	 * The input component
 	 */
 	private InputRadioType<?> input;
+	/**
+	 * Any text for the label
+	 */
+	private String labelText;
 
 	/**
 	 * Checkbox and radio buttons
@@ -71,7 +78,7 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	{
 		addClass(BSButtonOptions.Btn_Group);
 		addClass(BSButtonOptions.Btn_Group_Toggle);
-		addAttribute("data-toggle", "buttons");
+		addAttribute(Data_Toggle.toString(), "buttons");
 		setLabel(new Label());
 		setInput(new InputRadioType());
 		setName(groupName);
@@ -82,8 +89,12 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	{
 		if (!isConfigured())
 		{
-			add(label);
-			add(input);
+			if (label != null)
+			{
+				add(label);
+				label.add(input);
+			}
+			input.setText(labelText);
 		}
 		super.preConfigure();
 	}
@@ -160,9 +171,33 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	public J setInput(@NotNull InputRadioType<?> input)
 	{
 		this.input = input;
-		input.addAttribute("autocomplete", "off");
+		input.addAttribute(AutoComplete, "off");
 		return (J) this;
 	}
+
+
+	/**
+	 * Getter for property 'labelText'.
+	 *
+	 * @return Value for property 'labelText'.
+	 */
+	public String getLabelText()
+	{
+		return labelText;
+	}
+
+	/**
+	 * Setter for property 'labelText'.
+	 *
+	 * @param labelText
+	 * 		Value to set for property 'labelText'.
+	 */
+	public J setLabelText(String labelText)
+	{
+		this.labelText = labelText;
+		return (J) this;
+	}
+
 
 	@Override
 	public boolean equals(Object o)

@@ -29,9 +29,9 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
-import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormCheckGroup;
+import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBoxGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
-import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormRadioGroup;
+import com.jwebmp.plugins.bootstrap4.buttons.radio.BSRadioButtonGroup;
 import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSForm;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
@@ -307,9 +307,9 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public BSFormCheckGroup<?> createCheckboxInput(String binding, String label)
+	public BSCheckBoxGroup<?> createCheckboxInput(String binding, String label)
 	{
-		BSFormCheckGroup<?> group = new BSFormCheckGroup<>();
+		BSCheckBoxGroup<?> group = new BSCheckBoxGroup<>();
 		group.setForm(this);
 		if (label != null)
 		{
@@ -324,9 +324,9 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	@Override
-	public BSFormRadioGroup<?> createRadioInput(String binding, String label, String groupName)
+	public BSRadioButtonGroup<?> createRadioInput(String binding, String label, String groupName)
 	{
-		BSFormRadioGroup<?> group = new BSFormRadioGroup<>();
+		BSRadioButtonGroup<?> group = new BSRadioButtonGroup<>();
 		group.setForm(this);
 		if (label != null)
 		{

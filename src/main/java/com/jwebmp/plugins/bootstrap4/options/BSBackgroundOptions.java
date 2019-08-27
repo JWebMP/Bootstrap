@@ -17,6 +17,9 @@ public enum BSBackgroundOptions
 	Bg_Light,
 	Bg_Dark,
 	Bg_Transparent,
+
+	Shadow_Sm,
+	Shadow,
 	;
 
 	@Override

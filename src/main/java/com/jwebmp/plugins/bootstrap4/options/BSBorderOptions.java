@@ -34,6 +34,9 @@ public enum BSBorderOptions
 	 * makes all 4 corners rounded
 	 */
 	Rounded,
+	Rounded_0,
+	Rounded_1,
+	Rounded_2,
 	/**
 	 * Only round the top
 	 */

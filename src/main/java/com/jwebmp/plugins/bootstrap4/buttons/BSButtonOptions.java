@@ -39,6 +39,10 @@ public enum BSButtonOptions
 	 */
 	Btn,
 	/**
+	 * Adds basic styling to any button
+	 */
+	Btn_Sm,
+	/**
 	 * Indicates a default/standard button
 	 */
 	Btn_Default,

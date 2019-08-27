@@ -24,9 +24,9 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
-import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormCheckGroup;
+import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBoxGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
-import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormRadioGroup;
+import com.jwebmp.plugins.bootstrap4.buttons.radio.BSRadioButtonGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
 import javax.validation.constraints.NotNull;
@@ -58,9 +58,9 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormInputGroup<?, InputSelectType<?>> createSelectDropdown(String binding, String label, boolean inputGroup);
 
-	BSFormCheckGroup<?> createCheckboxInput(String binding, String label);
+	BSCheckBoxGroup<?> createCheckboxInput(String binding, String label);
 
-	BSFormRadioGroup<?> createRadioInput(String binding, String label, String groupName);
+	BSRadioButtonGroup<?> createRadioInput(String binding, String label, String groupName);
 
 	BSFormGroup<?, InputFileType<?>> createFileInput(String binding, String label);
 

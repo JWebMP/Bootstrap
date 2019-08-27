@@ -14,14 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.bootstrap4.forms.groups.sets;
+package com.jwebmp.plugins.bootstrap4.buttons.checkbox;
 
-import com.jwebmp.core.base.html.inputs.InputRadioType;
+import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
+import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
 import javax.validation.constraints.NotNull;
+
+import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormCustomControls.*;
+import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;
+import static com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions.*;
 
 /**
  * A bootstrap formatted radio button
@@ -31,8 +36,8 @@ import javax.validation.constraints.NotNull;
  * @author GedMarc
  * @since 18 Jan 2017
  */
-public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
-		extends BSFormGroup<J, InputRadioType<?>>
+public class BSCheckBoxGroup<J extends BSCheckBoxGroup<J>>
+		extends BSFormGroup<J, InputCheckBoxType<?>>
 {
 
 
@@ -41,10 +46,10 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	 * <p>
 	 * Place inside a BS Form Set
 	 */
-	public BSFormRadioGroup()
+	public BSCheckBoxGroup()
 	{
-		removeClass(BSFormGroupOptions.Form_Group);
-		addClass(BSFormGroupOptions.Form_Check);
+		removeClass(Form_Group);
+		addClass(Form_Check);
 	}
 
 	/**
@@ -58,7 +63,7 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	public BSFormLabel<?> addLabel(String text)
 	{
 		BSFormLabel<?> label = super.addLabel(text);
-		label.addClass(BSFormGroupOptions.Form_Check_Label);
+		label.addClass(Form_Check_Label);
 		return label;
 	}
 
@@ -70,17 +75,31 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	 * @return
 	 */
 	@Override
-	public InputRadioType<?> setInput(InputRadioType<?> inputComponent)
+	public InputCheckBoxType<?> setInput(InputCheckBoxType<?> inputComponent)
 	{
-		InputRadioType<?> radioCheckBoxType = super.setInput(inputComponent);
-		radioCheckBoxType.removeClass(BSFormGroupOptions.Form_Control);
-		radioCheckBoxType.addClass(BSFormGroupOptions.Form_Check_Input);
+		InputCheckBoxType<?> checkBoxType = super.setInput(inputComponent);
+		checkBoxType.removeClass(Form_Control);
+		checkBoxType.addClass(Form_Check_Input);
 		if (getLabel() != null)
 		{
 			remove(getLabel());
 			add(getLabel());
 		}
-		return radioCheckBoxType;
+		return checkBoxType;
+	}
+
+	@Override
+	public void init()
+	{
+		if(!isInitialized())
+		{
+			add(getInput());
+			if(getLabel() != null)
+			{
+				add(getLabel());
+			}
+		}
+		super.init();
 	}
 
 	/**
@@ -90,28 +109,28 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	@NotNull
 	public J setCustomControl(boolean inline)
 	{
-		removeClass(BSFormGroupOptions.Form_Group);
-		removeClass(BSFormGroupOptions.Form_Check);
-		removeClass(BSFormGroupOptions.Form_Check_Inline);
+		removeClass(Form_Group);
+		removeClass(Form_Check);
+		removeClass(Form_Check_Inline);
 
-		addClass("custom-control");
-		addClass("custom-radio");
+		addClass(Custom_Control);
+		addClass(Custom_CheckBox);
 
 		if (inline)
 		{
-			addClass("custom-control-inline");
+			addClass(Custom_Control_Inline);
 		}
 
 		if (getLabel() != null)
 		{
-			getLabel().addClass("custom-control-label");
-			getLabel().addClass(BSFormGroupOptions.Form_Check_Label);
+			getLabel().addClass(Custom_Control_Label);
+			getLabel().addClass(Form_Check_Label);
 		}
 		if (getInput() != null)
 		{
-			getInput().removeClass(BSFormGroupOptions.Form_Control);
-			getInput().removeClass(BSFormGroupOptions.Form_Check_Input);
-			getInput().addClass("custom-control-input");
+			getInput().removeClass(Form_Control);
+			getInput().removeClass(Form_Check_Input);
+			getInput().addClass(Custom_Control_Input);
 		}
 		return (J) this;
 	}
@@ -129,14 +148,35 @@ public class BSFormRadioGroup<J extends BSFormRadioGroup<J>>
 	{
 		if (inline)
 		{
-			removeClass(BSFormGroupOptions.Form_Check);
-			addClass(BSFormGroupOptions.Form_Check_Input);
+			addClass(Form_Check_Inline);
 		}
 		else
 		{
-			addClass(BSFormGroupOptions.Form_Check);
-			removeClass(BSFormGroupOptions.Form_Check_Input);
+			removeClass(Form_Check_Inline);
 		}
 		return (J) this;
 	}
+
+	/**
+	 * Sets the item as disabled
+	 *
+	 * @param disabled
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("all")
+	@NotNull
+	public J setDisabled(boolean disabled)
+	{
+		if (disabled)
+		{
+			getInput().addClass(Disabled);
+		}
+		else
+		{
+			getInput().removeClass(Disabled);
+		}
+		return (J) this;
+	}
+
 }

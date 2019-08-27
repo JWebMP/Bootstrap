@@ -22,6 +22,7 @@ import com.jwebmp.core.base.angular.forms.AngularInputMessages;
 import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.core.base.html.inputs.InputFileType;
 import com.jwebmp.core.base.html.inputs.InputTextType;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
@@ -85,6 +86,9 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 */
 	private I input;
 
+	/**
+	 * Form Group Messages
+	 */
 	private AngularInputMessages<?> messages;
 
 	/**
@@ -272,10 +276,12 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		if (input == null)
 		{
-			input = (I) new InputTextType<>();
+			input = (I) new InputCheckBoxType<>();
 		}
 		return input;
 	}
+
+
 
 	@Override
 	@NotNull
@@ -474,6 +480,12 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 
 	public BSFormLabel<?> getLabel()
 	{
+		if (label == null)
+		{
+			label = new BSFormLabel<>();
+			label.addClass("custom-control-label");
+			label.setForInputComponent(getInput());
+		}
 		return label;
 	}
 
