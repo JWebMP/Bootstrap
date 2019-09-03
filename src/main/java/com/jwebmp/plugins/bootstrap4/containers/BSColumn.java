@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.containers;
 
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
+import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSAlignmentCapable;
 
 import static com.jwebmp.plugins.bootstrap4.options.BSColumnOptions.*;
 
@@ -30,6 +31,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSColumnOptions.*;
  */
 public class BSColumn<J extends BSColumn<J>>
 		extends DivSimple<J>
+	implements IBSAlignmentCapable<J>
 {
 
 

@@ -117,44 +117,44 @@ public enum BSSpacingOptions
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_X_1("mr-x-1"),
+	Margin_X_1("mx-1"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_X_2("mr-x-2"),
+	Margin_X_2("mx-2"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_X_3("mr-x-3"),
+	Margin_X_3("mx-3"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_X_4("mr-x-4"),
+	Margin_X_4("mx-4"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_X_5("mr-x-5"),
+	Margin_X_5("mx-5"),
 
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_Y_1("mr-x-1"),
+	Margin_Y_1("my-1"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_Y_2("mr-x-2"),
+	Margin_Y_2("my-2"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_Y_3("mr-x-3"),
+	Margin_Y_3("my-3"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_Y_4("mr-x-4"),
+	Margin_Y_4("my-4"),
 	/**
 	 * Sets the margin to the spacer
 	 */
-	Margin_Y_5("mr-x-5"),
+	Margin_Y_5("my-5"),
 	/**
 	 * Sets the padding to the spacer
 	 */
@@ -241,44 +241,44 @@ public enum BSSpacingOptions
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_X_1("pr-x-1"),
+	Padding_X_1("px-1"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_X_2("pr-x-2"),
+	Padding_X_2("px-2"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_X_3("pr-x-3"),
+	Padding_X_3("px-3"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_X_4("pr-x-4"),
+	Padding_X_4("px-4"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_X_5("pr-x-5"),
+	Padding_X_5("px-5"),
 
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_Y_1("pr-x-1"),
+	Padding_Y_1("py-1"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_Y_2("pr-x-2"),
+	Padding_Y_2("py-2"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_Y_3("pr-x-3"),
+	Padding_Y_3("py-3"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_Y_4("pr-x-4"),
+	Padding_Y_4("py-4"),
 	/**
 	 * Sets the padding to the spacer
 	 */
-	Padding_Y_5("pr-x-5");
+	Padding_Y_5("py-5");
 
 	private String className;
 

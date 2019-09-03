@@ -25,6 +25,7 @@ import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
+import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSAlignmentCapable;
 
 import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
 
@@ -45,7 +46,8 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  */
 public class BSContainer<J extends BSContainer<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>
+		implements BSNavBarChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>,
+				           IBSAlignmentCapable<J>
 {
 
 

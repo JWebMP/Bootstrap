@@ -76,10 +76,10 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	 *
 	 * @return
 	 */
-	public BSCloseIcon setAriaLabel(String label)
+	public J setAriaLabel(String label)
 	{
 		addAttribute(GlobalAttributes.Aria_Label, label);
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class BSCloseIcon<J extends BSCloseIcon<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setCloseIcon(Span closeIcon)
+	public J setCloseIcon(Span<?, ?, ?> closeIcon)
 	{
 		if (this.closeIcon != null)
 		{

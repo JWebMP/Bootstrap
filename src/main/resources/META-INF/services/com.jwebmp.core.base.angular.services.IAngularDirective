@@ -10,3 +10,7 @@ com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirec
 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective
 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective
 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective
+com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective
+com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective
+com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective
+com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShownEventDirective

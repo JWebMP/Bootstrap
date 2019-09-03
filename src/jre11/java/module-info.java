@@ -99,8 +99,13 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.progressbar;
 	exports com.jwebmp.plugins.bootstrap4.progressbar.bar;
 	exports com.jwebmp.plugins.bootstrap4.progressbar.interfaces;
+	exports com.jwebmp.plugins.bootstrap4.select;
+	exports com.jwebmp.plugins.bootstrap4.range;
 	exports com.jwebmp.plugins.bootstrap4.tables;
 	exports com.jwebmp.plugins.bootstrap4.toggle;
+	exports com.jwebmp.plugins.bootstrap4.toasts;
+	exports com.jwebmp.plugins.bootstrap4.toasts.features;
+	exports com.jwebmp.plugins.bootstrap4.toasts.events;
 	exports com.jwebmp.plugins.bootstrap4.tooltips;
 
 
@@ -110,7 +115,11 @@ module com.jwebmp.plugins.bootstrap4 {
 
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective, com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective,
 			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective,
-			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective;
+			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShownEventDirective;
 
 
 	opens com.jwebmp.plugins.bootstrap4 to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -193,6 +202,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	opens com.jwebmp.plugins.bootstrap4.navs.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.navs.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.options to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.select to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.options.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.pagination to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.pagination.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -202,7 +212,11 @@ module com.jwebmp.plugins.bootstrap4 {
 	opens com.jwebmp.plugins.bootstrap4.progressbar to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.progressbar.bar to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.progressbar.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.range to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.tables to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.toasts to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.toasts.features to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.toasts.events to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.toggle to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.tooltips to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

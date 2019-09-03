@@ -23,6 +23,7 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
+import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSAlignmentCapable;
 
 import javax.validation.constraints.NotNull;
 
@@ -39,7 +40,8 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  */
 public class BSRow<J extends BSRow<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>
+		implements BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>,
+				           IBSAlignmentCapable<J>
 {
 
 
