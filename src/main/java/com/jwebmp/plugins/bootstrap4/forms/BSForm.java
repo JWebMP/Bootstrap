@@ -38,6 +38,8 @@ import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
 import javax.validation.constraints.NotNull;
 
+import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;
+
 /**
  * Forms
  * <p>
@@ -811,6 +813,26 @@ public class BSForm<J extends BSForm<J>>
 	}
 
 	/**
+	 * Adds the form-horiztal class to the form
+	 * @param horizontal if it must be added or removed
+	 * @return Always this
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public J setHorizontal(boolean horizontal)
+	{
+		if (horizontal)
+		{
+			addClass(Form_Horizontal);
+		}
+		else
+		{
+			removeClass(Form_Horizontal);
+		}
+		return (J)this;
+	}
+
+	/**
 	 * Protected method to call when all inputs are available to apply the classes
 	 *
 	 * @return
@@ -835,16 +857,12 @@ public class BSForm<J extends BSForm<J>>
 					                                             .forEach(b ->
 					                                                      {
 						                                                      b.addClass("form-control");
-						                                                      b.asAttributeBase()
-						                                                       .addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 					                                   inputGroup.getAppendDiv()
 					                                             .getChildren()
 					                                             .forEach(b ->
 					                                                      {
 						                                                      b.addClass("form-control");
-						                                                      b.asAttributeBase()
-						                                                       .addAttribute(AngularAttributes.ngClass, buildValidationClass(input));
 					                                                      });
 				                                   }
 			                                   }

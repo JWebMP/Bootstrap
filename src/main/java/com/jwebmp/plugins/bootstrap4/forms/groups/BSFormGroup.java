@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms.groups;
 
+import com.jwebmp.core.Component;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.forms.AngularInputMessages;
@@ -50,6 +51,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import static com.jwebmp.core.generics.TopOrBottom.*;
+import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;
+import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
+import static com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions.*;
 
 /**
  * An implementation of
@@ -281,19 +285,39 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return input;
 	}
 
-
-
+	/**
+	 * Adds help text immediately to the
+	 * @param text
+	 * @return
+	 */
 	@Override
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public SmallText<?> addHelpText(String text)
+	public J addHelpText(String text)
 	{
 		SmallText<?> smallText = new SmallText<>(text);
-		smallText.addClass(BSFormGroupOptions.Form_Text);
-		smallText.addClass(BSTypographyOptions.Text_Muted);
+		smallText.addClass(Form_Text);
+		smallText.addClass(Text_Muted);
 		add(smallText);
-		return smallText;
+		return (J)this;
 	}
+
+	/**
+	 * Adds help text immediately to the
+	 * @param text
+	 * @return
+	 */
+	@Override
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J addHelpText(ComponentHierarchyBase<?,?,?,?,?> text)
+	{
+		text.addClass(Form_Text);
+		text.addClass(Text_Muted);
+		add(text);
+		return (J)this;
+	}
+
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -465,7 +489,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 				                   getLabel().addClass("col-form-label-sm");
 			                   }
 		                   });
-		addClass(BSContainerOptions.Row);
+		addClass(Row);
 		getInput().addClass(inputSpan);
 
 		return (J) this;

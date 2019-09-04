@@ -34,7 +34,9 @@ import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;
 import static com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSComponentInputGroupOptions.*;
+import static com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions.*;
 
 /**
  * Input group
@@ -53,7 +55,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	private final InputGroupPrependItem<?> prependDiv;
 	private final InputGroupAppendItem<?> appendDiv;
 
-	private SmallText helpText;
+	private ComponentHierarchyBase helpText;
 
 	private boolean styleInputGroupTextWithValidation;
 
@@ -166,7 +168,18 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@NotNull
 	public J append(ComponentHierarchyBase component)
 	{
-		appendDiv.add(component);
+		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
+		{
+			appendDiv.add(component);
+		}
+		else
+		{
+			Span<?, ?, ?> span = new Span<>();
+			span.addClass(Input_Group_Text);
+			span.setText(component.setTiny(true)
+			                      .toString(0));
+			appendDiv.add(span);
+		}
 		return (J) this;
 	}
 
@@ -237,6 +250,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	 * @return
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public J setStyleInputGroupTextWithValidation(boolean styleInputGroupTextWithValidation)
 	{
 		this.styleInputGroupTextWithValidation = styleInputGroupTextWithValidation;
@@ -304,13 +318,40 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		return this;
 	}
 
+	/**
+	 * Does not add immediately, allows you to set the position via setHelpTextPosition
+	 *
+	 * @param text
+	 * 		The component to show
+	 *
+	 * @return
+	 */
 	@Override
-	public SmallText<?> addHelpText(String text)
+	@SuppressWarnings("unchecked")
+	public J addHelpText(ComponentHierarchyBase text)
 	{
-		SmallText sm = super.addHelpText(text);
-		getChildren().remove(sm);
+		text.addClass(Form_Text, Text_Muted);
+		add(text);
+		return (J) this;
+	}
+
+	/**
+	 * Does not add immediately, allows you to set the position via setHelpTextPosition
+	 *
+	 * @param text
+	 * 		The component to show
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public J addHelpText(String text)
+	{
+		SmallText sm = new SmallText<>().addClass(Form_Text, Text_Muted)
+		                                .setText(text);
+		add(sm);
 		helpText = sm;
-		return sm;
+		return (J) this;
 	}
 
 	@Override

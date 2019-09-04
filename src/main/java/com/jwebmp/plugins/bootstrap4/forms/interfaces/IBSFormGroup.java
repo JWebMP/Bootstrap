@@ -17,6 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.interfaces;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.SmallText;
@@ -81,9 +82,23 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 
 	I getInput();
 
+	/**
+	 * Adds help text immediately to the
+	 * @param text
+	 * @return
+	 */
 	@NotNull
 	@SuppressWarnings("unchecked")
-	SmallText<?> addHelpText(String text);
+	J addHelpText(String text);
+
+
+	/**
+	 * Adds help text immediately to the
+	 * @param text
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	J addHelpText(ComponentHierarchyBase<?, ?, ?, ?, ?> text);
 
 	@SuppressWarnings("unchecked")
 	@NotNull

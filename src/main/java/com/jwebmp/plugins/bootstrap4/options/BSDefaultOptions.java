@@ -111,6 +111,14 @@ public enum BSDefaultOptions
 	 */
 	Pull_Right,
 	/**
+	 * Floats an element to the left
+	 */
+	Float_Left,
+	/**
+	 * Floats an element to the right
+	 */
+	Float_Right,
+	/**
 	 * Sets an element to display:block with margin_right:auto and margin_left:auto
 	 */
 	Center_Block,

@@ -17,15 +17,41 @@
 
 package com.jwebmp.plugins.bootstrap4.forms.groups;
 
+import com.jwebmp.core.base.html.Italic;
+import com.jwebmp.core.base.html.inputs.InputTextType;
+import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 import org.junit.jupiter.api.Test;
 
 public class BSFormGroupTest
 
 {
 	@Test
-	public void getLabel()
+	public void testGetLabel()
 	{
 		BSFormGroup group = new BSFormGroup();
+		group.addLabel("THis is the label");
+		System.out.println(group.toString(0));
+	}
+
+
+	@Test
+	public void testgetAppend()
+	{
+		BSFormInputGroup<?,InputTextType<?>> group = new BSFormInputGroup<>();
+		group.setInput(new InputTextType<>());
+		group.append(new Italic<>().addClass("fa fa-icon"));
+
+		group.addLabel("THis is the label");
+		System.out.println(group.toString(0));
+	}
+
+	@Test
+	public void testGetPrepend()
+	{
+		BSFormInputGroup<?,InputTextType<?>> group = new BSFormInputGroup<>();
+		group.setInput(new InputTextType<>());
+		group.prepend(new Italic<>().addClass("fa fa-icon"));
+
 		group.addLabel("THis is the label");
 		System.out.println(group.toString(0));
 	}

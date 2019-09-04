@@ -161,4 +161,7 @@ public interface IBSForm<J extends BSForm<J>>
 	BSButton<?> createResetButton();
 
 	BSButton<?> createResetButton(BSButtonOptions options, BSButtonSizeOptions sizes);
+
+	@SuppressWarnings("unchecked")
+	J setHorizontal(boolean horizontal);
 }
