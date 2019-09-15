@@ -136,7 +136,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	 */
 	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url, String tooltip)
 	{
-		BSBreadCrumbItem item = new BSBreadCrumbItem<>().setText(text);
+		BSBreadCrumbItem<?> item = new BSBreadCrumbItem<>().setText(text);
 		item.setActive(active);
 		item.setCrumbLink(new Link(url));
 		crumbs.add(item);

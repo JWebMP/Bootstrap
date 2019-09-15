@@ -20,7 +20,6 @@ import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
-import com.jwebmp.plugins.bootstrap4.buttons.BSButtonChildren;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardButton;
@@ -69,7 +68,7 @@ public class BSCardButton<J extends BSCardButton<J>>
 	 *
 	 * @return
 	 */
-	@Override
+	@Override	@SuppressWarnings("unchecked")
 	public J setStyle(BSButtonOptions buttonOptions)
 	{
 		addClass(buttonOptions);
