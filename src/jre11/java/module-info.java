@@ -25,6 +25,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.buttons.groups.options;
 	exports com.jwebmp.plugins.bootstrap4.buttons.radio.styles;
 	exports com.jwebmp.plugins.bootstrap4.buttons.radio;
+	exports com.jwebmp.plugins.bootstrap4.buttons.switches;
 	exports com.jwebmp.plugins.bootstrap4.buttons.styles;
 	exports com.jwebmp.plugins.bootstrap4.buttons.toolbars;
 	exports com.jwebmp.plugins.bootstrap4.cards;
