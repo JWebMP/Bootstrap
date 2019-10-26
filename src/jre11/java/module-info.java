@@ -2,11 +2,11 @@ module com.jwebmp.plugins.bootstrap4 {
 
 	requires com.jwebmp.core;
 	requires java.validation;
-	requires com.jwebmp.logmaster;
+	requires com.guicedee.logmaster;
 	requires java.logging;
 	requires com.google.common;
 	requires com.fasterxml.jackson.annotation;
-	requires com.jwebmp.guicedinjection;
+	requires com.guicedee.guicedinjection;
 	requires com.jwebmp.core.angularjs;
 
 	exports com.jwebmp.plugins.bootstrap4;
@@ -111,8 +111,8 @@ module com.jwebmp.plugins.bootstrap4 {
 
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective, com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective,
 			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective,

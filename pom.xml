@@ -45,7 +45,7 @@
             <artifactId>hamcrest-all</artifactId><type>jar</type>
             </dependency>
         <dependency>
-            <groupId>com.jwebmp.jpms.thirdparty</groupId>
+             <groupId>com.guicedee.services</groupId>
             <artifactId>guava</artifactId>
             <type>jar</type>
         </dependency>
