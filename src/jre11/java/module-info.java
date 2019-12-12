@@ -177,6 +177,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	opens com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.forms.controls to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.forms.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap4.images to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.jumbotron to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.jumbotron.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap4.listgroup to com.fasterxml.jackson.databind, com.jwebmp.core;
