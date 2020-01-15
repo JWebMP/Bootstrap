@@ -24,7 +24,6 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.guicedee.logger.LogFactory;
-import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertCloseEventDirective;
 import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertEvents;
 
 import java.util.Objects;
@@ -134,5 +133,5 @@ public abstract class BSToastShowEvent<J extends BSToastShowEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onShow(AjaxCall<?> call, AjaxResponse<?> response);
+	public abstract void onShow(AjaxCall call, AjaxResponse response);
 }

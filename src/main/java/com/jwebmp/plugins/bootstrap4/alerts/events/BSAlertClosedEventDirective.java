@@ -24,6 +24,7 @@ import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
  * Maps to the angular function of right click
  *
  * @author GedMarc
+ *
  * @since 25 Jun 2016
  */
 public class BSAlertClosedEventDirective

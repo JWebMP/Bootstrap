@@ -30,9 +30,9 @@ public class BSToastShownEventDirective
 		extends AngularDirectiveBase<BSToastShownEventDirective>
 {
 
-
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
+	 *
 	 */
 	public BSToastShownEventDirective()
 	{

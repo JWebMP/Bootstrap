@@ -45,6 +45,7 @@ public class BSDropDownHideDirective
 	/**
 	 * Renders the right click directive from the JavaScript file
 	 *
+	 *
 	 * @return
 	 */
 	@Override

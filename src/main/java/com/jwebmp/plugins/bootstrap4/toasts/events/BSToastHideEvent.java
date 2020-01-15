@@ -133,5 +133,5 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onHide(AjaxCall<?> call, AjaxResponse<?> response);
+	public abstract void onHide(AjaxCall call, AjaxResponse response);
 }

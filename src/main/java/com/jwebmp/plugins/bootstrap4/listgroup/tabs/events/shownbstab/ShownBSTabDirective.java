@@ -33,6 +33,8 @@ public class ShownBSTabDirective
 {
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
+	 *
+	 *
 	 * <p>
 	 */
 	public ShownBSTabDirective()

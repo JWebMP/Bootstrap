@@ -36,7 +36,7 @@ public enum BSCloseIconOptions
 
 	BSCloseIconOptions()
 	{
-
+ 
 	}
 
 	@Override

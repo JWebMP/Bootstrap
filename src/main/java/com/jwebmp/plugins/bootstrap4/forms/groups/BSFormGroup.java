@@ -336,6 +336,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	public J addMessage(@NotNull InputErrorValidations forError, String message)
 	{
 		getMessages().addMessage(forError, message, false);
+		add(getMessages());
 		return (J) this;
 	}
 

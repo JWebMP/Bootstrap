@@ -125,19 +125,19 @@ public class BootstrapPageConfigurator
 	 */
 	@NotNull
 	@Override
-	public Page configure(Page<?> page)
+	public Page<?> configure(Page<?> page)
 	{
 		if (!page.isConfigured() && enabled())
 		{
 			JQueryPageConfigurator.setRequired(true);
-			Meta charMeta = new Meta();
+			Meta<?> charMeta = new Meta<>();
 			charMeta.addAttribute(MetaAttributes.Charset, "utf-16");
 
-			Meta viewportMeta = new Meta();
+			Meta<?> viewportMeta = new Meta<>();
 			viewportMeta.addAttribute(GlobalAttributes.Name, "viewport");
 			viewportMeta.addAttribute(MetaAttributes.Content, "width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no");
 
-			Meta compatMeta = new Meta();
+			Meta<?> compatMeta = new Meta<>();
 			compatMeta.addAttribute(MetaAttributes.Http_Equiv, "X-UA-Compatible");
 			compatMeta.addAttribute(MetaAttributes.Content, "IE=Edge");
 

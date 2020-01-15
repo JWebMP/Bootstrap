@@ -29,9 +29,8 @@ import com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
 public class BSToastShowEventDirective
 		extends AngularDirectiveBase<BSToastShowEventDirective>
 {
-
-
 	/**
+	 *
 	 * Constructs a new right click directive based on the angular object passed in
 	 */
 	public BSToastShowEventDirective()

@@ -133,5 +133,5 @@ public abstract class BSToastShownEvent<J extends BSToastShownEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onShown(AjaxCall<?> call, AjaxResponse<?> response);
+	public abstract void onShown(AjaxCall call, AjaxResponse response);
 }

@@ -1,6 +1,7 @@
 module com.jwebmp.plugins.bootstrap4 {
 
 	requires com.jwebmp.core;
+
 	requires java.validation;
 	requires com.guicedee.logmaster;
 	requires java.logging;
@@ -114,9 +115,18 @@ module com.jwebmp.plugins.bootstrap4 {
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 
-	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective, com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective,
-			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective,
-			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective,
+	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective,
+			                                                                 com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective,
 			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective,
 			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective,
 			                                                                 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective,

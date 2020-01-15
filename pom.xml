@@ -25,6 +25,7 @@
             <artifactId>jwebmp-core</artifactId>
             <type>jar</type>
         </dependency>
+
         <dependency>
             <groupId>com.jwebmp.plugins.angular</groupId>
             <artifactId>jwebmp-plugins-angularjs</artifactId>
@@ -36,6 +37,8 @@
             <artifactId>guava</artifactId>
             <type>jar</type>
         </dependency>
+
+
     </dependencies>
 
     <scm>

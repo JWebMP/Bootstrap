@@ -33,6 +33,7 @@ public class HiddenBSTabDirective
 {
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
+	 *
 	 * <p>
 	 */
 	public HiddenBSTabDirective()

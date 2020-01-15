@@ -20,6 +20,7 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 
 /**
  * @author GedMarc
+ *
  * @since 16 Feb 2017
  */
 public interface BSAlertEvents
