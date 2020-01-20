@@ -21,6 +21,7 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.bootstrap4.cards.layout.IBSCardDeckChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
@@ -53,7 +54,7 @@ import java.util.List;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
-		implements IBSLayout<J>, IBSCard<BSCardChildren, J>
+		implements IBSLayout<J>, IBSCard<BSCardChildren, J>, IBSCardDeckChildren<BSCardChildren,J>
 {
 
 

@@ -103,7 +103,6 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 		labelText = text;
 	}
 
-
 	@Override
 	public void preConfigure()
 	{
@@ -112,9 +111,15 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 			if (label != null)
 			{
 				add(label);
-				label.add(input);
 			}
-			input.setText(labelText);
+			if (input != null)
+			{
+				input.setText(labelText);
+				if (label != null)
+				{
+					label.add(input);
+				}
+			}
 		}
 		super.preConfigure();
 	}
@@ -214,7 +219,7 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 	public J setLabelText(String labelText)
 	{
 		this.labelText = labelText;
-		return (J)this;
+		return (J) this;
 	}
 
 	@Override

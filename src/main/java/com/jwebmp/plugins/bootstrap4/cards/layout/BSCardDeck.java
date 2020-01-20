@@ -32,7 +32,7 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardDeck;
  * @since 01 Jan 2017
  */
 public class BSCardDeck<J extends BSCardDeck<J>>
-		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<IBSCardDeckChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSCardDeck<J>
 {
 
@@ -54,6 +54,14 @@ public class BSCardDeck<J extends BSCardDeck<J>>
 		BSCard<?> card = new BSCard<>();
 		add(card);
 		return card;
+	}
+
+	@Override
+	public BSCardColumns<?> addColumnLayout()
+	{
+		BSCardColumns<?> columns = new BSCardColumns<>();
+		add(columns);
+		return columns;
 	}
 
 	/**

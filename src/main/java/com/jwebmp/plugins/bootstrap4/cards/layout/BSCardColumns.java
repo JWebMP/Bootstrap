@@ -45,7 +45,7 @@ import java.util.Map;
  */
 public class BSCardColumns<J extends BSCardColumns<J>>
 		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements GlobalChildren
+		implements GlobalChildren,IBSCardDeckChildren<BSCard,J>
 {
 
 
@@ -72,11 +72,21 @@ public class BSCardColumns<J extends BSCardColumns<J>>
 	{
 		StringBuilder sb = super.renderCss(tabCount, renderOpening, renderInQuotations, isAjaxCall);
 
-		sb.append(getID(true) + "{");
+		sb.append(getID(true))
+		  .append("{");
 		getBreakpointColumnCount().forEach((key, value) -> sb.append(renderBreakpoint(key, value)));
 		sb.append("}");
 		return sb;
 	}
+
+
+	public BSCard<?> addCard()
+	{
+		BSCard<?> card = new BSCard<>();
+		add(card);
+		return card;
+	}
+
 
 	/**
 	 * Returns the column break points to render in the css that this object generate for itself

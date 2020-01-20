@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts.interfaces;
 
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
+import com.jwebmp.plugins.bootstrap4.cards.layout.BSCardColumns;
 import com.jwebmp.plugins.bootstrap4.cards.layout.BSCardDeck;
 
 import java.util.Comparator;
@@ -32,4 +33,6 @@ public interface IBSCardDeck<J extends BSCardDeck<J>>
 	 * @return
 	 */
 	BSCard<?> addCard();
+
+	BSCardColumns<?> addColumnLayout();
 }
