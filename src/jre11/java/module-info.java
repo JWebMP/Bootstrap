@@ -112,7 +112,6 @@ module com.jwebmp.plugins.bootstrap4 {
 
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
 
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective,
