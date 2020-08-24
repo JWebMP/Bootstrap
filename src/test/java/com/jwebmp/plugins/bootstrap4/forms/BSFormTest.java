@@ -102,10 +102,10 @@ public class BSFormTest
 		    .createTextInput("fieldsSetTextInput", "Fieldset");
 
 		form.createTextInput("textWithmessages", "textwithmessage")
-		    .addMessage(InputErrorValidations.maxlength, "You have reached the maximum length for input", false);
+		    .addMessage(InputErrorValidations.maxLength, "You have reached the maximum length for input", false);
 
 		form.createTextInput("textWithmessages", "textwithmessage")
-		    .addMessage(InputErrorValidations.maxlength, "You have reached the maximum length for input", false);
+		    .addMessage(InputErrorValidations.maxLength, "You have reached the maximum length for input", false);
 
 		form.createCheckboxInput("checkboxCustom", "custom checkbox")
 		    .setCustomControl(false);

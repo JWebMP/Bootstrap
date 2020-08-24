@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.dropdown.events.hide;
 
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
@@ -25,12 +26,11 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-import com.guicedee.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 import java.util.logging.Level;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
 /**
  * Handles all events. Over-ride methods.
@@ -111,8 +111,8 @@ public abstract class BSDropDownHideAdapter
 		{
 			JQueryPageConfigurator.setRequired(true);
 			AngularPageConfigurator.setRequired(true);
-
-			getComponent().addAttribute("bs-drop-down-hide", STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			
+			getComponent().addAttribute("bs-drop-down-hide", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}

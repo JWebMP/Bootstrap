@@ -31,7 +31,7 @@ import com.jwebmp.core.base.html.interfaces.children.FormChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.generics.TopOrBottom;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.bootstrap4.forms.BSComponentFormOptions;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
@@ -128,11 +128,11 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * @return
 	 */
 	@NotNull
-	protected AngularInputMessages<?> getMessages()
+	public AngularInputMessages<?> getMessages()
 	{
 		if (messages == null)
 		{
-			messages = new AngularInputMessages(form, input);
+			messages = new AngularInputMessages<>(getForm(), input);
 			messages.addClass("is-invalid");
 			messages.addStyle("display", "inherit");
 			messages.addAttribute("ng-class", getForm().buildValidationClass(input)
@@ -249,6 +249,8 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	public BSForm<?> getForm()
 	{
+		if(form == null)
+			form = new BSForm<>();
 		return form;
 	}
 
@@ -326,7 +328,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		getMessages().addMessage(forError, message, inline)
 		             .addClass("invalid-feedback");
-		add(getMessages());
 		return (J) this;
 	}
 
@@ -336,7 +337,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	public J addMessage(@NotNull InputErrorValidations forError, String message)
 	{
 		getMessages().addMessage(forError, message, false);
-		add(getMessages());
 		return (J) this;
 	}
 

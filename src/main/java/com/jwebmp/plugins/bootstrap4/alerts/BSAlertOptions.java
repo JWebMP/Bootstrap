@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.alerts;
 
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Alerts are available for any length of text, as well as an optional dismiss button. For proper styling, use one of the four required

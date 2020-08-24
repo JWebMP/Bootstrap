@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap4.navs.parts;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 

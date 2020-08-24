@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.options;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Clearfix
@@ -31,6 +31,54 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 public enum BSSpacingOptions
 		implements IBSComponentOptions
 {
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_0("m-0"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_1("m-1"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_2("m-2"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_3("m-3"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_4("m-4"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Margin_5("m-5"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_0("p-0"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_1("p-1"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_2("p-2"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_3("p-3"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_4("p-4"),
+	/**
+	 * Sets the margin to the spacer
+	 */
+	Padding_5("p-5"),
 	/**
 	 * Sets the margin to the spacer
 	 */

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap4.pagination.parts;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
 
 /**

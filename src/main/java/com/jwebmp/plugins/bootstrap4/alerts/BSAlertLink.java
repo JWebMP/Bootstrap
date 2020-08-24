@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap4.alerts;
 
 import com.jwebmp.core.base.html.Link;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Highlights text in an alert appropriately

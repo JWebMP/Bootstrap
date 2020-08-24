@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * List group

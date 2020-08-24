@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * @author GedMarc

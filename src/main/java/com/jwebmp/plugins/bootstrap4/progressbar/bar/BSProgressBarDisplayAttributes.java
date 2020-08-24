@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.progressbar.bar;
 
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 /**
  * @author GedMarc

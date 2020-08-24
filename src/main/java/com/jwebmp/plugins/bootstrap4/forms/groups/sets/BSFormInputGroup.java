@@ -22,6 +22,7 @@ import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.SmallText;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.generics.TopOrBottom;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
@@ -290,6 +291,11 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
 			Set<IComponentHierarchyBase> newOrder = new LinkedHashSet<>();
+			if(getMessagePlacement() == TopOrBottom.Top)
+			{
+				getChildren().remove(getMessages());
+				newOrder.add(getMessages());
+			}
 			if (!prependDiv.getChildren()
 			               .isEmpty())
 			{
@@ -300,6 +306,11 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 			              .isEmpty())
 			{
 				newOrder.add(appendDiv);
+			}
+			if(getMessagePlacement() == TopOrBottom.Bottom)
+			{
+				getChildren().remove(getMessages());
+				newOrder.add(getMessages());
 			}
 			setChildren(newOrder);
 

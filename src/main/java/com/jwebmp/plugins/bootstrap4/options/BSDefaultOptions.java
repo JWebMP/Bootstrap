@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap4.options;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * @author GedMarc

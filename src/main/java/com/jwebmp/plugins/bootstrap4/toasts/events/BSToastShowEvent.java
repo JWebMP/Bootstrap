@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.toasts.events;
 
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
@@ -23,14 +24,13 @@ import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertEvents;
 
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
 /**
  * Handles all events. Over-ride methods.
@@ -95,7 +95,7 @@ public abstract class BSToastShowEvent<J extends BSToastShowEvent<J>>
 	{
 		if (!isConfigured())
 		{
-			getComponent().addAttribute("ng-bs-toast-show-directive", STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().addAttribute("ng-bs-toast-show-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}

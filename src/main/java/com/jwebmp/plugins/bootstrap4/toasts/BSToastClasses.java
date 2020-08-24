@@ -2,7 +2,7 @@ package com.jwebmp.plugins.bootstrap4.toasts;
 
 import com.jwebmp.core.base.interfaces.ICssClassName;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 public enum BSToastClasses implements ICssClassName
 {

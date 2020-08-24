@@ -22,11 +22,12 @@ import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
+import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBoxGroup;
+import com.jwebmp.plugins.bootstrap4.buttons.radio.BSRadioButtonGroup;
+import com.jwebmp.plugins.bootstrap4.forms.BSFieldSet;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
-import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBoxGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
-import com.jwebmp.plugins.bootstrap4.buttons.radio.BSRadioButtonGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
 import javax.validation.constraints.NotNull;
@@ -100,14 +101,16 @@ public interface IBSForm<J extends BSForm<J>>
 	 * @return
 	 */
 	BSForm<?> createFormRow();
-
+	
 	/**
 	 * Returns a new form row inside of this form
-	 * and adds an attribute setting disabled if true
+	 * and adds an attribute to set all fields inside disabled when a call is being made
+	 * <p>
+	 * You can add a custom disable all with custom data set parameters using addAttribute(NgBind.getAttributeName(),"{!data.value}"
 	 *
 	 * @return
 	 */
-	BSForm<?> createFieldSet(boolean disabled);
+	BSFieldSet<?> createFieldSet(boolean disableOnOperation);
 
 	/**
 	 * Auto-sizing

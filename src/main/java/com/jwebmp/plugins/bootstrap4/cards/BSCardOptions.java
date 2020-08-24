@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap4.cards;
 
 import com.jwebmp.plugins.bootstrap4.options.IBSComponentOptions;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Cards

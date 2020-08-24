@@ -57,6 +57,7 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.dropdown.events.shown;
 	exports com.jwebmp.plugins.bootstrap4.dropdown.interfaces;
 	exports com.jwebmp.plugins.bootstrap4.dropdown.options;
+	//exports com.jwebmp.plugins.bootstrap4.enumerations;
 	exports com.jwebmp.plugins.bootstrap4.figures;
 	exports com.jwebmp.plugins.bootstrap4.forms;
 	exports com.jwebmp.plugins.bootstrap4.forms.groups;

@@ -18,7 +18,7 @@
 package com.jwebmp.plugins.bootstrap4.forms.groups.enumerations;
 
 import com.jwebmp.core.base.interfaces.ICssClassName;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 /**
  * The form group sizes available

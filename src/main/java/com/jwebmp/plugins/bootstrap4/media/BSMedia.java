@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaImage;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaLink;
 import com.jwebmp.plugins.bootstrap4.options.BSSpacingOptions;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Media object

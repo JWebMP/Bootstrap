@@ -2,7 +2,7 @@ package com.jwebmp.plugins.bootstrap4.images;
 
 import com.jwebmp.core.base.html.Image;
 
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.plugins.bootstrap4.options.BSFloatOptions.*;
 import static com.jwebmp.plugins.bootstrap4.options.BSImageOptions.*;
 
