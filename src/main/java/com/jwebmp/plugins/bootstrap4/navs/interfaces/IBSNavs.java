@@ -6,7 +6,7 @@ import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentHorizontalOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSNavs<J extends BSNavs<J>>
 		extends ICssStructure<J>

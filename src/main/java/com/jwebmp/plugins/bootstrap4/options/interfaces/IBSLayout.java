@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap4.options.interfaces;
 
 import com.jwebmp.plugins.bootstrap4.options.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSLayout<J extends IBSLayout<J>>
 {

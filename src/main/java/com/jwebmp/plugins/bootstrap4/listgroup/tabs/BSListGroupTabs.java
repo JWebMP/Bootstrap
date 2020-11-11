@@ -23,7 +23,7 @@ import com.jwebmp.plugins.bootstrap4.containers.BSRow;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

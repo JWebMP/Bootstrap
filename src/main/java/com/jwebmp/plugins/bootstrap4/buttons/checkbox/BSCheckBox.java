@@ -23,7 +23,7 @@ import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.core.base.html.attributes.InputCheckBoxTypeAttributes.*;
 import static com.jwebmp.plugins.bootstrap4.toggle.BSToggleAttributes.*;

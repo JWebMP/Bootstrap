@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.IBSNavs;
 import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentHorizontalOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;

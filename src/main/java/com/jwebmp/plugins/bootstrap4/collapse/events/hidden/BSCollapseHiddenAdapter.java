@@ -27,7 +27,7 @@ import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.logging.Level;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;

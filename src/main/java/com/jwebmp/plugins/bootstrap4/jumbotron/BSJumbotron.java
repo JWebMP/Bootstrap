@@ -27,7 +27,7 @@ import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron;
 import com.jwebmp.plugins.bootstrap4.options.BSMarginOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Jumbotron

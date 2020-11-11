@@ -7,7 +7,7 @@ import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselControl;
 import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselItem;
 import com.jwebmp.plugins.bootstrap4.carousel.parts.BSCarouselSlides;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Comparator;
 import java.util.List;
 

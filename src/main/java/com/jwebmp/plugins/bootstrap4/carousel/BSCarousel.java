@@ -29,7 +29,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 

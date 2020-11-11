@@ -36,7 +36,7 @@ import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggler;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 import com.jwebmp.plugins.bootstrap4.options.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * <p>

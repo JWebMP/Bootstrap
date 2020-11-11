@@ -20,7 +20,7 @@ package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Comparator;
 
 public interface IBSBreadCrumbItem<J extends BSBreadCrumbItem<J>>

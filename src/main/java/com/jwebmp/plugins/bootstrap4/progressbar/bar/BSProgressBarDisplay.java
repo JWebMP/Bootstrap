@@ -26,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplay
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarDisplayFeatures;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.IBSProgressBarDisplay;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * An implementation of the bootstrap bar

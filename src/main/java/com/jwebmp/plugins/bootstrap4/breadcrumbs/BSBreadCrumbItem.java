@@ -22,7 +22,7 @@ import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A particular crumb

@@ -44,7 +44,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;

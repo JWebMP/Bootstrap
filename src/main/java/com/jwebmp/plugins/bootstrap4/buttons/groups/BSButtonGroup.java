@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.buttons.groups.options.BSButtonGroupOptions
 import com.jwebmp.plugins.bootstrap4.buttons.groups.options.BSButtonGroupSizeOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.toolbars.BSButtonToolbarChildren;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Button group

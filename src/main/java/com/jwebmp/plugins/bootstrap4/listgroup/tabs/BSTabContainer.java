@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.toggle.BSDropDownToggle;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;

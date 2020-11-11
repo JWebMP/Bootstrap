@@ -22,7 +22,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

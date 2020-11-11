@@ -24,7 +24,7 @@ import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarChildre
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarEvents;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarFeatures;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Progress

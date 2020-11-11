@@ -25,7 +25,7 @@ import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.toggle.BSToggleAttributes;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Collapse

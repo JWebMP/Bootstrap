@@ -25,7 +25,7 @@ import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSAlignmentCapable;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
 

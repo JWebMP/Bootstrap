@@ -22,7 +22,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * The Link Button for a drop down

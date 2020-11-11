@@ -31,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts.InputGroupAppendIte
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts.InputGroupPrependItem;
 import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSFormInputGroup;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

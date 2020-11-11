@@ -2,7 +2,7 @@ package com.jwebmp.plugins.bootstrap4.tables;
 
 import com.jwebmp.plugins.bootstrap4.options.BSTableOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSTable<J extends BSTable<J>>
 {

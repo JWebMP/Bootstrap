@@ -25,7 +25,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.IBSNavTabs;
 import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;

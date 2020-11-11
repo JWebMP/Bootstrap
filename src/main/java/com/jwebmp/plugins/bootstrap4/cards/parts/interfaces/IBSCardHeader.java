@@ -22,7 +22,7 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeaderNav;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Comparator;
 
 public interface IBSCardHeader<J extends BSCardHeader<J>>

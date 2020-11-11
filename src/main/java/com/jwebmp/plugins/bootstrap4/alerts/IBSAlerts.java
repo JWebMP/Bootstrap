@@ -21,7 +21,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Comparator;
 
 public interface IBSAlerts<J extends BSAlert<J>>

@@ -21,7 +21,7 @@ import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author GedMarc

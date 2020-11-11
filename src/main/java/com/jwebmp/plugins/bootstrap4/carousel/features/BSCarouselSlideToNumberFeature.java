@@ -21,7 +21,7 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarousel;
 import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**

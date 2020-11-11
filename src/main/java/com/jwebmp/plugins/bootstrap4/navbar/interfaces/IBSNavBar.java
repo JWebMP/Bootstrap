@@ -28,7 +28,7 @@ import com.jwebmp.plugins.bootstrap4.navbar.parts.BSNavBarText;
 import com.jwebmp.plugins.bootstrap4.navbar.toggler.BSNavBarToggleContainer;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSNavBar<J extends BSNavBar<J>>
 		extends ICssStructure<J>, IBSLayout<J>

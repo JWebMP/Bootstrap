@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalBody;
 import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalFooter;
 import com.jwebmp.plugins.bootstrap4.modal.parts.BSModalHeader;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSModal<J extends BSModal<J>>
 {

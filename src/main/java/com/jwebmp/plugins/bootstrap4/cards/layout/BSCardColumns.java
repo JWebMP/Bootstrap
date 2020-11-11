@@ -25,7 +25,7 @@ import com.jwebmp.plugins.bootstrap4.BSSizes;
 import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.EnumMap;
 import java.util.Map;
 

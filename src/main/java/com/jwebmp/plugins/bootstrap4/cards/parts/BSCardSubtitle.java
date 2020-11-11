@@ -24,7 +24,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Subtitles are used by adding a .card-subtitle to an h* tag.

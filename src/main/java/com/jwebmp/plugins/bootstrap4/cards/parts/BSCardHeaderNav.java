@@ -27,7 +27,7 @@ import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Constructs a card header with nav properties

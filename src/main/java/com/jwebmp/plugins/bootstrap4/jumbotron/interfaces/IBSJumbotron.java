@@ -23,7 +23,7 @@ import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.jumbotron.BSJumbotron;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSJumbotron<J extends BSJumbotron<J>>
 		extends ICssStructure<J>

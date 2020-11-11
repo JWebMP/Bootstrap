@@ -24,7 +24,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupChildren;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;
 import com.jwebmp.plugins.bootstrap4.listgroup.IBSListGroupListItem;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Basic example The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that

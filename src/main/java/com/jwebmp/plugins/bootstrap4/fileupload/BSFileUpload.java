@@ -4,7 +4,7 @@ import com.jwebmp.core.base.html.inputs.InputFileType;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.core.base.servlets.enumarations.ComponentTypes.*;
 import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;

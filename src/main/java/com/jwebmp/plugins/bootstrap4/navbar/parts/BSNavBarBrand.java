@@ -22,7 +22,7 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Brand

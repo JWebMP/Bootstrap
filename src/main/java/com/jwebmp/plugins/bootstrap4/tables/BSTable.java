@@ -20,7 +20,7 @@ package com.jwebmp.plugins.bootstrap4.tables;
 import com.jwebmp.core.base.html.Table;
 import com.jwebmp.plugins.bootstrap4.options.BSTableOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class BSTable<J extends BSTable<J>>
 		extends Table<J>

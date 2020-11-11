@@ -20,7 +20,7 @@ package com.jwebmp.plugins.bootstrap4.toggle;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 {

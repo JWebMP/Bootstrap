@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Header and footer

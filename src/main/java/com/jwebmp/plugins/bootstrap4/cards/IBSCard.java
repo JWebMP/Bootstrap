@@ -13,7 +13,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import com.jwebmp.plugins.bootstrap4.options.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentBase>

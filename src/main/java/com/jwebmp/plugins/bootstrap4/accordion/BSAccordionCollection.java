@@ -24,7 +24,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCard;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardBody;
 import com.jwebmp.plugins.bootstrap4.cards.parts.BSCardHeader;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A returnable collection of items when adding according items

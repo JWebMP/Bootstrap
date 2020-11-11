@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.modal.parts.*;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user

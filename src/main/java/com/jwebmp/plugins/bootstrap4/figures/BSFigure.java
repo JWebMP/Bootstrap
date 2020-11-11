@@ -24,7 +24,7 @@ import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.bootstrap4.options.BSFigureOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Anytime you need to display a piece of content—like an image with an optional caption, consider using a figure.

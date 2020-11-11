@@ -23,7 +23,7 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 public interface IBSListGroupTabs<J extends BSListGroupTabs<J>>

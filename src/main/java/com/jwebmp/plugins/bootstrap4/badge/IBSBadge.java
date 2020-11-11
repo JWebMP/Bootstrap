@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap4.badge;
 
 import com.jwebmp.core.base.interfaces.ICssStructure;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Comparator;
 
 public interface IBSBadge<J extends BSBadge<J>>

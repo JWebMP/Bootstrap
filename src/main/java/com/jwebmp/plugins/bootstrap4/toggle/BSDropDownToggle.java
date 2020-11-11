@@ -24,7 +24,7 @@ import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 

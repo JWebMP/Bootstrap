@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSForm<J extends BSForm<J>>
 		extends ICssStructure<J>

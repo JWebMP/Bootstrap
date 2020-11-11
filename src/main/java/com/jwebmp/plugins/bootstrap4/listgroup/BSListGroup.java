@@ -25,7 +25,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupLinkItem;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
 

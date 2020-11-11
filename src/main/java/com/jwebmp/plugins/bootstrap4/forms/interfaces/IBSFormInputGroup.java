@@ -6,7 +6,7 @@ import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<?, ?>>
 		extends ICssStructure<J>, IBSFormGroup<J, I>

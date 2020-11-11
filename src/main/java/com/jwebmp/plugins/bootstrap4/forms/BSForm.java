@@ -36,7 +36,7 @@ import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSForm;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSAlignmentVerticalOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.Form_Horizontal;
 

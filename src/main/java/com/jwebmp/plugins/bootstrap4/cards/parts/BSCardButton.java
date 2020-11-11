@@ -26,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardButton;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
 

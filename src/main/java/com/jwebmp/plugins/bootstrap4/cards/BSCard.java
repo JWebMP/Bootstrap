@@ -28,7 +28,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 /**

@@ -29,7 +29,7 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupSizes;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		extends ICssStructure<J>

@@ -23,7 +23,7 @@ import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavTabs;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 public interface IBSNavTabs
