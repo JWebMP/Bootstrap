@@ -2,7 +2,7 @@ module com.jwebmp.plugins.bootstrap4 {
 
 	requires com.jwebmp.core;
 
-	requires java.validation;
+	requires jakarta.validation;
 	requires com.guicedee.logmaster;
 	requires java.logging;
 	requires com.google.common;
