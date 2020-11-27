@@ -20,6 +20,7 @@ package com.jwebmp.plugins.bootstrap4.navs;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.IBSNavTabs;
@@ -87,6 +88,44 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 		tabs.add(tab);
 		return tab;
 	}
+
+	/**
+	 * Adds a tab to the BSNavTabs
+	 *
+	 * @param label The label to apply
+	 * @param content A type safe div
+	 * @param active if the tab must be active - restrict to one active at a time
+	 *
+	 * @return The generated tab container object
+	 */
+	@Override
+	@NotNull
+	public BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content, boolean active)
+	{
+		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
+		BSNavListItem<?> listItem = navs.addItem(label, active);
+		tab.setListItem(listItem);
+		navs.remove(listItem);
+		tabs.add(tab);
+		return tab;
+	}
+
+
+	/**
+	 * Adds a tab to the BSNavTabs
+	 *
+	 * @param label The label to apply
+	 * @param content A type safe div
+	 *
+	 * @return The generated tab container object
+	 */
+	@Override
+	@NotNull
+	public BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content)
+	{
+		return addTab(label, content, false);
+	}
+
 
 	/**
 	 * Returns the set of tabs currently registered

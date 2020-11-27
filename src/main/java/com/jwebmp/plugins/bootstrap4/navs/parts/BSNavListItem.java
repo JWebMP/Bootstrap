@@ -40,7 +40,19 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 	 */
 	public BSNavListItem(String name)
 	{
-		linkItem = new BSNavLinkItem(name);
+		linkItem = new BSNavLinkItem<>(name);
+		add(linkItem);
+		addClass(BSNavsOptions.Nav_Item);
+	}
+
+
+	/**
+	 * Constructs a list item with a link item inside
+	 */
+	public BSNavListItem(ListItemChildren<?,?> name)
+	{
+		linkItem = new BSNavLinkItem<>();
+		linkItem.add(name);
 		add(linkItem);
 		addClass(BSNavsOptions.Nav_Item);
 	}

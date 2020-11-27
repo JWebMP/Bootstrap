@@ -20,6 +20,7 @@ import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.guicedee.guicedinjection.json.StaticStrings;
+import com.jwebmp.plugins.bootstrap4.navs.BSNavsAttributes;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 
@@ -30,55 +31,56 @@ import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
  * @since 19 Jan 2017
  */
 public class BSNavLinkItem<J extends BSNavLinkItem<J>>
-		extends Link<J>
-		implements BSNavsChildren<IComponentHierarchyBase, J>
-{
+        extends Link<J>
+        implements BSNavsChildren<IComponentHierarchyBase, J> {
 
+    public BSNavLinkItem() {
+        this(null);
+    }
 
-	/**
-	 * A navigation link item
-	 *
-	 * @param name
-	 */
-	public BSNavLinkItem(String name)
-	{
-		setTag("a");
-		addAttribute(LinkAttributes.HRef, StaticStrings.STRING_HASH);
-		setText(name);
-		addClass(BSNavsOptions.Nav_Link);
-	}
+    /**
+     * A navigation link item
+     *
+     * @param name
+     */
+    public BSNavLinkItem(String name) {
+        setTag("a");
+        addAttribute(LinkAttributes.HRef, StaticStrings.STRING_HASH);
+        if (name != null)
+            setText(name);
+        addAttribute(BSNavsAttributes.Role.toString(), "tab");
+        addClass(BSNavsOptions.Nav_Link);
+    }
 
-	/**
-	 * Sets this link item active
-	 *
-	 * @return
-	 */
-	public BSNavLinkItem setActive()
-	{
-		addClass(BSNavsOptions.Active);
-		return this;
-	}
+    /**
+     * Sets this link item active
+     *
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public J setActive() {
+        addClass(BSNavsOptions.Active);
+        return (J) this;
+    }
 
-	/**
-	 * Sets this link item disabled
-	 *
-	 * @return
-	 */
-	public BSNavLinkItem setDisabled()
-	{
-		addClass(BSNavsOptions.Disabled);
-		return this;
-	}
+    /**
+     * Sets this link item disabled
+     *
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public J setDisabled() {
+        addClass(BSNavsOptions.Disabled);
+        return (J) this;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }

@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.navs;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
@@ -172,6 +173,42 @@ public class BSNavs<J extends BSNavs<J>>
 	@Override
 	@NotNull
 	public BSNavListItem<?> addItem(String name, boolean active, boolean disabled)
+	{
+		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
+		newLinkItem.setActive(active);
+		newLinkItem.setDisabled(disabled);
+		add(newLinkItem);
+		return newLinkItem;
+	}
+
+	/**
+	 * Adds a new item to the collection
+	 *
+	 * @param name
+	 * @param active
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public BSNavListItem<?> addItem(ListItemChildren<?,?> name, boolean active)
+	{
+		return addItem(name, active, false);
+	}
+
+	/**
+	 * Adds a new item to the collection
+	 *
+	 * @param name
+	 * @param active
+	 * @param disabled
+	 *
+	 * @return
+	 */
+
+	@Override
+	@NotNull
+	public BSNavListItem<?> addItem(ListItemChildren<?,?> name, boolean active, boolean disabled)
 	{
 		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
 		newLinkItem.setActive(active);

@@ -139,15 +139,32 @@ public enum BSPaddingOptions
 	/**
 	 * Separates from the left automatically
 	 */
+	PaddingLeft_0("pl-0"),
+	/**
+	 * Separates from the left automatically
+	 */
 	PaddingLeft_1("pl-1"),
 	/**
 	 * Separates from the right automatically
 	 */
 	PaddingRight_1("pr-1"),
 	/**
+	 * Separates from the right automatically
+	 */
+	PaddingRight_0("pr-0"),
+	/**
+	 * Separates from the Bottom automatically
+	 */
+	PaddingBottom_0("pb-0"),
+	/**
 	 * Separates from the Bottom automatically
 	 */
 	PaddingBottom_1("pb-1"),
+
+	/**
+	 * Separates from the Top automatically
+	 */
+	PaddingTop_0("pt-0"),
 	/**
 	 * Separates from the Top automatically
 	 */

@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4;
 
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.client.Browsers;
+import com.jwebmp.core.base.client.InternetExplorerCompatibilityMode;
 import com.jwebmp.core.base.html.Meta;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.MetaAttributes;
@@ -129,22 +130,15 @@ public class BootstrapPageConfigurator
 	{
 		if (!page.isConfigured() && enabled())
 		{
+
 			JQueryPageConfigurator.setRequired(true);
 			Meta<?> charMeta = new Meta<>();
 			charMeta.addAttribute(MetaAttributes.Charset, "utf-16");
-
-			Meta<?> viewportMeta = new Meta<>();
-			viewportMeta.addAttribute(GlobalAttributes.Name, "viewport");
-			viewportMeta.addAttribute(MetaAttributes.Content, "width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no");
-
-			Meta<?> compatMeta = new Meta<>();
-			compatMeta.addAttribute(MetaAttributes.Http_Equiv, "X-UA-Compatible");
-			compatMeta.addAttribute(MetaAttributes.Content, "IE=Edge");
+			Meta<?> viewportMeta = new Meta<>(Meta.MetadataFields.ViewPort,"width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no");
+			page.getOptions().setCompatibilityMode(InternetExplorerCompatibilityMode.Edge);
 
 			page.getHead()
 			    .add(charMeta);
-			page.getHead()
-			    .add(compatMeta);
 			page.getHead()
 			    .add(viewportMeta);
 

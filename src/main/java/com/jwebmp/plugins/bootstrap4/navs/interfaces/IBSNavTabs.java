@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavTabs;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
@@ -31,6 +32,10 @@ public interface IBSNavTabs
 {
 	@NotNull
 	BSTabContainer<?> addTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
+
+    @NotNull BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content, boolean active);
+
+	@NotNull BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content);
 
 	@NotNull
 	Set<BSTabContainer<?>> getTabs();

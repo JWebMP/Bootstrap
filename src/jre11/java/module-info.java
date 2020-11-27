@@ -1,6 +1,7 @@
 module com.jwebmp.plugins.bootstrap4 {
 
-	requires com.jwebmp.core;
+	requires transitive com.jwebmp.core;
+	requires transitive com.jwebmp.core.angularjs;
 
 	requires jakarta.validation;
 	requires com.guicedee.logmaster;
@@ -8,7 +9,6 @@ module com.jwebmp.plugins.bootstrap4 {
 	requires com.google.common;
 
 	requires com.guicedee.guicedinjection;
-	requires com.jwebmp.core.angularjs;
 
 	exports com.jwebmp.plugins.bootstrap4;
 	exports com.jwebmp.plugins.bootstrap4.accordion;

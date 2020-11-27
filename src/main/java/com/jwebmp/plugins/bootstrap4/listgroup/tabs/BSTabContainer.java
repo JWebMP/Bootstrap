@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;
@@ -68,6 +69,27 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
 		buttonItem.setText(text);
+		listItem = new BSNavListItem<>(text);
+		dropDownItem = new BSDropDown<>();
+	}
+
+
+	public BSTabContainer(boolean active, @NotNull ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, ListItemChildren<?,?> text)
+	{
+		this(tabContent, text);
+		this.active = active;
+		if (active)
+		{
+			buttonItem.setActive();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public BSTabContainer(ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, ListItemChildren<?,?> text)
+	{
+		tabPane = tabContent;
+		buttonItem = new BSListGroupButtonItem<>();
+		buttonItem.add(text);
 		listItem = new BSNavListItem<>(text);
 		dropDownItem = new BSDropDown<>();
 	}

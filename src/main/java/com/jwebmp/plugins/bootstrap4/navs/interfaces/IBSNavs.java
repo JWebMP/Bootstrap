@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
@@ -72,7 +73,11 @@ public interface IBSNavs<J extends BSNavs<J>>
 	@NotNull
 	BSNavListItem<?> addItem(String name, boolean active, boolean disabled);
 
-	/**
+	@NotNull BSNavListItem<?> addItem(ListItemChildren<?, ?> name, boolean active);
+
+	@NotNull BSNavListItem<?> addItem(ListItemChildren<?, ?> name, boolean active, boolean disabled);
+
+    /**
 	 * If the tabls should render as pills
 	 *
 	 * @param asPills

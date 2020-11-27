@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap4": "bootstrap#^v4.0.0-beta.2",
+    "bootstrap4": "bootstrap#^v4.5.2",
     "tether": "^1.4.0"
   },
   "ignoredDependencies": [

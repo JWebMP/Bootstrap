@@ -46,6 +46,7 @@ public enum BSNavsOptions
 	 */
 	Nav_Item,
 	Nav_Justified,
+	Nav_Bordered,
 	/**
 	 * An actual navigation link
 	 */
