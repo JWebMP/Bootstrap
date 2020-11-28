@@ -57,6 +57,19 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 		return link;
 	}
 
+
+	/**
+	 * Adds a new item to the menu
+	 *
+	 * @return
+	 */
+	public BSDropDownLink<?> addItem()
+	{
+		BSDropDownLink<?> link = new BSDropDownLink<>();
+		add(link);
+		return link;
+	}
+
 	/**
 	 * Adds a divider to the menu
 	 *
@@ -64,7 +77,7 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 */
 	public BSDropDownDivider<?> addDivider()
 	{
-		BSDropDownDivider divider = new BSDropDownDivider();
+		BSDropDownDivider<?> divider = new BSDropDownDivider<>();
 		add(divider);
 		return divider;
 	}
@@ -89,6 +102,7 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 *
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public J setRightAligned()
 	{
 		addClass(BSDropDownOptions.Dropdown_Menu_Right);

@@ -60,7 +60,7 @@ public class BSNavsTest
 	{
 		BSNavs nav = new BSNavs();
 		nav.addDropDown()
-		   .addDropDownNotificationsMenu();
+		   .addDropDownMenu();
 		nav.addItem("New Nav Item");
 		nav.setAsTabs(true);
 

@@ -75,6 +75,8 @@ public enum BSTypographyOptions
 	 */
 	Text_Truncate,
 
+	Text_Reset,
+
 	/**
 	 * Indicates left_aligned text
 	 */

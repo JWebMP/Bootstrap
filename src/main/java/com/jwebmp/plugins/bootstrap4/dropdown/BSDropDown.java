@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.dropdown;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -31,6 +32,8 @@ import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownButton;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownLink;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
 import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
+
+import static com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions.Dropdown_Toggle;
 
 /**
  * Dropdowns
@@ -120,14 +123,30 @@ public class BSDropDown<J extends BSDropDown<J>>
 	}
 
 	/**
+	 * Adds the drop down button to the drop down (add before menu)
+	 *
+	 *
+	 * @return
+	 */
+	@Override
+	public Link<?> addDropDownLink()
+	{
+		Link<?> button = new Link<>("javascript: void(0);");
+		button.addAttribute("data-toggle","dropdown");
+		button.addClass(Dropdown_Toggle);
+		add(button);
+		return button;
+	}
+
+	/**
 	 * Adds the menu to the drop down (call after button)
 	 *
 	 * @return
 	 */
 	@Override
-	public BSDropDownMenu<?> addDropDownNotificationsMenu()
+	public BSDropDownMenu<?> addDropDownMenu()
 	{
-		BSDropDownMenu<?> menu = new BSDropDownMenu();
+		BSDropDownMenu<?> menu = new BSDropDownMenu<>();
 		add(menu);
 		return menu;
 	}

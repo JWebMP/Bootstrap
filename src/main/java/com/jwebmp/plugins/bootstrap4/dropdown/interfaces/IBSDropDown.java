@@ -17,6 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap4.dropdown.interfaces;
 
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
@@ -48,10 +49,12 @@ public interface IBSDropDown<J extends BSDropDown<J>>
 
 	BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions);
 
-	/**
+    Link<?> addDropDownLink();
+
+    /**
 	 * Adds the menu to the drop down (call after button)
 	 *
 	 * @return
 	 */
-	BSDropDownMenu<?> addDropDownNotificationsMenu();
+	BSDropDownMenu<?> addDropDownMenu();
 }
