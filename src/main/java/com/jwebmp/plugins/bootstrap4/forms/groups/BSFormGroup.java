@@ -94,6 +94,10 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * Form Group Messages
 	 */
 	private AngularInputMessages<?> messages;
+	/**
+	 * Enables or disables message display in the group
+	 */
+	private boolean enableMessages;
 
 	/**
 	 * Constructs a new BS Form Group
@@ -106,7 +110,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	public void preConfigure()
 	{
-		if (!isConfigured() && messages != null)
+		if (!isConfigured() && messages != null && enableMessages)
 		{
 			if (messagePlacement == Bottom)
 			{
@@ -130,7 +134,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@NotNull
 	public AngularInputMessages<?> getMessages()
 	{
-		if (messages == null)
+		if (messages == null && enableMessages)
 		{
 			messages = new AngularInputMessages<>(getForm(), input);
 			messages.addClass("is-invalid");
@@ -554,7 +558,27 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		return (J) this;
 	}
-
+	
+	/**
+	 * If messages are enabled
+	 * @return
+	 */
+	public boolean isEnableMessages()
+	{
+		return enableMessages;
+	}
+	
+	/**
+	 * Set messages enabled flag
+	 * @param enableMessages
+	 * @return
+	 */
+	public BSFormGroup<J, I> setEnableMessages(boolean enableMessages)
+	{
+		this.enableMessages = enableMessages;
+		return this;
+	}
+	
 	@Override
 	public int hashCode()
 	{

@@ -15,7 +15,7 @@ public class BSToastHeader<J extends BSToastHeader<J>>
 		extends DivSimple<J>
 {
 	private BSImage<?> image;
-	private IIcon<?> imageIcon;
+	private IIcon<?,?> imageIcon;
 	private Strong<?> title;
 	private SmallText<?> subtitle;
 	private BSCloseIcon<?> closeIcon;
@@ -49,7 +49,7 @@ public class BSToastHeader<J extends BSToastHeader<J>>
 	}
 
 	@SuppressWarnings("unchecked")
-	public J setHeaderImage(IIcon<?> image)
+	public J setHeaderImage(IIcon<?,?> image)
 	{
 		this.image = null;
 		this.imageIcon = image;
@@ -85,7 +85,7 @@ public class BSToastHeader<J extends BSToastHeader<J>>
 	 *
 	 * @return Value for property 'imageIcon'.
 	 */
-	public IIcon<?> getImageIcon()
+	public IIcon<?,?> getImageIcon()
 	{
 		return imageIcon;
 	}
@@ -97,7 +97,7 @@ public class BSToastHeader<J extends BSToastHeader<J>>
 	 * 		Value to set for property 'imageIcon'.
 	 */
 	@SuppressWarnings("unchecked")
-	public J setImageIcon(IIcon<?> imageIcon)
+	public J setImageIcon(IIcon<?,?> imageIcon)
 	{
 		this.imageIcon = imageIcon;
 		return (J) this;

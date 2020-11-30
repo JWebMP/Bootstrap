@@ -33,9 +33,9 @@ public interface IBSNavTabs
 	@NotNull
 	BSTabContainer<?> addTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
 
-    @NotNull BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content, boolean active);
+    @NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content, boolean active);
 
-	@NotNull BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content);
+	@NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content);
 
 	@NotNull
 	Set<BSTabContainer<?>> getTabs();

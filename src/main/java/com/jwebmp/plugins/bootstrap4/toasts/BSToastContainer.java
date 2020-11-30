@@ -70,7 +70,7 @@ public class BSToastContainer<J extends BSToastContainer<J>>
 	 *
 	 * @return
 	 */
-	public J addToast(IIcon<?> icon, String title, String description)
+	public J addToast(IIcon<?,?> icon, String title, String description)
 	{
 		BSToast<?> toast = new BSToast<>();
 		toast.getToastHeader()

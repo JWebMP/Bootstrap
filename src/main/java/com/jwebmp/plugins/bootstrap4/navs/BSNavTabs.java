@@ -100,7 +100,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content, boolean active)
+	public BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
 		BSNavListItem<?> listItem = navs.addItem(label, active);
@@ -121,7 +121,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(IIcon<?> label, Div<?, ?, ?, ?, ?> content)
+	public BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content)
 	{
 		return addTab(label, content, false);
 	}

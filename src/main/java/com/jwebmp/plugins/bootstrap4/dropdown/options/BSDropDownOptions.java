@@ -36,7 +36,9 @@ public enum BSDropDownOptions
 		implements IBSComponentOptions
 {
 	Dropdown,
-	Dropup,
+	Dropdown_Lg,
+	Dropdown_Sm,
+	DropUp,
 	DropRight,
 	DropLeft,
 	Dropdown_Item,
@@ -45,6 +47,7 @@ public enum BSDropDownOptions
 	Dropdown_Divider,
 	Dropdown_Toggle_Split,
 	Dropdown_Header,
+	Arrow_None,
 	Dropdown_Menu_Right;
 
 	@Override

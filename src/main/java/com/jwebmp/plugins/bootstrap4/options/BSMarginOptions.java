@@ -135,7 +135,31 @@ public enum BSMarginOptions
 	 * Separates from the Top automatically
 	 */
 	MarginTop_Xl_Auto("mt-xl-auto"),
-
+	
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_0("m-0"),
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_1("m-1"),
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_2("m-2"),
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_3("m-3"),
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_4("m-4"),
+	/**
+	 * Separates from the left automatically
+	 */
+	Margin_5("m-5"),
 	/**
 	 * Separates from the left automatically
 	 */
@@ -657,8 +681,8 @@ public enum BSMarginOptions
 	 * Separates from the Top 5matically
 	 */
 	MarginTop_Xl_5("mt-xl-5"),
-	Margin_1("m-1");
-
+	
+;
 	private String className;
 
 	BSMarginOptions(String className)

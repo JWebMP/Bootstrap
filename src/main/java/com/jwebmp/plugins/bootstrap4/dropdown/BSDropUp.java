@@ -41,6 +41,6 @@ public class BSDropUp<J extends BSDropUp<J>>
 	{
 		removeClass(BSDropDownOptions.Dropdown);
 		addClass(BSButtonOptions.Btn_Group);
-		addClass(BSDropDownOptions.Dropup);
+		addClass(BSDropDownOptions.DropUp);
 	}
 }

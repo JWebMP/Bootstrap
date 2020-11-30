@@ -657,6 +657,13 @@ public enum BSPaddingOptions
 	 * Separates from the Top 5matically
 	 */
 	PaddingTop_Xl_5("pt-xl-5"),
+	
+	Padding_0("p-0"),
+	Padding_1("p-1"),
+	Padding_2("p-2"),
+	Padding_3("p-3"),
+	Padding_4("p-4"),
+	Padding_5("p-5"),
 	;
 
 	private String className;

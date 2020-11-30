@@ -35,18 +35,106 @@ public enum BSDisplayOptions
 	 */
 	Block,
 	/**
+	 * Sets the display property to block
+	 */
+	Lg_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Md_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Sm_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Xl_Block,
+	/**
 	 * Sets the display property to inline
 	 */
 	Inline,
 	/**
-	 * Sets the display property to inline block
+	 * Sets the display property to block
+	 */
+	Lg_Inline,
+	/**
+	 * Sets the display property to block
+	 */
+	Md_Inline,
+	/**
+	 * Sets the display property to block
+	 */
+	Sm_Inline,
+	/**
+	 * Sets the display property to block
+	 */
+	Xl_Inline,
+	/**
+	 * Sets the display property to block
 	 */
 	Inline_Block,
 	/**
+	 * Sets the display property to block
+	 */
+	Lg_Inline_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Md_Inline_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Sm_Inline_Block,
+	/**
+	 * Sets the display property to block
+	 */
+	Xl_Inline_Block,
+	/**
 	 * Displays as flex
 	 */
-	Flex;
-
+	Flex,
+	/**
+	 * Sets the display property to block
+	 */
+	Lg_Flex,
+	/**
+	 * Sets the display property to block
+	 */
+	Md_Flex,
+	/**
+	 * Sets the display property to block
+	 */
+	Sm_Flex,
+	/**
+	 * Sets the display property to block
+	 */
+	Xl_Flex,
+	/**
+	 * d-none
+	 */
+	None,
+	/**
+	 * Sets the display property to block
+	 */
+	Lg_None,
+	/**
+	 * Sets the display property to block
+	 */
+	Md_None,
+	/**
+	 * Sets the display property to block
+	 */
+	Sm_None,
+	/**
+	 * Sets the display property to block
+	 */
+	Xl_None,
+	
+	
+	
+	;
+	
 	@Override
 	public String toString()
 	{

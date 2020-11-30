@@ -62,7 +62,10 @@ public enum BSDefaultOptions
 	 * Indicates justified text
 	 */
 	Text_Justify,
-
+	/**
+	 * Indicates justified text
+	 */
+	Text_Overflow,
 	/**
 	 * Displays the text inside the &lt;abbr&gt; element in a slightly smaller font size
 	 */
