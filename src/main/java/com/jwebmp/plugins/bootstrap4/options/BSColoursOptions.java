@@ -60,7 +60,6 @@ public enum BSColoursOptions
 	Text_Dark,
 	Text_Light,
 	Text_Secondary,
-
 	/**
 	 * Hides colours on screen readers Using color to add meaning only provides a visual indication, which will not be conveyed to users of
 	 * assistive technologies – such as screen readers. Ensure that

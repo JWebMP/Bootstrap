@@ -17,7 +17,8 @@ public enum BSBackgroundOptions
 	Bg_Light,
 	Bg_Dark,
 	Bg_Transparent,
-
+	Bg_Soft_Primary,
+	Bg_Soft_Secondary,
 	Shadow_Sm,
 	Shadow,
 	;

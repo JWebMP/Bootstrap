@@ -19,10 +19,12 @@ package com.jwebmp.plugins.bootstrap4.dropdown;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
@@ -136,7 +138,10 @@ public class BSDropDown<J extends BSDropDown<J>>
 		Link<?> button = new Link<>("javascript: void(0);");
 		button.addClass("dropdown");
 		button.addAttribute(Data_Toggle, "dropdown");
+		button.addAttribute(GlobalAttributes.Aria_HasPopup, "false");
+		button.addAttribute(GlobalAttributes.Aria_Expanded, "false");
 		button.addClass(Dropdown_Toggle);
+		button.addAttribute(BSButtonAttributes.Role.toString(), "button");
 		add(button);
 		return button;
 	}
