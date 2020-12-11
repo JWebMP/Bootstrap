@@ -17,13 +17,18 @@
 
 package com.jwebmp.plugins.bootstrap4.navs.interfaces;
 
+import com.jwebmp.core.Component;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.plugins.bootstrap4.listgroup.tabs.BSTabContainer;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavTabs;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 
+import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavLinkItem;
+import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
 import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
@@ -31,11 +36,13 @@ public interface IBSNavTabs
 
 {
 	@NotNull
-	BSTabContainer<?> addTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
+	BSTabContainer<?> addTab(String label, Component  content, boolean active);
 
-    @NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content, boolean active);
-
-	@NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Div<?, ?, ?, ?, ?> content);
+    @NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Component content, boolean active);
+	
+	@NotNull BSTabContainer<?> addTab(BSNavLinkItem<?> tabLink, Component  content, boolean active);
+	
+	@NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Component  content);
 
 	@NotNull
 	Set<BSTabContainer<?>> getTabs();

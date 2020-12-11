@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.navs.parts;
 
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
@@ -31,9 +32,7 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 		extends ListItem<J>
 		implements BSNavsChildren<ListItemChildren, J>
 {
-
-
-	private final BSNavLinkItem<?> linkItem;
+	private BSNavLinkItem<?> linkItem;
 
 	/**
 	 * Constructs a list item with a link item inside
@@ -96,7 +95,18 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 		}
 		return (J) this;
 	}
-
+	
+	/**
+	 * Sets the link item
+	 * @param linkItem
+	 * @return
+	 */
+	public J setLinkItem(BSNavLinkItem<?> linkItem)
+	{
+		this.linkItem = linkItem;
+		return (J) this;
+	}
+	
 	/**
 	 * Returns the associated Link Item
 	 *

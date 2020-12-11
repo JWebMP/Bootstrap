@@ -17,9 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
+import com.jwebmp.core.Component;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
+import com.jwebmp.core.base.interfaces.IComponentBase;
+import com.jwebmp.core.base.interfaces.IComponentHTMLAttributeBase;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;
@@ -40,20 +44,18 @@ import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
  * A list group tab to add (Container)
  */
 public class BSTabContainer<J extends BSTabContainer<J>>
-
 {
-
-
+	
 	private boolean active;
 	private boolean fade;
 
-	private ComponentHierarchyBase<?, ?, ?, ?, ?> tabPane;
+	private Component tabPane;
 
 	private BSListGroupButtonItem<?> buttonItem;
 	private BSNavListItem<?> listItem;
 	private BSDropDown<?> dropDownItem;
 
-	public BSTabContainer(boolean active, @NotNull ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, String text)
+	public BSTabContainer(boolean active, @NotNull Component tabContent, String text)
 	{
 		this(tabContent, text);
 		this.active = active;
@@ -64,7 +66,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	}
 
 	@SuppressWarnings("unchecked")
-	public BSTabContainer(ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, String text)
+	public BSTabContainer(Component  tabContent, String text)
 	{
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
@@ -74,7 +76,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	}
 
 
-	public BSTabContainer(boolean active, @NotNull ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, ListItemChildren<?,?> text)
+	public BSTabContainer(boolean active, @NotNull Component  tabContent, ListItemChildren<?,?> text)
 	{
 		this(tabContent, text);
 		this.active = active;
@@ -85,7 +87,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	}
 
 	@SuppressWarnings("unchecked")
-	public BSTabContainer(ComponentHierarchyBase<?, ?, ?, ?, ?> tabContent, ListItemChildren<?,?> text)
+	public BSTabContainer(Component  tabContent, ListItemChildren<?,?> text)
 	{
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
@@ -246,7 +248,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setTabPane(ComponentHierarchyBase<?, ?, ?, ?, ?> tabPane)
+	public J setTabPane(Component tabPane)
 	{
 		this.tabPane = tabPane;
 		return (J) this;

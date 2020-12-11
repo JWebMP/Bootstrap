@@ -59,6 +59,10 @@ public enum BSButtonOptions
 	 */
 	Btn_Success,
 	/**
+	 * Indicates a successful or positive action
+	 */
+	Btn_White,
+	/**
 	 * Contextual button for informational alert messages
 	 */
 	Btn_Info,
@@ -120,7 +124,9 @@ public enum BSButtonOptions
 	Btn_Outline_Light,
 
 	Btn_Group,
-	Btn_Group_Toggle;
+	Btn_Group_Toggle,
+	Btn_Rounded
+	;
 
 	@Override
 	public String toString()

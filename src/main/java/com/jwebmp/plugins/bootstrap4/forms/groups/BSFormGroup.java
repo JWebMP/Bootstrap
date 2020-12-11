@@ -97,7 +97,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	/**
 	 * Enables or disables message display in the group
 	 */
-	private boolean enableMessages;
+	private boolean enableMessages = true;
 
 	/**
 	 * Constructs a new BS Form Group
