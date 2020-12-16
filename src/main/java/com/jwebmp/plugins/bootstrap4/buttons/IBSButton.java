@@ -31,7 +31,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setDanger(boolean applyStyle);
 
 	/**
@@ -41,7 +41,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setDangerOutline(boolean applyStyle);
 
 	/**
@@ -75,7 +75,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	BSButton setDisabled(boolean disabled);
+	BSButton<?> setDisabled(boolean disabled);
 
 	/**
 	 * Set or remove the style
@@ -84,7 +84,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setInfo(boolean applyStyle);
 
 	/**
@@ -94,7 +94,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setInfoOutline(boolean applyStyle);
 
 	/**
@@ -104,7 +104,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setLink(boolean applyStyle);
 
 	/**
@@ -118,7 +118,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	BSButton setPressed(boolean pressed);
+	BSButton<?> setPressed(boolean pressed);
 
 	/**
 	 * Set or remove the style
@@ -127,7 +127,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setPrimary(boolean applyStyle);
 
 	/**
@@ -137,7 +137,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setPrimaryOutline(boolean applyStyle);
 
 	/**
@@ -147,7 +147,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setSecondary(boolean applyStyle);
 
 	/**
@@ -157,7 +157,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setSecondaryOutline(boolean applyStyle);
 
 	/**
@@ -169,7 +169,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	BSButton setSize(BSButtonSizeOptions size);
+	BSButton<?> setSize(BSButtonSizeOptions size);
 
 	/**
 	 * Set or remove the style
@@ -178,7 +178,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setSuccess(boolean applyStyle);
 
 	/**
@@ -188,7 +188,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setSuccessOutline(boolean applyStyle);
 
 	/**
@@ -201,7 +201,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setToggle(boolean toggle);
 
 	/**
@@ -211,7 +211,7 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setWarning(boolean applyStyle);
 
 	/**
@@ -221,6 +221,6 @@ public interface IBSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setWarningOutline(boolean applyStyle);
 }

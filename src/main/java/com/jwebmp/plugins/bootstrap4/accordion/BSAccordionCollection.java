@@ -34,8 +34,6 @@ import jakarta.validation.constraints.NotNull;
 public class BSAccordionCollection<J extends BSAccordionCollection<J>>
 
 {
-
-
 	private BSCard<?> card;
 	private BSCardBody<?> body;
 	private BSCardHeader<?> header;

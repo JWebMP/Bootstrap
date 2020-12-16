@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.modal;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalHideFeature;
 import com.jwebmp.plugins.bootstrap4.modal.features.BSModalShowFeature;
@@ -59,7 +60,7 @@ public interface IBSModal<J extends BSModal<J>>
 	 */
 	BSButton<?> createDismissButton();
 
-	<T extends ComponentHierarchyBase> T createDismissButton(T component);
+	<T extends IComponentHierarchyBase<?,?>> T createDismissButton(T component);
 
 	/**
 	 * Adds a button that will open up the modal
@@ -68,9 +69,9 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J addOpenButton(Button button);
+	J addOpenButton(Button<?,?,?,?,?> button);
 
 	/**
 	 * Sets the size to render for the modal. By default medium. false sets small
@@ -79,7 +80,7 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setModalDialogSize(boolean large);
 
@@ -90,11 +91,11 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setBackdrop(boolean backdrop);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setFade();
 
@@ -105,7 +106,7 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setFocus(boolean focus);
 
@@ -116,7 +117,7 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setKeyboard(boolean keyboard);
 
@@ -127,21 +128,21 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setShow(boolean show);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setModalDialogCenter(boolean centered);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J addOpenButton(ComponentHierarchyBase button);
+	J addOpenButton(IComponentHierarchyBase<?,?> button);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J addOpenButton(ComponentHierarchyBase button, boolean setButtonTag);
+	J addOpenButton(IComponentHierarchyBase<?,?> button, boolean setButtonTag);
 
 	BSModalShowFeature createShowFeature();
 

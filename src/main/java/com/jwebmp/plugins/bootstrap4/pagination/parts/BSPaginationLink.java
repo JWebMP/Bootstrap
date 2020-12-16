@@ -55,8 +55,8 @@ public class BSPaginationLink<J extends BSPaginationLink<J>>
 	 *
 	 * @return
 	 */
-	public BSPaginationListItem getListItem()
+	public BSPaginationListItem<?> getListItem()
 	{
-		return (BSPaginationListItem) getParent();
+		return (BSPaginationListItem<?>) getParent();
 	}
 }

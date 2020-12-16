@@ -31,8 +31,6 @@ import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
 public class BSCarouselNextFeature<J extends BSCarouselNextFeature<J>>
 		extends Feature<GlobalFeatures, BSCarouselOptions, J>
 {
-
-
 	/**
 	 * The method name to call
 	 */
@@ -65,7 +63,7 @@ public class BSCarouselNextFeature<J extends BSCarouselNextFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel('";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel('";
 		requiredString += BSCarouselNextFeature.methodName;
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);

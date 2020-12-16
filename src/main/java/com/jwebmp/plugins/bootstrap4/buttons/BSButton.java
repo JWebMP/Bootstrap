@@ -49,8 +49,8 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 		url = "https://v4-alpha.getbootstrap.com/components/buttons/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSButton<J extends BSButton<J>>
-		extends Button<IComponentHierarchyBase, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSDropDownChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, IBSButton<J>
+		extends Button<GlobalChildren, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSDropDownChildren, BSFormChildren, IBSButton<J>
 {
 
 
@@ -82,7 +82,7 @@ public class BSButton<J extends BSButton<J>>
 	 *
 	 * @return
 	 */
-	public IBSButton asMe()
+	public IBSButton<?> asMe()
 	{
 		return this;
 	}
@@ -289,7 +289,7 @@ public class BSButton<J extends BSButton<J>>
 	 * @return
 	 */
 	@Override
-	public BSButton setPressed(boolean pressed)
+	public BSButton<?> setPressed(boolean pressed)
 	{
 		if (pressed)
 		{
@@ -411,7 +411,7 @@ public class BSButton<J extends BSButton<J>>
 	 * @return
 	 */
 	@Override
-	public BSButton setSize(BSButtonSizeOptions size)
+	public BSButton<?> setSize(BSButtonSizeOptions size)
 	{
 		for (BSButtonSizeOptions value : BSButtonSizeOptions.values())
 		{

@@ -95,7 +95,7 @@ public interface IBSCardBody<J extends BSCardBody<J>>
 	 *
 	 * @return
 	 */
-	BSCardBlockQuote<?> addBlockQuote(String text, BSCardBlockQuoteFooter footer);
+	BSCardBlockQuote<?> addBlockQuote(String text, BSCardBlockQuoteFooter<?> footer);
 
 	/**
 	 * Adds the block quote with the givne text (or component.toString(0)) and a nullable footer
@@ -107,6 +107,5 @@ public interface IBSCardBody<J extends BSCardBody<J>>
 	 */
 	BSCardBlockQuote<?> addBlockQuote(String text, String footer);
 
-	@SuppressWarnings("unchecked")
 	J removePadding();
 }

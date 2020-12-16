@@ -34,14 +34,12 @@ import java.util.Objects;
  */
 public class BSCarouselControl<J extends BSCarouselControl<J>>
 		extends Link<J>
-		implements BSCarouselChildren<IComponentHierarchyBase, J>
+		implements BSCarouselChildren
 {
-
-
 	/**
 	 * The actual carousel
 	 */
-	private BSCarousel carousel;
+	private BSCarousel<?> carousel;
 	/**
 	 * If this is a previous control, as opposed to next
 	 */
@@ -49,7 +47,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	/**
 	 * The icon for this control, automatically gets next and previous added on
 	 */
-	private Span icon;
+	private Span<?,?,?> icon;
 
 	/**
 	 * Constructs with a carousel and a previous
@@ -57,7 +55,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 * @param carousel
 	 * @param previous
 	 */
-	public BSCarouselControl(BSCarousel carousel, boolean previous)
+	public BSCarouselControl(BSCarousel<?> carousel, boolean previous)
 	{
 		this.carousel = carousel;
 
@@ -82,11 +80,11 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 *
 	 * @return
 	 */
-	public BSCarousel getCarousel()
+	public BSCarousel<?> getCarousel()
 	{
 		if (carousel == null)
 		{
-			setCarousel(new BSCarousel());
+			setCarousel(new BSCarousel<>());
 		}
 		return carousel;
 	}
@@ -98,7 +96,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 *
 	 * @return
 	 */
-	public BSCarouselControl setCarousel(BSCarousel carousel)
+	public BSCarouselControl<?> setCarousel(BSCarousel<?> carousel)
 	{
 		this.carousel = carousel;
 		return this;
@@ -121,7 +119,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 *
 	 * @return
 	 */
-	public BSCarouselControl setPrevious(boolean previous)
+	public BSCarouselControl<?> setPrevious(boolean previous)
 	{
 		this.previous = previous;
 		return this;
@@ -144,7 +142,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 *
 	 * @return
 	 */
-	public Span getIcon()
+	public Span<?,?,?> getIcon()
 	{
 		return icon;
 	}
@@ -156,7 +154,7 @@ public class BSCarouselControl<J extends BSCarouselControl<J>>
 	 *
 	 * @return
 	 */
-	public BSCarouselControl setIcon(Span icon)
+	public BSCarouselControl<?> setIcon(Span<?,?,?> icon)
 	{
 		this.icon = icon;
 

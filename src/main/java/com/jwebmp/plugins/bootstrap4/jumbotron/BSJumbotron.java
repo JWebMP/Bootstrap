@@ -20,13 +20,12 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.H1;
 import com.jwebmp.core.base.html.HorizontalRule;
 import com.jwebmp.core.base.html.Paragraph;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.jumbotron.interfaces.IBSJumbotron;
 import com.jwebmp.plugins.bootstrap4.options.BSMarginOptions;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -46,11 +45,9 @@ import jakarta.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/components/jumbotron/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSJumbotron<J extends BSJumbotron<J>>
-		extends Div<IComponentHierarchyBase, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<GlobalChildren, BSJumbotronAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSJumbotron<J>
 {
-
-
 	/**
 	 * Constructs a new instance
 	 * <p>
@@ -135,7 +132,7 @@ public class BSJumbotron<J extends BSJumbotron<J>>
 	@Override
 	public HorizontalRule<?> addHorizontalRule()
 	{
-		HorizontalRule hr = HorizontalRule.getInstance()
+		HorizontalRule<?> hr = HorizontalRule.getInstance()
 		                                  .addClass(BSMarginOptions.MarginBottom_3);
 		add(hr);
 		return hr;

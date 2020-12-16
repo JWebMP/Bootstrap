@@ -7,7 +7,7 @@ import com.jwebmp.plugins.bootstrap4.media.BSMediaChildren;
 
 public class BSMediaLink<J extends BSMediaLink<J>>
 		extends Link<J>
-		implements BSMediaChildren<IComponentHierarchyBase, J>
+		implements BSMediaChildren
 {
 	/**
 	 * The media image logo
@@ -36,6 +36,7 @@ public class BSMediaLink<J extends BSMediaLink<J>>
 	 *
 	 * @return This object
 	 */
+	@SuppressWarnings("unchecked")
 	public J setLeft(boolean left)
 	{
 		if (left)

@@ -47,12 +47,6 @@ import jakarta.validation.constraints.NotNull;
 public class BSProgressBar<J extends BSProgressBar<J>>
 		extends Div<BSProgressBarChildren, BSProgressBarAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {
-
-	/**
-	 * Field serialVersionUID
-	 */
-
-
 	/**
 	 * Whether or not the progress bar is striped
 	 */
@@ -69,7 +63,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	/**
 	 * The actual progress bar
 	 */
-	private BSProgressBarDisplay progressBar;
+	private BSProgressBarDisplay<?> progressBar;
 
 	/**
 	 * Use our custom progress component for displaying simple or complex progress bars.
@@ -113,7 +107,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 * @param progressBar
 	 * 		The actual progress bar
 	 */
-	public BSProgressBar(boolean striped, boolean active, BSProgressBarDisplay progressBar)
+	public BSProgressBar(boolean striped, boolean active, BSProgressBarDisplay<?> progressBar)
 	{
 		addClass(BSProgressBarOptions.Progress);
 		setStriped(striped);
@@ -207,7 +201,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	{
 		if (progressBar == null)
 		{
-			progressBar = new BSProgressBarDisplay();
+			progressBar = new BSProgressBarDisplay<>();
 			setProgressBar(progressBar);
 		}
 		return progressBar;

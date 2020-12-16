@@ -8,7 +8,7 @@ import com.jwebmp.plugins.bootstrap4.modal.BSModalOptions;
 
 public class BSModalDialog<J extends BSModalDialog<J>>
 		extends DivSimple<J>
-		implements BSModalChildren<IComponentHierarchyBase, J>
+		implements BSModalChildren
 {
 	public BSModalDialog()
 	{

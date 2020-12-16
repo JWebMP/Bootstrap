@@ -16,12 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.breadcrumbs;
 
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.ListItem;
-import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
-import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -35,14 +33,12 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 		extends ListItem<J>
-		implements BSBreadcrumbsChildren<ListItemChildren, J>, IBSBreadCrumbItem<J>
+		implements BSBreadcrumbsChildren, IBSBreadCrumbItem<J>
 {
-
-
 	/**
 	 * The actual link for the crumb
 	 */
-	private Link crumbLink;
+	private Link<?> crumbLink;
 
 	/**
 	 * Construct with a link and text to show
@@ -50,7 +46,7 @@ public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	 * @param crumbLink
 	 */
 	@SuppressWarnings("")
-	public BSBreadCrumbItem(Link crumbLink)
+	public BSBreadCrumbItem(Link<?> crumbLink)
 	{
 		this();
 		setCrumbLink(crumbLink);
@@ -74,7 +70,7 @@ public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addLink(BSBreadCrumbLink link)
+	public J addLink(BSBreadCrumbLink<?> link)
 	{
 		add(link);
 		return (J) this;
@@ -86,11 +82,11 @@ public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	 * @return
 	 */
 	@Override
-	public Link getCrumbLink()
+	public Link<?> getCrumbLink()
 	{
 		if (crumbLink == null)
 		{
-			setCrumbLink(new Link(StaticStrings.STRING_HASH));
+			setCrumbLink(new Link<>(StaticStrings.STRING_HASH));
 		}
 		return crumbLink;
 	}
@@ -103,7 +99,7 @@ public class BSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setCrumbLink(Link crumbLink)
+	public J setCrumbLink(Link<?> crumbLink)
 	{
 		if (this.crumbLink != null)
 		{

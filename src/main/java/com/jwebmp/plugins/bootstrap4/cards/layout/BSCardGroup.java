@@ -35,7 +35,7 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardGroup;
  * @since 01 Jan 2017
  */
 public class BSCardGroup<J extends BSCardGroup<J>>
-		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<BSCard<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardGroup<J>
 {
 

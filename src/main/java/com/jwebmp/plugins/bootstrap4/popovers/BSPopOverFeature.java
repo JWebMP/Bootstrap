@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.popovers;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
@@ -28,11 +29,9 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
  * @since 2013/01/16
  */
 public class BSPopOverFeature
-		extends Feature<GlobalFeatures, BSPopOverOptions, BSPopOverFeature>
+		extends Feature<GlobalFeatures, BSPopOverOptions<?>, BSPopOverFeature>
 {
-
-
-	private BSPopOverOptions options;
+	private BSPopOverOptions<?> options;
 
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
@@ -40,7 +39,7 @@ public class BSPopOverFeature
 	 *
 	 * @param forComponent
 	 */
-	public BSPopOverFeature(Component forComponent)
+	public BSPopOverFeature(IComponentHierarchyBase<?,?> forComponent)
 	{
 		super("BootstrapPopoverFeature");
 		setComponent(forComponent);
@@ -65,7 +64,7 @@ public class BSPopOverFeature
 	 * @return
 	 */
 	@Override
-	public BSPopOverOptions getOptions()
+	public BSPopOverOptions<?> getOptions()
 	{
 		if (options == null)
 		{
@@ -77,7 +76,7 @@ public class BSPopOverFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getNewLine() + getComponent().getJQueryID() + "popover({" + getOptions() + "});" + getNewLine();
+		String requiredString = getNewLine() + getComponent().asBase().getJQueryID() + "popover({" + getOptions() + "});" + getNewLine();
 		addQuery(requiredString);
 	}
 }

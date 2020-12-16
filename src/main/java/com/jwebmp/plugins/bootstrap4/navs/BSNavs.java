@@ -53,7 +53,7 @@ import static com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions.*;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSNavs<J extends BSNavs<J>>
 		extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren<BSNavsChildren, J>, IBSNavs<J>
+		implements BSNavBarChildren, IBSNavs<J>
 {
 
 
@@ -191,7 +191,7 @@ public class BSNavs<J extends BSNavs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSNavListItem<?> addItem(ListItemChildren<?,?> name, boolean active)
+	public BSNavListItem<?> addItem(ListItemChildren name, boolean active)
 	{
 		return addItem(name, active, false);
 	}
@@ -208,7 +208,7 @@ public class BSNavs<J extends BSNavs<J>>
 
 	@Override
 	@NotNull
-	public BSNavListItem<?> addItem(ListItemChildren<?,?> name, boolean active, boolean disabled)
+	public BSNavListItem<?> addItem(ListItemChildren name, boolean active, boolean disabled)
 	{
 		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
 		newLinkItem.setActive(active);
@@ -320,7 +320,6 @@ public class BSNavs<J extends BSNavs<J>>
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public void preConfigure()
 	{
 		if (!isConfigured() && (getClasses().contains(BSNavsOptions.Nav_Fill.toString()) || getClasses().contains(Nav_Justified.toString())))
@@ -328,9 +327,9 @@ public class BSNavs<J extends BSNavs<J>>
 
 			getChildren().forEach(a ->
 			                      {
-				                      List<String> newOrder = new ArrayList<>(a.getClasses());
+				                      List<String> newOrder = new ArrayList<>(a.asHierarchyBase().getClasses());
 				                      newOrder.add(0, BSNavsOptions.Nav_Item.toString());
-				                      a.setClasses(new LinkedHashSet<>(newOrder));
+				                      a.asHierarchyBase().setClasses(new LinkedHashSet<>(newOrder));
 			                      });
 		}
 

@@ -61,7 +61,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -106,8 +106,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 	{
 		if (!isConfigured())
 		{
-			
-			getComponent().addAttribute("ng-bs-alert-close-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-bs-alert-close-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -145,5 +144,5 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onClose(AjaxCall call, AjaxResponse response);
+	public abstract void onClose(AjaxCall<?> call, AjaxResponse<?> response);
 }

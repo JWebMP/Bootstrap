@@ -34,7 +34,7 @@ public enum BootstrapReferencePool
 	
 	Bootstrap4PopperReference(new JavascriptReference("BS4Popper", 4.53, "bower_components/popper.js/dist/umd/popper.min.js", 9), null),
 
-	Bootstrap4RebootReference(null, new CSSReference("BS4Reboot", 4.53, "bower_components/bootstrap4/dist/css/bootstrap-reboot.min.css", 11)),
+	Bootstrap4RebootReference(null, new CSSReference("BS4Reboot", 4.53, "bower_components/bootstrap4/dist/css/bootstrap-reboot.min.css", 9)),
 
 	Bootstrap4DropDownReference(null, new CSSReference("BS4DropDownNoCaret", 4.53, "bs4custom/bs4hidecaret.css", 90));
 

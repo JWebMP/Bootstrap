@@ -30,8 +30,6 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 public class BSDropUp<J extends BSDropUp<J>>
 		extends BSDropDown<J>
 {
-
-
 	/**
 	 * Dropup variation
 	 * <p>

@@ -31,6 +31,6 @@ public interface IBSButtonToolbar
 	 *
 	 * @return
 	 */
-	BSButtonToolbar setAriaLabel(String label);
+	BSButtonToolbar<?> setAriaLabel(String label);
 
 }

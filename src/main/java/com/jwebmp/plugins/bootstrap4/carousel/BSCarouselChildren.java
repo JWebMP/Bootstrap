@@ -16,16 +16,15 @@
  */
 package com.jwebmp.plugins.bootstrap4.carousel;
 
-import com.jwebmp.core.base.ComponentBase;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 
 /**
  * @author GedMarc
  * @version 1.0
  * @since 07 Aug 2015
  */
-public interface BSCarouselChildren<C extends IComponentHierarchyBase, J extends ComponentBase>
-		extends IComponentHierarchyBase<C, J>
+public interface BSCarouselChildren
+		extends GlobalChildren
 {
 
 }

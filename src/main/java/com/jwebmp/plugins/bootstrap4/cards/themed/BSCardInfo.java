@@ -31,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
  * @since 01 Jan 2017
  */
 public class BSCardInfo
-		extends BSCard
+		extends BSCard<BSCardInfo>
 {
 
 

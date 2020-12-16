@@ -22,6 +22,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IIcon;
@@ -53,7 +54,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	private final Set<BSTabContainer<?>> tabs;
 	
 	private final BSNavs<?> navs;
-	private final ComponentHierarchyBase tabContents;
+	private final IComponentHierarchyBase<GlobalChildren,?> tabContents;
 	
 	private boolean tabsFirst = true;
 	
@@ -65,7 +66,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 		tabs = new LinkedHashSet<>();
 		navs = new BSNavs<>();
 		navs.setAsTabs(true);
-		tabContents = new DivSimple();
+		tabContents = new DivSimple<>();
 		tabContents.addClass(Tab_Content);
 	}
 	
@@ -84,7 +85,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(String label, Component content, boolean active)
+	public BSTabContainer<?> addTab(String label, IComponentHierarchyBase<?,?> content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
 		BSNavListItem<?> listItem = navs.addItem(label, active);
@@ -104,7 +105,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(IIcon<?, ?> label, Component content, boolean active)
+	public BSTabContainer<?> addTab(IIcon<?, ?> label, IComponentHierarchyBase<?,?> content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
 		BSNavListItem<?> listItem = navs.addItem(label, active);
@@ -125,7 +126,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(BSNavLinkItem<?> tabLink, Component content, boolean active)
+	public BSTabContainer<?> addTab(BSNavLinkItem<?> tabLink, IComponentHierarchyBase<?,?> content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, tabLink);
 		BSNavListItem<?> listItem = navs.addItem(tabLink, active);
@@ -149,7 +150,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 */
 	@Override
 	@NotNull
-	public BSTabContainer<?> addTab(IIcon<?, ?> label, Component content)
+	public BSTabContainer<?> addTab(IIcon<?, ?> label, IComponentHierarchyBase<?,?> content)
 	{
 		return addTab(label, content, false);
 	}
@@ -185,7 +186,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 * @return The actual div for the tab contents which has all the tab panes inside
 	 */
 	@Override
-	public ComponentHierarchyBase getTabContents()
+	public IComponentHierarchyBase<?,?> getTabContents()
 	{
 		return tabContents;
 	}
@@ -198,11 +199,10 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	 * @return The tab container for the drop down tab item
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	@Override
 	public BSTabContainer<?> addDropDownTab(String label, Div<?, ?, ?, ?, ?> content, boolean active)
 	{
-		BSTabContainer output = new BSTabContainer(active, content, label);
+		BSTabContainer<?> output = new BSTabContainer<>(active, content, label);
 		
 		BSDropDown<?> dropDown = new BSDropDown<>();
 		dropDown.setTag("li");
@@ -217,7 +217,6 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	}
 	
 	@Override
-	@SuppressWarnings("unchecked")
 	public void preConfigure()
 	{
 		if (!isConfigured())
@@ -233,12 +232,12 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 				add(navs);
 			}
 			
-			tabs.forEach(a ->
-			             {
-				             a.configure();
-				             navs.add(a.getListItem());
-				             tabContents.add(a.getTabPane());
-			             });
+			for (BSTabContainer<?> a : tabs)
+			{
+				a.configure();
+				navs.add(a.getListItem());
+				tabContents.add(a.getTabPane());
+			}
 		}
 		super.preConfigure();
 	}
@@ -349,7 +348,7 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 	@Override
 	public J removeSpacingTop()
 	{
-		getTabContents().addStyle("padding-top:0px;");
+		getTabContents().asAttributeBase().addStyle("padding-top:0px;");
 		return (J) this;
 	}
 	

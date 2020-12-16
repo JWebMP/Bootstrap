@@ -39,12 +39,10 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  * @since Oct 7, 2016
  */
 public class BSRow<J extends BSRow<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>,
+		extends Div<BSRowChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSFormChildren, BSFormGroupChildren,
 				           IBSAlignmentCapable<J>
 {
-
-
 	/**
 	 * Rows are horizontal groups of columns that ensure your columns are lined up properly.
 	 * <p>
@@ -62,7 +60,7 @@ public class BSRow<J extends BSRow<J>>
 	 */
 	public static BSRow<?> newInstance()
 	{
-		return new BSRow();
+		return new BSRow<>();
 	}
 
 	/**

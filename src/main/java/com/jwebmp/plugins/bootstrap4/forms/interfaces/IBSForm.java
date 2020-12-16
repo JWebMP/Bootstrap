@@ -91,7 +91,7 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSFormGroup<?, InputHiddenType<?>> createHiddenInput(String binding, String label);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setInline(boolean inline);
 
@@ -122,7 +122,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setAlignment(BSAlignmentVerticalOptions horizontalLayout);
 
@@ -149,7 +149,7 @@ public interface IBSForm<J extends BSForm<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setStyleInput(boolean styleInput);
 
@@ -165,6 +165,6 @@ public interface IBSForm<J extends BSForm<J>>
 
 	BSButton<?> createResetButton(BSButtonOptions options, BSButtonSizeOptions sizes);
 
-	@SuppressWarnings("unchecked")
+	
 	J setHorizontal(boolean horizontal);
 }

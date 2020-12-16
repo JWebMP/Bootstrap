@@ -36,38 +36,38 @@ public interface IBSNavTabs
 
 {
 	@NotNull
-	BSTabContainer<?> addTab(String label, Component  content, boolean active);
+	BSTabContainer<?> addTab(String label, IComponentHierarchyBase<?,?>  content, boolean active);
 
-    @NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Component content, boolean active);
+    @NotNull BSTabContainer<?> addTab(IIcon<?,?> label, IComponentHierarchyBase<?,?> content, boolean active);
 	
-	@NotNull BSTabContainer<?> addTab(BSNavLinkItem<?> tabLink, Component  content, boolean active);
+	@NotNull BSTabContainer<?> addTab(BSNavLinkItem<?> tabLink, IComponentHierarchyBase<?,?>  content, boolean active);
 	
-	@NotNull BSTabContainer<?> addTab(IIcon<?,?> label, Component  content);
+	@NotNull BSTabContainer<?> addTab(IIcon<?,?> label, IComponentHierarchyBase<?,?>  content);
 
 	@NotNull
 	Set<BSTabContainer<?>> getTabs();
 
 	@NotNull
 	BSNavs<?> getNavs();
-
-	ComponentHierarchyBase getTabContents();
+	
+	IComponentHierarchyBase<?,?> getTabContents();
 
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	BSTabContainer<?> addDropDownTab(String label, Div<?, ?, ?, ?, ?> content, boolean active);
 
-	@SuppressWarnings("unchecked")
-	BSNavTabs setBordered(boolean bordered);
+	
+	BSNavTabs<?> setBordered(boolean bordered);
 
-	@SuppressWarnings("unchecked")
-	BSNavTabs setJustified(boolean justified);
+	
+	BSNavTabs<?> setJustified(boolean justified);
 
-	@SuppressWarnings("unchecked")
-	BSNavTabs setVerticalLeftTabs(boolean verticalLeftTabs);
+	
+	BSNavTabs<?> setVerticalLeftTabs(boolean verticalLeftTabs);
 
-	@SuppressWarnings("unchecked")
-	BSNavTabs setVerticalRightTabs(boolean verticalLeftTabs);
+	
+	BSNavTabs<?> setVerticalRightTabs(boolean verticalLeftTabs);
 
-	@SuppressWarnings("unchecked")
-	BSNavTabs removeSpacingTop();
+	
+	BSNavTabs<?> removeSpacingTop();
 }

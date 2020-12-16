@@ -31,8 +31,6 @@ import com.jwebmp.plugins.bootstrap4.options.BSColoursOptions;
 public class BSCarouselNavigationLink<J extends BSCarouselNavigationLink<J>>
 		extends Link<J>
 {
-
-
 	public BSCarouselNavigationLink(boolean isPrevious)
 	{
 		if (isPrevious)
@@ -43,11 +41,11 @@ public class BSCarouselNavigationLink<J extends BSCarouselNavigationLink<J>>
 			addAttribute("role", "button");
 			addAttribute("data-slide", "prev");
 
-			Span iconSpan = new Span();
+			Span<?,?,?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass("icon-next");
 
-			Span readerFriendly = new Span("Previous");
+			Span<?,?,?> readerFriendly = new Span<>("Previous");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 
 			add(iconSpan);
@@ -61,11 +59,11 @@ public class BSCarouselNavigationLink<J extends BSCarouselNavigationLink<J>>
 			addAttribute("role", "button");
 			addAttribute("data-slide", "next");
 
-			Span iconSpan = new Span();
+			Span<?,?,?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass("icon-next");
 
-			Span readerFriendly = new Span("Next");
+			Span<?,?,?> readerFriendly = new Span<>("Next");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 
 			add(iconSpan);

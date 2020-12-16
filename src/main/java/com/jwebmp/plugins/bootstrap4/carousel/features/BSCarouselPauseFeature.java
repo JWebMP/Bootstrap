@@ -32,8 +32,6 @@ import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
 public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 		extends Feature<GlobalFeatures, BSCarouselOptions, J>
 {
-
-
 	/**
 	 * The method name to call
 	 */
@@ -45,7 +43,7 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 	 *
 	 * @param forComponent
 	 */
-	public BSCarouselPauseFeature(BSCarousel forComponent)
+	public BSCarouselPauseFeature(BSCarousel<?> forComponent)
 	{
 		super("BSCarouselPauseFeature");
 		setComponent(forComponent);
@@ -66,7 +64,7 @@ public class BSCarouselPauseFeature<J extends BSCarouselPauseFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel('";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel('";
 		requiredString += BSCarouselPauseFeature.methodName;
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);

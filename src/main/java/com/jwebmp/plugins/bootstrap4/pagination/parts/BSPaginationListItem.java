@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.pagination.options.BSPaginationOptions;
  */
 public class BSPaginationListItem<J extends BSPaginationListItem<J>>
 		extends ListItem<J>
-		implements ListChildren<ListItemChildren, J>
+		implements ListChildren
 {
 
 
@@ -54,7 +54,7 @@ public class BSPaginationListItem<J extends BSPaginationListItem<J>>
 	 *
 	 * @return
 	 */
-	public BSPaginationListItem setDisabled()
+	public BSPaginationListItem<?> setDisabled()
 	{
 		addClass(BSDefaultOptions.Disabled);
 		addAttribute("tabindex", "-1");
@@ -73,7 +73,7 @@ public class BSPaginationListItem<J extends BSPaginationListItem<J>>
 	 *
 	 * @return
 	 */
-	public BSPaginationListItem setActive()
+	public BSPaginationListItem<?> setActive()
 	{
 		addClass(BSDefaultOptions.Active);
 		return this;

@@ -30,7 +30,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSNavListItem<J extends BSNavListItem<J>>
 		extends ListItem<J>
-		implements BSNavsChildren<ListItemChildren, J>
+		implements BSNavsChildren
 {
 	private BSNavLinkItem<?> linkItem;
 
@@ -48,7 +48,7 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 	/**
 	 * Constructs a list item with a link item inside
 	 */
-	public BSNavListItem(ListItemChildren<?,?> name)
+	public BSNavListItem(ListItemChildren name)
 	{
 		linkItem = new BSNavLinkItem<>();
 		linkItem.add(name);
@@ -101,6 +101,7 @@ public class BSNavListItem<J extends BSNavListItem<J>>
 	 * @param linkItem
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public J setLinkItem(BSNavLinkItem<?> linkItem)
 	{
 		this.linkItem = linkItem;

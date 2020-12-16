@@ -33,7 +33,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardText<J extends BSCardText<J>>
 		extends Paragraph<J>
-		implements BSCardChildren<ParagraphChildren, J>, IBSLayout<J>
+		implements BSCardChildren, IBSLayout<J>
 {
 
 

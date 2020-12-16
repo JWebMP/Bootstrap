@@ -38,10 +38,8 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSDropDownLink<J extends BSDropDownLink<J>>
 		extends Link<J>
-		implements BSDropDownChildren<IComponentHierarchyBase, J>
+		implements BSDropDownChildren
 {
-
-
 	/**
 	 * Constructs a new bootstrap drop down link item
 	 */

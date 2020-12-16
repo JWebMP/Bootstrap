@@ -85,7 +85,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 		BSCardHeader<?> header = card.addCardHeader((String) null)
 		                             .addClass("font-16");
 
-		BSAccordionBodyWrapper<?> wrapper = new BSAccordionBodyWrapper();
+		BSAccordionBodyWrapper<?> wrapper = new BSAccordionBodyWrapper<>();
 
 		card.add(wrapper);
 

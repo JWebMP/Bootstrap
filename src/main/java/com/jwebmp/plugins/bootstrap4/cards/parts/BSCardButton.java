@@ -36,10 +36,8 @@ import static com.guicedee.guicedinjection.json.StaticStrings.*;
  */
 public class BSCardButton<J extends BSCardButton<J>>
 		extends BSButton<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardButton<J>
+		implements BSCardChildren, IBSCardButton<J>
 {
-
-
 	/**
 	 * Constructs a new card button (a link behaving as a button)
 	 */

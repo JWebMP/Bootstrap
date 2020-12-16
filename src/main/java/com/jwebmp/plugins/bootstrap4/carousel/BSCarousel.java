@@ -57,9 +57,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
 		implements com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel<J>
 {
-
-
-	private BSCarouselFeature feature;
+	private BSCarouselFeature<?> feature;
 
 	/**
 	 * Determines the active slide
@@ -106,11 +104,11 @@ public class BSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	public final BSCarouselFeature getFeature()
+	public final BSCarouselFeature<?> getFeature()
 	{
 		if (feature == null)
 		{
-			feature = new BSCarouselFeature(this);
+			feature = new BSCarouselFeature<>(this);
 		}
 		return feature;
 	}
@@ -131,18 +129,18 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		if (!isInitialized())
 		{
-			BSCarouselIndicators indications = new BSCarouselIndicators(this);
+			BSCarouselIndicators<?> indications = new BSCarouselIndicators<>(this);
 			indications.init();
 			add(indications);
 			add(getCarouselSlides());
 
-			BSCarouselItem activeItem;
+			BSCarouselItem<?> activeItem;
 			if (!getSlides().isEmpty())
 			{
 				activeItem = getSlides().get(getActiveSlide());
 				activeItem.addClass(BSDefaultOptions.Active);
 			}
-			for (BSCarouselItem slide : getSlides())
+			for (BSCarouselItem<?> slide : getSlides())
 			{
 				getCarouselSlides().add(slide);
 			}
@@ -166,7 +164,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		if (carouselSlides == null)
 		{
-			setCarouselSlides(new BSCarouselSlides());
+			setCarouselSlides(new BSCarouselSlides<>());
 		}
 		return carouselSlides;
 	}
@@ -242,7 +240,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		if (previousLink == null)
 		{
-			setPreviousLink(new BSCarouselControl(this, true));
+			setPreviousLink(new BSCarouselControl<>(this, true));
 		}
 		return previousLink;
 	}
@@ -258,7 +256,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		if (nextLink == null)
 		{
-			setNextLink(new BSCarouselControl(this, false));
+			setNextLink(new BSCarouselControl<>(this, false));
 		}
 		return nextLink;
 	}
@@ -284,11 +282,11 @@ public class BSCarousel<J extends BSCarousel<J>>
 			nextLink.addAttribute("role", "button");
 			nextLink.addAttribute("data-slide", "next");
 
-			Span iconSpan = new Span();
+			Span<?,?,?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass(BSCarouselOptions.Carousel_Control_Next_Icon);
 
-			Span readerFriendly = new Span("Next");
+			Span<?,?,?> readerFriendly = new Span<>("Next");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 			nextLink.add(iconSpan);
 			nextLink.add(readerFriendly);
@@ -316,11 +314,11 @@ public class BSCarousel<J extends BSCarousel<J>>
 			previousLink.addAttribute("role", "button");
 			previousLink.addAttribute("data-slide", "prev");
 
-			Span iconSpan = new Span();
+			Span<?,?,?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass(BSCarouselOptions.Carousel_Control_Prev_Icon);
 
-			Span readerFriendly = new Span("Previous");
+			Span<?,?,?> readerFriendly = new Span<>("Previous");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 			previousLink.add(iconSpan);
 			previousLink.add(readerFriendly);
@@ -469,7 +467,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	@Override
 	public BSCarouselCycleFeature<?> createCycleFeature()
 	{
-		return new BSCarouselCycleFeature(this);
+		return new BSCarouselCycleFeature<>(this);
 	}
 
 	/**
@@ -480,7 +478,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	@Override
 	public BSCarouselNextFeature<?> createNextFeature()
 	{
-		return new BSCarouselNextFeature(this);
+		return new BSCarouselNextFeature<>(this);
 	}
 
 	/**
@@ -491,7 +489,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	@Override
 	public BSCarouselPauseFeature<?> createPauseFeature()
 	{
-		return new BSCarouselPauseFeature(this);
+		return new BSCarouselPauseFeature<>(this);
 	}
 
 	/**
@@ -502,7 +500,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	@Override
 	public BSCarouselPreviousFeature<?> createPreviousFeature()
 	{
-		return new BSCarouselPreviousFeature(this);
+		return new BSCarouselPreviousFeature<>(this);
 	}
 
 	/**

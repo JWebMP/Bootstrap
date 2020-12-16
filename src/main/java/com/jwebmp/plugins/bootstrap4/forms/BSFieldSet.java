@@ -46,9 +46,9 @@ import static com.jwebmp.core.base.servlets.enumarations.ComponentTypes.FieldSet
  * @since 14 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Forms FieldSets",
-                      description = "Groups fields into a manageable set.",
-                      url = "https://v4-alpha.getbootstrap.com/components/forms/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+		description = "Groups fields into a manageable set.",
+		url = "https://v4-alpha.getbootstrap.com/components/forms/",
+		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSFieldSet<J extends BSFieldSet<J>>
 		extends BSForm<J>
 {
@@ -302,6 +302,7 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 		return getFormOwner().createHiddenInput(binding, label);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public J setInline(boolean inline)
 	{
@@ -322,6 +323,7 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public J setAlignment(BSAlignmentVerticalOptions horizontalLayout)
 	{
 		getFormOwner().setAlignment(horizontalLayout);
@@ -341,6 +343,7 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public J setStyleInput(boolean styleInput)
 	{
 		getFormOwner().setStyleInput(styleInput);
@@ -384,6 +387,7 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public J setHorizontal(boolean horizontal)
 	{
 		getFormOwner().setHorizontal(horizontal);
@@ -391,6 +395,7 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public J add(String textToAdd)
 	{
 		return (J) getFormOwner().add(textToAdd);

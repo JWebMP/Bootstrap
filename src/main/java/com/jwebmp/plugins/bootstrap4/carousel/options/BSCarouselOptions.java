@@ -29,7 +29,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @since Mar 4, 2015
  */
 public class BSCarouselOptions
-		extends JavaScriptPart
+		extends JavaScriptPart<BSCarouselOptions>
 {
 
 

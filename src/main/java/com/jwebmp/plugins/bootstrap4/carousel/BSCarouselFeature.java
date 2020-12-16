@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.carousel;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.carousel.options.BSCarouselOptions;
 
 /**
@@ -44,7 +45,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 	 *
 	 * @param forComponent
 	 */
-	public BSCarouselFeature(Component forComponent)
+	public BSCarouselFeature(IComponentHierarchyBase<?,?> forComponent)
 	{
 		super("BSCarouselFeature");
 		setComponent(forComponent);
@@ -81,7 +82,7 @@ public class BSCarouselFeature<J extends BSCarouselFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel(";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel(";
 		requiredString += getOptions().toString();
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);

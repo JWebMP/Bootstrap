@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.tooltips;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.popovers.BSPopOverOptions;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
@@ -31,7 +32,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.*;
  * @since 2013/01/16
  */
 public class BSTooltipFeature
-		extends Feature<GlobalFeatures, BSPopOverOptions, BSTooltipFeature>
+		extends Feature<GlobalFeatures, BSPopOverOptions<?>, BSTooltipFeature>
 {
 
 
@@ -41,7 +42,7 @@ public class BSTooltipFeature
 	 *
 	 * @param forComponent
 	 */
-	public BSTooltipFeature(Component forComponent)
+	public BSTooltipFeature(IComponentHierarchyBase<?,?> forComponent)
 	{
 		super("BootstrapPopoverFeature");
 		setComponent(forComponent);
@@ -66,11 +67,11 @@ public class BSTooltipFeature
 	 * @return
 	 */
 	@Override
-	public BSPopOverOptions getOptions()
+	public BSPopOverOptions<?> getOptions()
 	{
 		if (super.getOptions() == null)
 		{
-			setOptions(new BSPopOverOptions());
+			setOptions(new BSPopOverOptions<>());
 		}
 		return super.getOptions();
 	}
@@ -78,7 +79,7 @@ public class BSTooltipFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "tooltip(" + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
+		String requiredString = getComponent().asBase().getJQueryID() + "tooltip(" + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
 		addQuery(requiredString);
 	}
 }

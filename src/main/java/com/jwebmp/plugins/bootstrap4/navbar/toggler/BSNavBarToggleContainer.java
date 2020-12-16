@@ -26,9 +26,7 @@ import com.jwebmp.plugins.bootstrap4.navs.BSNavs;
 public class BSNavBarToggleContainer<J extends BSNavBarToggleContainer<J>>
 
 {
-
-
-	private final BSNavBarToggler toggler;
+	private final BSNavBarToggler<?,?,?,?,?> toggler;
 	private final BSNavs<?> content;
 
 	/**
@@ -36,7 +34,7 @@ public class BSNavBarToggleContainer<J extends BSNavBarToggleContainer<J>>
 	 */
 	public BSNavBarToggleContainer()
 	{
-		this(new BSNavBarToggler(), new BSNavs<>());
+		this(new BSNavBarToggler<>(), new BSNavs<>());
 	}
 
 	/**
@@ -45,7 +43,7 @@ public class BSNavBarToggleContainer<J extends BSNavBarToggleContainer<J>>
 	 * @param toggler
 	 * @param content
 	 */
-	public BSNavBarToggleContainer(BSNavBarToggler toggler, BSNavs<?> content)
+	public BSNavBarToggleContainer(BSNavBarToggler<?,?,?,?,?> toggler, BSNavs<?> content)
 	{
 		this.toggler = toggler;
 		this.content = content;
@@ -59,7 +57,7 @@ public class BSNavBarToggleContainer<J extends BSNavBarToggleContainer<J>>
 	 *
 	 * @return
 	 */
-	public BSNavBarToggler getToggler()
+	public BSNavBarToggler<?,?,?,?,?> getToggler()
 	{
 		return toggler;
 	}

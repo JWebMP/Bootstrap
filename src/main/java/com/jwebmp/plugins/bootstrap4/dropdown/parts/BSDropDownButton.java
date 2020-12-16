@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownButton<J extends BSDropDownButton<J>>
 		extends BSButton<J>
-		implements BSDropDownChildren<IComponentHierarchyBase, J>
+		implements BSDropDownChildren
 {
 
 

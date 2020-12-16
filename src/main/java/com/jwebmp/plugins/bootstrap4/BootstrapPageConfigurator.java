@@ -25,6 +25,7 @@ import com.jwebmp.core.base.html.attributes.MetaAttributes;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.base.servlets.enumarations.RequirementsPriority;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 
@@ -41,16 +42,21 @@ import jakarta.validation.constraints.NotNull;
 		                    "on" +
 		                    " the web.<br/> We are bootstrap 4 ready!",
 		pluginUniqueName = "jwebswing-bootstrap",
-		pluginVersion = "4.0",
+		pluginVersion = "4.5.3",
 		pluginCategories = "bootstrap,ui,web ui, framework",
 		pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
 		pluginSourceUrl = "http://getbootstrap.com/",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
-		pluginIconUrl = "bower_components/bootstrap/bootstrapicon.jpg",
-		pluginIconImageUrl = "bower_components/bootstrap/bootstraplogo.jpg",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
 		pluginOriginalHomepage = "http://getbootstrap.com/",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/BootstrapPlugin.jar/download")
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
+		pluginGroupId = "com.jwebmp.plugins.bootstrap",
+		pluginArtifactId = "jwebmp-bootstrap",
+		pluginModuleName = "com.jwebmp.plugins.bootstrap4",
+		pluginStatus = PluginStatus.Released
+)
 public class BootstrapPageConfigurator
 		implements IPageConfigurator<BootstrapPageConfigurator>
 {
@@ -132,9 +138,9 @@ public class BootstrapPageConfigurator
 		{
 
 			JQueryPageConfigurator.setRequired(true);
-			Meta<?> charMeta = new Meta<>();
+			Meta charMeta = new Meta();
 			charMeta.addAttribute(MetaAttributes.Charset, "utf-16");
-			Meta<?> viewportMeta = new Meta<>(Meta.MetadataFields.ViewPort,"width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no");
+			Meta viewportMeta = new Meta(Meta.MetadataFields.ViewPort,"width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no");
 			page.getOptions().setCompatibilityMode(InternetExplorerCompatibilityMode.Edge);
 
 			page.getHead()

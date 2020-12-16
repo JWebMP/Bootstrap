@@ -33,7 +33,7 @@ public interface IBSButtonGroup
 	 *
 	 * @return
 	 */
-	BSButtonGroup setAriaLabel(String label);
+	BSButtonGroup<?> setAriaLabel(String label);
 
 	/**
 	 * Sizes
@@ -44,6 +44,6 @@ public interface IBSButtonGroup
 	 *
 	 * @return
 	 */
-	BSButtonGroup setSize(BSButtonGroupSizeOptions size);
+	BSButtonGroup<?> setSize(BSButtonGroupSizeOptions size);
 
 }

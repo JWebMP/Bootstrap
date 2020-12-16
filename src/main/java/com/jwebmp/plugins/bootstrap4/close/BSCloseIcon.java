@@ -20,7 +20,9 @@ import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.children.NoChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
@@ -44,10 +46,8 @@ import jakarta.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/utilities/close-icon/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSCloseIcon<J extends BSCloseIcon<J>>
-		extends Button<IComponentHierarchyBase, ButtonAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Button<GlobalChildren, ButtonAttributes, GlobalFeatures, GlobalEvents, J>
 {
-
-
 	/**
 	 * The actual close icon
 	 */

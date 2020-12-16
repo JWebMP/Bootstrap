@@ -27,10 +27,8 @@ import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
  */
 public class BSCarouselSlides<J extends BSCarouselSlides<J>>
 		extends DivSimple<J>
-		implements BSCarouselChildren<IComponentHierarchyBase, J>
+		implements BSCarouselChildren
 {
-
-
 	public BSCarouselSlides()
 	{
 		addClass(BSCarouselOptions.Carousel_Inner);

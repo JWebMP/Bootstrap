@@ -20,7 +20,6 @@ import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.InputTypes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
 
@@ -32,16 +31,14 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOption
  */
 public class BSInput<J extends BSInput<J>>
 		extends Input<NoAttributes, J>
-		implements BSFormGroupChildren<IComponentHierarchyBase, J>
+		implements BSFormGroupChildren
 {
-
-
 	/**
 	 * Allows construction of a bootstrap input component
 	 */
 	public BSInput()
 	{
-
+		//input
 	}
 
 	/**

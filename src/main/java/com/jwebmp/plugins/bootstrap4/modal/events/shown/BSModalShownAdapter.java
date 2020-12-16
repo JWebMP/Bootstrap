@@ -62,7 +62,7 @@ public abstract class BSModalShownAdapter<J extends BSModalShownAdapter<J>>
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -95,7 +95,7 @@ public abstract class BSModalShownAdapter<J extends BSModalShownAdapter<J>>
 		if (!isConfigured())
 		{
 			
-			getComponent().addAttribute("ng-shown-bootstrap-modal", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-shown-bootstrap-modal", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -133,5 +133,5 @@ public abstract class BSModalShownAdapter<J extends BSModalShownAdapter<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onModalShown(AjaxCall call, AjaxResponse response);
+	public abstract void onModalShown(AjaxCall<?> call, AjaxResponse<?> response);
 }

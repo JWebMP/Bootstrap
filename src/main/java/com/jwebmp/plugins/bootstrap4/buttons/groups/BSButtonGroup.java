@@ -47,7 +47,7 @@ import jakarta.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSButtonGroup<J extends BSButtonGroup<J>>
 		extends Div<BSButtonGroupChildren, BSButtonGroupAttributes, GlobalFeatures, BSButtonGroupEvents, J>
-		implements BSButtonToolbarChildren<BSButtonGroupChildren, J>, IBSButtonGroup
+		implements BSButtonToolbarChildren, IBSButtonGroup
 {
 
 

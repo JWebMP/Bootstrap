@@ -21,6 +21,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.SmallText;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.core.generics.TopOrBottom;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
@@ -35,11 +36,11 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 		extends ICssStructure<J>
 {
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	BSFormLabel<?> addLabel(String text);
 
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	I setInput(@NotNull I inputComponent);
 
 	/**
@@ -53,7 +54,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	J addSuccessFeedback(String feedback, boolean inline);
 
 	/**
@@ -70,7 +71,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setForm(BSForm<?> form);
 
@@ -88,7 +89,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	J addHelpText(String text);
 
 
@@ -97,14 +98,14 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 * @param text
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	J addHelpText(ComponentHierarchyBase<?, ?, ?, ?, ?> text);
+	
+	J addHelpText(IComponentHierarchyBase<?,?> text);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addMessage(@NotNull InputErrorValidations forError, String message, boolean inline);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addMessage(@NotNull InputErrorValidations forError, String message);
 
@@ -122,7 +123,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setMessagePlacement(@NotNull TopOrBottom messagePlacement);
 
@@ -131,7 +132,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSize(BSFormGroupSizes size);
 
@@ -143,7 +144,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setReadOnly(boolean readOnly);
 
@@ -156,7 +157,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setPlainText(boolean asPlainText);
 
@@ -175,7 +176,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J asHorizontalLayout(BSColumnOptions labelSpan, BSColumnOptions inputSpan);
 
@@ -192,7 +193,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J updateOnBlur();
 
@@ -203,7 +204,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setDisplayValidity(boolean validity);
 }

@@ -19,14 +19,11 @@ package com.jwebmp.plugins.bootstrap4.buttons.checkbox;
 import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
-import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions;
-import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
-
 import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormCustomControls.*;
 import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOptions.*;
-import static com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions.*;
+import static com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions.Disabled;
 
 /**
  * A bootstrap formatted radio button

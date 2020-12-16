@@ -17,10 +17,8 @@
 package com.jwebmp.plugins.bootstrap4.forms.groups.sets;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.Input;
-import com.jwebmp.core.base.html.SmallText;
-import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.generics.TopOrBottom;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
@@ -32,6 +30,9 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.sets.parts.InputGroupPrependIt
 import com.jwebmp.plugins.bootstrap4.forms.interfaces.IBSFormInputGroup;
 
 import jakarta.validation.constraints.NotNull;
+
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -49,14 +50,14 @@ import static com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions.*;
  */
 public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<?, ?>>
 		extends BSFormGroup<J, I>
-		implements BSFormGroupChildren<IComponentHierarchyBase, J>, IBSFormInputGroup<J, I>
+		implements BSFormGroupChildren, IBSFormInputGroup<J, I>
 {
 
 
 	private final InputGroupPrependItem<?> prependDiv;
 	private final InputGroupAppendItem<?> appendDiv;
 
-	private ComponentHierarchyBase helpText;
+	private IComponentHierarchyBase<?,?> helpText;
 
 	private boolean styleInputGroupTextWithValidation;
 
@@ -121,7 +122,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J prepend(ComponentHierarchyBase component)
+	public J prepend(IComponentHierarchyBase<?,?> component)
 	{
 		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
 		{
@@ -167,7 +168,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J append(ComponentHierarchyBase component)
+	public J append(IComponentHierarchyBase<?,?> component)
 	{
 		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
 		{
@@ -190,7 +191,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	 * @return
 	 */
 	@Override
-	public Div<?, ?, ?, ?, ?> getPrependDiv()
+	public DivSimple<?> getPrependDiv()
 	{
 		return prependDiv;
 	}
@@ -201,7 +202,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	 * @return
 	 */
 	@Override
-	public Div<?, ?, ?, ?, ?> getAppendDiv()
+	public DivSimple<?> getAppendDiv()
 	{
 		return appendDiv;
 	}
@@ -216,7 +217,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@SuppressWarnings("unchecked")
 	@NotNull
 	@Override
-	public J append(ComponentHierarchyBase component, boolean renderInSpan)
+	public J append(IComponentHierarchyBase<?,?> component, boolean renderInSpan)
 	{
 		if (renderInSpan)
 		{
@@ -290,7 +291,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		if (!isConfigured())
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
-			Set<IComponentHierarchyBase> newOrder = new LinkedHashSet<>();
+			Set<GlobalChildren> newOrder = new LinkedHashSet<>();
 			if(getMessagePlacement() == TopOrBottom.Top)
 			{
 				getChildren().remove(getMessages());
@@ -312,7 +313,8 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 				getChildren().remove(getMessages());
 				newOrder.add(getMessages());
 			}
-			setChildren(newOrder);
+			//noinspection unchecked, rawtypes
+			setChildren(new LinkedHashSet(newOrder));
 
 			if (isStyleInputGroupTextWithValidation())
 			{
@@ -339,7 +341,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J addHelpText(ComponentHierarchyBase text)
+	public J addHelpText(IComponentHierarchyBase<?,?> text)
 	{
 		text.addClass(Form_Text, Text_Muted);
 		add(text);
@@ -358,7 +360,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@SuppressWarnings("unchecked")
 	public J addHelpText(String text)
 	{
-		SmallText sm = new SmallText<>().addClass(Form_Text, Text_Muted)
+		SmallText<?> sm = new SmallText<>().addClass(Form_Text, Text_Muted)
 		                                .setText(text);
 		add(sm);
 		helpText = sm;

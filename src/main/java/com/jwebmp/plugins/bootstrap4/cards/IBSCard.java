@@ -1,7 +1,6 @@
 package com.jwebmp.plugins.bootstrap4.cards;
 
-import com.jwebmp.core.base.ComponentBase;
-import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.children.AreaChildren;
 import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.ImageMapChildren;
@@ -12,12 +11,12 @@ import com.jwebmp.plugins.bootstrap4.cards.parts.*;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import com.jwebmp.plugins.bootstrap4.options.*;
-
 import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 
-public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentBase>
-		extends BodyChildren<C, J>, ImageMapChildren<C, J>, AreaChildren<C, J>, ListItemChildren<C, J>, BSAccordionChildren<C, J>
+public interface IBSCard<C extends GlobalChildren, J extends IBSCard<C,J>>
+		extends BodyChildren, ImageMapChildren, AreaChildren, ListItemChildren, BSAccordionChildren
 {
 	/**
 	 * Adds the text to the card with the card text
@@ -28,7 +27,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 * @return The given card text added
 	 */
 	@NotNull
-	BSCardText addCardText(String textToAdd);
+	BSCardText<?> addCardText(String textToAdd);
 
 	/**
 	 * Creates and adds a new card image top with the given URL
@@ -87,7 +86,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this object
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setTextCenter(boolean center);
 
 	/**
@@ -99,7 +98,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this object
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J setTextRight(boolean right);
 
 	/**
@@ -113,11 +112,11 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	@NotNull
 	BSCardHeader<?> addCardHeader(String text);
 
-	@NotNull BSCardHeader<?> addCardHeader(ComponentHierarchyBase component);
+	@NotNull BSCardHeader<?> addCardHeader(IComponentHierarchyBase<?,?> component);
 
 	@NotNull BSCardFooter<?> addCardFooter(String text);
 
-	@NotNull BSCardFooter<?> addCardFooter(ComponentHierarchyBase componentHierarchyBase);
+	@NotNull BSCardFooter<?> addCardFooter(IComponentHierarchyBase<?,?> componentHierarchyBase);
 
 	/**
 	 * Adds to the card image bottom
@@ -151,7 +150,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J addBackground(BSBackgroundOptions backgroundOptions);
 
 	/**
@@ -162,7 +161,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J addForeground(BSColoursOptions coloursOptions);
 
 	/**
@@ -173,7 +172,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J addMargin(BSMarginOptions margin);
 
 	/**
@@ -184,7 +183,7 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always this
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J addPadding(BSPaddingOptions padding);
 
 	/**
@@ -195,6 +194,6 @@ public interface IBSCard<C extends IComponentHierarchyBase, J extends ComponentB
 	 *
 	 * @return Always This
 	 */
-	@SuppressWarnings("unchecked")
+	
 	J addBorder(BSBorderOptions border);
 }

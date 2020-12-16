@@ -35,7 +35,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		extends DivSimple<J>
-		implements BSNavBarChildren<IComponentHierarchyBase, J>
+		implements BSNavBarChildren
 {
 
 
@@ -74,8 +74,8 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 	@NotNull
 	public BSNavBarBrandImage<?> addImage(String imageUrl, String textAfter)
 	{
-		Image image = new Image(imageUrl);
-		BSNavBarBrandImage<?> brandImage = new BSNavBarBrandImage(image);
+		Image<?> image = new Image<>(imageUrl);
+		BSNavBarBrandImage<?> brandImage = new BSNavBarBrandImage<>(image);
 
 		image.addStyle("width", "30px");
 		image.addStyle("height", "30px");
@@ -87,6 +87,7 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		return brandImage;
 	}
 
+	@SuppressWarnings("unchecked")
 	public J addText(String text)
 	{
 		if (text != null)

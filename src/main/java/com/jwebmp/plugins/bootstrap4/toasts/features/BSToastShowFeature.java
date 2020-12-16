@@ -2,12 +2,15 @@ package com.jwebmp.plugins.bootstrap4.toasts.features;
 
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 public class BSToastShowFeature
-		extends Feature
+		extends Feature<GlobalFeatures, JavaScriptPart<?>,BSToastShowFeature>
 {
 
-	public BSToastShowFeature(ComponentHierarchyBase component)
+	public BSToastShowFeature(IComponentHierarchyBase<?,?> component)
 	{
 		super("BSToastShowFeature", component);
 	}
@@ -15,7 +18,7 @@ public class BSToastShowFeature
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "toast('show');");
+		addQuery(getComponent().asBase().getJQueryID() + "toast('show');");
 	}
 
 }

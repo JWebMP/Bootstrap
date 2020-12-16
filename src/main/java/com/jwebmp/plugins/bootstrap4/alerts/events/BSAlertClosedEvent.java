@@ -40,29 +40,28 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 		extends Event<GlobalFeatures, J>
 		implements GlobalEvents, BSAlertEvents
 {
-
+	
 	/**
 	 * Logger for the Component
 	 */
 	private static final Logger LOG = LogFactory.getInstance()
 	                                            .getLogger("BSAlertClosedEvent");
-
+	
 	private BSAlertCloseEventDirective directive;
-
+	
 	/**
 	 * Performs a click
 	 *
-	 * @param component
-	 * 		The component this click is going to be acting on
+	 * @param component The component this click is going to be acting on
 	 */
 	public BSAlertClosedEvent(Component component)
 	{
 		super(EventTypes.undefined, component);
 		setComponent(component);
 	}
-
+	
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -73,19 +72,19 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 			BSAlertClosedEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getDirective());
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
 	}
-
+	
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -94,11 +93,14 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 	{
 		if (!isConfigured())
 		{
-			getComponent().addAttribute("ng-bs-alert-closed-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase()
+			              .addAttribute("ng-bs-alert-closed-directive",
+			                            com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT +
+					                            renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
-
+	
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -112,7 +114,7 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 		}
 		return directive;
 	}
-
+	
 	/**
 	 * Sets the right click angular event
 	 *
@@ -122,15 +124,13 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 	{
 		this.directive = directive;
 	}
-
+	
 	/**
 	 * Triggers on Click
 	 * <p>
 	 *
-	 * @param call
-	 * 		The physical AJAX call
-	 * @param response
-	 * 		The physical Ajax Receiver
+	 * @param call     The physical AJAX call
+	 * @param response The physical Ajax Receiver
 	 */
-	public abstract void onClosed(AjaxCall call, AjaxResponse response);
+	public abstract void onClosed(AjaxCall<?> call, AjaxResponse<?> response);
 }

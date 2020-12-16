@@ -49,7 +49,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.*;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSListGroup<J extends BSListGroup<J>>
 		extends Div<BSListGroupChildren, BSListGroupAttributes, GlobalFeatures, BSListGroupEvents, J>
-		implements BSCardChildren<BSListGroupChildren, J>, IBSListGroup<J>
+		implements BSCardChildren, IBSListGroup<J>
 {
 
 

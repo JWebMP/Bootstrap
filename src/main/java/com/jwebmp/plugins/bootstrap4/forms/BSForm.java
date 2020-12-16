@@ -58,9 +58,8 @@ import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGrou
 public class BSForm<J extends BSForm<J>>
 		extends AngularForm<J>
 		implements IBSForm<J>,
-		           BSNavBarChildren<IComponentHierarchyBase, J>
+		           BSNavBarChildren
 {
-	
 	
 	private boolean styleInputs;
 	
@@ -109,7 +108,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTextType inputTextType = new InputTextType();
+		InputTextType<?> inputTextType = new InputTextType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -126,7 +125,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTextType inputTextType = new InputTextType();
+		InputTextType<?> inputTextType = new InputTextType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -143,7 +142,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputSearchType inputTextType = new InputSearchType();
+		InputSearchType<?> inputTextType = new InputSearchType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -160,7 +159,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputSearchType inputTextType = new InputSearchType();
+		InputSearchType<?> inputTextType = new InputSearchType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -177,7 +176,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputPasswordType inputTextType = new InputPasswordType();
+		InputPasswordType<?> inputTextType = new InputPasswordType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -191,7 +190,7 @@ public class BSForm<J extends BSForm<J>>
 		group.setForm(this);
 		group.addLabel(label);
 		
-		InputTextAreaType inputTextType = new InputTextAreaType();
+		InputTextAreaType<?> inputTextType = new InputTextAreaType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -208,7 +207,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTextAreaType inputTextType = new InputTextAreaType();
+		InputTextAreaType<?> inputTextType = new InputTextAreaType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -225,7 +224,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputEmailType inputEmailType = new InputEmailType();
+		InputEmailType<?> inputEmailType = new InputEmailType<>();
 		group.setInput(inputEmailType);
 		inputEmailType.bind(binding);
 		
@@ -242,7 +241,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputEmailType inputEmailType = new InputEmailType();
+		InputEmailType<?> inputEmailType = new InputEmailType<>();
 		group.setInput(inputEmailType);
 		inputEmailType.bind(binding);
 		
@@ -284,7 +283,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputSelectType inputSelectType = new InputSelectType();
+		InputSelectType<?> inputSelectType = new InputSelectType<>();
 		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 		
@@ -301,7 +300,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputSelectType inputSelectType = new InputSelectType();
+		InputSelectType<?> inputSelectType = new InputSelectType<>();
 		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 		
@@ -318,7 +317,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputCheckBoxType<?> inputTextType = new InputCheckBoxType();
+		InputCheckBoxType<?> inputTextType = new InputCheckBoxType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -335,7 +334,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputRadioType<?> inputTextType = new InputRadioType();
+		InputRadioType<?> inputTextType = new InputRadioType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		inputTextType.setGroup(groupName);
@@ -409,7 +408,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTelephoneType inputTextType = new InputTelephoneType();
+		InputTelephoneType<?> inputTextType = new InputTelephoneType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -426,7 +425,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTelephoneType inputTextType = new InputTelephoneType();
+		InputTelephoneType<?> inputTextType = new InputTelephoneType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -443,7 +442,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputDateType inputTextType = new InputDateType();
+		InputDateType<?> inputTextType = new InputDateType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -460,7 +459,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputDateTimeType inputTextType = new InputDateTimeType();
+		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -477,7 +476,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputNumberType inputTextType = new InputNumberType();
+		InputNumberType<?> inputTextType = new InputNumberType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -494,7 +493,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputNumberType inputTextType = new InputNumberType();
+		InputNumberType<?> inputTextType = new InputNumberType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -511,7 +510,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTimeType inputTextType = new InputTimeType();
+		InputTimeType<?> inputTextType = new InputTimeType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -528,7 +527,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputTimeType inputTextType = new InputTimeType();
+		InputTimeType<?> inputTextType = new InputTimeType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -545,7 +544,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputUrlType inputTextType = new InputUrlType();
+		InputUrlType<?> inputTextType = new InputUrlType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -562,7 +561,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputUrlType inputTextType = new InputUrlType();
+		InputUrlType<?> inputTextType = new InputUrlType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -579,7 +578,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputHiddenType inputTextType = new InputHiddenType();
+		InputHiddenType<?> inputTextType = new InputHiddenType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -732,7 +731,7 @@ public class BSForm<J extends BSForm<J>>
 			group.addLabel(label);
 		}
 		
-		InputDateTimeType inputTextType = new InputDateTimeType();
+		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
@@ -847,7 +846,7 @@ public class BSForm<J extends BSForm<J>>
 	@NotNull
 	protected J applyClassesToForm(BSForm<?> form)
 	{
-		for (ComponentHierarchyBase<IComponentHierarchyBase, ?, ?, ?, ?> a : form.getChildrenHierarchy(false))
+		for (IComponentHierarchyBase<?,?> a : form.getChildrenHierarchy(false))
 		{
 			if (BSForm.class.isAssignableFrom(a.getClass()))
 			{
@@ -863,10 +862,10 @@ public class BSForm<J extends BSForm<J>>
 					BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup<?, ?>) a.getParent();
 					inputGroup.getPrependDiv()
 					          .getChildren()
-					          .forEach(b -> b.addClass("form-control"));
+					          .forEach(b -> b.asHierarchyBase().addClass("form-control"));
 					inputGroup.getAppendDiv()
 					          .getChildren()
-					          .forEach(b -> b.addClass("form-control"));
+					          .forEach(b -> b.asHierarchyBase().addClass("form-control"));
 				}
 			}
 		}

@@ -32,7 +32,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
  */
 public class BSCardImageOverlay<J extends BSCardImageOverlay<J>>
 		extends BSCardBody<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>
+		implements BSCardChildren
 {
 
 

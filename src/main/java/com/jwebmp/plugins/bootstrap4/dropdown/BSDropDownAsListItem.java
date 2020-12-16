@@ -20,14 +20,11 @@ import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonSizeOptions;
-import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.IBSDropDownAsListItem;
 import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownButton;
 import com.jwebmp.plugins.bootstrap4.dropdown.parts.BSDropDownMenu;
-import com.jwebmp.plugins.bootstrap4.navs.interfaces.BSNavsChildren;
 import com.jwebmp.plugins.bootstrap4.toggle.BSDropDownToggle;
-import com.jwebmp.plugins.bootstrap4.toggle.BSDropDownToggleTitleLink;
 
 /**
  * Dropdowns
@@ -54,12 +51,11 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 		extends ListItem<J>
 		implements IBSDropDownAsListItem<J>
 {
-	private final BSDropDownMenu<?> menu = new BSDropDownMenu();
+	private final BSDropDownMenu<?> menu = new BSDropDownMenu<>();
 
 	/**
 	 * Construct a new bootstrap drop down
 	 */
-	@SuppressWarnings("")
 	public BSDropDownAsListItem()
 	{
 		addClass(BSDropDownOptions.Dropdown);
@@ -83,7 +79,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	@Override
 	public BSDropDownButton<?> addDropDownButton()
 	{
-		BSDropDownButton button = new BSDropDownButton();
+		BSDropDownButton<?> button = new BSDropDownButton<>();
 		add(button);
 		return button;
 	}
@@ -94,7 +90,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	 * @return
 	 */
 	@Override
-	public BSDropDownToggle<?> addDropDownToggle(BSDropDownToggle toggle)
+	public BSDropDownToggle<?> addDropDownToggle(BSDropDownToggle<?> toggle)
 	{
 		add(toggle);
 		return toggle;
@@ -116,7 +112,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	@Override
 	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions)
 	{
-		BSDropDownButton button = new BSDropDownButton();
+		BSDropDownButton<?> button = new BSDropDownButton<>();
 		button.addClass(buttonOptions);
 		if (sizeOptions != null)
 		{

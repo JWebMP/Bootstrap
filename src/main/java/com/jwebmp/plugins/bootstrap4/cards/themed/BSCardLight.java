@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
  * @since 01 Jan 2017
  */
 public class BSCardLight
-		extends BSCard
+		extends BSCard<BSCardLight>
 {
 
 

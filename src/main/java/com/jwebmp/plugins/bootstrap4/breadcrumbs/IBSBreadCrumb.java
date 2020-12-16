@@ -32,7 +32,6 @@ public interface IBSBreadCrumb<J extends BSBreadCrumb<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
-	J addBreadCrumb(BSBreadCrumbItem item);
+	J addBreadCrumb(BSBreadCrumbItem<?> item);
 }

@@ -33,25 +33,25 @@ public interface IBSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J addLink(BSBreadCrumbLink link);
+	J addLink(BSBreadCrumbLink<?> link);
 
 	/**
 	 * Returns the crumb link, never null
 	 *
 	 * @return
 	 */
-	Link getCrumbLink();
+	Link<?> getCrumbLink();
 
 	/**
 	 * Sets the given crumb link
 	 *
 	 * @param crumbLink
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J setCrumbLink(Link crumbLink);
+	J setCrumbLink(Link<?> crumbLink);
 
 	/**
 	 * Sets this crumb to display as active
@@ -60,7 +60,7 @@ public interface IBSBreadCrumbItem<J extends BSBreadCrumbItem<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setActive(boolean active);
 }

@@ -37,7 +37,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSListGroupListItem<J extends BSListGroupListItem<J>>
 		extends ListItem<J>
-		implements BSListGroupChildren<ListItemChildren, J>, IBSListGroupListItem<J>
+		implements BSListGroupChildren, IBSListGroupListItem<J>
 {
 
 

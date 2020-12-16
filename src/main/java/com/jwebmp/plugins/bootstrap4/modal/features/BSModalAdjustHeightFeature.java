@@ -42,7 +42,7 @@ public class BSModalAdjustHeightFeature
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + ".data('bs.modal').handleUpdate();");
+		addQuery(getComponent().asBase().getJQueryID() + ".data('bs.modal').handleUpdate();");
 	}
 
 }

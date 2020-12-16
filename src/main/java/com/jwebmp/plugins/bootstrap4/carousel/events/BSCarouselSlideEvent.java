@@ -61,7 +61,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -107,7 +107,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		if (!isConfigured())
 		{
 			
-			getComponent().addAttribute("ng-bs-carousel-slide-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-bs-carousel-slide-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -145,5 +145,5 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onSlide(AjaxCall call, AjaxResponse response);
+	public abstract void onSlide(AjaxCall<?> call, AjaxResponse<?> response);
 }

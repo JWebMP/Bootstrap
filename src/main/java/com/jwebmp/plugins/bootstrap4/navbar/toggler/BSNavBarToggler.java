@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.navbar.toggler;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -31,12 +32,12 @@ import jakarta.validation.constraints.NotNull;
  * @author GedMarc
  * @since 21 Jan 2017
  */
-public class BSNavBarToggler<C extends IComponentHierarchyBase, A extends Enum & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
+public class BSNavBarToggler<C extends GlobalChildren,
+		A extends Enum<?> & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
 		extends Button<C, A, F, E, J>
-		implements BSNavBarChildren<C, J>, IBSNavBarToggler<C, A, F, E, J>
+		implements BSNavBarChildren,
+		           IBSNavBarToggler<C, A, F, E, J>
 {
-
-
 	/**
 	 * The specified screen reader aria label to apply when creating the div
 	 */
@@ -53,7 +54,7 @@ public class BSNavBarToggler<C extends IComponentHierarchyBase, A extends Enum &
 		addClass("navbar-toggler");
 	}
 
-	public IBSNavBarToggler asMe()
+	public IBSNavBarToggler<?,?,?,?,?> asMe()
 	{
 		return this;
 	}
@@ -91,7 +92,7 @@ public class BSNavBarToggler<C extends IComponentHierarchyBase, A extends Enum &
 	{
 		if (iconSpan == null)
 		{
-			iconSpan = new Span();
+			iconSpan = new Span<>();
 			if (iconClass != null)
 			{
 				iconSpan.addClass(iconClass);

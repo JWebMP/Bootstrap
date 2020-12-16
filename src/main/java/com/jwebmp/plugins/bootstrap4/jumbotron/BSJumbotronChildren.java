@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.jumbotron;
 
 import com.jwebmp.core.base.ComponentBase;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 
 /**
@@ -24,8 +25,8 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public interface BSJumbotronChildren<C extends IComponentHierarchyBase, J extends ComponentBase>
-		extends IComponentHierarchyBase<C, J>
+public interface BSJumbotronChildren
+		extends GlobalChildren
 {
 
 }

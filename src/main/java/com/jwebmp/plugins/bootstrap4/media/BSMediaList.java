@@ -40,7 +40,7 @@ public class BSMediaList<J extends BSMediaList<J>>
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J addMedia(BSMedia media)
+	public J addMedia(BSMedia<?> media)
 	{
 		if (media != null)
 		{

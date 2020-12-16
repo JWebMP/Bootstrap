@@ -34,7 +34,6 @@ public interface IBSJumbotron<J extends BSJumbotron<J>>
 
 	HorizontalRule<?> addHorizontalRule();
 
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setFluid();
 }

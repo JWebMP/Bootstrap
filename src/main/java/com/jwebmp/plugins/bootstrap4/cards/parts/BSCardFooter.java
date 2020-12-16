@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -38,8 +39,8 @@ import jakarta.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardFooter<J extends BSCardFooter<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren, IBSLayout<J>
 {
 
 

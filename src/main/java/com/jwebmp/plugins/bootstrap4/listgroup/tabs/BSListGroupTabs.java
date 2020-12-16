@@ -19,6 +19,8 @@ package com.jwebmp.plugins.bootstrap4.listgroup.tabs;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.plugins.bootstrap4.containers.BSColumn;
 import com.jwebmp.plugins.bootstrap4.containers.BSRow;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSColumnOptions;
@@ -35,10 +37,10 @@ public class BSListGroupTabs<J extends BSListGroupTabs<J>>
 
 	private BSListGroup<?> listGroup;
 
-	private DivSimple<?> leftSidePane;
-	private DivSimple<?> rightSidePane;
+	private BSColumn<?> leftSidePane;
+	private BSColumn<?> rightSidePane;
 
-	private DivSimple<?> tabContentHolder;
+	private BSColumn<?> tabContentHolder;
 
 	/**
 	 * A vertical list group controlling the display of content on the left
@@ -49,13 +51,10 @@ public class BSListGroupTabs<J extends BSListGroupTabs<J>>
 		listGroup.setTag("div");
 		listGroup.addAttribute("role", "tablist");
 
-		leftSidePane = new DivSimple<>();
-		leftSidePane.addClass(BSColumnOptions.Col_4);
+		leftSidePane = new BSColumn<>(BSColumnOptions.Col_4);
+		rightSidePane = new BSColumn<>(BSColumnOptions.Col_8);
 
-		rightSidePane = new DivSimple<>();
-		rightSidePane.addClass(BSColumnOptions.Col_8);
-
-		tabContentHolder = new DivSimple<>();
+		tabContentHolder = new BSColumn<>();
 		tabContentHolder.addClass("tab-content");
 
 		tabs = new LinkedHashSet<>();
@@ -132,13 +131,57 @@ public class BSListGroupTabs<J extends BSListGroupTabs<J>>
 	 * @return
 	 */
 	@Override
-	public BSTabContainer<?> addTab(String label, Div content, boolean active)
+	public BSTabContainer<?> addTab(String label, IComponentHierarchyBase<?,?> content, boolean active)
 	{
 		BSTabContainer<?> tab = new BSTabContainer<>(active, content, label);
 		getTabs().add(tab);
 		return tab;
 	}
-
+	
+	public BSListGroup<?> getListGroup()
+	{
+		return listGroup;
+	}
+	
+	public BSListGroupTabs<J> setListGroup(BSListGroup<?> listGroup)
+	{
+		this.listGroup = listGroup;
+		return this;
+	}
+	
+	public BSColumn<?> getLeftSidePane()
+	{
+		return leftSidePane;
+	}
+	
+	public BSListGroupTabs<J> setLeftSidePane(BSColumn<?> leftSidePane)
+	{
+		this.leftSidePane = leftSidePane;
+		return this;
+	}
+	
+	public BSColumn<?> getRightSidePane()
+	{
+		return rightSidePane;
+	}
+	
+	public BSListGroupTabs<J> setRightSidePane(BSColumn<?> rightSidePane)
+	{
+		this.rightSidePane = rightSidePane;
+		return this;
+	}
+	
+	public BSColumn<?> getTabContentHolder()
+	{
+		return tabContentHolder;
+	}
+	
+	public BSListGroupTabs<J> setTabContentHolder(BSColumn<?> tabContentHolder)
+	{
+		this.tabContentHolder = tabContentHolder;
+		return this;
+	}
+	
 	/**
 	 * Returns the set of tabs currently registered
 	 *

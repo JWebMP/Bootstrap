@@ -31,7 +31,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addBackground(BSBackgroundOptions backgroundOptions);
 
@@ -43,7 +43,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addForeground(BSColoursOptions coloursOptions);
 
@@ -54,7 +54,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addMargin(BSMarginOptions margin);
 
@@ -65,7 +65,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addPadding(BSPaddingOptions padding);
 
@@ -76,7 +76,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addBorder(BSBorderOptions border);
 
@@ -85,7 +85,7 @@ public interface IBSLayout<J extends IBSLayout<J>>
 	 *
 	 * @return The IBSLayout Options
 	 */
-	default IBSLayout asLayout()
+	default IBSLayout<?> asLayout()
 	{
 		return this;
 	}

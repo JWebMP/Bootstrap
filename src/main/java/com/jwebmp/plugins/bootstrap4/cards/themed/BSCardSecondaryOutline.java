@@ -30,7 +30,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSBorderOptions;
  * @since 01 Jan 2017
  */
 public class BSCardSecondaryOutline
-		extends BSCard
+		extends BSCard<BSCardSecondaryOutline>
 {
 
 

@@ -62,7 +62,7 @@ public abstract class BSModalHideAdapter<J extends BSModalHideAdapter<J>>
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -95,7 +95,7 @@ public abstract class BSModalHideAdapter<J extends BSModalHideAdapter<J>>
 		if (!isConfigured())
 		{
 			
-			getComponent().addAttribute("ng-hide-bootstrap-modal", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-hide-bootstrap-modal", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -133,5 +133,5 @@ public abstract class BSModalHideAdapter<J extends BSModalHideAdapter<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onModalHide(AjaxCall call, AjaxResponse response);
+	public abstract void onModalHide(AjaxCall<?> call, AjaxResponse<?> response);
 }

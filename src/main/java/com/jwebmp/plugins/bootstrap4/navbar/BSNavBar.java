@@ -56,8 +56,6 @@ public class BSNavBar<J extends BSNavBar<J>>
 		extends Div<BSNavBarChildren, BSNavBarAttributes, GlobalFeatures, BSNavBarEvents, J>
 		implements IBSNavBar<J>
 {
-
-
 	/**
 	 * The navbar is a wrapper that positions branding, navigation, and other elements in a concise header. It’s easily extensible and,
 	 * thanks to our Collapse plugin, can easily integrate responsive
@@ -192,12 +190,12 @@ public class BSNavBar<J extends BSNavBar<J>>
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	public BSNavBarToggleContainer addToggler()
+	public BSNavBarToggleContainer<?> addToggler()
 	{
-		BSNavBarToggler toggler = new BSNavBarToggler();
-		BSNavBarToggleContainer container = new BSNavBarToggleContainer(toggler, new BSNavs<>());
+		BSNavBarToggler<?,?,?,?,?> toggler = new BSNavBarToggler<>();
+		BSNavBarToggleContainer<?> container = new BSNavBarToggleContainer<>(toggler, new BSNavs<>());
 		BSCollapse.link(container.getToggler(), container.getContent(), true);
 
 		container.getContent()

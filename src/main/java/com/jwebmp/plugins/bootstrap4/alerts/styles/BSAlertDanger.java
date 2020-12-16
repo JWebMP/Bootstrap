@@ -31,8 +31,7 @@ import com.jwebmp.plugins.bootstrap4.alerts.BSAlertOptions;
 public class BSAlertDanger<J extends BSAlertDanger<J>>
 		extends BSAlert<J>
 {
-
-
+	
 	/**
 	 * Alerts
 	 * <p>

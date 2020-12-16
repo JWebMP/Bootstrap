@@ -11,7 +11,7 @@ public interface IBSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 {
 	BSDropDownButton<?> addDropDownButton();
 
-	BSDropDownToggle<?> addDropDownToggle(BSDropDownToggle toggle);
+	BSDropDownToggle<?> addDropDownToggle(BSDropDownToggle<?> toggle);
 
 	BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions);
 

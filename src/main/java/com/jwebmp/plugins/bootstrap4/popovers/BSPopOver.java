@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.popovers;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverChildren;
 import com.jwebmp.plugins.bootstrap4.popovers.interfaces.BSPopOverEvents;
@@ -56,8 +57,6 @@ public class BSPopOver<J extends BSPopOver<J>>
 		extends Div<BSPopOverChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, J>
 		implements IBSPopOver
 {
-
-
 	/**
 	 * P
 	 */
@@ -95,7 +94,7 @@ public class BSPopOver<J extends BSPopOver<J>>
 	 * @param displayedComponent
 	 * 		Shortcut for getOptions().setContent
 	 */
-	public BSPopOver(ComponentHierarchyBase displayedComponent)
+	public BSPopOver(IComponentHierarchyBase<?,?> displayedComponent)
 	{
 		addFeature(getFeature());
 		if (displayedComponent != null)
@@ -125,7 +124,7 @@ public class BSPopOver<J extends BSPopOver<J>>
 	 * @return
 	 */
 	@Override
-	public final BSPopOverOptions getOptions()
+	public final BSPopOverOptions<?> getOptions()
 	{
 		return getFeature().getOptions();
 	}

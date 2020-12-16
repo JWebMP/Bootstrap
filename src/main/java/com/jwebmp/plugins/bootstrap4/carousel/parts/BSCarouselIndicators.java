@@ -35,18 +35,16 @@ import java.util.Objects;
  */
 public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 		extends List<ListChildren, NoAttributes, BSCarouselEvents, J>
-		implements BSCarouselChildren<ListChildren, J>
+		implements BSCarouselChildren
 {
-
-
-	private final BSCarousel carousel;
+	private final BSCarousel<?> carousel;
 
 	/**
 	 * The indicators for the bootstrap carousel
 	 *
 	 * @param carousel
 	 */
-	public BSCarouselIndicators(BSCarousel carousel)
+	public BSCarouselIndicators(BSCarousel<?> carousel)
 	{
 		super(true);
 		this.carousel = carousel;
@@ -64,7 +62,7 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 			for (int i = 0; i < carousel.getSlides()
 			                            .size(); i++)
 			{
-				BSCarouselIndicatorItem newSlideIndicator = new BSCarouselIndicatorItem(carousel.getID(true), i, i == carousel.getActiveSlide());
+				BSCarouselIndicatorItem<?> newSlideIndicator = new BSCarouselIndicatorItem<>(carousel.getID(true), i, i == carousel.getActiveSlide());
 				add(newSlideIndicator);
 			}
 		}
@@ -88,7 +86,7 @@ public class BSCarouselIndicators<J extends BSCarouselIndicators<J>>
 	 *
 	 * @return
 	 */
-	public BSCarousel getCarousel()
+	public BSCarousel<?> getCarousel()
 	{
 		return carousel;
 	}

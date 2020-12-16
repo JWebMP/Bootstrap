@@ -20,14 +20,15 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSAlignmentCapable;
 
-import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
+import java.util.Arrays;
+
+import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.Container_Fluid;
 
 /**
  * Containers
@@ -45,12 +46,10 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  * @since Oct 11, 2016
  */
 public class BSContainer<J extends BSContainer<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren<IComponentHierarchyBase, J>, BSFormChildren<IComponentHierarchyBase, J>, BSFormGroupChildren<IComponentHierarchyBase, J>,
+		extends Div<BSRow<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSNavBarChildren, BSFormChildren, BSFormGroupChildren,
 				           IBSAlignmentCapable<J>
 {
-
-
 	/**
 	 * Constructs as a container-fluid full page
 	 */
@@ -68,7 +67,23 @@ public class BSContainer<J extends BSContainer<J>>
 	{
 		addClass(type.toString());
 	}
-
+	
+	/**
+	 * Adds a row
+	 * @param classes
+	 * @return
+	 */
+	public BSRow<?> addRow(String...classes)
+	{
+		BSRow<?> jbsRow = new BSRow<>();
+		if (classes != null && classes.length > 0)
+		{
+			Arrays.stream(classes)
+			      .forEach(jbsRow::addClass);
+		}
+		return jbsRow;
+	}
+	
 	/**
 	 * Returns a new instance
 	 *
@@ -79,7 +94,7 @@ public class BSContainer<J extends BSContainer<J>>
 	 */
 	public static BSContainer<?> newInstance(BSContainerOptions type)
 	{
-		return new BSContainer(type);
+		return new BSContainer<>(type);
 	}
 
 	/**

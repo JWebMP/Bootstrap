@@ -33,15 +33,12 @@ import com.jwebmp.core.base.html.List;
 class BSBreadcrumbContainer<J extends BSBreadcrumbContainer<J>>
 		extends List<BSBreadcrumbsChildren, BSBreadcrumbsAttributes, BSBreadcrumbsEvents, J>
 {
-
-
 	/**
 	 * Breadcrumbs
 	 * <p>
 	 * Indicate the current page’s location within a navigational hierarchy. Separators are automatically added in CSS through ::before and
 	 * content.
 	 */
-	@SuppressWarnings("")
 	public BSBreadcrumbContainer()
 	{
 		super(true);

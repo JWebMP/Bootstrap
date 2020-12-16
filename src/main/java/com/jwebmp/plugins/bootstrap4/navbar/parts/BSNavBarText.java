@@ -17,6 +17,8 @@
 package com.jwebmp.plugins.bootstrap4.navbar.parts;
 
 import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.plugins.bootstrap4.navbar.enumerations.BSNavBarOptions;
 import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
 
@@ -30,11 +32,9 @@ import com.jwebmp.plugins.bootstrap4.navbar.interfaces.BSNavBarChildren;
  * @since 21 Jan 2017
  */
 public class BSNavBarText
-		extends Span
+		extends Span<GlobalChildren, NoAttributes,BSNavBarText>
 		implements BSNavBarChildren
 {
-
-
 	/**
 	 * Text
 	 * <p>

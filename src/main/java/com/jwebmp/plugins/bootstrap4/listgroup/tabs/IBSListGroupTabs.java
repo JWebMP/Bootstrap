@@ -36,7 +36,7 @@ public interface IBSListGroupTabs<J extends BSListGroupTabs<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	J setLeftSidePaneOptions(BSColumnOptions columnOptions);
 
 	/**
@@ -47,7 +47,7 @@ public interface IBSListGroupTabs<J extends BSListGroupTabs<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
+	
 	J setRightSidePaneOptions(BSColumnOptions columnOptions);
 
 	/**
@@ -59,7 +59,7 @@ public interface IBSListGroupTabs<J extends BSListGroupTabs<J>>
 	 *
 	 * @return
 	 */
-	BSTabContainer<?> addTab(String label, Div<IComponentHierarchyBase, ?, GlobalFeatures, GlobalEvents, ?> content, boolean active);
+	BSTabContainer<?> addTab(String label, IComponentHierarchyBase<?,?> content, boolean active);
 
 	/**
 	 * Returns the set of tabs currently registered

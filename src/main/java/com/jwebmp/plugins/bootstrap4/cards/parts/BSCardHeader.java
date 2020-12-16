@@ -20,16 +20,15 @@ import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.cards.parts.interfaces.IBSCardHeader;
 import com.jwebmp.plugins.bootstrap4.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -42,8 +41,8 @@ import jakarta.validation.constraints.NotNull;
  * @since 01 Jan 2017
  */
 public class BSCardHeader<J extends BSCardHeader<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSCardHeader<J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSCardChildren, IBSCardHeader<J>
 {
 
 
@@ -79,7 +78,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	public BSCardHeader(HeaderTypes headerType, String text)
 	{
 		super();
-		add(new HeaderText(headerType, text));
+		add(new HeaderText<>(headerType, text));
 		addClass(BSCardOptions.Card_Header);
 	}
 
@@ -125,6 +124,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		headerNav.getChildren()
 		         .iterator()
 		         .next()
+		         .asHierarchyBase()
 		         .addClass(BSNavsOptions.Active);
 
 		return headerNav;

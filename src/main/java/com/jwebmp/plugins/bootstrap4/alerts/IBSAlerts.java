@@ -43,7 +43,7 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	BSAlertDismissButton createDismissButton();
+	BSAlertDismissButton<?> createDismissButton();
 
 	/**
 	 * Set or remove the style
@@ -53,7 +53,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setDanger(boolean applyStyle);
 
 	/**
@@ -64,7 +63,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setInfo(boolean applyStyle);
 
 	/**
@@ -75,7 +73,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setLink(boolean applyStyle);
 
 	/**
@@ -86,7 +83,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setSuccess(boolean applyStyle);
 
 	/**
@@ -97,7 +93,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setWarning(boolean applyStyle);
 
 	/**
@@ -108,7 +103,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setPrimary(boolean applyStyle);
 
 	/**
@@ -119,7 +113,6 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setLight(boolean applyStyle);
 
 	/**
@@ -130,6 +123,5 @@ public interface IBSAlerts<J extends BSAlert<J>>
 	 * @return
 	 */
 	@NotNull
-	@SuppressWarnings("unchecked")
 	J setDark(boolean applyStyle);
 }

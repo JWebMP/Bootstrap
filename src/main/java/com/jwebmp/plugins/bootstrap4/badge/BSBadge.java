@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.badge;
 
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.ALinkAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -45,7 +46,7 @@ import jakarta.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 
 public class BSBadge<J extends BSBadge<J>>
-		extends Span<IComponentHierarchyBase, BSBadgeAttributes, J>
+		extends Span<GlobalChildren, BSBadgeAttributes, J>
 		implements IBSBadge<J>
 {
 
@@ -370,7 +371,7 @@ public class BSBadge<J extends BSBadge<J>>
 	 * @return
 	 */
 	@NotNull
-	public IBSBadge asMe()
+	public IBSBadge<?> asMe()
 	{
 		return this;
 	}

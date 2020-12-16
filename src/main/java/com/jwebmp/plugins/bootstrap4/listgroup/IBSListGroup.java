@@ -69,7 +69,6 @@ public interface IBSListGroup<J extends BSListGroup<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setFlush();
 }

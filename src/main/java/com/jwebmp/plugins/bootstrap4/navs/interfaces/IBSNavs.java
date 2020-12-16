@@ -19,7 +19,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setHorizontalAlignment(BSAlignmentHorizontalOptions options);
 
@@ -32,7 +32,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setVertical(boolean vertical);
 
@@ -45,7 +45,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setAsTabs(boolean asTabs);
 
@@ -73,9 +73,9 @@ public interface IBSNavs<J extends BSNavs<J>>
 	@NotNull
 	BSNavListItem<?> addItem(String name, boolean active, boolean disabled);
 
-	@NotNull BSNavListItem<?> addItem(ListItemChildren<?, ?> name, boolean active);
+	@NotNull BSNavListItem<?> addItem(ListItemChildren name, boolean active);
 
-	@NotNull BSNavListItem<?> addItem(ListItemChildren<?, ?> name, boolean active, boolean disabled);
+	@NotNull BSNavListItem<?> addItem(ListItemChildren name, boolean active, boolean disabled);
 
     /**
 	 * If the tabls should render as pills
@@ -84,7 +84,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setAsPills(boolean asPills);
 
@@ -97,7 +97,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setFill(boolean fill);
 
@@ -118,7 +118,7 @@ public interface IBSNavs<J extends BSNavs<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setEqualWidth(boolean equalWidth);
 

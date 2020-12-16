@@ -22,11 +22,13 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 
+import com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowAdapter;
 import jakarta.validation.constraints.NotNull;
 import java.util.logging.Level;
 
@@ -42,7 +44,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
 		url = "https://www.armineasy.com/JWebSwing",
 		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class BSDropDownShownAdapter
-		extends Event
+		extends Event<GlobalFeatures, BSDropDownShownAdapter>
 		implements GlobalEvents
 {
 
@@ -70,7 +72,7 @@ public abstract class BSDropDownShownAdapter
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -112,7 +114,7 @@ public abstract class BSDropDownShownAdapter
 			JQueryPageConfigurator.setRequired(true);
 			AngularPageConfigurator.setRequired(true);
 			
-			getComponent().addAttribute("bs-drop-down-shown", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("bs-drop-down-shown", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -126,7 +128,7 @@ public abstract class BSDropDownShownAdapter
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onShown(AjaxCall call, AjaxResponse response);
+	public abstract void onShown(AjaxCall<?> call, AjaxResponse<?> response);
 
 	/**
 	 * Returns the angular directive associated with the right click event

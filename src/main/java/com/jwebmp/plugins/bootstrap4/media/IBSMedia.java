@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.media;
 
 import com.jwebmp.core.Component;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaBody;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaHeaderText;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaLink;
@@ -40,7 +41,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	Component getMediaComponent();
+	IComponentHierarchyBase<?,?> getMediaComponent();
 
 	/**
 	 * Returns a new H4 header
@@ -63,7 +64,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaBody(BSMediaBody<?> mediaBody);
+	BSMedia<?> setMediaBody(BSMediaBody<?> mediaBody);
 
 	/**
 	 * Sets the component displayed to the left or right (set that in the link)
@@ -72,7 +73,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaComponent(Component mediaComponent);
+	BSMedia<?> setMediaComponent(IComponentHierarchyBase<?,?> mediaComponent);
 
 	/**
 	 * Sets the header to the required object
@@ -81,7 +82,7 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaHeader(BSMediaHeaderText<?> mediaHeader);
+	BSMedia<?> setMediaHeader(BSMediaHeaderText<?> mediaHeader);
 
 	/**
 	 * Sets the media link, and moves the media object into the new link if necessary
@@ -91,6 +92,6 @@ public interface IBSMedia
 	 *
 	 * @return
 	 */
-	BSMedia setMediaLink(BSMediaLink<?> mediaLink, boolean left);
+	BSMedia<?> setMediaLink(BSMediaLink<?> mediaLink, boolean left);
 
 }

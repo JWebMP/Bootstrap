@@ -29,7 +29,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setCarouselSlides(BSCarouselSlides<?> carouselSlides);
 
@@ -56,7 +56,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setActiveSlide(int activeSlide);
 
@@ -83,7 +83,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setNextLink(BSCarouselControl<?> nextLink);
 
@@ -94,7 +94,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setPreviousLink(BSCarouselControl<?> previousLink);
 
@@ -105,7 +105,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSlides(List<BSCarouselItem<?>> slides);
 
@@ -118,7 +118,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setAnimateOnLoad(boolean startAnimationOnLoad);
 
@@ -136,7 +136,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setIndicators(boolean indicators);
 
@@ -147,7 +147,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setInterval(int interval);
 
@@ -158,7 +158,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setKeyboard(boolean keyboard);
 
@@ -169,7 +169,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setWrap(boolean wrap);
 
@@ -181,7 +181,7 @@ public interface IBSCarousel<J extends BSCarousel<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setPause(boolean pause);
 

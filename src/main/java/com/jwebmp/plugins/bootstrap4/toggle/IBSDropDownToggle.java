@@ -29,9 +29,9 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 *
 	 * @param title
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J setTitle(BSDropDownToggleTitleButton title);
+	J setTitle(BSDropDownToggleTitleButton<?> title);
 
 	/**
 	 * Returns the title component
@@ -46,9 +46,9 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 *
 	 * @param title
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J setTitle(BSDropDownToggleTitleLink title);
+	J setTitle(BSDropDownToggleTitleLink<?> title);
 
 	/**
 	 * Returns the contents
@@ -56,14 +56,14 @@ public interface IBSDropDownToggle<J extends BSDropDownToggle<J>>
 	 * @return
 	 */
 	@NotNull
-	List<ListChildren, ?, ?, ?> getContents();
+	List<?, ?, ?, ?> getContents();
 
 	/**
 	 * Sets the contents
 	 *
 	 * @param contents
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J setContents(List contents);
+	J setContents(List<?,?,?,?> contents);
 }

@@ -6,7 +6,7 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 public class BSFileUploadShowFilenameFeature<J extends BSFileUploadShowFilenameFeature<J>>
-		extends Feature<GlobalFeatures, JavaScriptPart, J>
+		extends Feature<GlobalFeatures, JavaScriptPart<?>, J>
 {
 	public BSFileUploadShowFilenameFeature(InputFileType<?> baseComponent)
 	{
@@ -17,7 +17,7 @@ public class BSFileUploadShowFilenameFeature<J extends BSFileUploadShowFilenameF
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "on('change',function(){" + getNewLine() +
+		addQuery(getComponent().asBase().getJQueryID() + "on('change',function(){" + getNewLine() +
 		         "var fileName = $(this).val().split(\"\\\\\").pop();" + getNewLine() +
 		         "$(this).siblings('.custom-file-label').addClass('selected').html(fileName);" + getNewLine() +
 		         "})");

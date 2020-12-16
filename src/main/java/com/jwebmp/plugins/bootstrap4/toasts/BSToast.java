@@ -120,12 +120,14 @@ public class BSToast<J extends BSToast<J>>
 	 *
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public J setAutoHide(boolean autoHide)
 	{
 		addAttribute("data-autohide", Boolean.toString(autoHide));
 		return (J) this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public J setShowDelay(Integer autoHide)
 	{
 		addAttribute("data-delay", Integer.toString(autoHide));

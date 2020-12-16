@@ -53,7 +53,7 @@ public class BSPagination<J extends BSPagination<J>>
 	/**
 	 * The actual list for the pagination
 	 */
-	private BSPaginationList pageList;
+	private BSPaginationList<?> pageList;
 
 	/**
 	 * Pagination
@@ -133,10 +133,10 @@ public class BSPagination<J extends BSPagination<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public BSPaginationLink createPageLink(String ariaLabel)
+	public BSPaginationLink<?> createPageLink(String ariaLabel)
 	{
-		BSPaginationListItem listItem = new BSPaginationListItem();
-		BSPaginationLink newLink = new BSPaginationLink(ariaLabel);
+		BSPaginationListItem<?> listItem = new BSPaginationListItem<>();
+		BSPaginationLink<?> newLink = new BSPaginationLink<>(ariaLabel);
 
 		listItem.add(newLink);
 		getPageList().add(listItem);
@@ -150,11 +150,11 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @return
 	 */
 	@Override
-	public final BSPaginationList getPageList()
+	public final BSPaginationList<?> getPageList()
 	{
 		if (pageList == null)
 		{
-			setPageList(new BSPaginationList());
+			setPageList(new BSPaginationList<>());
 		}
 		return pageList;
 	}
@@ -165,7 +165,7 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @param pageList
 	 */
 	@Override
-	public void setPageList(BSPaginationList pageList)
+	public void setPageList(BSPaginationList<?> pageList)
 	{
 		if (this.pageList != null)
 		{

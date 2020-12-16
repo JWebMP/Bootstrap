@@ -61,15 +61,12 @@ import static com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions.D
 		url = "https://v4-alpha.getbootstrap.com/components/dropdowns/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSDropDown<J extends BSDropDown<J>>
-		extends Div<ComponentHierarchyBase, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
-		implements IBSDropDown<J>, BSNavsChildren<ComponentHierarchyBase, J>
+		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
+		implements IBSDropDown<J>, BSNavsChildren
 {
-
-
 	/**
 	 * Construct a new bootstrap drop down
 	 */
-	@SuppressWarnings("")
 	public BSDropDown()
 	{
 		addClass(BSDropDownOptions.Dropdown);
@@ -93,7 +90,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 	@Override
 	public BSDropDownButton<?> addDropDownButton()
 	{
-		BSDropDownButton button = new BSDropDownButton();
+		BSDropDownButton<?> button = new BSDropDownButton<>();
 		add(button);
 		return button;
 	}
@@ -114,7 +111,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 	@Override
 	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions)
 	{
-		BSDropDownButton button = new BSDropDownButton();
+		BSDropDownButton<?> button = new BSDropDownButton<>();
 		button.addClass(buttonOptions);
 		if (sizeOptions != null)
 		{
@@ -135,7 +132,7 @@ public class BSDropDown<J extends BSDropDown<J>>
 	@Override
 	public Link<?> addDropDownLink()
 	{
-		Link<?> button = new Link<>("javascript: void(0);");
+		BSDropDownLink<?> button = new BSDropDownLink<>("javascript: void(0);");
 		button.addClass("dropdown");
 		button.addAttribute(Data_Toggle, "dropdown");
 		button.addAttribute(GlobalAttributes.Aria_HasPopup, "false");

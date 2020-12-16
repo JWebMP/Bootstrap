@@ -30,11 +30,10 @@ import static com.guicedee.guicedinjection.json.StaticStrings.*;
 public class BSAlertLink<J extends BSAlertLink<J>>
 		extends Link<J>
 {
-
-
 	public BSAlertLink()
 	{
 		super(STRING_HASH);
 		addClass(BSAlertOptions.Alert_Link);
 	}
+	
 }

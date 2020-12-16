@@ -17,6 +17,8 @@
 package com.jwebmp.plugins.bootstrap4.modal.features;
 
 import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.bootstrap4.modal.BSModal;
 
 /**
@@ -24,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.modal.BSModal;
  * @since 21 Feb 2017
  */
 public class BSModalBackdropHideFeature
-		extends Feature
+		extends Feature<GlobalFeatures, JavaScriptPart<?>,BSModalBackdropHideFeature>
 {
 
 

@@ -17,7 +17,6 @@ public interface IBSCardBlockQuote<J extends BSCardBlockQuote<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	BSCardBlockQuoteFooter<?> addFooter(String footer);
 }

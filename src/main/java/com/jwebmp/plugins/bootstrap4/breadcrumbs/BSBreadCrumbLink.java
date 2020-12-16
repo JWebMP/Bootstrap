@@ -28,14 +28,12 @@ import com.jwebmp.core.base.html.Link;
 public class BSBreadCrumbLink<J extends BSBreadCrumbLink<J>>
 		extends Link<J>
 {
-
-
 	/**
 	 * A new default crumb link
 	 */
 	public BSBreadCrumbLink()
 	{
-
+		//No configu required
 	}
 
 	/**

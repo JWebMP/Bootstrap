@@ -18,8 +18,10 @@ package com.jwebmp.plugins.bootstrap4.media;
 
 import com.jwebmp.core.Component;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaBody;
 import com.jwebmp.plugins.bootstrap4.media.parts.BSMediaHeaderText;
@@ -52,11 +54,6 @@ public class BSMedia<J extends BSMedia<J>>
 		extends Div<BSMediaChildren, BSMediaAttributes, GlobalFeatures, BSMediaEvents, J>
 		implements IBSMedia
 {
-
-	/**
-	 * Field serialVersionUID
-	 */
-
 	/**
 	 * The media image
 	 */
@@ -76,7 +73,7 @@ public class BSMedia<J extends BSMedia<J>>
 	/**
 	 * The media object being displayed (usually image or something)
 	 */
-	private Component mediaComponent;
+	private IComponentHierarchyBase<?,?> mediaComponent;
 
 	/**
 	 * The media object is an abstract element used as the basis for building more complex and repetitive components (like blog comments,
@@ -152,7 +149,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public BSMedia setMediaBody(BSMediaBody<?> mediaBody)
+	public BSMedia<?> setMediaBody(BSMediaBody<?> mediaBody)
 	{
 		if (this.mediaBody != null)
 		{
@@ -170,11 +167,11 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public Component getMediaComponent()
+	public IComponentHierarchyBase<?,?> getMediaComponent()
 	{
 		if (mediaComponent == null)
 		{
-			setMediaComponent(new Div());
+			setMediaComponent(new DivSimple<>());
 		}
 		return mediaComponent;
 	}
@@ -201,11 +198,11 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @return
 	 */
 	@Override
-	public BSMediaLink getMediaLink()
+	public BSMediaLink<?> getMediaLink()
 	{
 		if (mediaLink == null)
 		{
-			setMediaLink(new BSMediaLink(STRING_HASH), true);
+			setMediaLink(new BSMediaLink<>(STRING_HASH), true);
 		}
 		return mediaLink;
 	}
@@ -216,7 +213,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 * @param mediaLink
 	 */
 	@SuppressWarnings("unchecked")
-	public J setMediaLink(BSMediaLink mediaLink)
+	public J setMediaLink(BSMediaLink<?> mediaLink)
 	{
 		this.mediaLink = mediaLink;
 		return (J) this;
@@ -231,7 +228,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J setMediaHeader(BSMediaHeaderText mediaHeader)
+	public J setMediaHeader(BSMediaHeaderText<?> mediaHeader)
 	{
 		if (this.mediaHeader != null)
 		{
@@ -281,7 +278,7 @@ public class BSMedia<J extends BSMedia<J>>
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public J setMediaComponent(Component mediaComponent)
+	public J setMediaComponent(IComponentHierarchyBase<?,?> mediaComponent)
 	{
 		if (this.mediaComponent != null)
 		{

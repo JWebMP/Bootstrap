@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.modal;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
@@ -29,17 +30,15 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @since 2013/01/16
  */
 public class BSModalFeature
-		extends Feature<GlobalFeatures, JavaScriptPart, BSModalFeature>
+		extends Feature<GlobalFeatures, JavaScriptPart<?>, BSModalFeature>
 {
-
-
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
 	 *
 	 * @param forComponent
 	 */
-	public BSModalFeature(Component forComponent)
+	public BSModalFeature(IComponentHierarchyBase<?,?> forComponent)
 	{
 		super("BSModalFeature");
 		setComponent(forComponent);

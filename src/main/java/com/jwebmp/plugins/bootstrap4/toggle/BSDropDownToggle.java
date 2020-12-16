@@ -52,7 +52,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	/**
 	 * A list of the contents for this drop down
 	 */
-	private List<ListChildren, ?, ?, ?> contents;
+	private List<?, ?, ?, ?> contents;
 
 	/**
 	 * Construct a new toggle item with the given items
@@ -63,7 +63,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unused")
 	@NotNull
-	public BSDropDownToggle(BSDropDownToggleTitleLink titleItem, List contents)
+	public BSDropDownToggle(BSDropDownToggleTitleLink<?> titleItem, List<?,?,?,?> contents)
 	{
 		setTag(titleItem.getTag());
 		setTitle(titleItem);
@@ -82,7 +82,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@SuppressWarnings("unused")
 	@NotNull
-	public BSDropDownToggle(BSDropDownToggleTitleButton titleItem, List contents)
+	public BSDropDownToggle(BSDropDownToggleTitleButton<?> titleItem, List<?,?,?,?> contents)
 	{
 		setTag(titleItem.getTag());
 		setTitle(titleItem);
@@ -97,7 +97,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public final J setTitle(BSDropDownToggleTitleButton title)
+	public final J setTitle(BSDropDownToggleTitleButton<?> title)
 	{
 		remove(this.title);
 		this.title = title;
@@ -108,7 +108,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 			setChildren(new LinkedHashSet<>(tempList));
 			if (contents != null)
 			{
-				title.addAttribute(ButtonAttributes.Data_Target, contents.getID(true));
+				title.addAttribute(String.valueOf(ButtonAttributes.Data_Target), contents.getID(true));
 			}
 		}
 		return (J) this;
@@ -134,7 +134,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public final J setTitle(BSDropDownToggleTitleLink title)
+	public final J setTitle(BSDropDownToggleTitleLink<?> title)
 	{
 		remove(this.title);
 		this.title = title;
@@ -158,7 +158,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	 */
 	@Override
 	@NotNull
-	public List<ListChildren, ?, ?, ?> getContents()
+	public List<?, ?, ?, ?> getContents()
 	{
 		return contents;
 	}
@@ -171,7 +171,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public final J setContents(List contents)
+	public final J setContents(List<?,?,?,?> contents)
 	{
 		this.contents = contents;
 

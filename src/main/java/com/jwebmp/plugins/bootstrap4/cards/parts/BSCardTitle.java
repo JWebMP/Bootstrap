@@ -39,7 +39,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardTitle<J extends BSCardTitle<J>>
 		extends HeaderText<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
+		implements BSCardChildren, IBSLayout<J>
 {
 
 

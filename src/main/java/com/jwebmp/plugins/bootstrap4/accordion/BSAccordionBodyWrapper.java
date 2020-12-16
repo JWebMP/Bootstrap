@@ -6,7 +6,7 @@ import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 
 class BSAccordionBodyWrapper<J extends BSAccordionBodyWrapper<J>>
 		extends DivSimple<J>
-	implements BSCardChildren<IComponentHierarchyBase,J>
+	implements BSCardChildren
 {
 	public BSAccordionBodyWrapper()
 	{

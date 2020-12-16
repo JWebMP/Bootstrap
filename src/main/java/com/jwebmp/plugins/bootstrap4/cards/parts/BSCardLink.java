@@ -18,12 +18,10 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Link;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -35,7 +33,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardLink<J extends BSCardLink<J>>
 		extends Link<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
+		implements BSCardChildren, IBSLayout<J>
 {
 
 

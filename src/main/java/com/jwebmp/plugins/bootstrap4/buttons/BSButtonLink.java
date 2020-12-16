@@ -29,8 +29,6 @@ package com.jwebmp.plugins.bootstrap4.buttons;
 public class BSButtonLink<J extends BSButtonLink<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Deemphasize a button by making it look like a link while maintaining button behavior
 	 */

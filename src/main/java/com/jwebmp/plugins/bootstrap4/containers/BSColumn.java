@@ -31,7 +31,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSColumnOptions.*;
  */
 public class BSColumn<J extends BSColumn<J>>
 		extends DivSimple<J>
-	implements IBSAlignmentCapable<J>
+	implements IBSAlignmentCapable<J>,BSRowChildren
 {
 
 

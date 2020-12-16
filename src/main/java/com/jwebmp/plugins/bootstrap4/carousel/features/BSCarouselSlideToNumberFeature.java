@@ -47,7 +47,7 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 	 *
 	 * @param forComponent
 	 */
-	public BSCarouselSlideToNumberFeature(BSCarousel forComponent)
+	public BSCarouselSlideToNumberFeature(BSCarousel<?> forComponent)
 	{
 		super("BSCarouselPauseFeature");
 		setComponent(forComponent);
@@ -91,7 +91,7 @@ public class BSCarouselSlideToNumberFeature<J extends BSCarouselSlideToNumberFea
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel(";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel(";
 		requiredString += methodName;
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);

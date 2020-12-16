@@ -79,8 +79,8 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 		addClass(BSButtonOptions.Btn_Group);
 		addClass(BSButtonOptions.Btn_Group_Toggle);
 		addAttribute(Data_Toggle.toString(), "buttons");
-		setLabel(new Label());
-		setInput(new InputRadioType());
+		setLabel(new Label<>());
+		setInput(new InputRadioType<>());
 		setName(groupName);
 	}
 
@@ -192,6 +192,7 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	 * @param labelText
 	 * 		Value to set for property 'labelText'.
 	 */
+	@SuppressWarnings("unchecked")
 	public J setLabelText(String labelText)
 	{
 		this.labelText = labelText;

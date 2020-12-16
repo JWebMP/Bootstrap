@@ -26,6 +26,7 @@ import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.core.base.html.inputs.InputFileType;
 import com.jwebmp.core.base.html.inputs.InputTextType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.children.FormChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
@@ -33,6 +34,7 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.generics.TopOrBottom;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.logger.LogFactory;
+import com.jwebmp.plugins.bootstrap4.containers.BSRowChildren;
 import com.jwebmp.plugins.bootstrap4.forms.BSComponentFormOptions;
 import com.jwebmp.plugins.bootstrap4.forms.BSForm;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
@@ -69,8 +71,8 @@ import static com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions.*;
  * @since 17 Jan 2017
  */
 public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
-		extends Div<IComponentHierarchyBase, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren<IComponentHierarchyBase, J>, IBSFormGroup<J, I>, FormChildren<IComponentHierarchyBase, J>
+		extends Div<GlobalChildren, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
+		implements BSFormChildren, IBSFormGroup<J, I>, FormChildren, BSRowChildren
 {
 
 	private static final Logger log = LogFactory.getLog("BSFormGroup");
@@ -118,7 +120,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			}
 			else
 			{
-				List<IComponentHierarchyBase> children = new ArrayList<>(getChildren());
+				List<IComponentHierarchyBase<?,?>> children = new ArrayList(getChildren());
 				children.add(0, getMessages());
 				setChildren(new LinkedHashSet<>(children));
 			}
@@ -173,7 +175,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 
 	@Override
 	@NotNull
-	@SuppressWarnings("unchecked")
+
 	public BSFormLabel<?> addLabel(String text)
 	{
 		if (label != null)
@@ -182,7 +184,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		if (label == null)
 		{
-			label = new BSFormLabel();
+			label = new BSFormLabel<>();
 		}
 		label.setText(text);
 		add(label);
@@ -191,7 +193,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 
 	@Override
 	@NotNull
-	@SuppressWarnings("unchecked")
 	public I setInput(@NotNull I inputComponent)
 	{
 		if (input != null)
@@ -229,18 +230,19 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@SuppressWarnings("unchecked")
 	public J addSuccessFeedback(String feedback, boolean inline)
 	{
-		ComponentHierarchyBase component;
+		IComponentHierarchyBase<GlobalChildren,?> component;
 		if (inline)
 		{
-			component = new Span();
+			component = new Span<>();
 		}
 		else
 		{
-			component = new Div();
+			component = new Div<>();
 		}
 		component.add(new Paragraph<>(feedback).setTextOnly(true));
 		component.addClass("valid-feedback");
-		component.addAttribute(AngularAttributes.ngShow, getForm().getID() + "." + getInput().getID() + ".$valid");
+		component.asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngShow),
+		                                         getForm().getID() + "." + getInput().getID() + ".$valid");
 		add(component);
 		return (J) this;
 	}
@@ -316,7 +318,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J addHelpText(ComponentHierarchyBase<?,?,?,?,?> text)
+	public J addHelpText(IComponentHierarchyBase<?,?> text)
 	{
 		text.addClass(Form_Text);
 		text.addClass(Text_Muted);

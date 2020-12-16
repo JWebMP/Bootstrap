@@ -36,7 +36,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardImageBottom<J extends BSCardImageBottom<J>>
 		extends Image<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>
+		implements BSCardChildren
 {
 
 

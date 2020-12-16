@@ -44,7 +44,7 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 	 *
 	 * @param forComponent
 	 */
-	public BSCarouselPreviousFeature(BSCarousel forComponent)
+	public BSCarouselPreviousFeature(BSCarousel<?> forComponent)
 	{
 		super("BSCarouselPreviousFeature");
 		setComponent(forComponent);
@@ -65,7 +65,7 @@ public class BSCarouselPreviousFeature<J extends BSCarouselPreviousFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel('";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel('";
 		requiredString += BSCarouselPreviousFeature.methodName;
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);

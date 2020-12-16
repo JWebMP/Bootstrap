@@ -2,12 +2,15 @@ package com.jwebmp.plugins.bootstrap4.toasts.features;
 
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 public class BSToastDisposeFeature
-		extends Feature
+		extends Feature<GlobalFeatures, JavaScriptPart<?>,BSToastDisposeFeature>
 {
 
-	public BSToastDisposeFeature(ComponentHierarchyBase component)
+	public BSToastDisposeFeature(IComponentHierarchyBase<?,?> component)
 	{
 		super("BSToastDisposeFeature", component);
 	}
@@ -15,7 +18,7 @@ public class BSToastDisposeFeature
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "toast('dispose');");
+		addQuery(getComponent().asBase().getJQueryID() + "toast('dispose');");
 	}
 
 }

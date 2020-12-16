@@ -23,6 +23,7 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertEvents;
 
@@ -56,14 +57,14 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 	 * @param component
 	 * 		The component this click is going to be acting on
 	 */
-	public BSToastHideEvent(Component component)
+	public BSToastHideEvent(IComponentHierarchyBase<?,?> component)
 	{
 		super(EventTypes.undefined, component);
 		setComponent(component);
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -95,7 +96,7 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 	{
 		if (!isConfigured())
 		{
-			getComponent().addAttribute("ng-bs-toast-hide-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-bs-toast-hide-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -133,5 +134,5 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onHide(AjaxCall call, AjaxResponse response);
+	public abstract void onHide(AjaxCall<?> call, AjaxResponse<?> response);
 }

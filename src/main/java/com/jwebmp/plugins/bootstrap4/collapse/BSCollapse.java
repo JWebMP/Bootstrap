@@ -16,15 +16,14 @@
  */
 package com.jwebmp.plugins.bootstrap4.collapse;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.toggle.BSToggleAttributes;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -57,8 +56,7 @@ public class BSCollapse
 	 * @param display
 	 * @param hideOnStart
 	 */
-	@SuppressWarnings("unchecked")
-	public static void link(Link linkController, ComponentHierarchyBase display, boolean hideOnStart)
+	public static void link(Link<?> linkController, IComponentHierarchyBase<?,?> display, boolean hideOnStart)
 	{
 		if (display != null)
 		{
@@ -67,8 +65,8 @@ public class BSCollapse
 			{
 				display.addClass(BSDefaultOptions.Show);
 			}
-			linkController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
-			linkController.addAttribute(LinkAttributes.Data_Target.toString(), display.getID(true));
+			linkController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.asBase().getID());
+			linkController.addAttribute(LinkAttributes.Data_Target.toString(), display.asBase().getID(true));
 		}
 
 		linkController.addAttribute(LinkAttributes.Data_Toggle, Collapse);
@@ -83,19 +81,19 @@ public class BSCollapse
 	 * @param hideOnStart
 	 */
 	@SuppressWarnings("Duplicates")
-	public static void link(Button buttonController, @NotNull ComponentHierarchyBase display, boolean hideOnStart)
+	public static void link(Button<?,?,?,?,?> buttonController, @NotNull IComponentHierarchyBase<?,?> display, boolean hideOnStart)
 	{
 		display.addClass(Collapse);
 		if (!hideOnStart)
 		{
 			display.addClass(BSDefaultOptions.Show);
-			display.addAttribute(GlobalAttributes.Aria_LabelledBy, buttonController.getID());
+			display.asAttributeBase().addAttribute(GlobalAttributes.Aria_LabelledBy, buttonController.getID());
 
 			buttonController.addAttribute(GlobalAttributes.Aria_Expanded.toString(), "true");
 		}
-		buttonController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
+		buttonController.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.asBase().getID());
 		buttonController.addAttribute(BSToggleAttributes.Data_Toggle.toString(), Collapse);
-		buttonController.addAttribute(BSToggleAttributes.Data_Target.toString(), display.getID(true));
+		buttonController.addAttribute(BSToggleAttributes.Data_Target.toString(), display.asBase().getID(true));
 		buttonController.addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
 	}
 
@@ -107,18 +105,18 @@ public class BSCollapse
 	 * @param hideOnStart
 	 */
 	@SuppressWarnings("Duplicates")
-	public static void link(ComponentHierarchyBase anyComponent, @NotNull ComponentHierarchyBase display, boolean hideOnStart)
+	public static void link(IComponentHierarchyBase<?,?> anyComponent, @NotNull IComponentHierarchyBase<?,?> display, boolean hideOnStart)
 	{
 		display.addClass(Collapse);
 		if (!hideOnStart)
 		{
 			display.addClass(BSDefaultOptions.Show);
-			display.addAttribute(GlobalAttributes.Aria_LabelledBy, anyComponent.getID());
-			anyComponent.addAttribute(GlobalAttributes.Aria_Expanded.toString(), "true");
+			display.asAttributeBase().addAttribute(GlobalAttributes.Aria_LabelledBy, anyComponent.asBase().getID());
+			anyComponent.asAttributeBase().addAttribute(GlobalAttributes.Aria_Expanded.toString(), "true");
 		}
-		anyComponent.addAttribute(GlobalAttributes.Aria_Controls.toString(), display.getID());
-		anyComponent.addAttribute(BSToggleAttributes.Data_Toggle.toString(), Collapse);
-		anyComponent.addAttribute(BSToggleAttributes.Data_Target.toString(), display.getID(true));
-		anyComponent.addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
+		anyComponent.asAttributeBase().addAttribute(GlobalAttributes.Aria_Controls.toString(), display.asBase().getID());
+		anyComponent.asAttributeBase().addAttribute(BSToggleAttributes.Data_Toggle.toString(), Collapse);
+		anyComponent.asAttributeBase().addAttribute(BSToggleAttributes.Data_Target.toString(), display.asBase().getID(true));
+		anyComponent.asAttributeBase().addAttribute(GlobalAttributes.Aria_Expanded.toString(), Boolean.toString(!hideOnStart));
 	}
 }

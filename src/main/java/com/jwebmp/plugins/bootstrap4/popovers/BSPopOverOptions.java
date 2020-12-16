@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap4.popovers;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 import jakarta.validation.constraints.NotNull;
@@ -216,7 +217,7 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setContent(ComponentHierarchyBase content)
+	public J setContent(IComponentHierarchyBase<?,?> content)
 	{
 		content.setTiny(true);
 		this.content = content.toString(0);

@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.cards.layout.IBSCardDeckChildren;
 import com.jwebmp.plugins.bootstrap4.cards.parts.*;
@@ -27,8 +27,8 @@ import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroup;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupListItem;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
-
 import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 
 /**
@@ -54,7 +54,7 @@ import java.util.List;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
-		implements IBSLayout<J>, IBSCard<BSCardChildren, J>, IBSCardDeckChildren<BSCardChildren,J>
+		implements IBSLayout<J>, IBSCard<BSCardChildren, J>, IBSCardDeckChildren
 {
 
 
@@ -133,9 +133,9 @@ public class BSCard<J extends BSCard<J>>
 	 */
 	@Override
 	@NotNull
-	public BSCardText addCardText(String textToAdd)
+	public BSCardText<?> addCardText(String textToAdd)
 	{
-		BSCardText p = new BSCardText(textToAdd);
+		BSCardText<?> p = new BSCardText<>(textToAdd);
 		super.add(p);
 		return p;
 	}
@@ -152,7 +152,7 @@ public class BSCard<J extends BSCard<J>>
 	@NotNull
 	public BSCardImageTop<?> addCardImageTop(String url)
 	{
-		BSCardImageTop cardImageTop = new BSCardImageTop(url);
+		BSCardImageTop<?> cardImageTop = new BSCardImageTop<>(url);
 		add(cardImageTop);
 		return cardImageTop;
 	}
@@ -166,7 +166,7 @@ public class BSCard<J extends BSCard<J>>
 	@NotNull
 	public BSCardBody<?> addCardBody()
 	{
-		BSCardBody cardBody = new BSCardBody();
+		BSCardBody<?> cardBody = new BSCardBody<>();
 		add(cardBody);
 		return cardBody;
 	}
@@ -300,7 +300,7 @@ public class BSCard<J extends BSCard<J>>
 	 */
 	@Override
 	@NotNull
-	public BSCardHeader<?> addCardHeader(ComponentHierarchyBase component)
+	public BSCardHeader<?> addCardHeader(IComponentHierarchyBase<?,?> component)
 	{
 		BSCardHeader<?> header = new BSCardHeader<>();
 		header.add(component);
@@ -338,7 +338,7 @@ public class BSCard<J extends BSCard<J>>
 	 */
 	@Override
 	@NotNull
-	public BSCardFooter<?> addCardFooter(ComponentHierarchyBase componentHierarchyBase)
+	public BSCardFooter<?> addCardFooter(IComponentHierarchyBase<?,?> componentHierarchyBase)
 	{
 		BSCardFooter<?> header = new BSCardFooter<>();
 		header.add(componentHierarchyBase);

@@ -22,6 +22,7 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -42,7 +43,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
 		url = "https://www.armineasy.com/JWebSwing",
 		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
 public abstract class HiddenBSTabAdapter
-		extends Event
+		extends Event<GlobalFeatures,HiddenBSTabAdapter>
 		implements GlobalEvents
 {
 
@@ -70,7 +71,7 @@ public abstract class HiddenBSTabAdapter
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -112,7 +113,7 @@ public abstract class HiddenBSTabAdapter
 			JQueryPageConfigurator.setRequired(true);
 			AngularPageConfigurator.setRequired(true);
 			
-			getComponent().addAttribute("hidden-bs-tab", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("hidden-bs-tab", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -126,7 +127,7 @@ public abstract class HiddenBSTabAdapter
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onHidden(AjaxCall call, AjaxResponse response);
+	public abstract void onHidden(AjaxCall<?> call, AjaxResponse<?> response);
 
 	/**
 	 * Returns the angular directive associated with the right click event

@@ -32,7 +32,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSDisplayOptions;
  */
 public class BSNavBarBrandImage<J extends BSNavBarBrandImage<J>>
 		extends DivSimple<J>
-		implements BSNavBarChildren<IComponentHierarchyBase, J>
+		implements BSNavBarChildren
 {
 
 
@@ -42,7 +42,7 @@ public class BSNavBarBrandImage<J extends BSNavBarBrandImage<J>>
 	 *
 	 * @param image
 	 */
-	public BSNavBarBrandImage(Image image)
+	public BSNavBarBrandImage(Image<?> image)
 	{
 		addClass(BSDisplayOptions.Inline_Block);
 		addClass(BSAlignmentVerticalOptions.Align_Top);

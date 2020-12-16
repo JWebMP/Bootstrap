@@ -8,7 +8,7 @@ import com.jwebmp.plugins.bootstrap4.dropdown.options.BSDropDownOptions;
 
 public class BSDropDownToggleTitleLink<J extends BSDropDownToggleTitleLink<J>>
 		extends Link<J>
-		implements BSToggleChildren<IComponentHierarchyBase, J>
+		implements BSToggleChildren
 {
 	public BSDropDownToggleTitleLink()
 	{

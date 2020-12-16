@@ -66,7 +66,7 @@ public class BSCarouselCycleFeature<J extends BSCarouselCycleFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "carousel('";
+		String requiredString = getComponent().asBase().getJQueryID() + "carousel('";
 		requiredString += BSCarouselCycleFeature.methodName;
 		requiredString += "');" + getNewLine();
 		addQuery(requiredString);

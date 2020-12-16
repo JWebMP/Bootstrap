@@ -35,20 +35,20 @@ public interface IBSPagination
 	 *
 	 * @return
 	 */
-	BSPaginationLink createPageLink(String ariaLabel);
+	BSPaginationLink<?> createPageLink(String ariaLabel);
 
 	/**
 	 * The actual list for the pagination
 	 *
 	 * @return
 	 */
-	BSPaginationList getPageList();
+	BSPaginationList<?> getPageList();
 
 	/**
 	 * The actual list for the pagination
 	 *
 	 * @param pageList
 	 */
-	void setPageList(BSPaginationList pageList);
+	void setPageList(BSPaginationList<?> pageList);
 
 }

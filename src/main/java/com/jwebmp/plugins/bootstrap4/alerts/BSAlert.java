@@ -20,11 +20,10 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.alerts.events.BSAlertEvents;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -43,7 +42,7 @@ import jakarta.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/components/alerts/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSAlert<J extends BSAlert<J>>
-		extends Div<IComponentHierarchyBase, BSAlertAttributes, GlobalFeatures, BSAlertEvents, J>
+		extends Div<GlobalChildren, BSAlertAttributes, GlobalFeatures, BSAlertEvents, J>
 		implements IBSAlerts<J>
 {
 
@@ -65,7 +64,7 @@ public class BSAlert<J extends BSAlert<J>>
 	 *
 	 * @return
 	 */
-	public IBSAlerts asMe()
+	public IBSAlerts<?> asMe()
 	{
 		return this;
 	}
@@ -97,9 +96,9 @@ public class BSAlert<J extends BSAlert<J>>
 	 */
 	@Override
 	@NotNull
-	public BSAlertDismissButton createDismissButton()
+	public BSAlertDismissButton<?> createDismissButton()
 	{
-		BSAlertDismissButton news = new BSAlertDismissButton(this, true);
+		BSAlertDismissButton<?> news = new BSAlertDismissButton<>(this, true);
 		add(news);
 		return news;
 	}

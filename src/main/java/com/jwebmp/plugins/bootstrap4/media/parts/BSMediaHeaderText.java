@@ -9,7 +9,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSSpacingOptions;
 
 public class BSMediaHeaderText<J extends BSMediaHeaderText<J>>
 		extends HeaderText<J>
-		implements BSMediaChildren<IComponentHierarchyBase, J>
+		implements BSMediaChildren
 {
 	/**
 	 * The media image logo

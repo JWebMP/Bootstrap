@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.progressbar.bar;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.options.BSBackgroundOptions;
 import com.jwebmp.plugins.bootstrap4.progressbar.interfaces.BSProgressBarChildren;
@@ -39,12 +40,10 @@ import jakarta.validation.constraints.NotNull;
  * @since 29 Aug 2015
  */
 public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
-		extends Div<IComponentHierarchyBase, BSProgressBarDisplayAttributes, BSProgressBarDisplayFeatures, BSProgressBarDisplayEvents, J>
-		implements IBSProgressBarDisplay<J>, BSProgressBarChildren<IComponentHierarchyBase, J>
+		extends Div<GlobalChildren, BSProgressBarDisplayAttributes, BSProgressBarDisplayFeatures, BSProgressBarDisplayEvents, J>
+		implements IBSProgressBarDisplay<J>, BSProgressBarChildren
 {
-
-
-	private Span span;
+	private Span<?,?,?> span;
 
 	/**
 	 * The min value to apply
@@ -243,11 +242,11 @@ public class BSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 	 * @return
 	 */
 	@Override
-	public Span getSpan()
+	public Span<?,?,?> getSpan()
 	{
 		if (span == null)
 		{
-			span = new Span();
+			span = new Span<>();
 			add(span);
 		}
 		//span.addClass(BSColoursOptions.Sr_Only);

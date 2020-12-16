@@ -18,10 +18,13 @@ package com.jwebmp.plugins.bootstrap4.carousel.parts;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
+
+import static com.jwebmp.plugins.bootstrap4.options.BSDisplayOptions.Block;
 
 /**
  * Contains each carousel slide
@@ -31,10 +34,8 @@ import com.jwebmp.plugins.bootstrap4.carousel.BSCarouselOptions;
  * @since 01 Jan 2017
  */
 public class BSCarouselItem<J extends BSCarouselItem<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
-
-
 	/**
 	 * Contains each carousel slide
 	 */
@@ -54,7 +55,7 @@ public class BSCarouselItem<J extends BSCarouselItem<J>>
 	 *
 	 * @return
 	 */
-	public BSCarouselItem addCaption(BSCarouselCaption caption)
+	public BSCarouselItem<?> addCaption(BSCarouselCaption<?> caption)
 	{
 		super.add(caption);
 		return this;
@@ -65,7 +66,7 @@ public class BSCarouselItem<J extends BSCarouselItem<J>>
 	{
 		if (!isConfigured())
 		{
-			getChildren().forEach(a -> a.addClass("d-block"));
+			getChildren().forEach(a -> a.asHierarchyBase().addClass(Block));
 		}
 		super.preConfigure();
 	}

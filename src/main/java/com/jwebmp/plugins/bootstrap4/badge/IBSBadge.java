@@ -32,7 +32,6 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setAsLink(boolean asLink);
 
@@ -43,7 +42,6 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setLink(boolean applyStyle);
 
@@ -54,7 +52,6 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setDanger(boolean applyStyle);
 
@@ -65,7 +62,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setDefault(boolean applyStyle);
 
@@ -76,7 +73,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setInfo(boolean applyStyle);
 
@@ -87,7 +84,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setPrimary(boolean applyStyle);
 
@@ -98,7 +95,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSuccess(boolean applyStyle);
 
@@ -109,7 +106,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setWarning(boolean applyStyle);
 
@@ -120,7 +117,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSecondary(boolean applyStyle);
 
@@ -131,7 +128,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setDark(boolean applyStyle);
 
@@ -142,7 +139,7 @@ public interface IBSBadge<J extends BSBadge<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setLight(boolean applyStyle);
 }

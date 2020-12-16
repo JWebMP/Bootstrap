@@ -26,6 +26,7 @@ import com.jwebmp.core.base.interfaces.IComponentHTMLAttributeBase;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButtonAttributes;
 import com.jwebmp.plugins.bootstrap4.dropdown.BSDropDown;
+import com.jwebmp.plugins.bootstrap4.dropdown.interfaces.BSDropDownChildren;
 import com.jwebmp.plugins.bootstrap4.listgroup.BSListGroupOptions;
 import com.jwebmp.plugins.bootstrap4.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap4.navs.parts.BSNavListItem;
@@ -49,13 +50,13 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	private boolean active;
 	private boolean fade;
 
-	private Component tabPane;
+	private IComponentHierarchyBase<?,?> tabPane;
 
 	private BSListGroupButtonItem<?> buttonItem;
 	private BSNavListItem<?> listItem;
 	private BSDropDown<?> dropDownItem;
 
-	public BSTabContainer(boolean active, @NotNull Component tabContent, String text)
+	public BSTabContainer(boolean active, @NotNull IComponentHierarchyBase<?,?> tabContent, String text)
 	{
 		this(tabContent, text);
 		this.active = active;
@@ -64,9 +65,8 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 			buttonItem.setActive();
 		}
 	}
-
-	@SuppressWarnings("unchecked")
-	public BSTabContainer(Component  tabContent, String text)
+	
+	public BSTabContainer(IComponentHierarchyBase<?,?>  tabContent, String text)
 	{
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
@@ -76,7 +76,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	}
 
 
-	public BSTabContainer(boolean active, @NotNull Component  tabContent, ListItemChildren<?,?> text)
+	public BSTabContainer(boolean active, @NotNull IComponentHierarchyBase<?,?>  tabContent, ListItemChildren text)
 	{
 		this(tabContent, text);
 		this.active = active;
@@ -86,8 +86,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	public BSTabContainer(Component  tabContent, ListItemChildren<?,?> text)
+	public BSTabContainer(IComponentHierarchyBase<?,?>  tabContent, ListItemChildren text)
 	{
 		tabPane = tabContent;
 		buttonItem = new BSListGroupButtonItem<>();
@@ -99,7 +98,6 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	/**
 	 * Configures the group tab
 	 */
-	@SuppressWarnings("unchecked")
 	public void configure()
 	{
 		tabPane.addClass("tab-pane");
@@ -114,8 +112,8 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 			buttonItem.addClass(BSListGroupOptions.Active);
 		}
 
-		tabPane.addAttribute("role", "tabpanel");
-		tabPane.addAttribute(GlobalAttributes.Aria_LabelledBy, getButtonItem().getID());
+		tabPane.asAttributeBase().addAttribute("role", "tabpanel");
+		tabPane.asAttributeBase().addAttribute(GlobalAttributes.Aria_LabelledBy, getButtonItem().getID());
 
 		if (active)
 		{
@@ -125,14 +123,14 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 
 		buttonItem.addAttribute("role", "tab");
 		buttonItem.addAttribute(BSButtonAttributes.Data_Toggle.toString(), "list");
-		buttonItem.addAttribute("href", tabPane.getID(true));
+		buttonItem.addAttribute("href", tabPane.asBase().getID(true));
 
 		if (dropDownItem.getChildren()
 		                .size() == 2)
 		{
-			Iterator iterator = dropDownItem.getChildren()
-			                                .iterator();
-			BSDropDownToggle menu = (BSDropDownToggle) iterator.next();
+			Iterator<BSDropDownChildren> iterator = dropDownItem.getChildren()
+			                                                    .iterator();
+			BSDropDownToggle<?> menu = (BSDropDownToggle<?>) iterator.next();
 			List<String> newOrder = new ArrayList<>(menu.getClasses());
 			newOrder.add(0, Nav_Link.toString());
 			newOrder.add(0, "data-toggle-tag");
@@ -151,7 +149,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 		listItem.getLinkItem()
 		        .addAttribute("data-toggle", "tab");
 		listItem.getLinkItem()
-		        .addAttribute("href", tabPane.getID(true));
+		        .addAttribute("href", tabPane.asBase().getID(true));
 	}
 
 	/**
@@ -234,7 +232,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	 *
 	 * @return
 	 */
-	public ComponentHierarchyBase<?, ?, ?, ?, ?> getTabPane()
+	public IComponentHierarchyBase<?,?> getTabPane()
 	{
 		return tabPane;
 	}
@@ -248,7 +246,7 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setTabPane(Component tabPane)
+	public J setTabPane(IComponentHierarchyBase<?,?> tabPane)
 	{
 		this.tabPane = tabPane;
 		return (J) this;

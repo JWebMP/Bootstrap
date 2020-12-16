@@ -79,8 +79,8 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 		addClass(BSButtonOptions.Btn_Group);
 		addClass(BSButtonOptions.Btn_Group_Toggle);
 		addAttribute(Data_Toggle.toString(), "buttons");
-		setLabel(new Label());
-		setInput(new InputCheckBoxType());
+		setLabel(new Label<>());
+		setInput(new InputCheckBoxType<>());
 	}
 
 	/**
@@ -216,6 +216,7 @@ public class BSCheckBox<J extends BSCheckBox<J>>
 	 * @param labelText
 	 * 		Value to set for property 'labelText'.
 	 */
+	@SuppressWarnings("unchecked")
 	public J setLabelText(String labelText)
 	{
 		this.labelText = labelText;

@@ -43,16 +43,13 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 public class BSAlertDismissButton<J extends BSAlertDismissButton<J>>
 		extends BSCloseIcon<J>
 {
-
-
 	/**
 	 * Constructs and adds a dismiss button to the alert
 	 *
 	 * @param alert
 	 * @param fade
 	 */
-	@SuppressWarnings("unchecked")
-	public BSAlertDismissButton(BSAlert alert, boolean fade)
+	public BSAlertDismissButton(BSAlert<?> alert, boolean fade)
 	{
 		addAttribute(ButtonAttributes.Data_Dismiss, BSAlertOptions.Alert);
 		alert.addClass(BSAlertOptions.Alert_Dismissible);

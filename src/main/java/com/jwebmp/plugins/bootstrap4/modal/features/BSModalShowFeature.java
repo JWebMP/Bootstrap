@@ -17,6 +17,8 @@
 package com.jwebmp.plugins.bootstrap4.modal.features;
 
 import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.bootstrap4.modal.BSModal;
 
 /**
@@ -24,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.modal.BSModal;
  * @since 21 Feb 2017
  */
 public class BSModalShowFeature
-		extends Feature
+		extends Feature<GlobalFeatures, JavaScriptPart<?>,BSModalShowFeature>
 {
 
 
@@ -37,7 +39,7 @@ public class BSModalShowFeature
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "modal('show');");
+		addQuery(getComponent().asBase().getJQueryID() + "modal('show');");
 	}
 
 }

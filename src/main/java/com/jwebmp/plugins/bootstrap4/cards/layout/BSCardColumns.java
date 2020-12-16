@@ -44,8 +44,8 @@ import java.util.Map;
  * @since 01 Jan 2017
  */
 public class BSCardColumns<J extends BSCardColumns<J>>
-		extends Div<BSCard, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements GlobalChildren,IBSCardDeckChildren<BSCard,J>
+		extends Div<BSCard<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		implements GlobalChildren,IBSCardDeckChildren
 {
 
 
@@ -106,7 +106,13 @@ public class BSCardColumns<J extends BSCardColumns<J>>
 	private StringBuilder renderBreakpoint(BSSizes size, Integer columnCount)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("@include media-breakpoint-only(" + size + ") {" + "column-count: " + columnCount + ";" + "}");
+		sb.append("@include media-breakpoint-only(")
+		  .append(size)
+		  .append(") {")
+		  .append("column-count: ")
+		  .append(columnCount)
+		  .append(";")
+		  .append("}");
 		return sb;
 	}
 

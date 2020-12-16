@@ -31,7 +31,7 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
  */
 public class BSFormLabel<J extends BSFormLabel<J>>
 		extends Label<J>
-		implements BSFormGroupChildren<IComponentHierarchyBase, J>
+		implements BSFormGroupChildren
 {
 
 

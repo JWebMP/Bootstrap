@@ -26,7 +26,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @param <J>
  */
 public class BSCollapseHideFeature<J extends BSCollapseHideFeature<J>>
-		extends Feature<GlobalFeatures, JavaScriptPart, J>
+		extends Feature<GlobalFeatures, JavaScriptPart<?>, J>
 {
 	public BSCollapseHideFeature(ComponentHierarchyBase component)
 	{
@@ -36,7 +36,7 @@ public class BSCollapseHideFeature<J extends BSCollapseHideFeature<J>>
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(getComponent().getJQueryID() + "collapse('hide');" + getNewLine());
+		addQuery(getComponent().asBase().getJQueryID() + "collapse('hide');" + getNewLine());
 	}
 
 }

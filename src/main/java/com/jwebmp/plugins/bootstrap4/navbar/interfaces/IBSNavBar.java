@@ -33,7 +33,6 @@ import jakarta.validation.constraints.NotNull;
 public interface IBSNavBar<J extends BSNavBar<J>>
 		extends ICssStructure<J>, IBSLayout<J>
 {
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J setNavBarTheme(BSNavBarColourSchemes schemes);
 
@@ -72,7 +71,6 @@ public interface IBSNavBar<J extends BSNavBar<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@NotNull
 	J addPositioning(BSNavBarPositioning position);
 
@@ -93,9 +91,8 @@ public interface IBSNavBar<J extends BSNavBar<J>>
 	@NotNull
 	BSForm<?> addForm();
 
-	@SuppressWarnings("unchecked")
 	@NotNull
-	BSNavBarToggleContainer addToggler();
+	BSNavBarToggleContainer<?> addToggler();
 
 	BSNavBarText addText(String text);
 }

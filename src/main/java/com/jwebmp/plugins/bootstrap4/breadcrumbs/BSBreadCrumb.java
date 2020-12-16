@@ -43,13 +43,13 @@ import java.util.Set;
 		url = "https://v4-alpha.getbootstrap.com/components/breadcrumb/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSBreadCrumb<J extends BSBreadCrumb<J>>
-		extends Div<BSBreadcrumbContainer, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<BSBreadcrumbContainer<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements IBSBreadCrumb<J>
 {
 	private static final String NavigationString = "navigation";
 	private static final String BreadCrumbsString = "breadcrumbs";
 
-	private final BSBreadcrumbContainer crumbs;
+	private final BSBreadcrumbContainer<?> crumbs;
 
 	/**
 	 * Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.
@@ -68,7 +68,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 			addAttribute(GlobalAttributes.Aria_Label, BSBreadCrumb.BreadCrumbsString);
 		}
 		addAttribute(BSNavsAttributes.Role.toString(), BSBreadCrumb.NavigationString);
-		crumbs = new BSBreadcrumbContainer();
+		crumbs = new BSBreadcrumbContainer<>();
 		add(crumbs);
 	}
 
@@ -82,7 +82,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addBreadCrumb(BSBreadCrumbItem item)
+	public J addBreadCrumb(BSBreadCrumbItem<?> item)
 	{
 		crumbs.add(item);
 		return (J) this;
@@ -98,7 +98,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	 *
 	 * @return BSBreadCrumbItem
 	 */
-	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active)
+	public BSBreadCrumbItem<?> addBreadCrumbItem(String text, boolean active)
 	{
 		return addBreadCrumbItem(text, active, null);
 	}
@@ -115,7 +115,7 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	 *
 	 * @return BSBreadCrumbItem
 	 */
-	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url)
+	public BSBreadCrumbItem<?> addBreadCrumbItem(String text, boolean active, String url)
 	{
 		return addBreadCrumbItem(text, active, url, null);
 	}
@@ -134,11 +134,11 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	 *
 	 * @return BSBreadCrumbItem
 	 */
-	public BSBreadCrumbItem addBreadCrumbItem(String text, boolean active, String url, String tooltip)
+	public BSBreadCrumbItem<?> addBreadCrumbItem(String text, boolean active, String url, String tooltip)
 	{
 		BSBreadCrumbItem<?> item = new BSBreadCrumbItem<>().setText(text);
 		item.setActive(active);
-		item.setCrumbLink(new Link(url));
+		item.setCrumbLink(new Link<>(url));
 		crumbs.add(item);
 		return item;
 	}
@@ -146,12 +146,11 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
 	@Override
 	public void preConfigure()
 	{
-		@SuppressWarnings("unchecked")
-		Set<IComponentHierarchyBase> crumbChildren = this.crumbs.getChildren();
+		Set<BSBreadcrumbsChildren> crumbChildren = this.crumbs.getChildren();
 		if (!crumbChildren.isEmpty())
 		{
-			crumbChildren.forEach(next -> next.removeClass(BSComponentBreadcrumbOptions.Active));
-			List<IComponentHierarchyBase> sortedCrumbs = new ArrayList<>(crumbChildren);
+			crumbChildren.forEach(next -> next.asHierarchyBase().removeClass(BSComponentBreadcrumbOptions.Active));
+			List<IComponentHierarchyBase<?,?>> sortedCrumbs = new ArrayList(crumbChildren);
 			sortedCrumbs.get(sortedCrumbs.size() + (!sortedCrumbs.isEmpty() ? -1 : 0))
 			            .addClass(BSComponentBreadcrumbOptions.Active);
 		}

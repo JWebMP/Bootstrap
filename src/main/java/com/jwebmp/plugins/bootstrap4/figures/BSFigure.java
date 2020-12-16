@@ -20,6 +20,7 @@ package com.jwebmp.plugins.bootstrap4.figures;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.TableCaption;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.plugins.bootstrap4.options.BSFigureOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
@@ -39,8 +40,8 @@ import jakarta.validation.constraints.NotNull;
 public class BSFigure<J extends BSFigure<J>>
 		extends DivSimple<J>
 {
-	private ComponentHierarchyBase header;
-	private TableCaption caption;
+	private IComponentHierarchyBase<?,?> header;
+	private TableCaption<?> caption;
 
 	/**
 	 * Anytime you need to display a piece of content—like an image with an optional caption, consider using a figure.
@@ -53,7 +54,7 @@ public class BSFigure<J extends BSFigure<J>>
 	 * @param header
 	 * @param caption
 	 */
-	public BSFigure(ComponentHierarchyBase header, TableCaption caption)
+	public BSFigure(IComponentHierarchyBase<?,?> header, TableCaption<?> caption)
 	{
 		this();
 		this.header = header;
@@ -91,14 +92,14 @@ public class BSFigure<J extends BSFigure<J>>
 	 * @return
 	 */
 
-	public ComponentHierarchyBase getHeader()
+	public IComponentHierarchyBase<?,?> getHeader()
 	{
 		return header;
 	}
 
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setHeader(ComponentHierarchyBase header)
+	public J setHeader(IComponentHierarchyBase<?,?> header)
 	{
 		this.header = header;
 		if (this.header != null)
@@ -108,14 +109,14 @@ public class BSFigure<J extends BSFigure<J>>
 		return (J) this;
 	}
 
-	public TableCaption getCaption()
+	public TableCaption<?> getCaption()
 	{
 		return caption;
 	}
 
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setCaption(TableCaption caption, boolean right)
+	public J setCaption(TableCaption<?> caption, boolean right)
 	{
 		this.caption = caption;
 		if (caption != null)

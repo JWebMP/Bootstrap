@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 public interface IBSTable<J extends BSTable<J>>
 {
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J addTheme(BSTableOptions options);
 
@@ -17,7 +17,7 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setStriped(boolean striped);
 
@@ -28,14 +28,14 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setBordered(boolean bordered);
 
-	@SuppressWarnings("unchecked")
+	
 	J fitInContainerBreakAll();
 
-	@SuppressWarnings("unchecked")
+	
 	J fitInContainerBreakWord();
 
 	/**
@@ -45,7 +45,7 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setHover(boolean hovered);
 
@@ -56,7 +56,7 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSmall(boolean small);
 
@@ -67,7 +67,7 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setResponsive(boolean responsive);
 
@@ -78,10 +78,10 @@ public interface IBSTable<J extends BSTable<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setResponsive(BSTableOptions responsive);
 
-	@SuppressWarnings("unchecked")
+	
 	J setEvenWidthCells();
 }

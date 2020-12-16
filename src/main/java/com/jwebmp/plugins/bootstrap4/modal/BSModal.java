@@ -19,7 +19,12 @@ package com.jwebmp.plugins.bootstrap4.modal;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
+import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
+import com.jwebmp.core.base.html.interfaces.children.FormChildren;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap4.buttons.BSButton;
@@ -57,7 +62,7 @@ import jakarta.validation.constraints.NotNull;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
-		implements BSNavBarChildren<BSModalChildren, J>, IBSModal<J>
+		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren
 {
 
 
@@ -129,7 +134,7 @@ public class BSModal<J extends BSModal<J>>
 	{
 		if (modalDialog == null)
 		{
-			setModalDialog(new BSModalDialog());
+			setModalDialog(new BSModalDialog<>());
 		}
 		return modalDialog;
 	}
@@ -215,12 +220,12 @@ public class BSModal<J extends BSModal<J>>
 	 * @return
 	 */
 	@Override
-	public <T extends ComponentHierarchyBase> T createDismissButton(T component)
+	public <T extends IComponentHierarchyBase<?,?>> T createDismissButton(T component)
 	{
-		component.addAttribute("data-dismiss", BSModalOptions.Modal.toString());
-		component.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
-		component.setTag(ComponentTypes.Button.getComponentTag());
-		component.addAttribute("type", ComponentTypes.Button.getComponentTag());
+		component.asAttributeBase().addAttribute("data-dismiss", BSModalOptions.Modal.toString());
+		component.asAttributeBase().addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
+		component.asTagBase().setTag(ComponentTypes.Button.getComponentTag());
+		component.asAttributeBase().addAttribute("type", ComponentTypes.Button.getComponentTag());
 		return component;
 	}
 
@@ -232,11 +237,10 @@ public class BSModal<J extends BSModal<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addOpenButton(Button button)
+	public J addOpenButton(Button<?,?,?,?,?> button)
 	{
-		return addOpenButton((ComponentHierarchyBase) button);
+		return addOpenButton(button,true);
 	}
 
 	/**
@@ -357,9 +361,8 @@ public class BSModal<J extends BSModal<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addOpenButton(ComponentHierarchyBase button)
+	public J addOpenButton(IComponentHierarchyBase<?,?> button)
 	{
 		return addOpenButton(button, true);
 	}
@@ -374,14 +377,14 @@ public class BSModal<J extends BSModal<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addOpenButton(ComponentHierarchyBase button, boolean setButtonTag)
+	public J addOpenButton(IComponentHierarchyBase<?,?> button, boolean setButtonTag)
 	{
 		if (setButtonTag)
 		{
-			button.setTag("button");
+			button.asTagBase().setTag("button");
 		}
-		button.addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
-		button.addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
+		button.asAttributeBase().addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
+		button.asAttributeBase().addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
 		return (J) this;
 	}
 
@@ -435,7 +438,7 @@ public class BSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	public IBSModal asMe()
+	public IBSModal<?> asMe()
 	{
 		return this;
 	}

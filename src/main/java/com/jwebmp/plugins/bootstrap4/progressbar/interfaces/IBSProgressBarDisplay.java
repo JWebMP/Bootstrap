@@ -26,7 +26,7 @@ import com.jwebmp.plugins.bootstrap4.progressbar.bar.BSProgressBarDisplay;
  * @author GedMarc
  * @since 21 Feb 2017
  */
-public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
+public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay<J>>
 {
 
 	/**
@@ -48,7 +48,7 @@ public interface IBSProgressBarDisplay<J extends BSProgressBarDisplay>
 	 *
 	 * @return
 	 */
-	Span getSpan();
+	Span<?,?,?> getSpan();
 
 	/**
 	 * Returns the current percentage

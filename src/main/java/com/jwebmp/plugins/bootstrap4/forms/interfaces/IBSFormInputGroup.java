@@ -2,7 +2,9 @@ package com.jwebmp.plugins.bootstrap4.forms.interfaces;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 
@@ -16,7 +18,7 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J prepend(String text);
 
@@ -25,9 +27,9 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J prepend(ComponentHierarchyBase component);
+	J prepend(IComponentHierarchyBase<?,?> component);
 
 	/**
 	 * The text (or component.toString(0)) to append
@@ -36,7 +38,7 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J append(String text);
 
@@ -47,27 +49,27 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J append(ComponentHierarchyBase component);
+	J append(IComponentHierarchyBase<?,?> component);
 
 	/**
 	 * returns the prepending div as it currently is. Only add spans directly with classes??
 	 *
 	 * @return
 	 */
-	Div<?, ?, ?, ?, ?> getPrependDiv();
+	DivSimple<?> getPrependDiv();
 
 	/**
 	 * returns the appending div as it currently is. Only add spans directly with classes??
 	 *
 	 * @return
 	 */
-	Div<?, ?, ?, ?, ?> getAppendDiv();
+	DivSimple<?> getAppendDiv();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
-	J append(ComponentHierarchyBase component, boolean renderInSpan);
+	J append(IComponentHierarchyBase<?,?> component, boolean renderInSpan);
 
 	boolean isStyleInputGroupTextWithValidation();
 

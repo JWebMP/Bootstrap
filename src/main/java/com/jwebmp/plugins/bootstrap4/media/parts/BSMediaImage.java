@@ -6,7 +6,7 @@ import com.jwebmp.plugins.bootstrap4.media.BSMediaChildren;
 
 public class BSMediaImage<J extends BSMediaImage<J>>
 		extends Image<J>
-		implements BSMediaChildren<IComponentHierarchyBase, J>
+		implements BSMediaChildren
 {
 	/**
 	 * The media image logo

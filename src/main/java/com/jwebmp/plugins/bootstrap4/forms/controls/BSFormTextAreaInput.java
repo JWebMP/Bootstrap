@@ -26,10 +26,8 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGroupOption
  */
 public class BSFormTextAreaInput<J extends BSFormTextAreaInput<J>>
 		extends BSInput<J>
-		implements BSFormGroupChildren<IComponentHierarchyBase, J>
+		implements BSFormGroupChildren
 {
-
-
 	/**
 	 * A bootstrap default form select
 	 */

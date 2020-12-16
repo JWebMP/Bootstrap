@@ -18,12 +18,10 @@ package com.jwebmp.plugins.bootstrap4.cards.parts;
 
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardChildren;
 import com.jwebmp.plugins.bootstrap4.cards.BSCardOptions;
 import com.jwebmp.plugins.bootstrap4.options.*;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSLayout;
-
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -39,7 +37,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardSubtitle<J extends BSCardSubtitle<J>>
 		extends HeaderText<J>
-		implements BSCardChildren<IComponentHierarchyBase, J>, IBSLayout<J>
+		implements BSCardChildren, IBSLayout<J>
 {
 
 
