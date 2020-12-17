@@ -39,7 +39,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  * @since Oct 7, 2016
  */
 public class BSRow<J extends BSRow<J>>
-		extends Div<BSRowChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<com.jwebmp.core.base.html.interfaces.GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSFormChildren, BSFormGroupChildren,
 				           IBSAlignmentCapable<J>
 {

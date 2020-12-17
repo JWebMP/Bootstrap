@@ -51,8 +51,7 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 
 	public BSDropDownLink(String text)
 	{
-		this();
-		setText(text);
+		super(text);
 	}
 
 	/**
