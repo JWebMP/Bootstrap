@@ -138,7 +138,7 @@ public class BSAlertTest
 	@Test
 	public void testInPage()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.getBody()
 		 .add(new BSAlert());
 		System.out.println(p.toString(true));

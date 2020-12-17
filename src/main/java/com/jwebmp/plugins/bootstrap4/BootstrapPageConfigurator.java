@@ -37,10 +37,9 @@ import jakarta.validation.constraints.NotNull;
  * HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn't work if you view the page via
  * file://
  */
-@PluginInformation(pluginName = "Bootstrap 4",
+@PluginInformation(pluginName = "Bootstrap",
 		pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
-		                    "on" +
-		                    " the web.<br/> We are bootstrap 4 ready!",
+		                    "on the web",
 		pluginUniqueName = "jwebswing-bootstrap",
 		pluginVersion = "4.5.3",
 		pluginCategories = "bootstrap,ui,web ui, framework",

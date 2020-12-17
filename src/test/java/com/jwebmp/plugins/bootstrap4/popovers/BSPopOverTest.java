@@ -38,7 +38,7 @@ public class BSPopOverTest
 		System.out.println(popOver.toString(true));
 		System.out.println(popOver.renderJavascript());
 
-		Page p = new Page();
+		Page<?> p = new Page();
 		//p.getOptions().setBootstrapEnabled(true);
 		p.getBody()
 		 .add(popOver);

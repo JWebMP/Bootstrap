@@ -32,7 +32,7 @@ public class BootstrapPageConfiguratorTest
 	@org.junit.jupiter.api.Test
 	public void testPageConfigurationBS4()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		AngularPageConfigurator.setRequired(true);
 		BootstrapPageConfigurator bpc = new BootstrapPageConfigurator();
 		bpc.configure(p);
