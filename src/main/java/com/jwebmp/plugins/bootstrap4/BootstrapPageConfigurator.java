@@ -40,7 +40,7 @@ import jakarta.validation.constraints.NotNull;
 @PluginInformation(pluginName = "Bootstrap",
 		pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
 		                    "on the web",
-		pluginUniqueName = "jwebswing-bootstrap",
+		pluginUniqueName = "bootstrap",
 		pluginVersion = "4.5.3",
 		pluginCategories = "bootstrap,ui,web ui, framework",
 		pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
