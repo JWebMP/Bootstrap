@@ -30,6 +30,15 @@ import static com.guicedee.guicedinjection.json.StaticStrings.*;
 public enum BSOffsetOptions
 		implements IBSComponentOptions
 {
+	Offset_0,
+	Offset_1,
+	Offset_2,
+	Offset_3,
+	Offset_4,
+	Offset_5,
+	Offset_6,
+	Offset_7,
+	Offset_8,
 	/**
 	 * From size XS the size should be 1
 	 */

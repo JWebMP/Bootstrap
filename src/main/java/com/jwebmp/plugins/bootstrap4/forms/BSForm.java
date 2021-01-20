@@ -47,6 +47,7 @@ import static com.jwebmp.plugins.bootstrap4.forms.groups.enumerations.BSFormGrou
  * <p>
  *
  * @param <J>
+ *
  * @author GedMarc
  * @version 1.0
  * @since 14 Jan 2017
@@ -631,7 +632,9 @@ public class BSForm<J extends BSForm<J>>
 	{
 		BSFieldSet<?> fieldSet = new BSFieldSet<>(this);
 		if (disableOnOperation)
-		{ fieldSet.disableOnCall(); }
+		{
+			fieldSet.disableOnCall();
+		}
 		return fieldSet;
 	}
 	
@@ -641,6 +644,7 @@ public class BSForm<J extends BSForm<J>>
 	 * take up as much space as needed. Put another way, the column sizes itself based on the contents.
 	 *
 	 * @param horizontalLayout The horinzal layout although its the vertical collection
+	 *
 	 * @return
 	 */
 	@Override
@@ -693,6 +697,7 @@ public class BSForm<J extends BSForm<J>>
 	 * Instructs to add the styling options to input fields
 	 *
 	 * @param styleInput
+	 *
 	 * @return
 	 */
 	@Override
@@ -795,17 +800,18 @@ public class BSForm<J extends BSForm<J>>
 	public void preConfigure()
 	{
 		addAttribute(GlobalAttributes.Name, getID());
-		super.preConfigure();
-		if (!isConfigured() && styleInputs)
+		if (styleInputs)
 		{
 			applyClassesToAngularMessages();
 		}
+		super.preConfigure();
 	}
 	
 	/**
 	 * Adds the form-horiztal class to the form
 	 *
 	 * @param horizontal if it must be added or removed
+	 *
 	 * @return Always this
 	 */
 	@SuppressWarnings("unchecked")
@@ -846,7 +852,7 @@ public class BSForm<J extends BSForm<J>>
 	@NotNull
 	protected J applyClassesToForm(BSForm<?> form)
 	{
-		for (IComponentHierarchyBase<?,?> a : form.getChildrenHierarchy(false))
+		for (IComponentHierarchyBase<?, ?> a : form.getChildrenHierarchy(false))
 		{
 			if (BSForm.class.isAssignableFrom(a.getClass()))
 			{
@@ -862,10 +868,12 @@ public class BSForm<J extends BSForm<J>>
 					BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup<?, ?>) a.getParent();
 					inputGroup.getPrependDiv()
 					          .getChildren()
-					          .forEach(b -> b.asHierarchyBase().addClass("form-control"));
+					          .forEach(b -> b.asHierarchyBase()
+					                         .addClass("form-control"));
 					inputGroup.getAppendDiv()
 					          .getChildren()
-					          .forEach(b -> b.asHierarchyBase().addClass("form-control"));
+					          .forEach(b -> b.asHierarchyBase()
+					                         .addClass("form-control"));
 				}
 			}
 		}

@@ -284,8 +284,7 @@ public class BSCard<J extends BSCard<J>>
 	@NotNull
 	public BSCardHeader<?> addCardHeader(String text)
 	{
-		BSCardHeader<?> header = new BSCardHeader<>();
-		header.setText(text);
+		BSCardHeader<?> header = new BSCardHeader<>(text);
 		add(header);
 		return header;
 	}

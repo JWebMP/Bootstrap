@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.cards.parts;
 
+import com.google.common.base.Strings;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.HeaderText;
 import com.jwebmp.core.base.html.attributes.HeaderTypes;
@@ -42,10 +43,11 @@ import jakarta.validation.constraints.NotNull;
  */
 public class BSCardHeader<J extends BSCardHeader<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSCardChildren, IBSCardHeader<J>
+		implements BSCardChildren,
+		           IBSCardHeader<J>
 {
-
-
+	
+	
 	/**
 	 * Header and footer
 	 * <p>
@@ -55,7 +57,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	{
 		this(null);
 	}
-
+	
 	/**
 	 * Header and footer
 	 * <p>
@@ -67,7 +69,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	{
 		this(HeaderTypes.H5, text);
 	}
-
+	
 	/**
 	 * Header and footer
 	 * <p>
@@ -78,10 +80,13 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	public BSCardHeader(HeaderTypes headerType, String text)
 	{
 		super();
-		add(new HeaderText<>(headerType, text));
+		if (!Strings.isNullOrEmpty(text))
+		{
+			add(new HeaderText<>(headerType, text));
+		}
 		addClass(BSCardOptions.Card_Header);
 	}
-
+	
 	/**
 	 * Returns a neater structure
 	 *
@@ -91,7 +96,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 	{
 		return this;
 	}
-
+	
 	/**
 	 * Adds a new tabbed header navigation item
 	 *
@@ -104,7 +109,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		add(headerNav);
 		return headerNav;
 	}
-
+	
 	/**
 	 * Adds a new tab header with a non null list of string headers
 	 *
@@ -120,16 +125,16 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		{
 			headerNav.addItem(header, false);
 		}
-
+		
 		headerNav.getChildren()
 		         .iterator()
 		         .next()
 		         .asHierarchyBase()
 		         .addClass(BSNavsOptions.Active);
-
+		
 		return headerNav;
 	}
-
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -138,7 +143,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		addClass(backgroundOptions);
 		return (J) this;
 	}
-
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -147,7 +152,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		addClass(coloursOptions);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the margins (without checking for previous applied)
 	 *
@@ -163,7 +168,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		addClass(margin);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Applies the padding to the card
 	 *
@@ -179,7 +184,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		addClass(padding);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the border to the correct structure
 	 *
@@ -195,7 +200,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		addClass(border);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the Bootstrap layout options
 	 *
