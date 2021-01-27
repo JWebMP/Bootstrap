@@ -30,6 +30,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel;
 
 import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,15 +51,15 @@ import java.util.List;
  * @since 01 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Carousel",
-		description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
-		url = "https://v4-alpha.getbootstrap.com/components/carousel/",
-		wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
+                      description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
+                      url = "https://v4-alpha.getbootstrap.com/components/carousel/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
 public class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
 		implements com.jwebmp.plugins.bootstrap4.options.interfaces.IBSCarousel<J>
 {
 	private BSCarouselFeature<?> feature;
-
+	
 	/**
 	 * Determines the active slide
 	 */
@@ -83,7 +84,11 @@ public class BSCarousel<J extends BSCarousel<J>>
 	 * Whether or not this carousel will show indicators
 	 */
 	private boolean indicators;
-
+	/**
+	 * Whether or not this carousel will show controls
+	 */
+	private boolean controls;
+	
 	/**
 	 * Carousel
 	 * <p>
@@ -96,9 +101,9 @@ public class BSCarousel<J extends BSCarousel<J>>
 	public BSCarousel()
 	{
 		addFeature(getFeature());
-
+		
 	}
-
+	
 	/**
 	 * Returns the java script feature associated
 	 *
@@ -112,7 +117,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return feature;
 	}
-
+	
 	/**
 	 * Returns any javascript options available
 	 *
@@ -123,17 +128,20 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return getFeature().getOptions();
 	}
-
+	
 	@Override
 	public void init()
 	{
 		if (!isInitialized())
 		{
-			BSCarouselIndicators<?> indications = new BSCarouselIndicators<>(this);
-			indications.init();
-			add(indications);
+			if (indicators)
+			{
+				BSCarouselIndicators<?> indications = new BSCarouselIndicators<>(this);
+				indications.init();
+				add(indications);
+			}
 			add(getCarouselSlides());
-
+			
 			BSCarouselItem<?> activeItem;
 			if (!getSlides().isEmpty())
 			{
@@ -144,21 +152,23 @@ public class BSCarousel<J extends BSCarousel<J>>
 			{
 				getCarouselSlides().add(slide);
 			}
-
-			add(getPreviousLink());
-
-			add(getNextLink());
-
+			
+			if(controls)
+			{
+				add(getPreviousLink());
+				add(getNextLink());
+			}
+			
 		}
 		super.init();
 	}
-
+	
 	/**
 	 * Returns the carousel slides
 	 *
 	 * @return
 	 */
-
+	
 	@Override
 	public BSCarouselSlides<?> getCarouselSlides()
 	{
@@ -168,7 +178,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return carouselSlides;
 	}
-
+	
 	/**
 	 * Sets the carousel slides
 	 *
@@ -184,13 +194,13 @@ public class BSCarousel<J extends BSCarousel<J>>
 		this.carouselSlides = carouselSlides;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the list of slides currently associated
 	 *
 	 * @return
 	 */
-
+	
 	@Override
 	public List<BSCarouselItem<?>> getSlides()
 	{
@@ -200,19 +210,19 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return slides;
 	}
-
+	
 	/**
 	 * The active slide
 	 *
 	 * @return
 	 */
-
+	
 	@Override
 	public int getActiveSlide()
 	{
 		return activeSlide;
 	}
-
+	
 	/**
 	 * Sets the active slide
 	 *
@@ -228,13 +238,13 @@ public class BSCarousel<J extends BSCarousel<J>>
 		this.activeSlide = activeSlide;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the previous link
 	 *
 	 * @return
 	 */
-
+	
 	@Override
 	public BSCarouselControl<?> getPreviousLink()
 	{
@@ -244,13 +254,13 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return previousLink;
 	}
-
+	
 	/**
 	 * Returns the next link
 	 *
 	 * @return
 	 */
-
+	
 	@Override
 	public BSCarouselControl<?> getNextLink()
 	{
@@ -260,7 +270,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return nextLink;
 	}
-
+	
 	/**
 	 * Sets the next link
 	 *
@@ -278,22 +288,22 @@ public class BSCarousel<J extends BSCarousel<J>>
 		if (this.nextLink != null)
 		{
 			nextLink.addClass(BSCarouselOptions.Carousel_Control_Next);
-
+			
 			nextLink.addAttribute("role", "button");
 			nextLink.addAttribute("data-slide", "next");
-
-			Span<?,?,?> iconSpan = new Span<>();
+			
+			Span<?, ?, ?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass(BSCarouselOptions.Carousel_Control_Next_Icon);
-
-			Span<?,?,?> readerFriendly = new Span<>("Next");
+			
+			Span<?, ?, ?> readerFriendly = new Span<>("Next");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 			nextLink.add(iconSpan);
 			nextLink.add(readerFriendly);
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Set's the previous link
 	 *
@@ -313,19 +323,19 @@ public class BSCarousel<J extends BSCarousel<J>>
 			previousLink.addClass(BSCarouselOptions.Carousel_Control_Prev);
 			previousLink.addAttribute("role", "button");
 			previousLink.addAttribute("data-slide", "prev");
-
-			Span<?,?,?> iconSpan = new Span<>();
+			
+			Span<?, ?, ?> iconSpan = new Span<>();
 			iconSpan.addAttribute(GlobalAttributes.Aria_Hidden, "true");
 			iconSpan.addClass(BSCarouselOptions.Carousel_Control_Prev_Icon);
-
-			Span<?,?,?> readerFriendly = new Span<>("Previous");
+			
+			Span<?, ?, ?> readerFriendly = new Span<>("Previous");
 			readerFriendly.addClass(BSColoursOptions.Sr_Only);
 			previousLink.add(iconSpan);
 			previousLink.add(readerFriendly);
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the list of slides currently associated
 	 *
@@ -341,7 +351,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		this.slides = slides;
 		return (J) this;
 	}
-
+	
 	/**
 	 * The data-ride="carousel" attribute is used to mark a carousel as animating starting at page load. It cannot be used in combination
 	 * with (redundant and unnecessary) explicit JavaScript
@@ -366,7 +376,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Whether or not this carousel shows indicators
 	 *
@@ -377,7 +387,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return indicators;
 	}
-
+	
 	/**
 	 * Whether or not this carousel shows indicators
 	 *
@@ -393,7 +403,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		this.indicators = indicators;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the time in milli's
 	 *
@@ -409,7 +419,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		addAttribute("data-interval", Integer.toString(interval));
 		return (J) this;
 	}
-
+	
 	/**
 	 * Whether or not to respond to keyboard actions
 	 *
@@ -425,7 +435,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		addAttribute("data-keyboard", Boolean.toString(keyboard));
 		return (J) this;
 	}
-
+	
 	/**
 	 * Whether the carousel should cycle continuously or have hard stops.
 	 *
@@ -441,7 +451,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		addAttribute("data-wrap", Boolean.toString(wrap));
 		return (J) this;
 	}
-
+	
 	/**
 	 * If set to "hover", pauses the cycling of the carousel on mouse-enter and resumes the cycling of the carousel on mouse-leave. If set
 	 * to null, hovering over the carousel won't pause it.
@@ -458,7 +468,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 		addAttribute("data-pause", pause ? "hover" : "" + "null");
 		return (J) this;
 	}
-
+	
 	/**
 	 * Creates a feature with a cycle method
 	 *
@@ -469,7 +479,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return new BSCarouselCycleFeature<>(this);
 	}
-
+	
 	/**
 	 * Creates a feature that cycles to the next slide
 	 *
@@ -480,7 +490,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return new BSCarouselNextFeature<>(this);
 	}
-
+	
 	/**
 	 * Creates a feature that will pause the carousel
 	 *
@@ -491,7 +501,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return new BSCarouselPauseFeature<>(this);
 	}
-
+	
 	/**
 	 * Creates a feature that will move to the previous slide
 	 *
@@ -502,7 +512,7 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return new BSCarouselPreviousFeature<>(this);
 	}
-
+	
 	/**
 	 * Creates a feature that will slide to a specific slide number
 	 *
@@ -513,15 +523,38 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return new BSCarouselSlideToNumberFeature<>(this).setSlideNumber(slideNumber);
 	}
-
+	
+	/**
+	 * Show controls
+	 *
+	 * @return
+	 */
+	public boolean isControls()
+	{
+		return controls;
+	}
+	
+	/**
+	 * Show controls
+	 *
+	 * @param controls
+	 *
+	 * @return
+	 */
+	public BSCarousel<J> setControls(boolean controls)
+	{
+		this.controls = controls;
+		return this;
+	}
+	
 	@Override
 	public void preConfigure()
 	{
 		addClass("carousel slide");
-
+		
 		super.preConfigure();
 	}
-
+	
 	/**
 	 * Returns a slimmed down version of this class
 	 *
@@ -531,13 +564,13 @@ public class BSCarousel<J extends BSCarousel<J>>
 	{
 		return this;
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
