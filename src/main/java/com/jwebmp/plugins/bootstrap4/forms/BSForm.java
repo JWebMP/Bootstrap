@@ -850,7 +850,7 @@ public class BSForm<J extends BSForm<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	protected J applyClassesToForm(BSForm<?> form)
+	public J applyClassesToForm(BSForm<?> form)
 	{
 		for (IComponentHierarchyBase<?, ?> a : form.getChildrenHierarchy(false))
 		{
