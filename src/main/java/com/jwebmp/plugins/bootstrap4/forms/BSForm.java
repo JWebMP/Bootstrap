@@ -115,7 +115,27 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public BSFormInputGroup<?, InputColourType<?>> createColourInput(String binding, String label)
+	{
+		BSFormInputGroup<?, InputColourType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputColourType<?> inputTextType = new InputColourType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+
 	@Override
 	public BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, String label, boolean inputGroup)
 	{

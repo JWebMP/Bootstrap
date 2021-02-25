@@ -37,7 +37,9 @@ public interface IBSForm<J extends BSForm<J>>
 {
 	BSFormGroup<?, InputTextType<?>> createTextInput(String binding, String label);
 
-	BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, String label, boolean inputGroup);
+	BSFormInputGroup<?, InputColourType<?>> createColourInput(String binding, String label);
+
+    BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, String label, boolean inputGroup);
 
 	BSFormGroup<?, InputSearchType<?>> createSearchInput(String binding, String label);
 
