@@ -37,7 +37,7 @@ public interface IBSModal<J extends BSModal<J>>
 	 *
 	 * @return
 	 */
-	BSModalHeader<?> addModalHeader(boolean dismissButton);
+	BSModalHeader<?> addModalHeader();
 
 	/**
 	 * Adds the modal header to the content of the modal
@@ -76,13 +76,13 @@ public interface IBSModal<J extends BSModal<J>>
 	/**
 	 * Sets the size to render for the modal. By default medium. false sets small
 	 *
-	 * @param large
+	 * @param size
 	 *
 	 * @return
 	 */
 	
 	@NotNull
-	J setModalDialogSize(boolean large);
+	J setModalDialogSize(BSModalOptions size);
 
 	/**
 	 * Includes a modal-backdrop element. Alternatively, specify static for a backdrop which doesn't close the modal on click.

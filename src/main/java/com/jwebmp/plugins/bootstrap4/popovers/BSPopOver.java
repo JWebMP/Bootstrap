@@ -96,12 +96,8 @@ public class BSPopOver<J extends BSPopOver<J>>
 	 */
 	public BSPopOver(IComponentHierarchyBase<?,?> displayedComponent)
 	{
+		setComponent(displayedComponent);
 		addFeature(getFeature());
-		if (displayedComponent != null)
-		{
-			displayedComponent.setTiny(true);
-			getOptions().setContent(displayedComponent.toString(true));
-		}
 	}
 
 	/**
@@ -113,7 +109,7 @@ public class BSPopOver<J extends BSPopOver<J>>
 	{
 		if (feature == null)
 		{
-			feature = new BSPopOverFeature(this);
+			feature = new BSPopOverFeature(getComponent());
 		}
 		return feature;
 	}

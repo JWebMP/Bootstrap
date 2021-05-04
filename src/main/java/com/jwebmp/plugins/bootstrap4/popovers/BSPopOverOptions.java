@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.popovers;
 
+import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
@@ -79,7 +80,10 @@ public class BSPopOverOptions<J extends BSPopOverOptions<J>>
 	private String container;
 	/**
 	 * Default content value if data-content attribute isn't present.
+	 *
+	 * Use a component jquery id
 	 */
+	@JsonRawValue
 	private String content;
 	/**
 	 * Delay showing and hiding the popover (ms) - does not apply to manual trigger type

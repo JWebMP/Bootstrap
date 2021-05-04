@@ -16,10 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap4.modal;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.FormChildren;
@@ -104,13 +102,9 @@ public class BSModal<J extends BSModal<J>>
 	 * @return
 	 */
 	@Override
-	public BSModalHeader<?> addModalHeader(boolean dismissButton)
+	public BSModalHeader<?> addModalHeader()
 	{
 		BSModalHeader<?> modalHeader = new BSModalHeader<>();
-		if (dismissButton)
-		{
-			modalHeader.addDissmissIcon();
-		}
 		getModalContent().add(modalHeader);
 		return modalHeader;
 	}
@@ -246,25 +240,20 @@ public class BSModal<J extends BSModal<J>>
 	/**
 	 * Sets the size to render for the modal. By default medium. false sets small
 	 *
-	 * @param large
+	 * @param options
 	 *
 	 * @return
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setModalDialogSize(boolean large)
+	public J setModalDialogSize(BSModalOptions options)
 	{
-		if (large)
-		{
-			getModalDialog().removeClass(BSModalOptions.Modal_Sm);
-			getModalDialog().addClass(BSModalOptions.Modal_Lg);
-		}
-		else
-		{
-			getModalDialog().addClass(BSModalOptions.Modal_Sm);
-			getModalDialog().removeClass(BSModalOptions.Modal_Lg);
-		}
+		getModalDialog().removeClass(BSModalOptions.Modal_Sm);
+		getModalDialog().removeClass(BSModalOptions.Modal_Lg);
+		getModalDialog().removeClass(BSModalOptions.Modal_Xl);
+		
+		getModalDialog().addClass(options);
 		return (J) this;
 	}
 

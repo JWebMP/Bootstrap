@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms.groups;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.AngularAttributes;
@@ -47,6 +48,7 @@ import com.jwebmp.plugins.bootstrap4.options.BSContainerOptions;
 import com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions;
 
 import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -61,11 +63,8 @@ import static com.jwebmp.plugins.bootstrap4.options.BSTypographyOptions.*;
  * An implementation of
  * <p>
  *
- * @param <J>
- * 		Always this class
- * @param <I>
- * 		The input type control
- *
+ * @param <J> Always this class
+ * @param <I> The input type control
  * @author GedMarc
  * @version 1.0
  * @since 17 Jan 2017
@@ -74,24 +73,27 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		extends Div<GlobalChildren, BSFormGroupAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSFormChildren, IBSFormGroup<J, I>, FormChildren, BSRowChildren
 {
-
+	
 	private static final Logger log = LogFactory.getLog("BSFormGroup");
-
-
+	
 	/**
 	 * The label
 	 */
 	private BSFormLabel<?> label;
-
+	
+	@JsonIdentityReference(alwaysAsId = true)
 	private BSForm<?> form;
-
+	
 	private TopOrBottom messagePlacement = Bottom;
-
+	
+	private boolean addInput = true;
+	private boolean addLabel = true;
+	
 	/**
 	 * The input component for the form group
 	 */
 	private I input;
-
+	
 	/**
 	 * Form Group Messages
 	 */
@@ -100,7 +102,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * Enables or disables message display in the group
 	 */
 	private boolean enableMessages = true;
-
+	
 	/**
 	 * Constructs a new BS Form Group
 	 */
@@ -108,7 +110,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		addClass(BSFormGroupOptions.Form_Group);
 	}
-
+	
 	@Override
 	public void preConfigure()
 	{
@@ -120,14 +122,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			}
 			else
 			{
-				List<IComponentHierarchyBase<?,?>> children = new ArrayList(getChildren());
+				List<IComponentHierarchyBase<?, ?>> children = new ArrayList(getChildren());
 				children.add(0, getMessages());
 				setChildren(new LinkedHashSet<>(children));
 			}
 		}
 		super.preConfigure();
 	}
-
+	
 	/**
 	 * Returns the applied messages
 	 *
@@ -144,15 +146,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			messages.addAttribute("ng-class", getForm().buildValidationClass(input)
 			                                           .replace("is-invalid", "invalid-feedback"));
 		}
-
+		
 		return messages;
 	}
-
+	
 	/**
 	 * Sets the collection of validation messages to display
 	 *
 	 * @param messages
-	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -162,7 +163,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		this.messages = messages;
 		return (J) this;
 	}
-
+	
 	/**
 	 * The slimmer neater version
 	 *
@@ -172,10 +173,9 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		return this;
 	}
-
+	
 	@Override
 	@NotNull
-
 	public BSFormLabel<?> addLabel(String text)
 	{
 		if (label != null)
@@ -187,10 +187,27 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			label = new BSFormLabel<>();
 		}
 		label.setText(text);
+		if(addLabel)
 		add(label);
 		return label;
 	}
-
+	
+	@Override
+	@NotNull
+	public BSFormLabel<?> addLabel(BSFormLabel<?> text)
+	{
+		if (label != null)
+		{
+			remove(label);
+		}
+		label = text;
+		if (addLabel)
+		{
+			add(label);
+		}
+		return label;
+	}
+	
 	@Override
 	@NotNull
 	public I setInput(@NotNull I inputComponent)
@@ -199,22 +216,32 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		{
 			remove(input);
 		}
-		add(inputComponent);
-		input = inputComponent;
-
-		if (!(inputComponent instanceof InputFileType))
+		if (addInput)
 		{
-			inputComponent.addClass(BSFormGroupOptions.Form_Control);
+			add(inputComponent);
 		}
-
+		input = inputComponent;
+		
+		if(addInput)
+		if (inputComponent != null)
+		{
+			if (!(inputComponent instanceof InputFileType))
+			{
+				inputComponent.addClass(BSFormGroupOptions.Form_Control);
+			}
+		}
+		
 		if (label != null)
 		{
-			inputComponent.addAttribute(GlobalAttributes.Aria_Describedby, label.getID());
-			label.setForInputComponent(inputComponent);
+			if (inputComponent != null)
+			{
+				inputComponent.addAttribute(GlobalAttributes.Aria_Describedby, label.getID());
+				label.setForInputComponent(inputComponent);
+			}
 		}
 		return inputComponent;
 	}
-
+	
 	/**
 	 * Adds a success feedback configured with styled if it is set before it
 	 * <p>
@@ -222,7 +249,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 *
 	 * @param feedback
 	 * @param inline
-	 *
 	 * @return
 	 */
 	@Override
@@ -230,7 +256,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@SuppressWarnings("unchecked")
 	public J addSuccessFeedback(String feedback, boolean inline)
 	{
-		IComponentHierarchyBase<GlobalChildren,?> component;
+		IComponentHierarchyBase<GlobalChildren, ?> component;
 		if (inline)
 		{
 			component = new Span<>();
@@ -241,12 +267,13 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		component.add(new Paragraph<>(feedback).setTextOnly(true));
 		component.addClass("valid-feedback");
-		component.asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngShow),
-		                                         getForm().getID() + "." + getInput().getID() + ".$valid");
+		component.asAttributeBase()
+		         .addAttribute(String.valueOf(AngularAttributes.ngShow),
+				         getForm().getID() + "." + getInput().getID() + ".$valid");
 		add(component);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the associated form
 	 *
@@ -255,16 +282,17 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	public BSForm<?> getForm()
 	{
-		if(form == null)
+		if (form == null)
+		{
 			form = new BSForm<>();
+		}
 		return form;
 	}
-
+	
 	/**
 	 * Sets the form
 	 *
 	 * @param form
-	 *
 	 * @return
 	 */
 	@Override
@@ -275,7 +303,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		this.form = form;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the input component associated
 	 *
@@ -292,9 +320,10 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		return input;
 	}
-
+	
 	/**
 	 * Adds help text immediately to the
+	 *
 	 * @param text
 	 * @return
 	 */
@@ -307,26 +336,27 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		smallText.addClass(Form_Text);
 		smallText.addClass(Text_Muted);
 		add(smallText);
-		return (J)this;
+		return (J) this;
 	}
-
+	
 	/**
 	 * Adds help text immediately to the
+	 *
 	 * @param text
 	 * @return
 	 */
 	@Override
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J addHelpText(IComponentHierarchyBase<?,?> text)
+	public J addHelpText(IComponentHierarchyBase<?, ?> text)
 	{
 		text.addClass(Form_Text);
 		text.addClass(Text_Muted);
 		add(text);
-		return (J)this;
+		return (J) this;
 	}
-
-
+	
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -336,7 +366,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		             .addClass("invalid-feedback");
 		return (J) this;
 	}
-
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -345,7 +375,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		getMessages().addMessage(forError, message, false);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Gets the position to place the angular messages in the component
 	 *
@@ -356,12 +386,11 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		return messagePlacement;
 	}
-
+	
 	/**
 	 * Sets the message placement
 	 *
 	 * @param messagePlacement
-	 *
 	 * @return
 	 */
 	@Override
@@ -372,7 +401,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		this.messagePlacement = messagePlacement;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the size of the input controller
 	 *
@@ -390,13 +419,12 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		addClass(size);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Add the readonly boolean attribute on an input to prevent modification of the input’s value. Read-only inputs appear lighter (just
 	 * like disabled inputs), but retain the standard cursor.
 	 *
 	 * @param readOnly
-	 *
 	 * @return
 	 */
 	@Override
@@ -418,14 +446,13 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Readonly plain text
 	 * If you want to have input readonly elements in your form styled as plain text, use the .form-control-plaintext class to remove the
 	 * default form field styling and preserve the correct margin and padding.
 	 *
 	 * @param asPlainText
-	 *
 	 * @return
 	 */
 	@Override
@@ -437,7 +464,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		{
 			throw new UnsupportedOperationException("Can't set plain text on a non-existent input.....");
 		}
-
+		
 		if (asPlainText)
 		{
 			getInput().removeClass(BSFormGroupOptions.Form_Control);
@@ -450,7 +477,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Horizontal form
 	 * Create horizontal forms with the grid by adding the .row class to form groups and using the .col-*-* classes to specify the width of
@@ -463,7 +490,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 *
 	 * @param labelSpan
 	 * @param inputSpan
-	 *
 	 * @return
 	 */
 	@Override
@@ -486,29 +512,29 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		getInput().getClasses()
 		          .forEach(a ->
-		                   {
-			                   if (a.contains("form-control-lg"))
-			                   {
-				                   getLabel().addClass("col-form-label-lg");
-			                   }
-			                   else if (a.contains("form-control-sm"))
-			                   {
-				                   getLabel().addClass("col-form-label-sm");
-			                   }
-		                   });
+		          {
+			          if (a.contains("form-control-lg"))
+			          {
+				          getLabel().addClass("col-form-label-lg");
+			          }
+			          else if (a.contains("form-control-sm"))
+			          {
+				          getLabel().addClass("col-form-label-sm");
+			          }
+		          });
 		addClass(Row);
 		getInput().addClass(inputSpan);
-
+		
 		return (J) this;
 	}
-
+	
 	/**
 	 * Returns the label associated
 	 *
 	 * @return
 	 */
 	@Override
-
+	
 	public BSFormLabel<?> getLabel()
 	{
 		if (label == null)
@@ -519,7 +545,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		return label;
 	}
-
+	
 	/**
 	 * Sets if the input update binding should occur and validate when the field is left
 	 *
@@ -537,12 +563,11 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		getInput().addAttribute(AngularAttributes.ngModelOptions.getAttributeName(), "{updateOn:'blur'}");
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets to display if the field must display styled before action has occured
 	 *
 	 * @param validity
-	 *
 	 * @return
 	 */
 	@Override
@@ -563,6 +588,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	
 	/**
 	 * If messages are enabled
+	 *
 	 * @return
 	 */
 	public boolean isEnableMessages()
@@ -572,6 +598,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	
 	/**
 	 * Set messages enabled flag
+	 *
 	 * @param enableMessages
 	 * @return
 	 */
@@ -581,12 +608,34 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return this;
 	}
 	
+	public boolean isAddInput()
+	{
+		return addInput;
+	}
+	
+	public BSFormGroup<J, I> setAddInput(boolean addInput)
+	{
+		this.addInput = addInput;
+		return this;
+	}
+	
+	public boolean isAddLabel()
+	{
+		return addLabel;
+	}
+	
+	public BSFormGroup<J, I> setAddLabel(boolean addLabel)
+	{
+		this.addLabel = addLabel;
+		return this;
+	}
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{

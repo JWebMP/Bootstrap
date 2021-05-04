@@ -60,6 +60,10 @@ public enum BSModalOptions
 	 */
 	Modal_Dialog,
 	/**
+	 * Modal Xtra large
+	 */
+	Modal_Xl,
+	/**
 	 * Modal large
 	 */
 	Modal_Lg,

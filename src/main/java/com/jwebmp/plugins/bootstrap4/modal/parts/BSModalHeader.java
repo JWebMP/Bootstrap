@@ -54,7 +54,7 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 	 * @return
 	 */
 	@Override
-	public BSCloseIcon<?> addDissmissIcon()
+	public BSCloseIcon<?> addDismissIcon()
 	{
 		BSCloseIcon<?> icon = new BSCloseIcon<>().setDismissModel();
 		add(icon);

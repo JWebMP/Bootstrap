@@ -17,6 +17,9 @@
 package com.jwebmp.core.plugins.jquery.bootstrap;
 
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.Form;
+import com.jwebmp.plugins.bootstrap4.forms.BSForm;
+import com.jwebmp.plugins.bootstrap4.forms.groups.sets.BSFormInputGroup;
 import com.jwebmp.plugins.bootstrap4.options.BSDefaultOptions;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +39,15 @@ public class BootstrapClassesTest
 		Div d = new Div<>();
 		d.addClass(BSDefaultOptions.Active);
 		System.out.println(d.toString(0));
-
+		
+		BSForm<?> form = new BSForm<>().setID("outer form");
+		BSFormInputGroup<?, ?> group = new BSFormInputGroup<>();
+		
+		group.add(new Form<>().setID("inner form"));
+		
+		form.add(group);
+		
+		System.out.println(form.toString(0));
 	}
 
 }

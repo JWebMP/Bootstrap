@@ -35,5 +35,5 @@ public interface IBSModalHeader<J extends BSModalHeader<J>>
 	 *
 	 * @return
 	 */
-	BSCloseIcon<?> addDissmissIcon();
+	BSCloseIcon<?> addDismissIcon();
 }

@@ -199,6 +199,7 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 		return (J) this;
 	}
 
+	
 
 	@Override
 	public boolean equals(Object o)

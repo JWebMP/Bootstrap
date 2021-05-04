@@ -68,7 +68,7 @@ public class BSPopOverFeature
 	{
 		if (options == null)
 		{
-			options = new BSPopOverOptions();
+			options = new BSPopOverOptions<>();
 		}
 		return options;
 	}
@@ -76,7 +76,7 @@ public class BSPopOverFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getNewLine() + getComponent().asBase().getJQueryID() + "popover({" + getOptions() + "});" + getNewLine();
+		String requiredString = getNewLine() + getComponent().asBase().getJQueryID() + "popover(" + getOptions() + ");" + getNewLine();
 		addQuery(requiredString);
 	}
 }

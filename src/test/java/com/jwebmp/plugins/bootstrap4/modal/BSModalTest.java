@@ -37,9 +37,9 @@ public class BSModalTest
 	{
 		BSModal<?> modal = new BSModal();
 
-		BSModalHeader header = modal.addModalHeader(true);
+		BSModalHeader header = modal.addModalHeader();
 		header.addTitle("This is the title");
-		header.addDissmissIcon();
+		header.addDismissIcon();
 
 		BSModalBody body = modal.addModalBody();
 		body.add("This ist he contente");

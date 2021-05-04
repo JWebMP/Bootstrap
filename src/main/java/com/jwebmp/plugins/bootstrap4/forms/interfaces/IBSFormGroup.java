@@ -39,7 +39,9 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	
 	BSFormLabel<?> addLabel(String text);
 
-	@NotNull
+    @NotNull BSFormLabel<?> addLabel(BSFormLabel<?> text);
+
+    @NotNull
 	
 	I setInput(@NotNull I inputComponent);
 

@@ -9,7 +9,7 @@ public class BSModalContent<J extends BSModalContent<J>>
 {
 	public BSModalContent()
 	{
-		addClass(BSModalOptions.Modal_Dialog);
+		addClass(BSModalOptions.Modal_Content);
 		addAttribute(BSModalAttributes.Role.toString(), "document");
 	}
 }

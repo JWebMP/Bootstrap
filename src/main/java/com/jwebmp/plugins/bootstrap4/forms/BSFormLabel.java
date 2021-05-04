@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap4.forms;
 
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.Label;
+import com.jwebmp.core.base.html.interfaces.children.FormChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
 
@@ -31,7 +32,7 @@ import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroupChildren;
  */
 public class BSFormLabel<J extends BSFormLabel<J>>
 		extends Label<J>
-		implements BSFormGroupChildren
+		implements BSFormGroupChildren, BSFormChildren, FormChildren
 {
 
 

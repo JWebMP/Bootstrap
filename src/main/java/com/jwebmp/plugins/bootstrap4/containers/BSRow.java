@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap4.containers;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.children.FieldSetChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormChildren;
@@ -40,7 +41,7 @@ import static com.jwebmp.plugins.bootstrap4.options.BSContainerOptions.*;
  */
 public class BSRow<J extends BSRow<J>>
 		extends Div<com.jwebmp.core.base.html.interfaces.GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSFormChildren, BSFormGroupChildren,
+		implements BSFormChildren, BSFormGroupChildren, FieldSetChildren,
 				           IBSAlignmentCapable<J>
 {
 	/**

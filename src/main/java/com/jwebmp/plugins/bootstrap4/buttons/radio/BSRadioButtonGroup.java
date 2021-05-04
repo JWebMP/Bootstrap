@@ -76,7 +76,8 @@ public class BSRadioButtonGroup<J extends BSRadioButtonGroup<J>>
 	{
 		InputRadioType<?> radioCheckBoxType = super.setInput(inputComponent);
 		radioCheckBoxType.removeClass(Form_Control);
-		radioCheckBoxType.addClass(Form_Check_Input);
+		radioCheckBoxType.addClass(Form_Check);
+		radioCheckBoxType.addClass(Form_Check_Inline);
 		if (getLabel() != null)
 		{
 			remove(getLabel());
@@ -131,13 +132,11 @@ public class BSRadioButtonGroup<J extends BSRadioButtonGroup<J>>
 	{
 		if (inline)
 		{
-			removeClass(Form_Check);
-			addClass(Form_Check_Input);
+			addClass(Form_Check_Inline);
 		}
 		else
 		{
-			addClass(Form_Check);
-			removeClass(Form_Check_Input);
+			removeClass(Form_Check_Inline);
 		}
 		return (J) this;
 	}

@@ -20,6 +20,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.forms.AngularForm;
 import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.html.Label;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.inputs.*;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -61,7 +62,6 @@ public class BSForm<J extends BSForm<J>>
 		implements IBSForm<J>,
 		           BSNavBarChildren
 {
-	
 	private boolean styleInputs;
 	
 	/**
@@ -116,26 +116,6 @@ public class BSForm<J extends BSForm<J>>
 		return group;
 	}
 
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public BSFormInputGroup<?, InputColourType<?>> createColourInput(String binding, String label)
-	{
-		BSFormInputGroup<?, InputColourType<?>> group = new BSFormInputGroup<>();
-		group.setForm(this);
-		if (label != null)
-		{
-			group.addLabel(label);
-		}
-
-		InputColourType<?> inputTextType = new InputColourType<>();
-		group.setInput(inputTextType);
-		inputTextType.bind(binding);
-
-		return group;
-	}
-
-
 	@Override
 	public BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, String label, boolean inputGroup)
 	{
@@ -145,14 +125,63 @@ public class BSForm<J extends BSForm<J>>
 		{
 			group.addLabel(label);
 		}
-		
+
 		InputTextType<?> inputTextType = new InputTextType<>();
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
-		
+
 		return group;
 	}
-	
+
+	public BSFormInputGroup<?, InputTextType<?>> createTextInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputTextType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTextType<?> inputTextType = new InputTextType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public BSFormGroup<?, InputTextType<?>> createTextInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputTextType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTextType<?> inputTextType = new InputTextType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputColourType<?>> createColourInput(String binding, String label)
+	{
+		BSFormInputGroup<?, InputColourType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+		InputColourType<?> inputTextType = new InputColourType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+
 	@Override
 	public BSFormGroup<?, InputSearchType<?>> createSearchInput(String binding, String label)
 	{
@@ -169,7 +198,7 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
 	@Override
 	public BSFormInputGroup<?, InputSearchType<?>> createSearchInput(String binding, String label, boolean inputGroup)
 	{
@@ -186,7 +215,7 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
 	@Override
 	public BSFormInputGroup<?, InputPasswordType<?>> createPasswordInput(String binding, String label, boolean inputGroup)
 	{
@@ -203,7 +232,7 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
 	@Override
 	public BSFormGroup<?, InputTextAreaType<?>> createTextArea(String binding, String label)
 	{
@@ -217,7 +246,7 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
 	@Override
 	public BSFormInputGroup<?, InputTextAreaType<?>> createTextArea(String binding, String label, boolean inputGroup)
 	{
@@ -234,7 +263,7 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
 	@Override
 	public BSFormGroup<?, InputEmailType<?>> createEmailInput(String binding, String label)
 	{
@@ -251,7 +280,155 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+	public BSFormGroup<?, InputSelectType<?>> createSelectDropdown(String binding, BSFormLabel<?> label, boolean multiple, boolean styled, Boolean largeOrSmall)
+	{
+		BSFormGroup<?, InputSelectType<?>> group = createSelectDropdown(binding, label);
+		group.setForm(this);
+		group.getInput()
+				.setMultiple(multiple);
+		if (styled)
+		{
+			addClass("custom-select");
+			if (largeOrSmall != null)
+			{
+				if (largeOrSmall)
+				{
+					addClass("custom-select-lg");
+				}
+				else
+				{
+					addClass("custom-select-sm");
+				}
+			}
+		}
+		return group;
+	}
+
+	public  BSFormInputGroup<?, InputEmailType<?>> createEmailInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputEmailType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputEmailType<?> inputEmailType = new InputEmailType<>();
+		group.setInput(inputEmailType);
+		inputEmailType.bind(binding);
+
+		return group;
+	}
+
+	public BSFormGroup<?, InputEmailType<?>> createEmailInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputEmailType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputEmailType<?> inputEmailType = new InputEmailType<>();
+		group.setInput(inputEmailType);
+		inputEmailType.bind(binding);
+
+		return group;
+	}
+
+	public BSFormInputGroup<?, InputTextAreaType<?>> createTextArea(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputTextAreaType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTextAreaType<?> inputTextType = new InputTextAreaType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public BSFormGroup<?, InputTextAreaType<?>> createTextArea(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputTextAreaType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		group.addLabel(label);
+
+		InputTextAreaType<?> inputTextType = new InputTextAreaType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public  BSFormInputGroup<?, InputPasswordType<?>> createPasswordInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputPasswordType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputPasswordType<?> inputTextType = new InputPasswordType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public  BSFormInputGroup<?, InputSearchType<?>> createSearchInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputSearchType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputSearchType<?> inputTextType = new InputSearchType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public  BSFormGroup<?, InputSearchType<?>> createSearchInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputSearchType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputSearchType<?> inputTextType = new InputSearchType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public  BSFormInputGroup<?, InputColourType<?>> createColourInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormInputGroup<?, InputColourType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+		InputColourType<?> inputTextType = new InputColourType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
 	@Override
 	public BSFormInputGroup<?, InputEmailType<?>> createEmailInput(String binding, String label, boolean inputGroup)
 	{
@@ -293,7 +470,7 @@ public class BSForm<J extends BSForm<J>>
 		}
 		return group;
 	}
-	
+
 	@Override
 	public BSFormGroup<?, InputSelectType<?>> createSelectDropdown(String binding, String label)
 	{
@@ -308,6 +485,23 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputSelectType);
 		inputSelectType.bind(binding);
 		
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputSelectType<?>> createSelectDropdown(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputSelectType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputSelectType<?> inputSelectType = new InputSelectType<>();
+		group.setInput(inputSelectType);
+		inputSelectType.bind(binding);
+
 		return group;
 	}
 	
@@ -327,6 +521,23 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+	@Override
+	public BSFormInputGroup<?, InputSelectType<?>> createSelectDropdown(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputSelectType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputSelectType<?> inputSelectType = new InputSelectType<>();
+		group.setInput(inputSelectType);
+		inputSelectType.bind(binding);
+
+		return group;
+	}
 	
 	@Override
 	public BSCheckBoxGroup<?> createCheckboxInput(String binding, String label)
@@ -342,6 +553,23 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
+		return group;
+	}
+
+	@Override
+	public BSCheckBoxGroup<?> createCheckboxInput(String binding, BSFormLabel<?> label)
+	{
+		BSCheckBoxGroup<?> group = new BSCheckBoxGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputCheckBoxType<?> inputTextType = new InputCheckBoxType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
 		return group;
 	}
 	
@@ -363,6 +591,26 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+
+	@Override
+	public BSRadioButtonGroup<?> createRadioInput(String binding, BSFormLabel<?> label, String groupName)
+	{
+		BSRadioButtonGroup<?> group = new BSRadioButtonGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputRadioType<?> inputTextType = new InputRadioType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+		inputTextType.setGroup(groupName);
+		add(group);
+
+		return group;
+	}
 	
 	@Override
 	public BSFormGroup<?, InputFileType<?>> createFileInput(String binding, String label)
@@ -381,9 +629,26 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+	@Override
+	public BSFormGroup<?, InputFileType<?>> createFileInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputFileType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputFileType<?> inputSelectType = new InputFileType<>();
+		group.setInput(inputSelectType);
+		inputSelectType.bind(binding);
+		inputSelectType.addClass(BSFormGroupOptions.Form_Control_File);
+
+		return group;
+	}
 	
 	@Override
-	@SuppressWarnings("")
 	public BSFormInputGroup<?, InputFileType<?>> createFileInput(String binding, String label, boolean styled, boolean inputGroup)
 	{
 		BSFormInputGroup<?, InputFileType<?>> group = new BSFormInputGroup<>();
@@ -412,9 +677,46 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+	@Override
+	@SuppressWarnings("")
+	public BSFormInputGroup<?, InputFileType<?>> createFileInput(String binding, BSFormLabel<?> label, boolean styled, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputFileType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputFileType<?> inputFileType = new InputFileType<>();
+		group.setInput(inputFileType);
+		inputFileType.bind(binding);
+
+		if (styled)
+		{
+			group.removeClass(BSFormGroupOptions.Form_Group);
+			group.addClass("custom-file");
+			inputFileType.addClass("custom-file-input");
+			group.getLabel()
+					.addClass("custom-file-label");
+		}
+		else
+		{
+			inputFileType.addClass(BSFormGroupOptions.Form_Control_File);
+		}
+
+		return group;
+	}
 	
 	@Override
 	public BSFormInputGroup<?, InputFileType<?>> createFileInput(String binding, String label, boolean styled)
+	{
+		return createFileInput(binding, label, styled, false);
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputFileType<?>> createFileInput(String binding, BSFormLabel<?> label, boolean styled)
 	{
 		return createFileInput(binding, label, styled, false);
 	}
@@ -435,7 +737,25 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+	@Override
+	public BSFormInputGroup<?, InputTelephoneType<?>> createTelephoneInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputTelephoneType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTelephoneType<?> inputTextType = new InputTelephoneType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+
 	@Override
 	public BSFormGroup<?, InputTelephoneType<?>> createTelephoneInput(String binding, String label)
 	{
@@ -450,6 +770,23 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputTelephoneType<?>> createTelephoneInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputTelephoneType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTelephoneType<?> inputTextType = new InputTelephoneType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
 		return group;
 	}
 	
@@ -469,6 +806,23 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+	@Override
+	public BSFormInputGroup<?, InputDateType<?>> createDateInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputDateType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateType<?> inputTextType = new InputDateType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
 	
 	@Override
 	public BSFormInputGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, String label, boolean inputGroup)
@@ -484,6 +838,23 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputDateTimeType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
 		return group;
 	}
 	
@@ -503,6 +874,24 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+
+	@Override
+	public BSFormGroup<?, InputNumberType<?>> createNumberInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputNumberType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputNumberType<?> inputTextType = new InputNumberType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
 	
 	@Override
 	public BSFormInputGroup<?, InputNumberType<?>> createNumberInput(String binding, String label, boolean inputGroup)
@@ -518,6 +907,24 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
+		return group;
+	}
+
+
+	@Override
+	public BSFormInputGroup<?, InputNumberType<?>> createNumberInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputNumberType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputNumberType<?> inputTextType = new InputNumberType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
 		return group;
 	}
 	
@@ -537,6 +944,23 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
+
+	@Override
+	public BSFormGroup<?, InputTimeType<?>> createTimeInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputTimeType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTimeType<?> inputTextType = new InputTimeType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
 	
 	@Override
 	public BSFormInputGroup<?, InputTimeType<?>> createTimeInput(String binding, String label, boolean inputGroup)
@@ -554,7 +978,25 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+
+	@Override
+	public BSFormInputGroup<?, InputTimeType<?>> createTimeInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputTimeType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputTimeType<?> inputTextType = new InputTimeType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
 	@Override
 	public BSFormInputGroup<?, InputUrlType<?>> createUrlInput(String binding, String label, boolean inputGroup)
 	{
@@ -569,6 +1011,23 @@ public class BSForm<J extends BSForm<J>>
 		group.setInput(inputTextType);
 		inputTextType.bind(binding);
 		
+		return group;
+	}
+
+	@Override
+	public BSFormInputGroup<?, InputUrlType<?>> createUrlInput(String binding, BSFormLabel<?> label, boolean inputGroup)
+	{
+		BSFormInputGroup<?, InputUrlType<?>> group = new BSFormInputGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputUrlType<?> inputTextType = new InputUrlType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
 		return group;
 	}
 	
@@ -588,7 +1047,25 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+
+	@Override
+	public BSFormGroup<?, InputUrlType<?>> createUrlInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputUrlType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputUrlType<?> inputTextType = new InputUrlType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
 	@Override
 	public BSFormGroup<?, InputHiddenType<?>> createHiddenInput(String binding, String label)
 	{
@@ -605,7 +1082,76 @@ public class BSForm<J extends BSForm<J>>
 		
 		return group;
 	}
-	
+
+	@Override
+	public BSFormGroup<?, InputDateType<?>> createDateInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputDateType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateType inputTextType = new InputDateType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	@Override
+	public BSFormGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, String label)
+	{
+		BSFormGroup<?, InputDateTimeType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+
+	@Override
+	public BSFormGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, BSFormLabel<?> label)
+	{
+		BSFormGroup<?, InputDateTimeType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+	public BSFormGroup<?, InputDateType<?>> createDateInput(String binding, String label)
+	{
+		BSFormGroup<?, InputDateType<?>> group = new BSFormGroup<>();
+		group.setForm(this);
+		if (label != null)
+		{
+			group.addLabel(label);
+		}
+
+		InputDateType inputTextType = new InputDateType();
+		group.setInput(inputTextType);
+		inputTextType.bind(binding);
+
+		return group;
+	}
+
+
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -728,41 +1274,7 @@ public class BSForm<J extends BSForm<J>>
 		styleInputs = styleInput;
 		return (J) this;
 	}
-	
-	@Override
-	public BSFormGroup<?, InputDateType<?>> createDateInput(String binding, String label)
-	{
-		BSFormGroup<?, InputDateType<?>> group = new BSFormGroup<>();
-		group.setForm(this);
-		if (label != null)
-		{
-			group.addLabel(label);
-		}
-		
-		InputDateType inputTextType = new InputDateType();
-		group.setInput(inputTextType);
-		inputTextType.bind(binding);
-		
-		return group;
-	}
-	
-	@Override
-	public BSFormGroup<?, InputDateTimeType<?>> createDateTimeInput(String binding, String label)
-	{
-		BSFormGroup<?, InputDateTimeType<?>> group = new BSFormGroup<>();
-		group.setForm(this);
-		if (label != null)
-		{
-			group.addLabel(label);
-		}
-		
-		InputDateTimeType<?> inputTextType = new InputDateTimeType<>();
-		group.setInput(inputTextType);
-		inputTextType.bind(binding);
-		
-		return group;
-	}
-	
+
 	@Override
 	public BSButton<?> createCancelButton()
 	{
@@ -878,24 +1390,31 @@ public class BSForm<J extends BSForm<J>>
 			{
 				applyClassesToForm((BSForm<?>) a);
 			}
-			if (Input.class.isAssignableFrom(a.getClass()))
+			else if (Input.class.isAssignableFrom(a.getClass()))
 			{
 				Input<?, ?> input = (Input<?, ?>) a;
 				input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
-				if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
-				                                             .getClass()))
-				{
-					BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup<?, ?>) a.getParent();
-					inputGroup.getPrependDiv()
-					          .getChildren()
-					          .forEach(b -> b.asHierarchyBase()
-					                         .addClass("form-control"));
-					inputGroup.getAppendDiv()
-					          .getChildren()
-					          .forEach(b -> b.asHierarchyBase()
-					                         .addClass("form-control"));
-				}
 			}
+			else if (Label.class.isAssignableFrom(a.getClass()))
+			{
+				Label<?> input = (Label<?>) a;
+				input.addClass("form-control-feedback");
+				input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
+			}
+			else if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
+					.getClass()))
+			{
+				BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup<?, ?>) a.getParent();
+				inputGroup.getPrependDiv()
+						.getChildren()
+						.forEach(b -> b.asHierarchyBase()
+								.addClass("form-control"));
+				inputGroup.getAppendDiv()
+						.getChildren()
+						.forEach(b -> b.asHierarchyBase()
+								.addClass("form-control"));
+			}
+
 		}
 		return (J) this;
 	}

@@ -42,7 +42,7 @@ public class BSModalFooter<J extends BSModalFooter<J>>
 	{
 		BSButton<?> button = new BSButton<>();
 		button.setText("Close");
-		button.addAttribute("data-toggle", "modal");
+		button.addAttribute("data-dismiss", "modal");
 		add(button);
 		return button;
 	}
