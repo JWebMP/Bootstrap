@@ -540,7 +540,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		if (label == null)
 		{
 			label = new BSFormLabel<>();
-			label.addClass("custom-control-label");
+		//	label.addClass("custom-control-label");
 			label.setForInputComponent(getInput());
 		}
 		return label;
