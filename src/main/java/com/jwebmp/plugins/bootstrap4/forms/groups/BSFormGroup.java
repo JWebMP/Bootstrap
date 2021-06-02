@@ -304,6 +304,10 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return (J) this;
 	}
 	
+	public I getInputRaw()
+	{
+		return input;
+	}
 	/**
 	 * Returns the input component associated
 	 *

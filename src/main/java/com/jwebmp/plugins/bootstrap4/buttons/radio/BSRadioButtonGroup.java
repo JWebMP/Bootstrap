@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.buttons.radio;
 
+import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.core.base.html.inputs.InputRadioType;
 import com.jwebmp.plugins.bootstrap4.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap4.forms.groups.BSFormGroup;
@@ -63,7 +64,23 @@ public class BSRadioButtonGroup<J extends BSRadioButtonGroup<J>>
 		label.addClass(Form_Check_Label);
 		return label;
 	}
-
+	
+	/**
+	 * Returns the input component associated
+	 *
+	 * @return
+	 */
+	@Override
+	@NotNull
+	public InputRadioType<?> getInput()
+	{
+		if (getInputRaw() == null)
+		{
+			setInput(new InputRadioType<>());
+		}
+		return super.getInput();
+	}
+	
 	/**
 	 * Adds the input with the additional settings for checkboxes
 	 *
