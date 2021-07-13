@@ -46,7 +46,7 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		implements BSCardChildren,
 		           IBSCardHeader<J>
 {
-	
+	private HeaderText<?> header;
 	
 	/**
 	 * Header and footer
@@ -82,9 +82,14 @@ public class BSCardHeader<J extends BSCardHeader<J>>
 		super();
 		if (!Strings.isNullOrEmpty(text))
 		{
-			add(new HeaderText<>(headerType, text));
+			add(header = new HeaderText<>(headerType, text));
 		}
 		addClass(BSCardOptions.Card_Header);
+	}
+	
+	public HeaderText<?> getHeader()
+	{
+		return header;
 	}
 	
 	/**
