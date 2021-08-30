@@ -42,9 +42,8 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
 		description = "Server Side Event for BS DropDown Shown.",
 		url = "https://www.armineasy.com/JWebSwing",
 		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
-public abstract class ShownBSTabAdapter
-		extends Event<GlobalFeatures,ShownBSTabAdapter>
-		implements GlobalEvents
+public abstract class ShownBSTabAdapter<J extends ShownBSTabAdapter<J>>
+		extends Event<GlobalFeatures,J>
 {
 
 	/**

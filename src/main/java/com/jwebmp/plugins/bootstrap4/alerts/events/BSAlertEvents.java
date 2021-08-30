@@ -23,8 +23,8 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
  *
  * @since 16 Feb 2017
  */
-public interface BSAlertEvents
-		extends GlobalEvents
+public interface BSAlertEvents<J extends BSAlertEvents<J>>
+		extends GlobalEvents<J>
 {
 
 }

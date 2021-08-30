@@ -36,7 +36,6 @@ import java.util.Optional;
 public class DefaultCard<J extends DefaultCard<J>>
 		extends BSCard<J>
 {
-
 	private BSCardHeader<?> containerHeader;
 
 	private BSCardImageTop cardImageTop;

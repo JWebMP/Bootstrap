@@ -37,7 +37,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents, BSAlertEvents
+		implements BSAlertEvents<J>
 {
 
 	/**

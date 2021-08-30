@@ -1,6 +1,6 @@
 JW_APP_NAME.directive('hiddenBsTab', function ($parse) {
     return function (scope, element, attrs) {
-        var fn = $parse(attrs.ngActivate);
+        var fn = $parse(attrs.hiddenBsTab);
         element.on('hidden.bs.tab', function (event) {
             scope.$apply(function () {
                 event.preventDefault();

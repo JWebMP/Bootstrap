@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonDanger<J extends BSButtonDanger<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates a dangerous or potentially negative action
 	 */
 	public BSButtonDanger()
 	{
+		this(null);
+	}
+	/**
+	 * Indicates a dangerous or potentially negative action
+	 */
+	public BSButtonDanger(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Danger);
 	}
-
 }

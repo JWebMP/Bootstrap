@@ -28,6 +28,7 @@ import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 
+import com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenAdapter;
 import jakarta.validation.constraints.NotNull;
 import java.util.logging.Level;
 
@@ -42,9 +43,9 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
 		description = "Server Side Event for BS Collapse Hide Adapter.",
 		url = "https://www.armineasy.com/JWebSwing",
 		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
-public abstract class BSCollapseHideAdapter
-		extends Event<GlobalFeatures,BSCollapseHideAdapter>
-		implements GlobalEvents
+public abstract class BSCollapseHideAdapter<J extends BSCollapseHideAdapter<J>>
+		extends Event<GlobalFeatures,J>
+		implements GlobalEvents<J>
 {
 
 	/**

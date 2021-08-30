@@ -22,7 +22,6 @@ import com.jwebmp.plugins.bootstrap4.buttons.checkbox.BSCheckBox;
 public class BSCheckBoxDanger<J extends BSCheckBoxDanger<J>>
 		extends BSCheckBox<J>
 {
-
 	/**
 	 * Checkbox and radio buttons
 	 * Bootstrap’s .button styles can be applied to other elements, such as &lt;label&gt;s, to provide checkbox or radio style button

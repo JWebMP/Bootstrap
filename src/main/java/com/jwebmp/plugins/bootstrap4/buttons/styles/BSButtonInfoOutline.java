@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonInfoOutline<J extends BSButtonInfoOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Contextual button for informational alert messages
 	 */
 	public BSButtonInfoOutline()
 	{
+		this(null);
+	}
+	/**
+	 * Contextual button for informational alert messages
+	 */
+	public BSButtonInfoOutline(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Outline_Info);
 	}
-
 }

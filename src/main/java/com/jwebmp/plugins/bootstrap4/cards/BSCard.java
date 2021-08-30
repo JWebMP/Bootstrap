@@ -56,8 +56,6 @@ public class BSCard<J extends BSCard<J>>
 		extends Div<BSCardChildren, BSCardAttributes, GlobalFeatures, BSCardEvents, J>
 		implements IBSLayout<J>, IBSCard<BSCardChildren, J>, IBSCardDeckChildren
 {
-
-
 	/**
 	 * Cards
 	 * <p>

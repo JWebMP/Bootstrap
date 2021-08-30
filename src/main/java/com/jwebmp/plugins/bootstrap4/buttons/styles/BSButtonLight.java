@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonLight<J extends BSButtonLight<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Provides extra visual weight and identifies the primary action in a set of buttons
 	 */
 	public BSButtonLight()
 	{
+		this(null);
+	}
+	/**
+	 * Provides extra visual weight and identifies the primary action in a set of buttons
+	 */
+	public BSButtonLight(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Light);
 	}
-
 }

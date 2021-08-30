@@ -38,7 +38,6 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSModalShownAdapter<J extends BSModalShownAdapter<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents
 {
 
 	/**

@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonSecondaryOutline<J extends BSButtonSecondaryOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Secondary, outline button
 	 */
 	public BSButtonSecondaryOutline()
 	{
+		this(null);
+	}
+	/**
+	 * Secondary, outline button
+	 */
+	public BSButtonSecondaryOutline(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Outline_Secondary);
 	}
-
 }

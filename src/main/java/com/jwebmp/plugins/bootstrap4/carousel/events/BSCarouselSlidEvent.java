@@ -38,7 +38,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents
+		implements GlobalEvents<J>
 {
 
 	/**

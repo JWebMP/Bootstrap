@@ -40,7 +40,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSToastShownEvent<J extends BSToastShownEvent<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents, BSAlertEvents
+		implements BSAlertEvents<J>
 {
 
 	/**

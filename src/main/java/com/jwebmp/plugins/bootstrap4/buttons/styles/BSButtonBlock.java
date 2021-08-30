@@ -32,14 +32,20 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonBlock<J extends BSButtonBlock<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates a successful or positive action
 	 */
 	public BSButtonBlock()
 	{
+		this(null);
+	}
+	
+	/**
+	 * Indicates a successful or positive action
+	 */
+	public BSButtonBlock(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Block);
 	}
-
 }

@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonDangerOutline<J extends BSButtonDangerOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates a dangerous or potentially negative action
 	 */
 	public BSButtonDangerOutline()
 	{
+		this(null);
+	}
+	/**
+	 * Indicates a dangerous or potentially negative action
+	 */
+	public BSButtonDangerOutline(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Outline_Danger);
 	}
-
 }

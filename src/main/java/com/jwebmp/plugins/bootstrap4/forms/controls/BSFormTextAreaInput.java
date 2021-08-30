@@ -34,7 +34,6 @@ public class BSFormTextAreaInput<J extends BSFormTextAreaInput<J>>
 	public BSFormTextAreaInput()
 	{
 		this(3);
-
 	}
 
 	/**

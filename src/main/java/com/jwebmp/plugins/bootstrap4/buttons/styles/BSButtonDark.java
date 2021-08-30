@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonDark<J extends BSButtonDark<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates a successful or positive action
 	 */
 	public BSButtonDark()
 	{
+		this(null);
+	}
+	/**
+	 * Indicates a successful or positive action
+	 */
+	public BSButtonDark(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Dark);
 	}
-
 }

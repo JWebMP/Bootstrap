@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.forms;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.inputs.*;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -52,6 +53,7 @@ import static com.jwebmp.core.base.servlets.enumarations.ComponentTypes.FieldSet
 public class BSFieldSet<J extends BSFieldSet<J>>
 		extends BSForm<J>
 {
+	@JsonIdentityReference(alwaysAsId = true)
 	private BSForm<?> formOwner;
 	
 	protected BSFieldSet(boolean noValidate)

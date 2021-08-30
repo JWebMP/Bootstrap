@@ -23,16 +23,14 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-
-import com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowAdapter;
 import jakarta.validation.constraints.NotNull;
+
 import java.util.logging.Level;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -40,37 +38,35 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  * @author GedMarc
  */
 @ComponentInformation(name = "BS DropDown Shown Event",
-		description = "Server Side Event for BS DropDown Shown.",
-		url = "https://www.armineasy.com/JWebSwing",
-		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
-public abstract class BSDropDownShownAdapter
-		extends Event<GlobalFeatures, BSDropDownShownAdapter>
-		implements GlobalEvents
+                      description = "Server Side Event for BS DropDown Shown.",
+                      url = "https://www.armineasy.com/JWebSwing",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
+public abstract class BSDropDownShownAdapter<J extends BSDropDownShownAdapter<J>>
+		extends Event<GlobalFeatures, J>
 {
-
+	
 	/**
 	 * Logger for the Component
 	 */
 	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
 	                                                              .getLogger("BSDropDownShownAdapter");
-
+	
 	/**
 	 * The directive for this adapter
 	 */
 	private BSDropDownShownDirective directive;
-
+	
 	/**
 	 * Performs a click
 	 *
-	 * @param component
-	 * 		The component this click is going to be acting on
+	 * @param component The component this click is going to be acting on
 	 */
 	public BSDropDownShownAdapter(Component component)
 	{
 		super(EventTypes.undefined, component);
 		setComponent(component);
 	}
-
+	
 	@Override
 	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
@@ -83,18 +79,17 @@ public abstract class BSDropDownShownAdapter
 			LOG.log(Level.WARNING, "Error In Firing Event", e);
 		}
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	/**
 	 * This object is never equal to another as an event
 	 *
 	 * @param obj
-	 *
 	 * @return
 	 */
 	@Override
@@ -102,7 +97,7 @@ public abstract class BSDropDownShownAdapter
 	{
 		return false;
 	}
-
+	
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -114,22 +109,21 @@ public abstract class BSDropDownShownAdapter
 			JQueryPageConfigurator.setRequired(true);
 			AngularPageConfigurator.setRequired(true);
 			
-			getComponent().asAttributeBase().addAttribute("bs-drop-down-shown", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase()
+			              .addAttribute("bs-drop-down-shown", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
-
+	
 	/**
 	 * Triggers on Click
 	 * <p>
 	 *
-	 * @param call
-	 * 		The physical AJAX call
-	 * @param response
-	 * 		The physical Ajax Receiver
+	 * @param call     The physical AJAX call
+	 * @param response The physical Ajax Receiver
 	 */
 	public abstract void onShown(AjaxCall<?> call, AjaxResponse<?> response);
-
+	
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -144,7 +138,7 @@ public abstract class BSDropDownShownAdapter
 		}
 		return directive;
 	}
-
+	
 	/**
 	 * Sets the right click angular event
 	 *

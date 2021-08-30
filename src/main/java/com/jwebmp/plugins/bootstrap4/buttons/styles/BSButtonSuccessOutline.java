@@ -32,16 +32,16 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonSuccessOutline<J extends BSButtonSuccessOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates a successful or positive action
 	 */
 	public BSButtonSuccessOutline()
 	{
-		addClass(BSButtonOptions.Btn_Outline_Success);
+		this(null);
 	}
-
+	/**
+	 * Indicates a successful or positive action
+	 */
 	public BSButtonSuccessOutline(String text)
 	{
 		super(text);

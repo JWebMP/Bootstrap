@@ -32,14 +32,19 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonWarningOutline<J extends BSButtonWarningOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Indicates caution should be taken with this action
 	 */
 	public BSButtonWarningOutline()
 	{
+		this(null);
+	}
+	/**
+	 * Indicates caution should be taken with this action
+	 */
+	public BSButtonWarningOutline(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Outline_Warning);
 	}
-
 }

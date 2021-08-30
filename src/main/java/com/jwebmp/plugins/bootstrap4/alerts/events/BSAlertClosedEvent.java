@@ -22,14 +22,13 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -38,7 +37,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents, BSAlertEvents
+		implements BSAlertEvents<J>
 {
 	
 	/**
@@ -95,8 +94,8 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 		{
 			getComponent().asAttributeBase()
 			              .addAttribute("ng-bs-alert-closed-directive",
-			                            com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT +
-					                            renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+					              com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT +
+					              renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}

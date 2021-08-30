@@ -32,14 +32,20 @@ import com.jwebmp.plugins.bootstrap4.buttons.BSButtonOptions;
 public class BSButtonDarkOutline<J extends BSButtonDarkOutline<J>>
 		extends BSButton<J>
 {
-
-
 	/**
 	 * Provides extra visual weight and identifies the primary action in a set of buttons
 	 */
 	public BSButtonDarkOutline()
 	{
+		this(null);
+	}
+	
+	/**
+	 * Provides extra visual weight and identifies the primary action in a set of buttons
+	 */
+	public BSButtonDarkOutline(String text)
+	{
+		super(text);
 		addClass(BSButtonOptions.Btn_Outline_Dark);
 	}
-
 }

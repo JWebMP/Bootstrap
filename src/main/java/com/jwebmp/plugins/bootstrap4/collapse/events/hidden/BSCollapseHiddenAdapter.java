@@ -42,9 +42,9 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
 		description = "Server Side Event for BS Collapse Hidden Adapter.",
 		url = "https://www.armineasy.com/JWebSwing",
 		wikiUrl = "https://github.com/GedMarc/JWebMP/wiki")
-public abstract class BSCollapseHiddenAdapter
-		extends Event<GlobalFeatures,BSCollapseHiddenAdapter>
-		implements GlobalEvents
+public abstract class BSCollapseHiddenAdapter<J extends BSCollapseHiddenAdapter<J>>
+		extends Event<GlobalFeatures,J>
+		implements GlobalEvents<J>
 {
 
 	/**
