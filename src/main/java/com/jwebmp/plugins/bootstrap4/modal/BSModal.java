@@ -62,8 +62,6 @@ public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
 		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren
 {
-
-
 	private BSModalFeature feature;
 	/**
 	 * The modal dialog
