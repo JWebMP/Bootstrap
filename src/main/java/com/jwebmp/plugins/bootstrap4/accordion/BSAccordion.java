@@ -16,8 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap4.accordion;
 
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.HeaderText;
+import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -99,9 +98,7 @@ public class BSAccordion<J extends BSAccordion<J>>
 		collapseButton.addAttribute(GlobalAttributes.Aria_Controls, wrapper.getID());
 		collapseButton.addAttribute(GlobalAttributes.Aria_Expanded, Boolean.toString(!hideOnStart));
 
-		HeaderText<?> h5 = (HeaderText<?>) header.getChildren()
-		                                         .iterator()
-		                                         .next();
+		HeaderText<?> h5 = new H5<>();
 
 		h5.addClass(BSMarginOptions.MarginBottom_0);
 		h5.add(collapseButton);
