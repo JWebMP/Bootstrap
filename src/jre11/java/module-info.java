@@ -1,18 +1,19 @@
-import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions;
-import com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ModuleInclusion;
+import com.guicedee.guicedinjection.interfaces.*;
+import com.jwebmp.plugins.bootstrap4.carousel.events.*;
+import com.jwebmp.plugins.bootstrap4.implementations.*;
 
 module com.jwebmp.plugins.bootstrap4 {
- 
+	
 	requires transitive com.jwebmp.core;
 	requires transitive com.jwebmp.core.angularjs;
-
+	
 	requires jakarta.validation;
 	requires com.guicedee.logmaster;
 	requires java.logging;
 	requires com.google.common;
-
+	
 	requires com.guicedee.guicedinjection;
-
+	
 	exports com.jwebmp.plugins.bootstrap4;
 	exports com.jwebmp.plugins.bootstrap4.accordion;
 	exports com.jwebmp.plugins.bootstrap4.alerts.events;
@@ -114,11 +115,28 @@ module com.jwebmp.plugins.bootstrap4 {
 	exports com.jwebmp.plugins.bootstrap4.toasts.features;
 	exports com.jwebmp.plugins.bootstrap4.toasts.events;
 	exports com.jwebmp.plugins.bootstrap4.tooltips;
-
+	
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap4.BootstrapPageConfigurator;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap4.implementations.Bootstrap4ExclusionsModule;
-
-	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective, com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective, com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective, com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective, com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective, com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective, com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective, com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective, com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShownEventDirective;
+	
+	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.bootstrap4.collapse.events.show.BSCollapseShowDirective,
+			com.jwebmp.plugins.bootstrap4.collapse.events.shown.BSCollapseShownDirective,
+			com.jwebmp.plugins.bootstrap4.collapse.events.hide.BSCollapseHideDirective,
+			com.jwebmp.plugins.bootstrap4.collapse.events.hidden.BSCollapseHiddenDirective,
+			com.jwebmp.plugins.bootstrap4.dropdown.events.show.BSDropDownShowDirective,
+			com.jwebmp.plugins.bootstrap4.dropdown.events.shown.BSDropDownShownDirective,
+			com.jwebmp.plugins.bootstrap4.dropdown.events.hidden.BSDropDownHiddenDirective,
+			com.jwebmp.plugins.bootstrap4.dropdown.events.hide.BSDropDownHideDirective,
+			com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hiddenbstab.HiddenBSTabDirective,
+			com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.hidebstab.HideBSTabDirective,
+			com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.showbstab.ShowBSTabDirective,
+			com.jwebmp.plugins.bootstrap4.listgroup.tabs.events.shownbstab.ShownBSTabDirective,
+			com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective,
+			com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective,
+			com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective,
+			com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShownEventDirective,
+			BSCarouselSlidEventDirective,
+			BSCarouselSlideEventDirective;
 	
 	provides IGuiceScanModuleInclusions with Bootstrap4ModuleInclusion;
 	

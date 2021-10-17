@@ -23,8 +23,8 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public interface BSCarouselEvents
-		extends GlobalEvents
+public interface BSCarouselEvents<J extends BSCarouselEvents<J>>
+		extends GlobalEvents<J>
 {
 
 }

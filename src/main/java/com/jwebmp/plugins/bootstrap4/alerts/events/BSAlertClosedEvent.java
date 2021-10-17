@@ -94,7 +94,7 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
 		{
 			getComponent().asAttributeBase()
 			              .addAttribute("ng-bs-alert-closed-directive",
-					              com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT +
+					              com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START +
 					              renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();

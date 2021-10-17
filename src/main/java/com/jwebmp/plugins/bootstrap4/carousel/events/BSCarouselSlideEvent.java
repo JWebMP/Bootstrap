@@ -16,20 +16,20 @@
  */
 package com.jwebmp.plugins.bootstrap4.carousel.events;
 
-import com.guicedee.logger.LogFactory;
-import com.jwebmp.core.Component;
-import com.jwebmp.core.Event;
-import com.jwebmp.core.base.ajax.AjaxCall;
-import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.guicedee.logger.*;
+import com.jwebmp.core.*;
+import com.jwebmp.core.base.ajax.*;
+import com.jwebmp.core.base.angular.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.base.html.interfaces.events.*;
+import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.*;
+import com.jwebmp.core.plugins.jquery.*;
+import com.jwebmp.plugins.bootstrap4.carousel.*;
 
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -38,28 +38,27 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  */
 public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		extends Event<GlobalFeatures, J>
-		implements GlobalEvents<J>
+		implements GlobalEvents<J>, BSCarouselEvents<J>
 {
-
+	
 	/**
 	 * Logger for the Component
 	 */
 	private static final Logger LOG = LogFactory.getInstance()
 	                                            .getLogger("BSCarouselSlideEvent");
-
+	
 	private BSCarouselSlideEventDirective directive;
-
+	
 	/**
 	 * Performs a click
 	 *
-	 * @param component
-	 * 		The component this click is going to be acting on
+	 * @param component The component this click is going to be acting on
 	 */
 	public BSCarouselSlideEvent(Component component)
 	{
 		super(EventTypes.undefined, component);
 	}
-
+	
 	@Override
 	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
@@ -72,13 +71,13 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 			BSCarouselSlideEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(super.hashCode(), getDirective());
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
@@ -97,7 +96,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		BSCarouselSlideEvent<?> that = (BSCarouselSlideEvent<?>) o;
 		return Objects.equals(getComponent(), that.getComponent());
 	}
-
+	
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -106,12 +105,16 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 	{
 		if (!isConfigured())
 		{
+			JQueryPageConfigurator.setRequired(true);
+			AngularPageConfigurator.setRequired(true);
 			
-			getComponent().asAttributeBase().addAttribute("ng-bs-carousel-slide-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase()
+			              .addAttribute("bs-carousel-slide", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
+		
 		super.preConfigure();
 	}
-
+	
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -125,7 +128,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		}
 		return directive;
 	}
-
+	
 	/**
 	 * Sets the right click angular event
 	 *
@@ -135,15 +138,13 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 	{
 		this.directive = directive;
 	}
-
+	
 	/**
 	 * Triggers on Click
 	 * <p>
 	 *
-	 * @param call
-	 * 		The physical AJAX call
-	 * @param response
-	 * 		The physical Ajax Receiver
+	 * @param call     The physical AJAX call
+	 * @param response The physical Ajax Receiver
 	 */
 	public abstract void onSlide(AjaxCall<?> call, AjaxResponse<?> response);
 }

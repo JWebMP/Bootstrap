@@ -14,3 +14,5 @@ com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShowEventDirective
 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHiddenEventDirective
 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastHideEventDirective
 com.jwebmp.plugins.bootstrap4.toasts.events.BSToastShownEventDirective
+com.jwebmp.plugins.bootstrap4.carousel.events.BSCarouselSlideEventDirective
+com.jwebmp.plugins.bootstrap4.carousel.events.BSCarouselSlidEventDirective
