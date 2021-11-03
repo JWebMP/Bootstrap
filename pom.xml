@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.bootstrap</groupId>
     <artifactId>jwebmp-bootstrap</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>Bootstrap 4</name>
     <description>The JWebSwing implementation for Bootstrap 4</description>
     <url>https://github.com/GedMarc/JWebSwing-Bootstrap4</url>
