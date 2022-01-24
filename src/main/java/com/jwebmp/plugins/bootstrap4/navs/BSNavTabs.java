@@ -50,7 +50,6 @@ public class BSNavTabs<J extends BSNavTabs<J>>
 		extends DivSimple<J>
 		implements IBSNavTabs
 {
-	
 	private final Set<BSTabContainer<?>> tabs;
 	
 	private final BSNavs<?> navs;
