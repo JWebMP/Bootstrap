@@ -16,10 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap4;
 
-import com.jwebmp.core.base.references.CSSReference;
-import com.jwebmp.core.base.references.JavascriptReference;
-import com.jwebmp.core.base.servlets.enumarations.RequirementsPriority;
-import com.jwebmp.core.base.servlets.interfaces.ReferencePool;
+import com.jwebmp.core.base.references.*;
+import com.jwebmp.core.base.servlets.enumarations.*;
+import com.jwebmp.core.base.servlets.interfaces.*;
 
 /**
  * @author GedMarc
@@ -28,23 +27,22 @@ import com.jwebmp.core.base.servlets.interfaces.ReferencePool;
 public enum BootstrapReferencePool
 		implements ReferencePool
 {
-
-	Bootstrap4CoreReference(new JavascriptReference("BS4Core", 4.53, "bower_components/bootstrap4/dist/js/bootstrap.min.js", 10),
-	                        new CSSReference("BS4Core", 4.53, "bower_components/bootstrap4/dist/css/bootstrap.min.css", 10)),
 	
-	Bootstrap4PopperReference(new JavascriptReference("BS4Popper", 4.53, "bower_components/popper.js/dist/umd/popper.min.js", 9), null),
-
-	Bootstrap4RebootReference(null, new CSSReference("BS4Reboot", 4.53, "bower_components/bootstrap4/dist/css/bootstrap-reboot.min.css", 9)),
-
-	Bootstrap4DropDownReference(null, new CSSReference("BS4DropDownNoCaret", 4.53, "bs4custom/bs4hidecaret.css", 90));
-
+	Bootstrap4CoreReference(new JavascriptReference("BS5Core", 5.02, "node_modules/bootstrap/dist/js/bootstrap.min.js", 10),
+			new CSSReference("BS5Core", 5.02, "node_modules/bootstrap/dist/css/bootstrap.min.css", 10)),
+	
+	Bootstrap5PopperReference(new JavascriptReference("BS5Popper", 5.02, "node_modules/@popperjs/core/dist/umd/popper.min.js", 9), null),
+	Bootstrap4PopperReference(new JavascriptReference("BS4Popper", 5.02, "node_modules/popper.js/dist/umd/popper.min.js", 9), null),
+	
+	Bootstrap4RebootReference(null, new CSSReference("BS5Reboot", 5.02, "node_modules/bootstrap/dist/css/bootstrap-reboot.min.css", 9));
+	
 	private JavascriptReference javaScriptReference;
 	private CSSReference cssReference;
-
+	
 	BootstrapReferencePool()
 	{
 	}
-
+	
 	BootstrapReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
 	{
 		this.javaScriptReference = javaScriptReference;
@@ -58,25 +56,25 @@ public enum BootstrapReferencePool
 			this.cssReference.setPriority(RequirementsPriority.Third);
 		}
 	}
-
+	
 	@Override
 	public CSSReference getCssReference()
 	{
 		return cssReference;
 	}
-
+	
 	@Override
 	public void setCssReference(CSSReference cssReference)
 	{
 		this.cssReference = cssReference;
 	}
-
+	
 	@Override
 	public JavascriptReference getJavaScriptReference()
 	{
 		return javaScriptReference;
 	}
-
+	
 	@Override
 	public void setJavaScriptReference(JavascriptReference javaScriptReference)
 	{
