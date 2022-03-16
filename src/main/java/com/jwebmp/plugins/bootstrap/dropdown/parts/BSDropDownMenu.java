@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown.parts;
 
-import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.dropdown.interfaces.*;
 
 /**
  * @author GedMarc
@@ -26,10 +26,7 @@ import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 		extends DivSimple<J>
-		implements BSDropDownChildren
 {
-
-
 	/**
 	 * Identifies a drop down menu
 	 *
@@ -38,7 +35,7 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 */
 	public BSDropDownMenu()
 	{
-		addClass(BSDropDownOptions.Dropdown_Menu);
+		addAttribute("ngbDropdownMenu", "");
 	}
 
 	/**
@@ -48,23 +45,34 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 *
 	 * @return
 	 */
-	public BSDropDownLink<?> addItem(String text)
+	public BSDropDownItem<?> addItem(String text)
 	{
-		BSDropDownLink<?> link = new BSDropDownLink<>();
+		BSDropDownItem<?> link = new BSDropDownItem<>();
 		link.setText(text);
 		add(link);
 		return link;
 	}
-
+	
+	/**
+	 * Adds a new item to the menu
+	 *
+	 * @param text
+	 *
+	 * @return
+	 */
+	public BSNavDropDownItem<?> addNavItem(String text)
+	{
+		return addNavItem().setText(text);
+	}
 
 	/**
 	 * Adds a new item to the menu
 	 *
 	 * @return
 	 */
-	public BSDropDownLink<?> addItem()
+	public BSNavDropDownItem<?> addNavItem()
 	{
-		BSDropDownLink<?> link = new BSDropDownLink<>();
+		BSNavDropDownItem<?> link = new BSNavDropDownItem<>();
 		add(link);
 		return link;
 	}
@@ -74,11 +82,11 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 *
 	 * @return
 	 */
-	public BSDropDownDivider<?> addDivider()
+	public J addDivider()
 	{
 		BSDropDownDivider<?> divider = new BSDropDownDivider<>();
 		add(divider);
-		return divider;
+		return (J) this;
 	}
 
 	/**
@@ -88,24 +96,26 @@ public class BSDropDownMenu<J extends BSDropDownMenu<J>>
 	 *
 	 * @return
 	 */
-	public BSDropDownHeader<?> addHeader(String text)
+	public J addHeader(String text)
 	{
 		BSDropDownHeader<?> menu = new BSDropDownHeader<>();
 		menu.setText(text);
 		add(menu);
-		return menu;
+		return (J)this;
 	}
-
+	
 	/**
-	 * Sets this menu as displayed right aligned
+	 * Adds a header with the given text set
+	 *
+	 * @param header
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setRightAligned()
+	public J addHeader(IComponentHierarchyBase<?,?> header)
 	{
-		addClass(BSDropDownOptions.Dropdown_Menu_Right);
-		return (J) this;
+		BSDropDownHeader<?> menu = new BSDropDownHeader<>();
+		menu.add(header);
+		add(menu);
+		return (J)this;
 	}
-
 }

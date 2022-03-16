@@ -14,17 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.bootstrap.dropdown.interfaces;
+package com.jwebmp.plugins.bootstrap.alerts;
 
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.events.click.ClickAdapter;
+import com.jwebmp.plugins.bootstrap.alerts.events.BSAlertCloseEvent;
+import com.jwebmp.plugins.bootstrap.alerts.events.BSAlertClosedEvent;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author GedMarc
- * @version 1.0
- * @since 07 Aug 2015
  */
-public interface BSDropDownChildren
-		extends GlobalChildren
+@NgServiceReference(AlertDataServiceTest.class)
+public class BSAlertsTest extends BSAlerts<BSAlertsTest>
 {
-
+	public BSAlertsTest()
+	{
+		super(new AlertDataServiceTest());
+	}
+	
 }

@@ -92,11 +92,7 @@ class BSNavBarTest
 		BSNavBarToggleContainer container = navBar.addToggler();
 		container.getContent()
 		         .addItem("Home");
-
-		container.getContent()
-		         .addDropDown()
-		         .addDropDownMenu();
-
+		
 		System.out.println(navBar.toString(0));
 	}
 

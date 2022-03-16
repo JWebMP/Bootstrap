@@ -16,8 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.accordion;
 
-import com.jwebmp.plugins.bootstrap.cards.parts.BSCardBody;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 /**
  * @author GedMarc
@@ -25,18 +24,21 @@ import org.junit.jupiter.api.Test;
 public class BSAccordionTest
 
 {
-
+	
 	public BSAccordionTest()
 	{
 	}
-
+	
 	@Test
 	public void testHtml()
 	{
 		BSAccordion accordion = new BSAccordion();
 		accordion.setID("test");
-		accordion.addCard("Accordion Header", new BSCardBody<>(), true);
+		
+		accordion.addPanel("static-1", new BSAccordionPanelTitle<>().add("Title 1"),
+				new BSAccordionPanelContent<>().add("Content 1"), true);
+		
 		System.out.println(accordion.toString(true));
 	}
-
+	
 }

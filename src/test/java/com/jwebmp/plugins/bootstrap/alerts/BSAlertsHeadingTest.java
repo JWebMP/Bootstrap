@@ -19,14 +19,12 @@ package com.jwebmp.plugins.bootstrap.alerts;
 
 import org.junit.jupiter.api.Test;
 
-class BSAlertHeadingTest
+class BSAlertsHeadingTest
 {
 	@Test
 	public void testBSAlertHeading()
 	{
-		BSAlert alert = new BSAlert();
-
-		alert.add(new BSAlertHeading<>("Well Done!"));
+		BSAlerts alert = new BSAlertsTest();
 		alert.add(
 				"Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you " +
 				"" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +

@@ -14,26 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.bootstrap.alerts;
+package com.jwebmp.plugins.bootstrap;
 
-import com.jwebmp.core.base.html.Link;
-
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import com.fasterxml.jackson.annotation.*;
 
 /**
- * Highlights text in an alert appropriately
+ * A Size setting
  *
  * @author GedMarc
  * @version 1.0
- * @since 31 Dec 2016
+ * @since Oct 30, 2016
  */
-public class BSAlertLink<J extends BSAlertLink<J>>
-		extends Link<J>
+public enum BSColourTypes
 {
-	public BSAlertLink()
-	{
-		super(STRING_HASH);
-		addClass(BSAlertOptions.Alert_Link);
-	}
+	Success,
+	Info,
+	Warning,
+	Danger,
+	Primary,
+	Secondary,
+	Light,
+	Dark,
+	AlertsType;
 	
+	@Override
+	@JsonValue
+	public String toString()
+	{
+		if (this == AlertsType)
+		{
+			return "alert.type";
+		}
+		return name().toLowerCase();
+	}
 }

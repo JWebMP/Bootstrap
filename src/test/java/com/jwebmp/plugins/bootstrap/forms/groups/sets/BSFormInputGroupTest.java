@@ -22,9 +22,12 @@ class BSFormInputGroupTest
 
 		form.createTextInput("checkbox", "label", true)
 		    .append(new BSCheckBox<>().setInput(new InputCheckBoxType<>()));
-
+		
+		BSDropDown<?> jbsDropDown = new BSDropDown<>();
+		jbsDropDown.getDropDownMenu()
+		           .addItem("Test Item");
 		form.createTextInput("dropdowns?", "dropdowns", true)
-		    .prepend(new BSDropDown<>().addDropDownButton());
+		    .prepend(jbsDropDown);
 
 		System.out.println(form.toString(0));
 

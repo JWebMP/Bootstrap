@@ -17,23 +17,20 @@
 
 package com.jwebmp.plugins.bootstrap.listgroup.tabs;
 
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonAttributes;
-import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.listgroup.BSListGroupOptions;
-import com.jwebmp.plugins.bootstrap.listgroup.parts.BSListGroupButtonItem;
-import com.jwebmp.plugins.bootstrap.navs.parts.BSNavListItem;
-import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
-import com.jwebmp.plugins.bootstrap.toggle.BSDropDownToggle;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.base.html.interfaces.children.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.buttons.*;
+import com.jwebmp.plugins.bootstrap.dropdown.*;
+import com.jwebmp.plugins.bootstrap.listgroup.*;
+import com.jwebmp.plugins.bootstrap.listgroup.parts.*;
+import com.jwebmp.plugins.bootstrap.navs.parts.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import com.jwebmp.plugins.bootstrap.toggle.*;
+import jakarta.validation.constraints.*;
 
-import jakarta.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
 
 import static com.jwebmp.plugins.bootstrap.navs.BSNavsOptions.*;
 
@@ -124,8 +121,8 @@ public class BSTabContainer<J extends BSTabContainer<J>>
 		if (dropDownItem.getChildren()
 		                .size() == 2)
 		{
-			Iterator<BSDropDownChildren> iterator = dropDownItem.getChildren()
-			                                                    .iterator();
+			Iterator<GlobalChildren> iterator = dropDownItem.getChildren()
+			                                                .iterator();
 			BSDropDownToggle<?> menu = (BSDropDownToggle<?>) iterator.next();
 			List<String> newOrder = new ArrayList<>(menu.getClasses());
 			newOrder.add(0, Nav_Link.toString());

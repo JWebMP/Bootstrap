@@ -16,24 +16,18 @@
  */
 package com.jwebmp.plugins.bootstrap.modal;
 
-import com.jwebmp.core.base.html.Button;
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.attributes.ButtonAttributes;
-import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
-import com.jwebmp.core.base.html.interfaces.children.FormChildren;
-import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap.buttons.BSButton;
-import com.jwebmp.plugins.bootstrap.modal.features.BSModalHideFeature;
-import com.jwebmp.plugins.bootstrap.modal.features.BSModalShowFeature;
-import com.jwebmp.plugins.bootstrap.modal.features.BSModalToggleFeature;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.interfaces.children.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.base.servlets.enumarations.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.buttons.*;
+import com.jwebmp.plugins.bootstrap.modal.features.*;
 import com.jwebmp.plugins.bootstrap.modal.parts.*;
-import com.jwebmp.plugins.bootstrap.navbar.interfaces.BSNavBarChildren;
-import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
-
-import jakarta.validation.constraints.NotNull;
+import com.jwebmp.plugins.bootstrap.navbar.interfaces.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import jakarta.validation.constraints.*;
 
 /**
  * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
@@ -42,22 +36,16 @@ import jakarta.validation.constraints.NotNull;
  * <p>
  *
  * @param <J>
- *
  * @author GedMarc
  * @version 1.0
  * @since 9 Nov 2016
  */
 @ComponentInformation(name = "Bootstrap Modals",
-		description = "Modal\n" +
-		              "Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for" +
-		              " lightboxes, user " +
-		              "notifications, or " +
-		              "completely " +
-		              "custom " +
-		              "" +
-		              "content.",
-		url = "https://getbootstrap.com/docs/4.0/components/modal/",
-		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Modal\n" +
+                                    "Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, user " +
+                                    "notifications, or completely custom content.",
+                      url = "https://ng-bootstrap.github.io/#/components/modal/examples",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
 		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren
@@ -71,7 +59,7 @@ public class BSModal<J extends BSModal<J>>
 	 * The modal content
 	 */
 	private BSModalContent<?> modalContent;
-
+	
 	/**
 	 * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
 	 * notification to completely custom content and feature a handful of
@@ -84,7 +72,7 @@ public class BSModal<J extends BSModal<J>>
 		addAttribute(BSModalAttributes.Role, "dialog");
 		addAttribute(BSModalAttributes.TabIndex, "-1");
 	}
-
+	
 	public final BSModalFeature getFeature()
 	{
 		if (feature == null)
@@ -93,7 +81,7 @@ public class BSModal<J extends BSModal<J>>
 		}
 		return feature;
 	}
-
+	
 	/**
 	 * Adds the modal header to the content of the modal
 	 *
@@ -106,13 +94,13 @@ public class BSModal<J extends BSModal<J>>
 		getModalContent().add(modalHeader);
 		return modalHeader;
 	}
-
+	
 	/**
 	 * Gets the modal content pane
 	 *
 	 * @return
 	 */
-
+	
 	public BSModalContent<?> getModalContent()
 	{
 		if (modalContent == null)
@@ -121,7 +109,7 @@ public class BSModal<J extends BSModal<J>>
 		}
 		return modalContent;
 	}
-
+	
 	public BSModalDialog<?> getModalDialog()
 	{
 		if (modalDialog == null)
@@ -130,12 +118,11 @@ public class BSModal<J extends BSModal<J>>
 		}
 		return modalDialog;
 	}
-
+	
 	/**
 	 * Sets the overall dialog of the modal
 	 *
 	 * @param modalDialog
-	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -147,16 +134,15 @@ public class BSModal<J extends BSModal<J>>
 		if (this.modalDialog != null)
 		{
 			add(modalDialog);
-
+			
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the modal content pane
 	 *
 	 * @param modalContent
-	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -172,7 +158,7 @@ public class BSModal<J extends BSModal<J>>
 		}
 		return (J) this;
 	}
-
+	
 	/**
 	 * Adds the modal header to the content of the modal
 	 *
@@ -185,7 +171,7 @@ public class BSModal<J extends BSModal<J>>
 		getModalContent().add(modalBody);
 		return modalBody;
 	}
-
+	
 	/**
 	 * Adds the modal header to the content of the modal
 	 *
@@ -198,48 +184,50 @@ public class BSModal<J extends BSModal<J>>
 		getModalContent().add(modalFooter);
 		return modalFooter;
 	}
-
+	
 	@Override
 	public BSButton<?> createDismissButton()
 	{
 		BSButton<?> button = new BSButton<>();
 		return createDismissButton(button);
 	}
-
+	
 	/**
 	 * Adds the dismiss button to the modal
 	 *
 	 * @return
 	 */
 	@Override
-	public <T extends IComponentHierarchyBase<?,?>> T createDismissButton(T component)
+	public <T extends IComponentHierarchyBase<?, ?>> T createDismissButton(T component)
 	{
-		component.asAttributeBase().addAttribute("data-dismiss", BSModalOptions.Modal.toString());
-		component.asAttributeBase().addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
-		component.asTagBase().setTag(ComponentTypes.Button.getComponentTag());
-		component.asAttributeBase().addAttribute("type", ComponentTypes.Button.getComponentTag());
+		component.asAttributeBase()
+		         .addAttribute("data-dismiss", BSModalOptions.Modal.toString());
+		component.asAttributeBase()
+		         .addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
+		component.asTagBase()
+		         .setTag(ComponentTypes.Button.getComponentTag());
+		component.asAttributeBase()
+		         .addAttribute("type", ComponentTypes.Button.getComponentTag());
 		return component;
 	}
-
+	
 	/**
 	 * Adds a button that will open up the modal
 	 *
 	 * @param button
-	 *
 	 * @return
 	 */
 	@Override
 	@NotNull
-	public J addOpenButton(Button<?,?,?,?,?> button)
+	public J addOpenButton(Button<?, ?, ?, ?, ?> button)
 	{
-		return addOpenButton(button,true);
+		return addOpenButton(button, true);
 	}
-
+	
 	/**
 	 * Sets the size to render for the modal. By default medium. false sets small
 	 *
 	 * @param options
-	 *
 	 * @return
 	 */
 	@Override
@@ -254,12 +242,11 @@ public class BSModal<J extends BSModal<J>>
 		getModalDialog().addClass(options);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Includes a modal-backdrop element. Alternatively, specify static for a backdrop which doesn't close the modal on click.
 	 *
 	 * @param backdrop
-	 *
 	 * @return
 	 */
 	@Override
@@ -270,7 +257,7 @@ public class BSModal<J extends BSModal<J>>
 		addAttribute(BSModalAttributes.Data_Backdrop, backdrop);
 		return (J) this;
 	}
-
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -279,12 +266,11 @@ public class BSModal<J extends BSModal<J>>
 		addClass(BSDefaultOptions.Fade);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Puts the focus on the modal when initialized.
 	 *
 	 * @param focus
-	 *
 	 * @return
 	 */
 	@Override
@@ -295,12 +281,11 @@ public class BSModal<J extends BSModal<J>>
 		addAttribute(BSModalAttributes.Data_Focus, focus);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Closes the modal when escape key is pressed
 	 *
 	 * @param keyboard
-	 *
 	 * @return
 	 */
 	@Override
@@ -311,12 +296,11 @@ public class BSModal<J extends BSModal<J>>
 		addAttribute(BSModalAttributes.Data_Keyboard, keyboard);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Shows the modal when initialized.
 	 *
 	 * @param show
-	 *
 	 * @return
 	 */
 	@Override
@@ -327,7 +311,7 @@ public class BSModal<J extends BSModal<J>>
 		addAttribute(BSModalAttributes.Data_Show, show);
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the dialog content container
 	 */
@@ -339,42 +323,43 @@ public class BSModal<J extends BSModal<J>>
 		getModalDialog().addClass("model-dialog-centered");
 		return (J) this;
 	}
-
+	
 	/**
 	 * Adds a button that will open up the modal
 	 *
 	 * @param button
-	 *
 	 * @return
 	 */
 	@Override
 	@NotNull
-	public J addOpenButton(IComponentHierarchyBase<?,?> button)
+	public J addOpenButton(IComponentHierarchyBase<?, ?> button)
 	{
 		return addOpenButton(button, true);
 	}
-
+	
 	/**
 	 * Adds a button that will open up the modal
 	 *
 	 * @param button
-	 *
 	 * @return
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addOpenButton(IComponentHierarchyBase<?,?> button, boolean setButtonTag)
+	public J addOpenButton(IComponentHierarchyBase<?, ?> button, boolean setButtonTag)
 	{
 		if (setButtonTag)
 		{
-			button.asTagBase().setTag("button");
+			button.asTagBase()
+			      .setTag("button");
 		}
-		button.asAttributeBase().addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
-		button.asAttributeBase().addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
+		button.asAttributeBase()
+		      .addAttribute(ButtonAttributes.Data_Toggle.toString(), BSModalOptions.Modal.toString());
+		button.asAttributeBase()
+		      .addAttribute(ButtonAttributes.Data_Target.toString(), getID(true));
 		return (J) this;
 	}
-
+	
 	/**
 	 * Creates a show event for the create show feature
 	 *
@@ -385,7 +370,7 @@ public class BSModal<J extends BSModal<J>>
 	{
 		return new BSModalShowFeature(this);
 	}
-
+	
 	/**
 	 * Creates the hide feature
 	 *
@@ -396,7 +381,7 @@ public class BSModal<J extends BSModal<J>>
 	{
 		return new BSModalHideFeature(this);
 	}
-
+	
 	/**
 	 * Creates the toggle feature
 	 *
@@ -407,19 +392,19 @@ public class BSModal<J extends BSModal<J>>
 	{
 		return new BSModalToggleFeature(this);
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
 	}
-
+	
 	/**
 	 * Returns this modal with only its methods
 	 *

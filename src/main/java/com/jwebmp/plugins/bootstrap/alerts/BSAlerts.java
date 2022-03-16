@@ -16,6 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts;
 
+import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.*;
 import com.jwebmp.core.base.html.interfaces.*;
@@ -23,7 +25,8 @@ import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.plugins.*;
 import com.jwebmp.plugins.bootstrap.*;
 import com.jwebmp.plugins.bootstrap.alerts.events.*;
-import jakarta.validation.constraints.*;
+
+import java.util.List;
 
 /**
  * Alerts
@@ -35,21 +38,69 @@ import jakarta.validation.constraints.*;
  * @version 1.0
  * @since 31 Dec 2016
  */
+@NgComponent("alert-closable")
 @ComponentInformation(name = "Bootstrap Alert",
                       description = "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert " + "messages.",
                       url = "https://v4-alpha.getbootstrap.com/components/alerts/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
-public class BSAlert<J extends BSAlert<J>>
+@NgDataTypeReference(Alert.class)
+public abstract class BSAlerts<J extends BSAlerts<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSAlertEvents, J>
+		implements IBSAlerts<J>, INgComponent<J>
 {
-	private boolean dismissible;
-	private BSColourTypes type;
+	private AlertDataService alertDataService;
+	
+	public BSAlerts(AlertDataService alertDataService)
+	{
+		this();
+		this.alertDataService = alertDataService;
+	}
+	
+	/**
+	 * Alerts
+	 * <p>
+	 * Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+	 */
+	public BSAlerts()
+	{
+	
+	}
 	
 	@Override
-	public @NotNull J bind(@NotNull String variableName)
+	public String renderBeforeClass()
 	{
-		setText("{{" + variableName + "}}");
-		return (J) this;
+		String output = "";
+		return output;
+	}
+	
+	public String getServiceName()
+	{
+		if (alertDataService == null)
+		{
+			return "alertDataService";
+		}
+		String name = ITSComponent.getTsFilename(alertDataService.getClass());
+		name = name.substring(0, 1)
+		           .toLowerCase() + name.substring(1);
+		return name;
+	}
+	
+	@Override
+	public List<String> methods()
+	{
+		if (alertDataService != null)
+		{
+			String name = getServiceName();
+			return List.of("close(alertItem: Alert) {\n" +
+			               "    this." + name + ".data.alerts?.splice(this."
+			               + name + ".data.alerts?.indexOf(alertItem), 1);\n" +
+			               //      "alert('removed from service');  " +
+			               "}\n");
+		}
+		else
+		{
+			return List.of();
+		}
 	}
 	
 	/**
@@ -57,17 +108,7 @@ public class BSAlert<J extends BSAlert<J>>
 	 * <p>
 	 * Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 	 */
-	public BSAlert()
-	{
-		setTag("ngb-alert");
-	}
-	
-	/**
-	 * Alerts
-	 * <p>
-	 * Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
-	 */
-	public BSAlert(String paragraph)
+	public BSAlerts(String paragraph)
 	{
 		this();
 		setText(paragraph);
@@ -78,59 +119,34 @@ public class BSAlert<J extends BSAlert<J>>
 	 * <p>
 	 * Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 	 */
-	public BSAlert(IComponentHierarchyBase<?, ?> component)
+	public BSAlerts(IComponentHierarchyBase<?, ?> component)
 	{
 		this();
 		add(component);
 	}
 	
-	
-	public boolean isDismissible()
-	{
-		return dismissible;
-	}
-	
-	@SuppressWarnings("unchecked")
-	
-	public J setDismissible(boolean dismissible)
-	{
-		this.dismissible = dismissible;
-		return (J) this;
-	}
-	
-	
-	public BSColourTypes getType()
-	{
-		return type;
-	}
-	
-	
-	@SuppressWarnings("unchecked")
-	public J setType(BSColourTypes type)
-	{
-		this.type = type;
-		return (J) this;
-	}
-	
-	
+	@Override
 	public void init()
 	{
 		if (!isInitialized())
 		{
-			if (type == null)
-			{
-				type = BSColourTypes.Info;
-			}
+			String name = getServiceName();
+			addAttribute("*ngFor", "let alert of " + name + ".data.alerts");
 			
-			if (type == BSColourTypes.AlertsType)
-			{
-				addAttribute("[type]", "" + type.toString() + "");
-			}
-			else
-			{
-				addAttribute("[type]", "'" + type.toString() + "'");
-			}
+			add(new BSAlertsAlert().setType(BSColourTypes.AlertsType)
+			                       .bind("alert.message")
+			                       .addAttribute("(closed)", "close(alert)"));
 		}
+	}
+	
+	/**
+	 * Neater view of this component
+	 *
+	 * @return
+	 */
+	public IBSAlerts<?> asMe()
+	{
+		return this;
 	}
 	
 }

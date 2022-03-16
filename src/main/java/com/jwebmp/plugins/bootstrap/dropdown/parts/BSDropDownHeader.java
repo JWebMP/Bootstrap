@@ -16,9 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown.parts;
 
-import com.jwebmp.core.base.html.H6;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.plugins.bootstrap.dropdown.options.*;
 
 /**
  * Menu headers
@@ -30,10 +29,7 @@ import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
  */
 public class BSDropDownHeader<J extends BSDropDownHeader<J>>
 		extends H6<J>
-		implements BSDropDownChildren
 {
-
-
 	/**
 	 * Menu headers
 	 * <p>

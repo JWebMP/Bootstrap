@@ -9,6 +9,7 @@ public class BootstrapTestGen
 {
 	public static void main(String[] args) throws Exception
 	{
+		LogFactory.configureDefaultLogHiding();
 		LogFactory.configureConsoleColourOutput(Level.FINE);
 		GuicedUndertow.boot("localhost", 6524);
 	}

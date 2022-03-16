@@ -16,18 +16,16 @@
  */
 package com.jwebmp.plugins.bootstrap.buttons;
 
-import com.jwebmp.core.base.html.Button;
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.attributes.InputButtonTypeAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.guicedee.guicedinjection.json.StaticStrings;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.forms.BSFormChildren;
-import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
+import com.guicedee.guicedinjection.json.*;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.base.html.interfaces.events.*;
+import com.jwebmp.core.base.servlets.enumarations.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.dropdown.interfaces.*;
+import com.jwebmp.plugins.bootstrap.forms.*;
+import com.jwebmp.plugins.bootstrap.options.*;
 
 /**
  * Buttons
@@ -49,10 +47,8 @@ import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSButton<J extends BSButton<J>>
 		extends Button<GlobalChildren, BSButtonAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSDropDownChildren, BSFormChildren, IBSButton<J>
+		implements GlobalChildren, BSFormChildren, IBSButton<J>
 {
-
-
 	private static final String roleAttribute = "button";
 
 	/**

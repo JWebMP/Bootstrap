@@ -22,7 +22,7 @@ import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap.dropdown.interfaces.IBSDropDownAsListItem;
 import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownButton;
+import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownItem;
 import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownMenu;
 import com.jwebmp.plugins.bootstrap.toggle.BSDropDownToggle;
 
@@ -47,7 +47,7 @@ import com.jwebmp.plugins.bootstrap.toggle.BSDropDownToggle;
 		              "  this  is an intentional design  decision.",
 		url = "https://v4-alpha.getbootstrap.com/components/dropdowns/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
-public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
+public class BSNavDropDown<J extends BSNavDropDown<J>>
 		extends ListItem<J>
 		implements IBSDropDownAsListItem<J>
 {
@@ -56,7 +56,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	/**
 	 * Construct a new bootstrap drop down
 	 */
-	public BSDropDownAsListItem()
+	public BSNavDropDown()
 	{
 		addClass(BSDropDownOptions.Dropdown);
 	}
@@ -66,7 +66,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	 *
 	 * @return
 	 */
-	public BSDropDownAsListItem<J> asMe()
+	public BSNavDropDown<J> asMe()
 	{
 		return this;
 	}
@@ -77,9 +77,9 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	 * @return
 	 */
 	@Override
-	public BSDropDownButton<?> addDropDownButton()
+	public BSDropDownItem<?> addDropDownButton()
 	{
-		BSDropDownButton<?> button = new BSDropDownButton<>();
+		BSDropDownItem<?> button = new BSDropDownItem<>();
 		add(button);
 		return button;
 	}
@@ -97,7 +97,7 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	}
 
 	@Override
-	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions)
+	public BSDropDownItem<?> addDropDownButton(BSButtonOptions buttonOptions)
 	{
 		return addDropDownButton(buttonOptions, null);
 	}
@@ -110,9 +110,9 @@ public class BSDropDownAsListItem<J extends BSDropDownAsListItem<J>>
 	 * @return
 	 */
 	@Override
-	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions)
+	public BSDropDownItem<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions)
 	{
-		BSDropDownButton<?> button = new BSDropDownButton<>();
+		BSDropDownItem<?> button = new BSDropDownItem<>();
 		button.addClass(buttonOptions);
 		if (sizeOptions != null)
 		{

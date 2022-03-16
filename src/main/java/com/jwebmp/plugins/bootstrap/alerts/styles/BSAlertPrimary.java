@@ -16,8 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts.styles;
 
-import com.jwebmp.plugins.bootstrap.alerts.BSAlert;
-import com.jwebmp.plugins.bootstrap.alerts.BSAlertOptions;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.alerts.*;
 
 /**
  * Alerts
@@ -31,8 +32,6 @@ import com.jwebmp.plugins.bootstrap.alerts.BSAlertOptions;
 public class BSAlertPrimary<J extends BSAlertPrimary<J>>
 		extends BSAlert<J>
 {
-
-
 	/**
 	 * Alerts
 	 * <p>
@@ -40,6 +39,19 @@ public class BSAlertPrimary<J extends BSAlertPrimary<J>>
 	 */
 	public BSAlertPrimary()
 	{
-		addClass(BSAlertOptions.Alert_Primary);
+		setType(BSColourTypes.Primary);
 	}
+	
+	public BSAlertPrimary(String paragraph)
+	{
+		super(paragraph);
+		setType(BSColourTypes.Primary);
+	}
+	
+	public BSAlertPrimary(IComponentHierarchyBase<?, ?> component)
+	{
+		super(component);
+		setType(BSColourTypes.Primary);
+	}
+	
 }

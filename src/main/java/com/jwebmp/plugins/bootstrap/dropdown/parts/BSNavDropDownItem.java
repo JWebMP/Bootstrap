@@ -16,12 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown.parts;
 
-import com.jwebmp.core.base.html.Link;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
-import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
-
-import jakarta.validation.constraints.NotNull;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.plugins.bootstrap.dropdown.interfaces.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import jakarta.validation.constraints.*;
 
 /**
  * The Link Button for a drop down
@@ -35,20 +33,19 @@ import jakarta.validation.constraints.NotNull;
  * @author GedMarc
  * @since 13 Jan 2017
  */
-public class BSDropDownLink<J extends BSDropDownLink<J>>
+public class BSNavDropDownItem<J extends BSNavDropDownItem<J>>
 		extends Link<J>
-		implements BSDropDownChildren
 {
 	/**
 	 * Constructs a new bootstrap drop down link item
 	 */
-	public BSDropDownLink()
+	public BSNavDropDownItem()
 	{
 		super("#");
-		addClass(BSDropDownOptions.Dropdown_Item);
+		addClass("ngbDropdownItem");
 	}
 
-	public BSDropDownLink(String text)
+	public BSNavDropDownItem(String text)
 	{
 		super(text);
 	}
@@ -95,17 +92,5 @@ public class BSDropDownLink<J extends BSDropDownLink<J>>
 			removeClass(BSDefaultOptions.Disabled);
 		}
 		return (J) this;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		return super.equals(obj);
 	}
 }

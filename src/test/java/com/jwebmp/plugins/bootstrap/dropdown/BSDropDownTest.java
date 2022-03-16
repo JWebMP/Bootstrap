@@ -30,42 +30,4 @@ public class BSDropDownTest
 	{
 	}
 
-	@Test
-	public void testSomeMethod()
-	{
-		BSDropDown drop = new BSDropDown();
-		drop.addDropDownButton();
-		BSDropDownMenu<?> menu = drop.addDropDownMenu();
-		menu.addItem("new Item");
-		menu.addDivider();
-		menu.addHeader("Header");
-		menu.addItem("new item 2");
-		System.out.println(drop.toString(true));
-	}
-
-	@Test
-	public void testSingleDropdown()
-	{
-		BSDropDown drop = new BSDropDown();
-		System.out.println(drop.toString(true));
-	}
-
-	@Test
-	public void testSplitButton()
-	{
-		BSDropDownSplitButton splitButton = new BSDropDownSplitButton();
-
-		splitButton.addDropDownButton();
-		splitButton.addSplitButton();
-		splitButton.addDropDownMenu();
-
-		System.out.println(splitButton.toString(true));
-	}
-
-	@Test
-	public void testDropupButton()
-	{
-		BSDropUp up = new BSDropUp();
-		System.out.println(up.toString(true));
-	}
 }

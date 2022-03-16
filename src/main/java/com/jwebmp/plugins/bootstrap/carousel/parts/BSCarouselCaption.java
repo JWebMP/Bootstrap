@@ -44,7 +44,7 @@ public class BSCarouselCaption<J extends BSCarouselCaption<J>>
 	 */
 	public BSCarouselCaption()
 	{
-		addClass("carousel-caption");
+		this(null);
 	}
 
 	/**
@@ -59,6 +59,7 @@ public class BSCarouselCaption<J extends BSCarouselCaption<J>>
 	public BSCarouselCaption(String text)
 	{
 		super(text);
+		addClass("carousel-caption");
 	}
 
 }

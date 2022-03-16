@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Bootstrap4ModuleInclusion implements IGuiceScanModuleInclusions<Bootstrap4ModuleInclusion>
+public class BootstrapModuleInclusion implements IGuiceScanModuleInclusions<BootstrapModuleInclusion>
 {
 	@Override
 	public @NotNull Set<String> includeModules()
 	{
 		Set<String> set = new HashSet<>();
-		set.add("com.jwebmp.plugins.bootstrap4");
+		set.add("com.jwebmp.plugins.bootstrap");
 		return set;
 	}
 }

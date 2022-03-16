@@ -59,8 +59,6 @@ public class BSNavsTest
 	public void testSomeMethodFunctionality()
 	{
 		BSNavs nav = new BSNavs();
-		nav.addDropDown()
-		   .addDropDownMenu();
 		nav.addItem("New Nav Item");
 		nav.setAsTabs(true);
 

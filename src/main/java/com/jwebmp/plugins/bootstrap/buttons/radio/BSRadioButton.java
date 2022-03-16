@@ -172,6 +172,7 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 	{
 		this.input = input;
 		input.addAttribute(AutoComplete, "off");
+		input.addAttribute("[formControl]", "radio");
 		return (J) this;
 	}
 
@@ -198,9 +199,14 @@ public class BSRadioButton<J extends BSRadioButton<J>>
 		this.labelText = labelText;
 		return (J) this;
 	}
-
 	
-
+	@Override
+	public void init()
+	{
+		getInput().addAttribute("[value]", getInput().getValue());
+		super.init();
+	}
+	
 	@Override
 	public boolean equals(Object o)
 	{

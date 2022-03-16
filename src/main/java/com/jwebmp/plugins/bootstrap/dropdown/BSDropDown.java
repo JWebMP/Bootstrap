@@ -16,25 +16,20 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown;
 
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.html.Link;
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonAttributes;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonSizeOptions;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownChildren;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.BSDropDownEvents;
-import com.jwebmp.plugins.bootstrap.dropdown.interfaces.IBSDropDown;
-import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownButton;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownLink;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownMenu;
-import com.jwebmp.plugins.bootstrap.navs.interfaces.BSNavsChildren;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.buttons.*;
+import com.jwebmp.plugins.bootstrap.dropdown.interfaces.*;
+import com.jwebmp.plugins.bootstrap.dropdown.parts.*;
+import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
+import jakarta.validation.constraints.*;
 
-import static com.jwebmp.core.base.html.attributes.LinkAttributes.Data_Toggle;
-import static com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions.Dropdown_Toggle;
+import static com.jwebmp.plugins.bootstrap.BSPlacements.*;
+import static com.jwebmp.plugins.bootstrap.options.BSDisplayOptions.*;
 
 /**
  * Dropdowns
@@ -45,123 +40,161 @@ import static com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions.Dr
  * <p>
  *
  * @param <J>
- *
  * @author GedMarc
  * @version 1.0
  * @since 13 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Dropdown",
-		description = "Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive " +
-		              "with" +
-		              " the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering;" +
-		              "  this  is an intentional design  decision.",
-		url = "https://v4-alpha.getbootstrap.com/components/dropdowns/",
-		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive " +
+                                    "with" +
+                                    " the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering;" +
+                                    "  this  is an intentional design  decision.",
+                      url = "https://ng-bootstrap.github.io/#/components/dropdown/examples",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+
 public class BSDropDown<J extends BSDropDown<J>>
-		extends Div<BSDropDownChildren, BSDropDownAttributes, GlobalFeatures, BSDropDownEvents, J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSDropDownEvents, J>
 		implements IBSDropDown<J>, BSNavsChildren
 {
+	private Button<?,?,?,?,?> dropDownButton;
+	private BSDropDownMenu<?> dropDownMenu;
+	
+	private BSPlacements placement;
+	private boolean bodyContainer;
+	private boolean dynamic;
+	
 	/**
 	 * Construct a new bootstrap drop down
 	 */
 	public BSDropDown()
 	{
-		addClass(BSDropDownOptions.Dropdown);
+		addAttribute("ngbDropdown", "");
+		addClass(Inline_Block);
+		dropDownButton = new BSButton<>();
+		dropDownButton.addAttribute("ngbDropdownToggle","");
+		dropDownMenu = new BSDropDownMenu<>();
+		dropDownMenu.addAttribute("aria-labelledby", dropDownButton.getID());
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public J asLink()
+	{
+		if (this.dropDownButton != null)
+		{
+			dropDownButton.setTag("a");
+			dropDownButton.addAttribute("role", "button");
+			dropDownButton.addAttribute("tabindex", "0");
+		}
+		return (J) this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public J addItem(String text)
+	{
+		getDropDownMenu().addItem(text);
+		return (J)this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public J addItem(IComponentHierarchyBase<?,?> component)
+	{
+		getDropDownMenu().add(component);
+		return (J)this;
+	}
+	
+	@Override
+	public void init()
+	{
+		if (placement != null)
+		{
+			addAttribute("placement", placement.toString());
+		}
+		if (bodyContainer)
+		{
+			addAttribute("container", "body");
+		}
+		if (dynamic)
+		{
+			addAttribute("display", "dynamic");
+		}
+		add(dropDownButton);
+		add(dropDownMenu);
+		super.init();
+	}
+	
+	@Override
+	public @NotNull J setText(String text)
+	{
+		if (dropDownButton != null)
+		{
+			dropDownButton.setText(text);
+		}
+		return (J) this;
+	}
+	
+	public Button<?, ?, ?, ?, ?> getDropDownButton()
+	{
+		return dropDownButton;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public J setDropDownButton(Button<?, ?, ?, ?, ?> dropDownButton)
+	{
+		this.dropDownButton = dropDownButton;
+		return (J)this;
+	}
+	
+	public BSDropDownMenu<?> getDropDownMenu()
+	{
+		return dropDownMenu;
+	}
+	
+	public J setDropDownMenu(BSDropDownMenu<?> dropDownMenu)
+	{
+		this.dropDownMenu = dropDownMenu;
+		return (J)this;
+	}
+	
+	public BSPlacements getPlacement()
+	{
+		return placement;
+	}
+	
+	public J setPlacement(BSPlacements placement)
+	{
+		this.placement = placement;
+		return (J)this;
+	}
+	
+	public boolean isBodyContainer()
+	{
+		return bodyContainer;
+	}
+	
+	public J setBodyContainer(boolean bodyContainer)
+	{
+		this.bodyContainer = bodyContainer;
+		return (J)this;
+	}
+	
+	public boolean isDynamic()
+	{
+		return dynamic;
+	}
+	
+	public J setDynamic(boolean dynamic)
+	{
+		this.dynamic = dynamic;
+		return (J)this;
+	}
+	
 	/**
 	 * A slimmer view of this class
 	 *
 	 * @return
 	 */
-	public IBSDropDown<J> asMe()
+	public IBSDropDown asMe()
 	{
-		return this;
-	}
-
-	/**
-	 * adds a default drop down button
-	 *
-	 * @return
-	 */
-	@Override
-	public BSDropDownButton<?> addDropDownButton()
-	{
-		BSDropDownButton<?> button = new BSDropDownButton<>();
-		add(button);
-		return button;
-	}
-
-	@Override
-	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions)
-	{
-		return addDropDownButton(buttonOptions, null);
-	}
-
-	/**
-	 * Adds the drop down button to the drop down (add before menu)
-	 *
-	 * @param buttonOptions
-	 *
-	 * @return
-	 */
-	@Override
-	public BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions)
-	{
-		BSDropDownButton<?> button = new BSDropDownButton<>();
-		button.addClass(buttonOptions);
-		if (sizeOptions != null)
-		{
-			button.addClass(sizeOptions);
-			removeClass(BSDropDownOptions.Dropdown);
-			addClass(BSButtonOptions.Btn_Group);
-		}
-		add(button);
-		return button;
-	}
-
-	/**
-	 * Adds the drop down button to the drop down (add before menu)
-	 *
-	 *
-	 * @return
-	 */
-	@Override
-	public Link<?> addDropDownLink()
-	{
-		BSDropDownLink<?> button = new BSDropDownLink<>("javascript: void(0);");
-		button.addClass("dropdown");
-		button.addAttribute(Data_Toggle, "dropdown");
-		button.addAttribute(GlobalAttributes.Aria_HasPopup, "false");
-		button.addAttribute(GlobalAttributes.Aria_Expanded, "false");
-		button.addClass(Dropdown_Toggle);
-		button.addAttribute(BSButtonAttributes.Role.toString(), "button");
-		add(button);
-		return button;
-	}
-
-	/**
-	 * Adds the menu to the drop down (call after button)
-	 *
-	 * @return
-	 */
-	@Override
-	public BSDropDownMenu<?> addDropDownMenu()
-	{
-		BSDropDownMenu<?> menu = new BSDropDownMenu<>();
-		add(menu);
-		return menu;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
+		return (IBSDropDown) this;
 	}
 }

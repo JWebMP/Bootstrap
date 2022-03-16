@@ -16,8 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts.styles;
 
-import com.jwebmp.plugins.bootstrap.alerts.BSAlert;
-import com.jwebmp.plugins.bootstrap.alerts.BSAlertOptions;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.alerts.*;
 
 /**
  * Alerts
@@ -40,7 +41,19 @@ public class BSAlertSuccess<J extends BSAlertSuccess<J>>
 	 */
 	public BSAlertSuccess()
 	{
-		addClass(BSAlertOptions.Alert_Success);
+		setType(BSColourTypes.Success);
 	}
-
+	
+	public BSAlertSuccess(String paragraph)
+	{
+		super(paragraph);
+		setType(BSColourTypes.Success);
+	}
+	
+	public BSAlertSuccess(IComponentHierarchyBase<?, ?> component)
+	{
+		super(component);
+		setType(BSColourTypes.Success);
+	}
+	
 }

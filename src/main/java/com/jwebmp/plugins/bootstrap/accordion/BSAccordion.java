@@ -17,134 +17,119 @@
 package com.jwebmp.plugins.bootstrap.accordion;
 
 import com.jwebmp.core.base.html.*;
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap.buttons.BSButton;
-import com.jwebmp.plugins.bootstrap.cards.BSCard;
-import com.jwebmp.plugins.bootstrap.cards.parts.BSCardBody;
-import com.jwebmp.plugins.bootstrap.cards.parts.BSCardHeader;
-import com.jwebmp.plugins.bootstrap.collapse.BSCollapse;
-import com.jwebmp.plugins.bootstrap.options.BSMarginOptions;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.options.interfaces.*;
 
-import static com.jwebmp.core.base.html.attributes.LinkAttributes.*;
-import static com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions.*;
+import java.util.*;
 
 /**
  * Extend the default collapse behavior to create an accordion.
  * <p>
  *
  * @param <J>
- *
  * @author GedMarc
  * @version 1.0
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Accordion",
-		description = "Extend the default collapse behavior to create an accordion.",
-		url = "https://v4-alpha.getbootstrap.com/components/collapse/",
-		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Extend the default collapse behavior to create an accordion.",
+                      url = "https://v4-alpha.getbootstrap.com/components/collapse/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSAccordion<J extends BSAccordion<J>>
-		extends Div<BSAccordionChildren, BSAccordionAttributes, GlobalFeatures, BSAccordionEvents, J>
+		extends Div<BSAccordionChildren, NoAttributes, GlobalFeatures, BSAccordionEvents, J>
 		implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSAccordion<J>
 {
-
-
+	/**
+	 * If this accordion must only display one at a time
+	 */
+	private boolean closeOthers;
+	
 	/**
 	 * Extend the default collapse behavior to create an accordion.
 	 */
 	public BSAccordion()
 	{
-		//no config required
+		setTag("ngb-accordion");
 	}
-
-	/**
-	 * Adds a new accordion card formatted with the settings applied with the content hidden
-	 *
-	 * @param headerText
-	 *
-	 * @return
-	 */
-	@Override
-	public BSAccordionCollection<?> addCard(String headerText)
+	
+	public boolean isCloseOthers()
 	{
-		return addCard(headerText, null, false);
+		return closeOthers;
 	}
-
-	/**
-	 * Adds a new accordion card formatted with the settings applied
-	 *
-	 * @return
-	 */
-	@Override
-	public BSAccordionCollection<?> addCard(String headerText, BSCardBody<?> bodyContent, boolean hideOnStart)
+	
+	public BSAccordion<J> setCloseOthers(boolean closeOthers)
 	{
-		BSCard<?> card = new BSCard<>();
-
-		BSCardHeader<?> header = card.addCardHeader((String) null)
-		                             .addClass("font-16");
-
-		BSAccordionBodyWrapper<?> wrapper = new BSAccordionBodyWrapper<>();
-
-		card.add(wrapper);
-
-		BSCardBody<?> body = bodyContent == null ? new BSCardBody<>() : bodyContent;
-		wrapper.add(body);
-		wrapper.addAttribute(Data_Parent.toString(), getID(true));
-		wrapper.addAttribute(GlobalAttributes.Aria_LabelledBy, header.getID());
-
-		BSButton<?> collapseButton = new BSButton<>().setText(headerText);
-		collapseButton.addClass(Btn_Link);
-		collapseButton.addAttribute(GlobalAttributes.Aria_Controls, wrapper.getID());
-		collapseButton.addAttribute(GlobalAttributes.Aria_Expanded, Boolean.toString(!hideOnStart));
-
-		HeaderText<?> h5 = new H5<>();
-
-		h5.addClass(BSMarginOptions.MarginBottom_0);
-		h5.add(collapseButton);
-		header.add(h5);
-
-		BSCollapse.link(collapseButton, wrapper, hideOnStart);
-
-
-		//	body.addAttribute(LinkAttributes.Data_Parent.toString(), getID(true));
-
-		card.add(wrapper);
-		add(card);
-
-		BSAccordionCollection<?> collection = new BSAccordionCollection<>();
-		collection.setBody(body);
-		collection.setCard(card);
-		collection.setHeader(header);
-		collection.setHeading(h5);
-		collection.setHeadingButton(collapseButton);
-
-		return collection;
+		this.closeOthers = closeOthers;
+		return this;
 	}
-
-	/**
-	 * Adds a new accordion card formatted with the settings applied with the content hidden
-	 *
-	 * @param headerText
-	 * @param bodyContent
-	 *
-	 * @return
-	 */
+	
 	@Override
-	public BSAccordionCollection<?> addCard(String headerText, BSCardBody<?> bodyContent)
+	public void init()
 	{
-		return addCard(headerText, bodyContent, false);
+		if (!isInitialized())
+		{
+			if (closeOthers)
+			{
+				addAttribute("[closeOthers]", "true");
+			}
+			java.util.List<String> ids = new ArrayList<>();
+			for (BSAccordionChildren child : getChildren())
+			{
+				if (child instanceof BSAccordionPanel)
+				{
+					BSAccordionPanel<?> cc = (BSAccordionPanel<?>) child;
+					if (cc.isActive())
+					{
+						ids.add(cc.getID());
+					}
+				}
+			}
+			if (!ids.isEmpty())
+			{
+				String attributeValue = "";
+				for (String id : ids)
+				{
+					attributeValue += id + ",";
+				}
+				if (attributeValue.length() > 1)
+				{
+					attributeValue = attributeValue.substring(0, attributeValue.length() - 1);
+				}
+				addAttribute("activeIds", attributeValue);
+			}
+		}
+		super.init();
 	}
-
+	
 	@Override
-	public int hashCode()
+	public J addPanel(String panelId, BSAccordionPanelTitle<?> defaultHeader, BSAccordionPanelContent<?> content, boolean active)
 	{
-		return super.hashCode();
+		BSAccordionPanel<?> panel = new BSAccordionPanel<>(panelId);
+		panel.add(defaultHeader);
+		panel.add(content);
+		panel.setActive(active);
+		
+		add(panel);
+		return (J) this;
 	}
-
+	
 	@Override
-	public boolean equals(Object o)
+	public J addPanel(String panelId, BSAccordionPanelHeader<?> header, BSAccordionPanelContent<?> content, boolean active)
 	{
-		return super.equals(o);
+		BSAccordionPanel<?> panel = new BSAccordionPanel<>(panelId);
+		panel.add(header);
+		panel.add(content);
+		panel.setActive(active);
+		
+		add(panel);
+		return (J) this;
+	}
+	
+	@Override
+	public IBSAccordion<?> asMe()
+	{
+		return this;
 	}
 }

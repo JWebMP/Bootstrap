@@ -54,31 +54,20 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 	@JsonIdentityReference(alwaysAsId = true)
 	private BSForm<?> formOwner;
 	
-	protected BSFieldSet(boolean noValidate)
+	protected BSFieldSet()
 	{
-		super(noValidate);
 		setTag(FieldSet.getComponentTag());
 		setComponentType(FieldSet);
 		removeAttribute("role");
 		removeAttribute(Name);
 	}
 	
-	protected BSFieldSet()
+	public BSFieldSet( BSForm<?> formOwner)
 	{
-		this(false);
-	}
-	
-	public BSFieldSet(boolean noValidate, BSForm<?> formOwner)
-	{
-		this(noValidate);
 		this.formOwner = formOwner;
 	}
 	
-	public BSFieldSet(BSForm<?> formOwner)
-	{
-		this(false, formOwner);
-	}
-	
+
 	public BSForm<?> getFormOwner()
 	{
 		return formOwner;

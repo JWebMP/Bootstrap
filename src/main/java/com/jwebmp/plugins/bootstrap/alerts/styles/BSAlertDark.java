@@ -16,8 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts.styles;
 
-import com.jwebmp.plugins.bootstrap.alerts.BSAlert;
-import com.jwebmp.plugins.bootstrap.alerts.BSAlertOptions;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.alerts.*;
 
 /**
  * Alerts
@@ -40,7 +41,18 @@ public class BSAlertDark<J extends BSAlertDark<J>>
 	 */
 	public BSAlertDark()
 	{
-		addClass(BSAlertOptions.Alert_Dark);
+		setType(BSColourTypes.Dark);
 	}
-
+	
+	public BSAlertDark(String paragraph)
+	{
+		super(paragraph);
+		setType(BSColourTypes.Dark);
+	}
+	
+	public BSAlertDark(IComponentHierarchyBase<?, ?> component)
+	{
+		super(component);
+		setType(BSColourTypes.Dark);
+	}
 }

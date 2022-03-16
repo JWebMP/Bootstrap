@@ -32,6 +32,8 @@ import com.jwebmp.core.services.IPageConfigurator;
 
 import jakarta.validation.constraints.NotNull;
 
+import java.util.*;
+
 /**
  * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
  * <p>
@@ -57,9 +59,9 @@ import jakarta.validation.constraints.NotNull;
                    pluginModuleName = "com.jwebmp.plugins.bootstrap4",
                    pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
-@TsDependency(value = "bootstrap", version = "^5")
+@TsDependency(value = "bootstrap", version = "^5.0.0")
 @NgPolyfill("@angular/localize/init")
 @TsDependency(value = "@angular/localize", version = "^13.2.0")
 @NgStyleSheet(value = "node_modules/bootstrap/scss/bootstrap.scss", name = "bootstrap")
@@ -67,6 +69,12 @@ import jakarta.validation.constraints.NotNull;
 public class BootstrapPageConfigurator
 		implements IPageConfigurator<BootstrapPageConfigurator>, INgModule<BootstrapPageConfigurator>
 {
+	
+	@Override
+	public Map<String, String> imports()
+	{
+		return Map.of("NgbModule","@ng-bootstrap/ng-bootstrap");
+	}
 	
 	/**
 	 * The default page configurator for bootstrap

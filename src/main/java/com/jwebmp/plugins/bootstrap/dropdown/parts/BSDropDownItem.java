@@ -14,30 +14,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.jwebmp.plugins.bootstrap.dropdown.parts;
 
-package com.jwebmp.plugins.bootstrap.alerts.styles;
+import com.jwebmp.core.base.html.*;
 
-import com.jwebmp.core.base.html.Link;
-import com.jwebmp.core.base.html.Span;
-import com.jwebmp.plugins.bootstrap.alerts.BSAlert;
-import org.junit.jupiter.api.Test;
-
-class BSAlertPrimaryTest
+/**
+ * @author GedMarc
+ * @since 13 Jan 2017
+ */
+public class BSDropDownItem<J extends BSDropDownItem<J>>
+		extends DivSimple<J>
 {
-
-	@Test
-	public void testMe()
+	public BSDropDownItem()
 	{
-		BSAlert alert = new BSAlertPrimary<>().setText("This is an alert");
-		System.out.println(alert.toString(0));
-
-		alert.asMe()
-		     .createDismissButton();
-
-		System.out.println(alert.toString(0));
-
-		Link wrapped = alert.wrapLinkStyle(new Span<>("Does it wrappeth?"), null);
-		alert.add(wrapped);
-		System.out.println(alert.toString(0));
+		setTag("button");
+		addAttribute("ngbDropdownItem", "");
 	}
 }

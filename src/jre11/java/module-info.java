@@ -1,4 +1,3 @@
-import com.guicedee.guicedinjection.interfaces.*;
 import com.jwebmp.plugins.bootstrap.implementations.*;
 
 module com.jwebmp.plugins.bootstrap {
@@ -104,9 +103,8 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.tooltips;
 	
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap.BootstrapPageConfigurator;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.bootstrap.implementations.Bootstrap4ExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with BootstrapModuleInclusion;
 	
-	provides IGuiceScanModuleInclusions with Bootstrap4ModuleInclusion;
 	
 	opens com.jwebmp.plugins.bootstrap to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.accordion to com.fasterxml.jackson.databind, com.jwebmp.core;

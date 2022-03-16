@@ -17,111 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap.alerts;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
-import com.jwebmp.core.base.html.Link;
-import com.jwebmp.core.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.plugins.bootstrap.*;
 
-import jakarta.validation.constraints.NotNull;
-import java.util.Comparator;
+import java.util.*;
 
-public interface IBSAlerts<J extends BSAlert<J>>
-		extends Comparator<J>, Comparable<J>, ICssStructure<J>
+public interface IBSAlerts<J extends BSAlerts<J>>
+		extends Comparator<J>, Comparable<J>, ICssStructure<J>, IBootstrapComponent<J>
 {
-	/**
-	 * Adds the link styling for an alert to any component
-	 *
-	 * @param component
-	 *
-	 * @return
-	 */
-	@NotNull
-	Link<?> wrapLinkStyle(ComponentHierarchyBase<?, ?, ?, ?, ?> component, String href);
 
-	/**
-	 * Creates and adds dismiss button assigned to this alert
-	 *
-	 * @return
-	 */
-	@NotNull
-	BSAlertDismissButton<?> createDismissButton();
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setDanger(boolean applyStyle);
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setInfo(boolean applyStyle);
-
-	/**
-	 * Sets the style as link
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setLink(boolean applyStyle);
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setSuccess(boolean applyStyle);
-
-	/**
-	 * Set or remove the style
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setWarning(boolean applyStyle);
-
-	/**
-	 * Sets the style as link
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setPrimary(boolean applyStyle);
-
-	/**
-	 * Sets the style as link
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setLight(boolean applyStyle);
-
-	/**
-	 * Sets the style as link
-	 *
-	 * @param applyStyle
-	 *
-	 * @return
-	 */
-	@NotNull
-	J setDark(boolean applyStyle);
 }

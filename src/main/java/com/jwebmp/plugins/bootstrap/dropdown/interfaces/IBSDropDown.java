@@ -17,43 +17,13 @@
 
 package com.jwebmp.plugins.bootstrap.dropdown.interfaces;
 
-import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.interfaces.ICssStructure;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonSizeOptions;
 import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownButton;
-import com.jwebmp.plugins.bootstrap.dropdown.parts.BSDropDownMenu;
 
 import java.util.Comparator;
 
 public interface IBSDropDown<J extends BSDropDown<J>>
 		extends Comparator<J>, Comparable<J>, ICssStructure<J>
 {
-	/**
-	 * adds a default drop down button
-	 *
-	 * @return
-	 */
-	BSDropDownButton<?> addDropDownButton();
 
-	/**
-	 * Adds the drop down button to the drop down (add before menu)
-	 *
-	 * @param buttonOptions
-	 *
-	 * @return
-	 */
-	BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions);
-
-	BSDropDownButton<?> addDropDownButton(BSButtonOptions buttonOptions, BSButtonSizeOptions sizeOptions);
-
-    Link<?> addDropDownLink();
-
-    /**
-	 * Adds the menu to the drop down (call after button)
-	 *
-	 * @return
-	 */
-	BSDropDownMenu<?> addDropDownMenu();
 }

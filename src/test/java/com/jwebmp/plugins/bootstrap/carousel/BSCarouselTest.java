@@ -16,9 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel;
 
-import com.jwebmp.plugins.bootstrap.carousel.parts.BSCarouselCaption;
-import com.jwebmp.plugins.bootstrap.carousel.parts.BSCarouselItem;
-import org.junit.jupiter.api.Test;
+import com.jwebmp.plugins.bootstrap.carousel.parts.*;
+import org.junit.jupiter.api.*;
 
 /**
  * @author GedMarc
@@ -26,37 +25,29 @@ import org.junit.jupiter.api.Test;
 public class BSCarouselTest
 
 {
-
+	
 	public BSCarouselTest()
 	{
 	}
-
+	
 	@Test
 	public void testSomeMethod()
 	{
-
+		
 		BSCarousel<?> car = new BSCarousel();
-		BSCarouselItem<?> ci = new BSCarouselItem();
-
-		ci.addCaption(new BSCarouselCaption("Caption"));
-		car.getSlides()
-		   .add(ci);
-
-		car.setAnimateOnLoad(true);
-
+		
 		System.out.println(car.toString(true));
 	}
-
+	
 	@Test
 	public void testOnDemand()
 	{
 		BSCarousel<?> car = new BSCarousel();
-		BSCarouselItem ci = new BSCarouselItem();
-		ci.addCaption(new BSCarouselCaption("Caption"));
-		car.getSlides()
-		   .add(ci);
-
+		BSCarouselSlide ci = new BSCarouselSlide();
+		ci.add(new BSCarouselCaption("Caption"));
+		car.addSlide(ci);
+		
 		System.out.println(car.toString(0));
 	}
-
+	
 }
