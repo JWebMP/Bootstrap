@@ -29,11 +29,5 @@ public interface IBSModalHeader<J extends BSModalHeader<J>>
 	 * @return
 	 */
 	BSModalTitle<?> addTitle(String title);
-
-	/**
-	 * Adds the dismiss button to the modal
-	 *
-	 * @return
-	 */
-	BSCloseIcon<?> addDismissIcon();
+	
 }

@@ -2,6 +2,7 @@ package com.jwebmp.plugins.bootstrap.modal.parts;
 
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.bootstrap.buttons.BSButton;
+import com.jwebmp.plugins.bootstrap.modal.BSModalChildren;
 import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
 
 /**
@@ -12,7 +13,7 @@ import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
  */
 public class BSModalFooter<J extends BSModalFooter<J>>
 		extends DivSimple<J>
-		implements IBSModalFooter<J>
+		implements IBSModalFooter<J>, BSModalChildren
 {
 	/**
 	 * Constructs a new BS Modal Header

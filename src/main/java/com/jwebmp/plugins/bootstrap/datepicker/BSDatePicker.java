@@ -27,7 +27,7 @@ public class BSDatePicker<J extends BSDatePicker<J>> extends InputTextType<J> im
 		else
 		{
 			addAttribute("ngbDatepicker", "");
-			addAttribute("form-control", "");
+			addClass("form-control");
 			setTag("input");
 			setInlineClosingTag(false);
 			setClosingTag(false);
@@ -60,11 +60,4 @@ public class BSDatePicker<J extends BSDatePicker<J>> extends InputTextType<J> im
 		}
 		return super.renderAfterTag();
 	}
-	
-	public boolean equals(Object o)
-	{
-		return false;
-	}
-	
-	
 }

@@ -1,6 +1,7 @@
 package com.jwebmp.plugins.bootstrap.modal.parts;
 
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.plugins.bootstrap.modal.BSModalChildren;
 import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
 
 /**
@@ -10,7 +11,7 @@ import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
  * @param <J>
  */
 public class BSModalBody<J extends BSModalBody<J>>
-		extends DivSimple<J>
+		extends DivSimple<J> implements BSModalChildren
 {
 	/**
 	 * Constructs a new BS Modal Header
@@ -19,6 +20,6 @@ public class BSModalBody<J extends BSModalBody<J>>
 	{
 		addClass(BSModalOptions.Modal_Body);
 	}
-
+	
 }
 

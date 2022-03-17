@@ -1,3 +1,4 @@
+import com.jwebmp.core.databind.IOnComponentAdded;
 import com.jwebmp.plugins.bootstrap.implementations.*;
 
 module com.jwebmp.plugins.bootstrap {
@@ -74,7 +75,7 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.modal.events.show;
 	exports com.jwebmp.plugins.bootstrap.modal.events.shown;
 	exports com.jwebmp.plugins.bootstrap.modal.parts;
-	exports com.jwebmp.plugins.bootstrap.modal.features;
+
 	exports com.jwebmp.plugins.bootstrap.navbar;
 	exports com.jwebmp.plugins.bootstrap.navbar.parts;
 	exports com.jwebmp.plugins.bootstrap.navbar.enumerations;
@@ -104,6 +105,7 @@ module com.jwebmp.plugins.bootstrap {
 	
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap.BootstrapPageConfigurator;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with BootstrapModuleInclusion;
+	provides IOnComponentAdded with OnBootstrapComponentAdded;
 	
 	
 	opens com.jwebmp.plugins.bootstrap to com.fasterxml.jackson.databind, com.jwebmp.core;

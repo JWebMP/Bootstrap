@@ -13,7 +13,10 @@ import com.jwebmp.plugins.bootstrap.carousel.parts.*;
 import com.jwebmp.plugins.bootstrap.containers.*;
 import com.jwebmp.plugins.bootstrap.datepicker.*;
 import com.jwebmp.plugins.bootstrap.dropdown.*;
+import com.jwebmp.plugins.bootstrap.modal.DefaultModalTest;
 import com.jwebmp.plugins.bootstrap.options.*;
+
+import java.util.List;
 
 import static com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions.*;
 
@@ -24,6 +27,11 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
 		implements INgComponent<BootstrapKitchenSink>
 {
 	
+	@Override
+	public List<String> constructorParameters()
+	{
+		return List.of("private modalService: NgbModal");
+	}
 	
 	@Inject
 	public void initialize()
@@ -71,12 +79,21 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
 		BSRow<?> dropdownRow = new BSRow<>();
 		container.add(dropdownRow);
 		BSDropDown j = new BSDropDown<>().setText("Drop Down Test")
-		                        .addItem("Edit")
-		                        .addItem("Duplicate");
+		                                 .addItem("Edit")
+		                                 .addItem("Duplicate");
 		j.getDropDownButton()
 		 .addClass(Btn_Outline_Primary);
 		dropdownRow.add(j);
 		
+		container.add("modal");
+		
+		BSRow<?> modalRow = new BSRow<>();
+		container.add(modalRow);
+		modalRow.add(new DefaultModalTest());
+		
+		BSButtonPrimary<?> launch_modal = new BSButtonPrimary<>("Launch Modal");
+		new DefaultModalTest().setOpenButton(launch_modal);
+		modalRow.add(launch_modal);
 		
 	}
 }

@@ -1,7 +1,12 @@
 package com.jwebmp.plugins.bootstrap.modal.parts;
 
+import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.bootstrap.close.BSCloseIcon;
+import com.jwebmp.plugins.bootstrap.modal.BSModalChildren;
 import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
 
 /**
@@ -12,7 +17,7 @@ import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
  */
 public class BSModalHeader<J extends BSModalHeader<J>>
 		extends DivSimple<J>
-		implements IBSModalHeader<J>
+		implements IBSModalHeader<J>, BSModalChildren
 {
 	/**
 	 * Constructs a new BS Modal Header
@@ -21,7 +26,7 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 	{
 		addClass(BSModalOptions.Modal_Header);
 	}
-
+	
 	/**
 	 * A more compact view
 	 *
@@ -31,12 +36,11 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 	{
 		return this;
 	}
-
+	
 	/**
 	 * Adds a new title to the header
 	 *
 	 * @param title
-	 *
 	 * @return
 	 */
 	@Override
@@ -47,19 +51,27 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 		add(modalTitle);
 		return modalTitle;
 	}
-
+	
+	public Button<?, ?, ?, ?, ?> addDismissIcon()
+	{
+		var button = createDismissIcon();
+		add(button);
+		return button;
+	}
+	
 	/**
 	 * Adds the dismiss button to the modal
 	 *
 	 * @return
 	 */
-	@Override
-	public BSCloseIcon<?> addDismissIcon()
+	public Button<?, ?, ?, ?, ?> createDismissIcon()
 	{
-		BSCloseIcon<?> icon = new BSCloseIcon<>().setDismissModel();
-		add(icon);
-		return icon;
+		Button<?, ?, ?, ?, ?> button = new Button<>();
+		button.addClass("btn-close");
+		button.addAttribute("aria-label", "Close");
+		button.addAttribute("(click)", "modal.dismiss('Cross Click')");
+		return button;
 	}
-
+	
 }
 
