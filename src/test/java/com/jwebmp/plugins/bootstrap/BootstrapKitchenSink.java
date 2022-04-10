@@ -3,6 +3,7 @@ package com.jwebmp.plugins.bootstrap;
 import com.google.inject.*;
 import com.jwebmp.core.base.angular.services.annotations.*;
 import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.plugins.bootstrap.accordion.*;
@@ -22,17 +23,10 @@ import static com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions.*;
 
 @NgComponent(value = "bootstrap-kitchen-sink")
 //@NgProviderReference(SocketClientService.class)
-@NgModuleImportReference(name = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(name = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
 		implements INgComponent<BootstrapKitchenSink>
 {
-	
-	@Override
-	public List<String> constructorParameters()
-	{
-		return List.of("private modalService: NgbModal");
-	}
-	
 	@Inject
 	public void initialize()
 	{

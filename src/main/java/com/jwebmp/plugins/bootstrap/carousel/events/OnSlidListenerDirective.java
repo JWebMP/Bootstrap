@@ -4,19 +4,20 @@ import com.jwebmp.core.base.angular.modules.services.*;
 import com.jwebmp.core.base.angular.modules.services.angular.*;
 import com.jwebmp.core.base.angular.services.annotations.*;
 import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.services.annotations.functions.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 
 import java.util.*;
 
 @NgDirective(selector = "[slideClassName]")
-@NgModuleReference(NgDirectiveModule.class)
-@NgModuleReference(HostListenerModule.class)
-@NgModuleReference(NgInputModule.class)
-@NgModuleReference(NgRouterModule.class)
-@NgModuleReference(OnInitModule.class)
-@NgModuleReference(ElementRefModule.class)
-@NgProviderReference(SocketClientService.class)
-@NgModuleImportReference(name = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(name = "ElementRef", reference = "@angular/core")
+@NgImportReference(name = "Input", reference = "@angular/core")
+@NgImportReference(name = "HostListener", reference = "@angular/core")
+@NgImportReference(name = "RouterModule, ParamMap,Router", reference = "@angular/router")
+@NgComponentReference(SocketClientService.class)
+@NgImportReference(name = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
+@NgOnInit
 public class OnSlidListenerDirective implements INgDirective<OnSlidListenerDirective>
 {
 	public OnSlidListenerDirective()

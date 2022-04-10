@@ -20,6 +20,7 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.plugins.bootstrap.alerts.events.BSAlertCloseEvent;
@@ -29,7 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author GedMarc
  */
-@NgServiceReference(AlertDataServiceTest.class)
+@NgComponentReference(AlertDataServiceTest.class)
 public class BSAlertsTest extends BSAlerts<BSAlertsTest>
 {
 	public BSAlertsTest()

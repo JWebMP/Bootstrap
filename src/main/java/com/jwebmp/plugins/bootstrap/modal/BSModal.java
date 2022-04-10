@@ -16,14 +16,16 @@
  */
 package com.jwebmp.plugins.bootstrap.modal;
 
-import com.jwebmp.core.base.angular.services.annotations.angularconfig.NgModuleImportReference;
-import com.jwebmp.core.base.angular.services.interfaces.INgComponent;
-import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
+import com.jwebmp.core.base.angular.services.annotations.structures.*;
+import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.children.*;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.plugins.*;
 import com.jwebmp.plugins.bootstrap.modal.parts.*;
-import com.jwebmp.plugins.bootstrap.navbar.interfaces.BSNavBarChildren;
+import com.jwebmp.plugins.bootstrap.navbar.interfaces.*;
 
 import java.util.List;
 
@@ -44,7 +46,8 @@ import java.util.List;
                                     "notifications, or completely custom content.",
                       url = "https://ng-bootstrap.github.io/#/components/modal/examples",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
-@NgModuleImportReference(name = "NgbModal, ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(name = "NgbModal, ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap")
+@NgConstructorParameter("private modalService: NgbModal")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
 		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren,
@@ -62,12 +65,6 @@ public class BSModal<J extends BSModal<J>>
 	 * The modal content
 	 */
 	private BSModalFooter<?> modalFooter;
-	
-	@Override
-	public List<String> constructorParameters()
-	{
-		return List.of("private modalService: NgbModal");
-	}
 	
 	@Override
 	public List<String> fields()

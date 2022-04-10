@@ -19,6 +19,7 @@ package com.jwebmp.plugins.bootstrap;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.services.annotations.*;
 import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.INgModule;
 import com.jwebmp.core.base.client.Browsers;
 import com.jwebmp.core.base.client.InternetExplorerCompatibilityMode;
@@ -62,10 +63,15 @@ import java.util.*;
 @TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
 @TsDependency(value = "bootstrap", version = "^5.0.0")
+@TsDependency(value = "@angular/localize", version = "^13.3.1")
+
 @NgPolyfill("@angular/localize/init")
-@TsDependency(value = "@angular/localize", version = "^13.2.0")
+
+
 @NgStyleSheet(value = "node_modules/bootstrap/scss/bootstrap.scss", name = "bootstrap")
-@NgBootModuleImportReference(name = "NgbModule",reference = "@ng-bootstrap/ng-bootstrap")
+@NgBootModuleImport("NgbModule")
+@NgBootImportReference(name = "NgbModule",reference = "@ng-bootstrap/ng-bootstrap")
+
 public class BootstrapPageConfigurator
 		implements IPageConfigurator<BootstrapPageConfigurator>, INgModule<BootstrapPageConfigurator>
 {

@@ -16,38 +16,30 @@
  */
 package com.jwebmp.plugins.bootstrap.forms.groups;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.jwebmp.core.base.angular.AngularAttributes;
-import com.jwebmp.core.base.angular.forms.AngularInputMessages;
-import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.fasterxml.jackson.annotation.*;
+import com.guicedee.guicedinjection.json.*;
+import com.guicedee.logger.*;
+import com.jwebmp.core.base.angular.*;
+import com.jwebmp.core.base.angular.forms.*;
+import com.jwebmp.core.base.angular.forms.enumerations.*;
 import com.jwebmp.core.base.html.*;
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
-import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
-import com.jwebmp.core.base.html.inputs.InputFileType;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.children.FormChildren;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.generics.TopOrBottom;
-import com.guicedee.guicedinjection.json.StaticStrings;
-import com.guicedee.logger.LogFactory;
-import com.jwebmp.plugins.bootstrap.containers.BSRowChildren;
-import com.jwebmp.plugins.bootstrap.forms.BSComponentFormOptions;
-import com.jwebmp.plugins.bootstrap.forms.BSForm;
-import com.jwebmp.plugins.bootstrap.forms.BSFormChildren;
-import com.jwebmp.plugins.bootstrap.forms.BSFormLabel;
-import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions;
-import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupSizes;
-import com.jwebmp.plugins.bootstrap.forms.interfaces.IBSFormGroup;
-import com.jwebmp.plugins.bootstrap.options.BSColumnOptions;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.base.html.inputs.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.base.html.interfaces.children.*;
+import com.jwebmp.core.base.html.interfaces.events.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.generics.*;
+import com.jwebmp.plugins.bootstrap.containers.*;
+import com.jwebmp.plugins.bootstrap.forms.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.*;
+import com.jwebmp.plugins.bootstrap.forms.interfaces.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import jakarta.validation.constraints.*;
 
-import jakarta.validation.constraints.NotNull;
-
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
 
 import static com.jwebmp.core.generics.TopOrBottom.*;
 import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.*;
@@ -92,7 +84,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	/**
 	 * Form Group Messages
 	 */
-	private AngularInputMessages<?> messages;
+	//private AngularInputMessages<?> messages;
 	/**
 	 * Enables or disables message display in the group
 	 */
@@ -109,7 +101,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	public void preConfigure()
 	{
-		if (!isConfigured() && messages != null && enableMessages)
+		/*if (!isConfigured() && messages != null && enableMessages)
 		{
 			if (messagePlacement == Bottom)
 			{
@@ -121,15 +113,15 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 				children.add(0, getMessages());
 				setChildren(new LinkedHashSet<>(children));
 			}
-		}
+		}*/
 		super.preConfigure();
 	}
 	
-	/**
+/*	*//**
 	 * Returns the applied messages
 	 *
 	 * @return
-	 */
+	 *//*
 	@NotNull
 	public AngularInputMessages<?> getMessages()
 	{
@@ -145,12 +137,12 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return messages;
 	}
 	
-	/**
+	*//**
 	 * Sets the collection of validation messages to display
 	 *
 	 * @param messages
 	 * @return
-	 */
+	 *//*
 	@SuppressWarnings("unchecked")
 	@NotNull
 	protected J setMessages(AngularInputMessages<?> messages)
@@ -158,7 +150,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		this.messages = messages;
 		return (J) this;
 	}
-	
+	*/
 	/**
 	 * The slimmer neater version
 	 *
@@ -262,9 +254,9 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		component.add(new Paragraph<>(feedback).setTextOnly(true));
 		component.addClass("valid-feedback");
-		component.asAttributeBase()
+		/*component.asAttributeBase()
 		         .addAttribute(String.valueOf(AngularAttributes.ngShow),
-				         getForm().getID() + "." + getInput().getID() + ".$valid");
+				         getForm().getID() + "." + getInput().getID() + ".$valid");*/
 		add(component);
 		return (J) this;
 	}
@@ -361,8 +353,8 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@NotNull
 	public J addMessage(@NotNull InputErrorValidations forError, String message, boolean inline)
 	{
-		getMessages().addMessage(forError, message, inline)
-		             .addClass("invalid-feedback");
+		/*getMessages().addMessage(forError, message, inline)
+		             .addClass("invalid-feedback");*/
 		return (J) this;
 	}
 	
@@ -371,7 +363,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@NotNull
 	public J addMessage(@NotNull InputErrorValidations forError, String message)
 	{
-		getMessages().addMessage(forError, message, false);
+		//getMessages().addMessage(forError, message, false);
 		return (J) this;
 	}
 	
@@ -559,7 +551,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		{
 			throw new UnsupportedOperationException("Can't set update features without an input component to do it on.");
 		}
-		getInput().addAttribute(AngularAttributes.ngModelOptions.getAttributeName(), "{updateOn:'blur'}");
+	//	getInput().addAttribute(AngularAttributes.ngModelOptions.getAttributeName(), "{updateOn:'blur'}");
 		return (J) this;
 	}
 	

@@ -291,8 +291,8 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 			Set<GlobalChildren> newOrder = new LinkedHashSet<>();
 			if(getMessagePlacement() == TopOrBottom.Top)
 			{
-				getChildren().remove(getMessages());
-				newOrder.add(getMessages());
+				//getChildren().remove(getMessages());
+			//	newOrder.add(getMessages());
 			}
 			if (!prependDiv.getChildren()
 			               .isEmpty())
@@ -307,8 +307,8 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 			}
 			if(getMessagePlacement() == TopOrBottom.Bottom)
 			{
-				getChildren().remove(getMessages());
-				newOrder.add(getMessages());
+			//	getChildren().remove(getMessages());
+			//	newOrder.add(getMessages());
 			}
 			//noinspection unchecked, rawtypes
 			setChildren(new LinkedHashSet(newOrder));

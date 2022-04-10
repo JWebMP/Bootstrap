@@ -1,11 +1,12 @@
 package com.jwebmp.plugins.bootstrap.datepicker;
 
 import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.inputs.*;
 import com.jwebmp.core.base.interfaces.*;
 
-@NgModuleImportReference(name = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(name = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
 public class BSDatePicker<J extends BSDatePicker<J>> extends InputTextType<J> implements INgComponent<J>
 {
 	private IComponentHierarchyBase<?, ?> toggle;

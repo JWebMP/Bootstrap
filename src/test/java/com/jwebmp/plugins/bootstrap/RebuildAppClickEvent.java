@@ -3,6 +3,7 @@ package com.jwebmp.plugins.bootstrap;
 import com.jwebmp.core.base.ajax.*;
 import com.jwebmp.core.base.angular.*;
 import com.jwebmp.core.base.angular.services.*;
+import com.jwebmp.core.base.angular.services.compiler.*;
 import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.events.click.*;
 
