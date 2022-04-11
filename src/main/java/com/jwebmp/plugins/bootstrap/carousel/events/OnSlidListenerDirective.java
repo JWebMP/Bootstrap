@@ -37,12 +37,6 @@ public class OnSlidListenerDirective implements INgDirective<OnSlidListenerDirec
 	}
 	
 	@Override
-	public List<String> interfaces()
-	{
-		return List.of("OnInit");
-	}
-	
-	@Override
 	public List<String> methods()
 	{
 		return List.of("ngOnInit() {}\n",

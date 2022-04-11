@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap.alerts;
 
 import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.*;
@@ -26,6 +27,7 @@ import com.jwebmp.core.plugins.*;
 import com.jwebmp.plugins.bootstrap.*;
 import com.jwebmp.plugins.bootstrap.alerts.events.*;
 
+import java.util.*;
 import java.util.List;
 
 /**
@@ -86,7 +88,7 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 	}
 	
 	@Override
-	public List<String> methods()
+	public List<String> componentMethods()
 	{
 		if (alertDataService != null)
 		{
@@ -101,6 +103,15 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 		{
 			return List.of();
 		}
+	}
+	
+	@Override
+	public List<String> componentConstructorParameters()
+	{
+		List<String> out = new ArrayList<>();
+		if(alertDataService != null)
+			out.add("public " + getServiceName() + " : " + alertDataService.getClass().getSimpleName());
+		return out;
 	}
 	
 	/**

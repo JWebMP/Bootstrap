@@ -4,8 +4,8 @@ import com.jwebmp.core.base.angular.services.annotations.NgComponent;
 import com.jwebmp.core.base.angular.services.interfaces.INgComponent;
 import com.jwebmp.core.base.angular.services.interfaces.INgModule;
 
-@NgComponent("default-modal-test")
-public class DefaultModalTest extends BSModal<DefaultModalTest> implements INgComponent<DefaultModalTest>
+
+public class DefaultModalTest extends BSModal<DefaultModalTest>
 {
 	public DefaultModalTest()
 	{

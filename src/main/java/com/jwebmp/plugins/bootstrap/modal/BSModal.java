@@ -46,12 +46,14 @@ import java.util.List;
                                     "notifications, or completely custom content.",
                       url = "https://ng-bootstrap.github.io/#/components/modal/examples",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
-@NgImportReference(name = "NgbModal, ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap")
-@NgConstructorParameter("private modalService: NgbModal")
+@NgImportReference(name = "NgbModal, ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap",onParent = true)
+@NgConstructorParameter(value = "public modalService: NgbModal",onParent = true)
+@NgMethod(value = "open(content : any) {\n" +
+          "this.modalService.open(content, {ariaLabelledBy: '.modal-title'});\n" +
+          "}\n",onParent = true)
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
-		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren,
-		           INgComponent<J>
+		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren,INgComponent<J>
 {
 	/**
 	 * The modal content
@@ -66,24 +68,14 @@ public class BSModal<J extends BSModal<J>>
 	 */
 	private BSModalFooter<?> modalFooter;
 	
-	@Override
 	public List<String> fields()
 	{
-		return List.of("closeResult = '';");
+		return List.of("closeResult? : string;");
 	}
-	
-	@Override
+
 	public List<String> methods()
 	{
-		return List.of("open(content : any) {\n" +
-		               "    this.modalService.open(content, {ariaLabelledBy: '.modal-title'}).result.then((result) => {\n" +
-		               "      this.closeResult = `Closed with: ${result}`;\n" +
-		               "    }, (reason) => {\n" +
-		               "      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;\n" +
-		               "    });\n" +
-		               "  }\n"
-				,
-				"private getDismissReason(reason: any): string {\n" +
+		return List.of("private getDismissReason(reason: any): string {\n" +
 				"    if (reason === ModalDismissReasons.ESC) {\n" +
 				"      return 'by pressing ESC';\n" +
 				"    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {\n" +

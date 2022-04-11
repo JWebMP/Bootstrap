@@ -163,6 +163,7 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.forms.controls to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.forms.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.images to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap.implementations to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.jumbotron to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.jumbotron.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.listgroup to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -180,7 +181,7 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.modal.events.show to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.modal.events.shown to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.modal.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.modal.features to com.fasterxml.jackson.databind, com.jwebmp.core;
+//	opens com.jwebmp.plugins.bootstrap.modal.features to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navbar to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navbar.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navbar.enumerations to com.fasterxml.jackson.databind, com.jwebmp.core;
