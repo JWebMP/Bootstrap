@@ -16,13 +16,14 @@
  */
 package com.jwebmp.plugins.bootstrap.popovers;
 
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap.popovers.interfaces.BSPopOverChildren;
-import com.jwebmp.plugins.bootstrap.popovers.interfaces.BSPopOverEvents;
-import com.jwebmp.plugins.bootstrap.popovers.interfaces.BSPopOverFeatures;
-import com.jwebmp.plugins.bootstrap.popovers.interfaces.IBSPopOver;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.interfaces.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.popovers.interfaces.*;
+
+import java.util.List;
+import java.util.*;
 
 /**
  * Popovers
@@ -49,18 +50,27 @@ import com.jwebmp.plugins.bootstrap.popovers.interfaces.IBSPopOver;
  * @since 17 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Popovers",
-		description = "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
-		url = "https://v4-alpha.getbootstrap.com/components/popovers/",
-		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
+                      url = "https://v4-alpha.getbootstrap.com/components/popovers/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSPopOver<J extends BSPopOver<J>>
-		extends Div<BSPopOverChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, J>
+		extends Div<GlobalChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, J>
 		implements IBSPopOver
 {
-	/**
-	 * P
-	 */
-	private BSPopOverFeature feature;
-
+	private BSPopOverTitle<?> popOverTitle;
+	private BSPopOverContent<?> popOverContent;
+	
+	
+	private boolean animation;
+	private BSTriggers autoClose;
+	private Integer closeDelay;
+	private Boolean containInBody;
+	private boolean disablePopover;
+	private Integer openDelay;
+	private BSPlacements placement;
+	private String popoverClass;
+	private List<BSTriggers> triggers = new ArrayList<>();
+	
 	/**
 	 * Popovers
 	 * <p>
@@ -89,41 +99,213 @@ public class BSPopOver<J extends BSPopOver<J>>
 	 * Use white-space: nowrap; on your as to avoid this behavior.
 	 * <p>
 	 * <p>
-	 *
-	 * @param displayedComponent
-	 * 		Shortcut for getOptions().setContent
 	 */
-	public BSPopOver(IComponentHierarchyBase<?,?> displayedComponent)
+	public BSPopOver()
 	{
-		setComponent(displayedComponent);
-		addFeature(getFeature());
+	
 	}
-
-	/**
-	 * Returns the feature if any is required
-	 *
-	 * @return
-	 */
-	public final BSPopOverFeature getFeature()
-	{
-		if (feature == null)
-		{
-			feature = new BSPopOverFeature(getComponent());
-		}
-		return feature;
-	}
-
-	/**
-	 * Returns the options if any is required
-	 *
-	 * @return
-	 */
+	
 	@Override
-	public final BSPopOverOptions<?> getOptions()
+	public BSPopOverTitle<?> getPopOverTitle()
 	{
-		return getFeature().getOptions();
+		return popOverTitle;
 	}
-
+	
+	@Override
+	public BSPopOver<J> setPopOverTitle(BSPopOverTitle<?> popOverTitle)
+	{
+		this.popOverTitle = popOverTitle;
+		return this;
+	}
+	
+	@Override
+	public BSPopOverContent<?> getPopOverContent()
+	{
+		return popOverContent;
+	}
+	
+	@Override
+	public BSPopOver<J> setPopOverContent(BSPopOverContent<?> popOverContent)
+	{
+		this.popOverContent = popOverContent;
+		return this;
+	}
+	
+	@Override
+	protected StringBuilder renderBeforeTag()
+	{
+		StringBuilder sb = new StringBuilder();
+		if (popOverTitle != null)
+		{
+			sb.append(getCurrentTabIndentString())
+			  .append(popOverTitle.toString(0))
+			  .append(getNewLine());
+		}
+		if (popOverContent != null)
+		{
+			sb.append(getCurrentTabIndentString())
+			  .append(popOverContent.toString(0))
+			  .append(getNewLine());
+		}
+		return sb;
+	}
+	
+	@Override
+	public void init()
+	{
+		if (popOverTitle != null)
+		{
+			addAttribute("[popoverTitle]", popOverTitle.getID());
+		}
+		if (popOverContent != null)
+		{
+			addAttribute("[ngbPopover]", popOverContent.getID());
+		}
+		
+		addOption("animation", animation);
+		if (autoClose != null)
+		{
+			addOption("autoClose", autoClose.toString());
+		}
+		if (closeDelay != null)
+		{
+			addOption("closeDelay", closeDelay);
+		}
+		if (containInBody != null)
+		{
+			if (containInBody)
+			{
+				addOption("container", "body");
+			}
+		}
+		if (disablePopover)
+		{
+			addOption("disablePopover", disablePopover);
+		}
+		if (openDelay != null)
+		{
+			addOption("openDelay", openDelay);
+		}
+		if (placement != null)
+		{
+			addOption("placement", placement.toString());
+		}
+		if (popoverClass != null)
+		{
+			addOption("popoverClass", popoverClass);
+		}
+		if (triggers != null && !triggers.isEmpty())
+		{
+			StringBuilder sb = new StringBuilder();
+			for (BSTriggers trigger : triggers)
+			{
+				sb.append(trigger.toString())
+				  .append(" ");
+			}
+		}
+		super.init();
+	}
+	
+	
+	public boolean isAnimation()
+	{
+		return animation;
+	}
+	
+	public BSPopOver<J> setAnimation(boolean animation)
+	{
+		this.animation = animation;
+		return this;
+	}
+	
+	public BSTriggers getAutoClose()
+	{
+		return autoClose;
+	}
+	
+	public BSPopOver<J> setAutoClose(BSTriggers autoClose)
+	{
+		this.autoClose = autoClose;
+		return this;
+	}
+	
+	public Integer getCloseDelay()
+	{
+		return closeDelay;
+	}
+	
+	public BSPopOver<J> setCloseDelay(Integer closeDelay)
+	{
+		this.closeDelay = closeDelay;
+		return this;
+	}
+	
+	public boolean isContainInBody()
+	{
+		return containInBody;
+	}
+	
+	public BSPopOver<J> setContainInBody(boolean containInBody)
+	{
+		this.containInBody = containInBody;
+		return this;
+	}
+	
+	public boolean isDisablePopover()
+	{
+		return disablePopover;
+	}
+	
+	public BSPopOver<J> setDisablePopover(boolean disablePopover)
+	{
+		this.disablePopover = disablePopover;
+		return this;
+	}
+	
+	public Integer getOpenDelay()
+	{
+		return openDelay;
+	}
+	
+	public BSPopOver<J> setOpenDelay(Integer openDelay)
+	{
+		this.openDelay = openDelay;
+		return this;
+	}
+	
+	public BSPlacements getPlacement()
+	{
+		return placement;
+	}
+	
+	public BSPopOver<J> setPlacement(BSPlacements placement)
+	{
+		this.placement = placement;
+		return this;
+	}
+	
+	public String getPopoverClass()
+	{
+		return popoverClass;
+	}
+	
+	public BSPopOver<J> setPopoverClass(String popoverClass)
+	{
+		this.popoverClass = popoverClass;
+		return this;
+	}
+	
+	public List<BSTriggers> getTriggers()
+	{
+		return triggers;
+	}
+	
+	public BSPopOver<J> setTriggers(List<BSTriggers> triggers)
+	{
+		this.triggers = triggers;
+		return this;
+	}
+	
 	/**
 	 * Neater representation
 	 *
@@ -132,17 +314,5 @@ public class BSPopOver<J extends BSPopOver<J>>
 	public IBSPopOver asMe()
 	{
 		return this;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
 	}
 }

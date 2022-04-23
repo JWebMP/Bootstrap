@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.alerts;
 
+import com.jwebmp.core.base.ajax.*;
 import com.jwebmp.core.base.angular.services.annotations.references.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 
@@ -9,6 +10,9 @@ import java.util.*;
 @NgDataTypeReference(value = Alert.class, primary = false)
 public abstract class AlertDataService<J extends AlertDataService<J>> implements INgDataService<J>
 {
+	
+	@Override
+	public abstract Alerts getData(AjaxCall<?> call);
 	
 	@Override
 	public List<String> methods()

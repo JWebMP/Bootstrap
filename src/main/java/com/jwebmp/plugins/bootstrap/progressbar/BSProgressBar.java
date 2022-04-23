@@ -16,15 +16,14 @@
  */
 package com.jwebmp.plugins.bootstrap.progressbar;
 
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;
-import com.jwebmp.plugins.bootstrap.progressbar.bar.BSProgressBarDisplay;
-import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarChildren;
-import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarEvents;
-import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarFeatures;
-
-import jakarta.validation.constraints.NotNull;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.*;
+import com.jwebmp.core.htmlbuilder.css.measurement.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import com.jwebmp.plugins.bootstrap.progressbar.interfaces.*;
+import jakarta.validation.constraints.*;
 
 /**
  * Progress
@@ -45,26 +44,26 @@ import jakarta.validation.constraints.NotNull;
 		url = "https://v4-alpha.getbootstrap.com/components/progress/",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSProgressBar<J extends BSProgressBar<J>>
-		extends Div<BSProgressBarChildren, BSProgressBarAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
+		extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {
+	private double percent;
+	
 	/**
 	 * Whether or not the progress bar is striped
 	 */
-	private boolean striped;
-	/**
-	 * Whether or not this progress bar should display as active
-	 */
-	private boolean active;
+	private Boolean striped;
 	/**
 	 * if animated
 	 */
-	private boolean animated;
-
-	/**
-	 * The actual progress bar
-	 */
-	private BSProgressBarDisplay<?> progressBar;
-
+	private Boolean animated;
+	
+	private Integer max;
+	private BSColourTypes type;
+	private BSColourTypes textType;
+	private Boolean showValue;
+	
+	private MeasurementCSSImpl height;
+	
 	/**
 	 * Use our custom progress component for displaying simple or complex progress bars.
 	 */
@@ -81,84 +80,47 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	 */
 	public BSProgressBar(boolean striped)
 	{
-		this(striped, false);
-	}
-
-	/**
-	 * Creates a new instance of a progress bar
-	 *
-	 * @param striped
-	 * 		If the progress bar is striped or not
-	 * @param active
-	 * 		if the progress bar is active or not
-	 */
-	public BSProgressBar(boolean striped, boolean active)
-	{
-		this(striped, active, null);
-	}
-
-	/**
-	 * Creates a new instance of a progress bar
-	 *
-	 * @param striped
-	 * 		If the progress bar is striped or not
-	 * @param active
-	 * 		if the progress bar is active or not
-	 * @param progressBar
-	 * 		The actual progress bar
-	 */
-	public BSProgressBar(boolean striped, boolean active, BSProgressBarDisplay<?> progressBar)
-	{
-		addClass(BSProgressBarOptions.Progress);
+		setTag("ngb-progressbar");
 		setStriped(striped);
-		setActive(active);
-		setProgressBar(progressBar);
-
 	}
-
+	
 	@Override
-	public int hashCode()
+	public void init()
 	{
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	/**
-	 * Returns if this progress bar should return as active
-	 *
-	 * @return
-	 */
-	public boolean isActive()
-	{
-		return active;
-	}
-
-	/**
-	 * Sets if this component should return as active
-	 *
-	 * @param active
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setActive(boolean active)
-	{
-		this.active = active;
-		if (active)
+		addAttribute("[value]", percent + "");
+		if (type != null)
 		{
-			getProgressBar().addClass(BSDefaultOptions.Active);
+			addAttribute("type", type.toString());
 		}
-		else
+		if (textType != null)
 		{
-			getProgressBar().removeClass(BSDefaultOptions.Active);
+			addAttribute("textType", textType.toString());
 		}
-		return (J) this;
+		if (showValue != null)
+		{
+			addAttribute("[showValue]", showValue + "");
+		}
+		if (max != null)
+		{
+			addAttribute("[max]", max + "");
+		}
+		if (striped != null)
+		{
+			addAttribute("[striped]",striped + "");
+		}
+		if (height != null)
+		{
+			addAttribute("height", height + "");
+		}
+		if (animated != null)
+		{
+			addAttribute("[animated]", animated + "");
+		}
+		
+		
+		super.init();
 	}
-
+	
 	/**
 	 * If is animated
 	 *
@@ -180,48 +142,6 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	public J setAnimated(boolean animated)
 	{
 		this.animated = animated;
-		if (animated)
-		{
-			getProgressBar().addClass(BSProgressBarOptions.Progress_Bar_Animated);
-		}
-		else
-		{
-			getProgressBar().removeClass(BSProgressBarOptions.Progress_Bar_Animated);
-		}
-		return (J) this;
-	}
-
-	/**
-	 * Returns the actual progress bar
-	 *
-	 * @return
-	 */
-
-	public BSProgressBarDisplay<?> getProgressBar()
-	{
-		if (progressBar == null)
-		{
-			progressBar = new BSProgressBarDisplay<>();
-			setProgressBar(progressBar);
-		}
-		return progressBar;
-	}
-
-	/**
-	 * Sets the actual progress bar
-	 *
-	 * @param progressBar
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public final J setProgressBar(BSProgressBarDisplay<?> progressBar)
-	{
-		remove(this.progressBar);
-		this.progressBar = progressBar;
-		if (progressBar != null)
-		{
-			add(progressBar);
-		}
 		return (J) this;
 	}
 
@@ -246,14 +166,6 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	public final J setStriped(boolean striped)
 	{
 		this.striped = striped;
-		if (striped)
-		{
-			getProgressBar().addClass(BSProgressBarOptions.Progress_Bar_Striped);
-		}
-		else
-		{
-			getProgressBar().removeClass(BSProgressBarOptions.Progress_Bar_Striped);
-		}
 		return (J) this;
 	}
 
@@ -269,8 +181,77 @@ public class BSProgressBar<J extends BSProgressBar<J>>
 	@NotNull
 	public J setPercentage(double percent)
 	{
-		getProgressBar().setValue(percent);
+		this.percent = percent;
 		return (J) this;
 	}
-
+	
+	public double getPercent()
+	{
+		return percent;
+	}
+	
+	public Boolean getStriped()
+	{
+		return striped;
+	}
+	
+	public Boolean getAnimated()
+	{
+		return animated;
+	}
+	
+	public Integer getMax()
+	{
+		return max;
+	}
+	
+	public J setMax(Integer max)
+	{
+		this.max = max;
+		return (J)this;
+	}
+	
+	public BSColourTypes getType()
+	{
+		return type;
+	}
+	
+	public J setType(BSColourTypes type)
+	{
+		this.type = type;
+		return (J)this;
+	}
+	
+	public Boolean getShowValue()
+	{
+		return showValue;
+	}
+	
+	public J setShowValue(Boolean showValue)
+	{
+		this.showValue = showValue;
+		return (J)this;
+	}
+	
+	public MeasurementCSSImpl getHeight()
+	{
+		return height;
+	}
+	
+	public J setHeight(MeasurementCSSImpl height)
+	{
+		this.height = height;
+		return (J)this;
+	}
+	
+	public BSColourTypes getTextType()
+	{
+		return textType;
+	}
+	
+	public J setTextType(BSColourTypes textType)
+	{
+		this.textType = textType;
+		return (J)this;
+	}
 }

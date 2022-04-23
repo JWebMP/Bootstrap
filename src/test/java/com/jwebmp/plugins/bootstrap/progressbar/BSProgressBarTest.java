@@ -35,18 +35,5 @@ public class BSProgressBarTest
 	public BSProgressBarTest()
 	{
 	}
-
-	@Test
-	public void testSomeMethod()
-	{
-		BSProgressBar prog = new BSProgressBar();
-		prog.getProgressBar();
-		prog.setStriped(true);
-		prog.getProgressBar()
-		    .setTheme(BSBackgroundOptions.Bg_Success);
-		prog.getProgressBar()
-		    .setAnimated(true);
-		System.out.println(prog.toString(true));
-	}
-
+	
 }

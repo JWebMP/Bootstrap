@@ -46,7 +46,7 @@ import static com.jwebmp.plugins.bootstrap.options.BSContainerOptions.Container_
  * @since Oct 11, 2016
  */
 public class BSContainer<J extends BSContainer<J>>
-		extends Div<BSRow<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<BSContainerChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSNavBarChildren, BSFormChildren, BSFormGroupChildren,
 				           IBSAlignmentCapable<J>
 {

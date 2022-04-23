@@ -14,36 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.bootstrap.popovers;
+package com.jwebmp.plugins.bootstrap.navs.parts;
 
-import com.jwebmp.core.Page;
-import org.junit.jupiter.api.Test;
+import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.interfaces.children.*;
+import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
 
 /**
+ * A navigation link item
+ *
  * @author GedMarc
+ * @since 19 Jan 2017
  */
-public class BSPopOverTest
-
+public class BSNavContent<J extends BSNavContent<J>>
+		extends Link<J>
+		implements BSNavsChildren, ListItemChildren
 {
-
-	public BSPopOverTest()
+	/**
+	 * A navigation link contents
+	 */
+	public BSNavContent()
 	{
+		setTag("ng-template");
+		addAttribute("ngbNavContent", "");
 	}
-
-	@Test
-	public void testSomeMethod()
+	
+	@Override
+	public int hashCode()
 	{
-		BSPopOver popOver = new BSPopOver();
-
-		System.out.println(popOver.toString(true));
-		System.out.println(popOver.renderJavascript());
-
-		Page<?> p = new Page();
-		//p.getOptions().setBootstrapEnabled(true);
-		p.getBody()
-		 .add(popOver);
-
-		System.out.println(p.toString(true));
+		return super.hashCode();
 	}
-
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
 }

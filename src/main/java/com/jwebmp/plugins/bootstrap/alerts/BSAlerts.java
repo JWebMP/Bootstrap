@@ -67,14 +67,7 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 	{
 	
 	}
-	
-	@Override
-	public String renderBeforeClass()
-	{
-		String output = "";
-		return output;
-	}
-	
+
 	public String getServiceName()
 	{
 		if (alertDataService == null)

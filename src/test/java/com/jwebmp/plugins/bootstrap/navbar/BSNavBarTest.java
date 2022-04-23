@@ -17,13 +17,11 @@
 
 package com.jwebmp.plugins.bootstrap.navbar;
 
-import com.jwebmp.plugins.bootstrap.navbar.enumerations.BSNavBarColourSchemes;
-import com.jwebmp.plugins.bootstrap.navbar.toggler.BSNavBarToggleContainer;
-import com.jwebmp.plugins.bootstrap.options.BSBackgroundOptions;
-import org.junit.jupiter.api.Test;
+import com.jwebmp.plugins.bootstrap.navbar.enumerations.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import org.junit.jupiter.api.*;
 
 class BSNavBarTest
-
 {
 
 	@Test
@@ -81,21 +79,7 @@ class BSNavBarTest
 		      .createTextInput("form.binding", "Form Binding");
 		System.out.println(navBar.toString(0));
 	}
-
-	@Test
-	void testNavCollapse()
-	{
-		BSNavBar<?> navBar = new BSNavBar<>();
-		navBar.setNavBarTheme(BSNavBarColourSchemes.Navbar_Light);
-		navBar.addBackground(BSBackgroundOptions.Bg_Primary);
-
-		BSNavBarToggleContainer container = navBar.addToggler();
-		container.getContent()
-		         .addItem("Home");
-		
-		System.out.println(navBar.toString(0));
-	}
-
+	
 	@Test
 	void testText2()
 	{

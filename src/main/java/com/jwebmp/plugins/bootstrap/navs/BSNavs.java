@@ -16,6 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.navs;
 
+import com.google.common.base.*;
+import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
@@ -25,7 +27,7 @@ import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap.navbar.interfaces.BSNavBarChildren;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.BSNavsChildren;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.IBSNavs;
-import com.jwebmp.plugins.bootstrap.navs.parts.BSNavListItem;
+import com.jwebmp.plugins.bootstrap.navs.parts.BSNavItem;
 import com.jwebmp.plugins.bootstrap.options.BSAlignmentHorizontalOptions;
 
 import jakarta.validation.constraints.NotNull;
@@ -53,10 +55,115 @@ import static com.jwebmp.plugins.bootstrap.navs.BSNavsOptions.*;
 		wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSNavs<J extends BSNavs<J>>
 		extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
-		implements BSNavBarChildren, IBSNavs<J>
+		implements BSNavBarChildren, IBSNavs<J>, INgComponent<J>
 {
-
-
+	private boolean pills;
+	private boolean vertical;
+	private boolean animation;
+	private boolean destroyOnHide;
+	private String activeId;
+	
+	public boolean isPills()
+	{
+		return pills;
+	}
+	
+	public J setPills(boolean pills)
+	{
+		this.pills = pills;
+		return (J)this;
+	}
+	
+	public boolean isVertical()
+	{
+		return vertical;
+	}
+	
+	/**
+	 * The id of the nav that should be active
+	 *
+	 * You could also use the .select() method and the (navChange) event
+	 *
+	 *
+	 * Type: any
+	 * @return
+	 */
+	public String getActiveId()
+	{
+		return activeId;
+	}
+	
+	/**
+	 * Sets the actual alignment for the links, centered and right are good ones
+	 *
+	 * @param options
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHorizontalAlignment(BSAlignmentHorizontalOptions options)
+	{
+		addClass(options);
+		return (J) this;
+	}
+	
+	
+	/**
+	 * The id of the nav that should be active
+	 *
+	 * You could also use the .select() method and the (navChange) event
+	 *
+	 *
+	 * Type: any
+	 * @param activeId
+	 * @return
+	 */
+	public J setActiveId(String activeId)
+	{
+		this.activeId = activeId;
+		return (J)this;
+	}
+	
+	/**
+	 * If true, nav change will be animated.
+	 *
+	 *
+	 * Type: boolean
+	 * Default value: - — initialized from NgbNavConfig service
+	 * @return
+	 */
+	public boolean isAnimation()
+	{
+		return animation;
+	}
+	
+	/**
+	 * If true, nav change will be animated.
+	 *
+	 *
+	 * Type: boolean
+	 * Default value: - — initialized from NgbNavConfig service
+	 * @param animation
+	 * @return
+	 */
+	public J setAnimation(boolean animation)
+	{
+		this.animation = animation;
+		return (J)this;
+	}
+	
+	public boolean isDestroyOnHide()
+	{
+		return destroyOnHide;
+	}
+	
+	public J setDestroyOnHide(boolean destroyOnHide)
+	{
+		this.destroyOnHide = destroyOnHide;
+		return (J)this;
+	}
+	
 	/**
 	 * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states.
 	 * Swap modifier classes to switch between each style.
@@ -64,10 +171,60 @@ public class BSNavs<J extends BSNavs<J>>
 	public BSNavs()
 	{
 		setTag("ul");
-		addClass(BSNavsOptions.Nav);
-		addAttribute(BSNavsAttributes.Role, "tablist");
+		addAttribute("ngbNav", "");
 	}
-
+	
+	@Override
+	protected StringBuilder renderBeforeTag()
+	{
+		if(vertical)
+		{
+			return new StringBuilder("<div class=\"d-flex\">");
+		}
+		return super.renderBeforeTag();
+	}
+	
+	@Override
+	protected StringBuilder renderAfterTag()
+	{
+		if (vertical)
+		{
+			return new StringBuilder("</div>");
+		}
+		return super.renderAfterTag();
+	}
+	
+	@Override
+	public void init()
+	{
+		addAttribute("#" + getID(), "ngbNav");
+		addClass(isPills() ? Nav_Pills :  Nav_Tabs);
+		
+		if (vertical)
+		{
+			addOption("orientation","vertical");
+		}else {
+			addOption("orientation","horizontal");
+		}
+		
+		if(animation)
+			addOption("animation","true");
+		else
+			addOption("animation","false");
+		
+		if(destroyOnHide)
+			addOption("destroyOnHide","true");
+		else
+			addOption("destroyOnHide","false");
+		
+		if (!Strings.isNullOrEmpty(activeId))
+		{
+			addAttribute("[(activeId)]", getActiveId());
+		}
+		
+		super.init();
+	}
+	
 	/**
 	 * Returns a slimmer version of me
 	 *
@@ -76,22 +233,6 @@ public class BSNavs<J extends BSNavs<J>>
 	public IBSNavs<J> asMe()
 	{
 		return this;
-	}
-
-	/**
-	 * Sets the actual alignment for the links, centered and right are good ones
-	 *
-	 * @param options
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setHorizontalAlignment(BSAlignmentHorizontalOptions options)
-	{
-		addClass(options);
-		return (J) this;
 	}
 
 	/**
@@ -108,135 +249,7 @@ public class BSNavs<J extends BSNavs<J>>
 	@NotNull
 	public J setVertical(boolean vertical)
 	{
-		if (vertical)
-		{
-			addClass("flex-column");
-		}
-		else
-		{
-			removeClass("flex-column");
-		}
-		return (J) this;
-	}
-
-	/**
-	 * Tabs
-	 * Takes the basic nav from above and adds the .nav-tabs class to generate a tabbed interface. Use them to create tabbable regions with
-	 * our tab JavaScript plugin.
-	 *
-	 * @param asTabs
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setAsTabs(boolean asTabs)
-	{
-		if (asTabs)
-		{
-			addClass(BSNavsOptions.Nav_Tabs);
-			addAttribute("role", "tablist");
-		}
-		else
-		{
-			removeClass(BSNavsOptions.Nav_Tabs);
-		}
-		return (J) this;
-	}
-
-	/**
-	 * Adds a new item to the collection
-	 *
-	 * @param name
-	 * @param active
-	 *
-	 * @return
-	 */
-	@Override
-	@NotNull
-	public BSNavListItem<?> addItem(String name, boolean active)
-	{
-		return addItem(name, active, false);
-	}
-
-	/**
-	 * Adds a new item to the collection
-	 *
-	 * @param name
-	 * @param active
-	 * @param disabled
-	 *
-	 * @return
-	 */
-
-	@Override
-	@NotNull
-	public BSNavListItem<?> addItem(String name, boolean active, boolean disabled)
-	{
-		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
-		newLinkItem.setActive(active);
-		newLinkItem.setDisabled(disabled);
-		add(newLinkItem);
-		return newLinkItem;
-	}
-
-	/**
-	 * Adds a new item to the collection
-	 *
-	 * @param name
-	 * @param active
-	 *
-	 * @return
-	 */
-	@Override
-	@NotNull
-	public BSNavListItem<?> addItem(ListItemChildren name, boolean active)
-	{
-		return addItem(name, active, false);
-	}
-
-	/**
-	 * Adds a new item to the collection
-	 *
-	 * @param name
-	 * @param active
-	 * @param disabled
-	 *
-	 * @return
-	 */
-
-	@Override
-	@NotNull
-	public BSNavListItem<?> addItem(ListItemChildren name, boolean active, boolean disabled)
-	{
-		BSNavListItem<?> newLinkItem = new BSNavListItem<>(name);
-		newLinkItem.setActive(active);
-		newLinkItem.setDisabled(disabled);
-		add(newLinkItem);
-		return newLinkItem;
-	}
-
-	/**
-	 * If the tabls should render as pills
-	 *
-	 * @param asPills
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setAsPills(boolean asPills)
-	{
-		if (asPills)
-		{
-			addClass(BSNavsOptions.Nav_Pills);
-		}
-		else
-		{
-			removeClass(BSNavsOptions.Nav_Pills);
-		}
+		this.vertical = vertical;
 		return (J) this;
 	}
 
@@ -266,20 +279,6 @@ public class BSNavs<J extends BSNavs<J>>
 	}
 
 	/**
-	 * Adds a new item to the collection
-	 *
-	 * @param name
-	 *
-	 * @return
-	 */
-	@Override
-	@NotNull
-	public BSNavListItem<?> addItem(String name)
-	{
-		return addItem(name, true, false);
-	}
-
-	/**
 	 * Sets the buttons to equal width layout
 	 *
 	 * @param equalWidth
@@ -301,51 +300,27 @@ public class BSNavs<J extends BSNavs<J>>
 		}
 		return (J) this;
 	}
-
+	
+	/**
+	 * Adds a new tab to this collection
+	 * @param navItem
+	 * @return
+	 */
+	public J addTab(BSNavItem<?> navItem)
+	{
+		add(navItem);
+		return (J)this;
+	}
+	
 	/**
 	 * Adds a drop down to the dav items
 	 *
 	 * @return
 	 */
-	@Override
 	@NotNull
-	public BSDropDown<?> addDropDown()
+	public J addDropDown(BSDropDown<?> dropDown)
 	{
-		BSDropDown<?> dropDown = new BSDropDown<>();
-		List<String> newOrder = new ArrayList<>(dropDown.getClasses());
-		newOrder.add(0, BSNavsOptions.Nav_Item.toString());
-		dropDown.setClasses(new LinkedHashSet<>(newOrder));
 		add(dropDown);
-		return dropDown;
+		return (J)this;
 	}
-
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured() && (getClasses().contains(BSNavsOptions.Nav_Fill.toString()) || getClasses().contains(Nav_Justified.toString())))
-		{
-
-			getChildren().forEach(a ->
-			                      {
-				                      List<String> newOrder = new ArrayList<>(a.asHierarchyBase().getClasses());
-				                      newOrder.add(0, BSNavsOptions.Nav_Item.toString());
-				                      a.asHierarchyBase().setClasses(new LinkedHashSet<>(newOrder));
-			                      });
-		}
-
-		super.preConfigure();
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
 }

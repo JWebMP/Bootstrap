@@ -41,7 +41,7 @@ import static com.jwebmp.plugins.bootstrap.options.BSContainerOptions.*;
 public class BSRow<J extends BSRow<J>>
 		extends Div<com.jwebmp.core.base.html.interfaces.GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements BSFormChildren, BSFormGroupChildren, FieldSetChildren,
-				           IBSAlignmentCapable<J>
+				           IBSAlignmentCapable<J>,BSContainerChildren
 {
 	/**
 	 * Rows are horizontal groups of columns that ensure your columns are lined up properly.

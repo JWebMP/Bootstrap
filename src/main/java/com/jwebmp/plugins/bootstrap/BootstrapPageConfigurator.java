@@ -60,10 +60,10 @@ import java.util.*;
                    pluginModuleName = "com.jwebmp.plugins.bootstrap4",
                    pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.0")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.1")
 @TsDependency(value = "@popperjs/core", version = "*")
-@TsDependency(value = "bootstrap", version = "^5.0.0")
-@TsDependency(value = "@angular/localize", version = "^13.3.1")
+@TsDependency(value = "bootstrap", version = "^5.1.3")
+@TsDependency(value = "@angular/localize", version = "^13.3.4")
 
 @NgPolyfill("@angular/localize/init")
 
@@ -71,16 +71,9 @@ import java.util.*;
 @NgStyleSheet(value = "node_modules/bootstrap/scss/bootstrap.scss", name = "bootstrap")
 @NgBootModuleImport("NgbModule")
 @NgBootImportReference(name = "NgbModule",reference = "@ng-bootstrap/ng-bootstrap")
-
 public class BootstrapPageConfigurator
-		implements IPageConfigurator<BootstrapPageConfigurator>, INgModule<BootstrapPageConfigurator>
+		implements IPageConfigurator<BootstrapPageConfigurator>
 {
-	
-	@Override
-	public Map<String, String> imports()
-	{
-		return Map.of("NgbModule","@ng-bootstrap/ng-bootstrap");
-	}
 	
 	/**
 	 * The default page configurator for bootstrap

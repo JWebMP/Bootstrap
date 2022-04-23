@@ -19,13 +19,14 @@ package com.jwebmp.plugins.bootstrap.navbar.interfaces;
 
 import com.jwebmp.core.base.interfaces.ICssStructure;
 import com.jwebmp.plugins.bootstrap.forms.BSForm;
-import com.jwebmp.plugins.bootstrap.navbar.BSNavBar;
+import com.jwebmp.plugins.bootstrap.navbar.*;
 import com.jwebmp.plugins.bootstrap.navbar.enumerations.BSNavBarColourSchemes;
 import com.jwebmp.plugins.bootstrap.navbar.enumerations.BSNavBarPositioning;
 import com.jwebmp.plugins.bootstrap.navbar.parts.BSNavBarBrand;
 import com.jwebmp.plugins.bootstrap.navbar.parts.BSNavBarHeaderSpan;
 import com.jwebmp.plugins.bootstrap.navbar.parts.BSNavBarText;
-import com.jwebmp.plugins.bootstrap.navbar.toggler.BSNavBarToggleContainer;
+import com.jwebmp.plugins.bootstrap.navbar.toggler.*;
+import com.jwebmp.plugins.bootstrap.navs.*;
 import com.jwebmp.plugins.bootstrap.options.interfaces.IBSLayout;
 
 import jakarta.validation.constraints.NotNull;
@@ -92,7 +93,11 @@ public interface IBSNavBar<J extends BSNavBar<J>>
 	BSForm<?> addForm();
 
 	@NotNull
-	BSNavBarToggleContainer<?> addToggler();
-
+	BSNavBarToggleButton<?> addToggle();
+	
+	J addNavs(BSNavBarNavs<?> navigation);
+	
+	@NotNull BSNavBarToggleContainer<?> addToggleWithContainer();
+	
 	BSNavBarText addText(String text);
 }

@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.navbar.parts;
 
+import com.google.common.base.*;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Image;
 import com.jwebmp.plugins.bootstrap.navbar.enumerations.BSNavBarOptions;
@@ -36,7 +37,7 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		extends DivSimple<J>
 		implements BSNavBarChildren
 {
-
+	private String routerLink;
 
 	/**
 	 * Brand
@@ -62,7 +63,18 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 	{
 		return addImage(imageUrl, null);
 	}
-
+	
+	public String getRouterLink()
+	{
+		return routerLink;
+	}
+	
+	public BSNavBarBrand<J> setRouterLink(String routerLink)
+	{
+		this.routerLink = routerLink;
+		return this;
+	}
+	
 	/**
 	 * Adds a BS Image with the image properties all set
 	 *
@@ -95,17 +107,13 @@ public class BSNavBarBrand<J extends BSNavBarBrand<J>>
 		}
 		return (J) this;
 	}
-
-	/**
-	 * Shortcut method to set render text before children
-	 *
-	 * @param before
-	 *
-	 * @return
-	 */
-	public DivSimple<J> setTextBefore(boolean before)
+	
+	@Override
+	public void init()
 	{
-		return super.setRenderTextBeforeChildren(before);
+		if (!Strings.isNullOrEmpty(routerLink))
+		{
+			addAttribute("[routerLink]", routerLink);
+		}
 	}
-
 }

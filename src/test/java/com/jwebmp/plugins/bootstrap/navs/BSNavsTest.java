@@ -16,68 +16,38 @@
  */
 package com.jwebmp.plugins.bootstrap.navs;
 
-import com.jwebmp.core.base.html.Div;
-import com.jwebmp.plugins.bootstrap.options.BSAlignmentHorizontalOptions;
-import org.junit.jupiter.api.Test;
+import com.jwebmp.plugins.bootstrap.navs.parts.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import org.junit.jupiter.api.*;
 
 /**
  * @author GedMarc
  */
 public class BSNavsTest
 {
-
+	
 	BSNavs nav = new BSNavs();
-
+	
 	public BSNavsTest()
 	{
 	}
-
+	
 	@Test
 	public void testSomeMethod()
 	{
 		BSNavs nav = new BSNavs();
+		nav.setActiveId("active");
 		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
-		nav.addItem("new item");
+		nav.addTab(new BSNavItem<>(1)
+				.setLinkItem(new BSNavLink<>("One"))
+				.setContent(new BSNavContent<>().add("Stuff that goes into a tab"))
+		);
+		nav.addTab(new BSNavItem<>(2)
+				.setLinkItem(new BSNavLink<>("Two"))
+				.setContent(new BSNavContent<>().add("Stuff that goes into a tab 2"))
+		);
 		System.out.println(nav.toString(true));
-
+		
 	}
-
-	@Test
-	public void testNavTabs()
-	{
-		BSNavTabs tabs = new BSNavTabs();
-		tabs.addTab("Tab Label", new Div(), true);
-		tabs.addTab("Tab Label 2", new Div(), false);
-		tabs.addTab("Tab Label 3", new Div(), false);
-		tabs.addTab("Tab Label 4", new Div(), false);
-		tabs.addTab("Tab Label 5", new Div(), false);
-
-		System.out.println(tabs.toString(true));
-	}
-
-	@Test
-	public void testSomeMethodFunctionality()
-	{
-		BSNavs nav = new BSNavs();
-		nav.addItem("New Nav Item");
-		nav.setAsTabs(true);
-
-		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
-		System.out.println(nav.toString(true));
-	}
-
-	@Test
-	public void testFill()
-	{
-		BSNavs nav = new BSNavs();
-		nav.setFill(true);
-		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
-		nav.addItem("new item");
-		nav.addItem("new item2");
-		nav.addItem("new item3");
-		nav.addItem("new item4");
-		nav.addItem("new item5");
-		nav.addItem("new item6");
-		System.out.println(nav.toString(true));
-	}
+	
 }

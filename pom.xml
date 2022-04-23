@@ -11,8 +11,10 @@
     <artifactId>jwebmp-bootstrap</artifactId>
     <packaging>jar</packaging>
     <version>0.0.0_0-SNAPSHOT</version>
-    <name>Bootstrap 4</name>
-    <description>The JWebSwing implementation for Bootstrap 4</description>
+
+    <name>Bootstrap</name>
+    <description>The JWebSwing implementation for Bootstrap</description>
+
     <url>https://github.com/GedMarc/JWebSwing-Bootstrap4</url>
 
     <issueManagement>
@@ -29,12 +31,11 @@
         <dependency>
             <groupId>com.jwebmp.plugins.angular</groupId>
             <artifactId>angularts</artifactId>
-            <version>${guicedee.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>com.jwebmp.plugins.javascript</groupId>
+            <artifactId>jwebmp-momentjs</artifactId>
         </dependency>
 
 

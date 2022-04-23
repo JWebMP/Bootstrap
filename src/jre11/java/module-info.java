@@ -2,13 +2,9 @@ import com.jwebmp.core.databind.IOnComponentAdded;
 import com.jwebmp.plugins.bootstrap.implementations.*;
 
 module com.jwebmp.plugins.bootstrap {
-	
-	requires transitive com.jwebmp.core;
+
 	requires transitive com.jwebmp.core.angular;
 	
-	requires jakarta.validation;
-	requires com.guicedee.logmaster;
-	requires java.logging;
 	requires com.google.common;
 	
 	requires com.guicedee.guicedinjection;
@@ -66,7 +62,7 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.jumbotron.interfaces;
 	exports com.jwebmp.plugins.bootstrap.listgroup;
 	exports com.jwebmp.plugins.bootstrap.listgroup.parts;
-	exports com.jwebmp.plugins.bootstrap.listgroup.tabs;
+
 	exports com.jwebmp.plugins.bootstrap.media;
 	exports com.jwebmp.plugins.bootstrap.media.parts;
 	exports com.jwebmp.plugins.bootstrap.modal;
@@ -80,7 +76,7 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.navbar.parts;
 	exports com.jwebmp.plugins.bootstrap.navbar.enumerations;
 	exports com.jwebmp.plugins.bootstrap.navbar.interfaces;
-	exports com.jwebmp.plugins.bootstrap.navbar.toggler;
+exports com.jwebmp.plugins.bootstrap.navbar.toggler;
 	exports com.jwebmp.plugins.bootstrap.navs;
 	exports com.jwebmp.plugins.bootstrap.navs.parts;
 	exports com.jwebmp.plugins.bootstrap.navs.interfaces;
@@ -92,7 +88,7 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.popovers;
 	exports com.jwebmp.plugins.bootstrap.popovers.interfaces;
 	exports com.jwebmp.plugins.bootstrap.progressbar;
-	exports com.jwebmp.plugins.bootstrap.progressbar.bar;
+//	exports com.jwebmp.plugins.bootstrap.progressbar.bar;
 	exports com.jwebmp.plugins.bootstrap.progressbar.interfaces;
 	exports com.jwebmp.plugins.bootstrap.select;
 	exports com.jwebmp.plugins.bootstrap.range;
@@ -101,7 +97,8 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.toasts;
 	exports com.jwebmp.plugins.bootstrap.toasts.features;
 	exports com.jwebmp.plugins.bootstrap.toasts.events;
-	exports com.jwebmp.plugins.bootstrap.tooltips;
+	exports com.jwebmp.plugins.bootstrap.timepicker;
+//	exports com.jwebmp.plugins.bootstrap.tooltips;
 	
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap.BootstrapPageConfigurator;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with BootstrapModuleInclusion;
@@ -168,11 +165,8 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.jumbotron.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.listgroup to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.listgroup.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.listgroup.tabs to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.listgroup.tabs.events.hiddenbstab to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.listgroup.tabs.events.hidebstab to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.listgroup.tabs.events.showbstab to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.listgroup.tabs.events.shownbstab to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap.navbar.toggler to com.fasterxml.jackson.databind, com.jwebmp.core;
+
 	opens com.jwebmp.plugins.bootstrap.media to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.media.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.modal to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -186,7 +180,6 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.navbar.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navbar.enumerations to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navbar.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.navbar.toggler to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navs to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navs.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.navs.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -199,7 +192,7 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.popovers to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.popovers.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.progressbar to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.progressbar.bar to com.fasterxml.jackson.databind, com.jwebmp.core;
+//	opens com.jwebmp.plugins.bootstrap.progressbar.bar to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.progressbar.interfaces to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.range to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.tables to com.fasterxml.jackson.databind, com.jwebmp.core;
@@ -207,5 +200,6 @@ module com.jwebmp.plugins.bootstrap {
 	opens com.jwebmp.plugins.bootstrap.toasts.features to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.toasts.events to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.toggle to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.bootstrap.tooltips to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap.timepicker to com.fasterxml.jackson.databind, com.jwebmp.core;
+//	opens com.jwebmp.plugins.bootstrap.tooltips to com.fasterxml.jackson.databind, com.jwebmp.core;
 }
