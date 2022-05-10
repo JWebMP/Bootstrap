@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.*;
 
 @NgComponent("app-toasts")
-@NgImportReference(name = "TemplateRef", reference = "@angular/core")
+@NgImportReference(name = "TemplateRef, AfterViewInit", reference = "@angular/core")
+@NgImportReference(name = "OnDestroy", reference = "@angular/core")
 @NgBootDeclaration("BSToasts")
 public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INgComponent<J>
 {
@@ -28,9 +29,29 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
 	}
 	
 	@Override
+	public List<String> componentInterfaces()
+	{
+		return List.of("AfterViewInit");
+	}
+	
+	@Override
 	public List<NgComponentReference> getComponentReferences()
 	{
-		return List.of(getNgComponentReference((Class<? extends ITSComponent<?>>) toastDataService.getClass()));
+		if (toastDataService != null)
+		{
+			return List.of(getNgComponentReference((Class<? extends ITSComponent<?>>) toastDataService.getClass()));
+		}
+		else
+		{
+			return List.of();
+		}
+	}
+	
+	@Override
+	public List<String> componentFields()
+	{
+		return List.of("    data?: any;\n" +
+		               "    private updated: boolean = false;");
 	}
 	
 	public String getServiceName()
@@ -63,11 +84,14 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
 		if (!isInitialized())
 		{
 			String name = getServiceName();
-			addAttribute("*ngFor", "let toast of " + name + ".data.toasts ");
-			addAttribute("[class]", "toast.classname ");
-			addAttribute("[autohide]", "toast.autohide ");
-			addAttribute("[delay]", "toast.delay || 5000");
-			addAttribute("(hidden)", "" + name + ".remove(toast) ");
+			if (toastDataService != null)
+			{
+				addAttribute("*ngFor", "let toast of data?.out ");
+				addAttribute("[class]", "toast.classname ");
+				addAttribute("[autohide]", "toast.autohide ");
+				addAttribute("[delay]", "toast.delay || 5000");
+				addAttribute("(hidden)", "" + name + ".remove(toast) ");
+			}
 		}
 	}
 	
@@ -75,15 +99,27 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
 	protected @NotNull StringBuilder renderChildren()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("<ng-template ngbToastHeader> <strong class=\"me-auto\"> {{toast.header}} </strong> </ng-template>");
-		sb.append("{{ toast.body }}");
+		if (toastDataService != null)
+		{
+			sb.append("<ng-template ngbToastHeader> <strong class=\"me-auto\"> {{toast.header}} </strong> </ng-template>");
+			sb.append("{{ toast.body }}");
+		}
 		return sb;
 	}
 	
 	@Override
 	public List<String> methods()
 	{
-		return List.of("isTemplate(toast : any) { return toast.textOrTpl instanceof TemplateRef; }");
+		String name = getServiceName();
+		return List.of("ngAfterViewInit(): void {\n" +
+		               "        this." + name + ".data.subscribe((dd) => {\n" +
+		               "            this.data = dd;\n" +
+		               "            this.updated = true;\n" +
+		               "        });\n" +
+		               "    }",
+				
+				
+				"isTemplate(toast : any) { return toast.textOrTpl instanceof TemplateRef; }");
 	}
 	
 	@Override

@@ -69,8 +69,12 @@ import java.util.*;
 
 
 @NgStyleSheet(value = "node_modules/bootstrap/scss/bootstrap.scss", name = "bootstrap")
+@NgScript(value = "@popperjs/core/dist/umd/popper.js",sortOrder = 4)
+@NgScript(value = "bootstrap/dist/js/bootstrap.js",sortOrder = 5)
+
 @NgBootModuleImport("NgbModule")
 @NgBootImportReference(name = "NgbModule",reference = "@ng-bootstrap/ng-bootstrap")
+
 public class BootstrapPageConfigurator
 		implements IPageConfigurator<BootstrapPageConfigurator>
 {

@@ -56,9 +56,11 @@ import java.util.List;
                       description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
                       url = "https://v4-alpha.getbootstrap.com/components/carousel/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
+
 @NgImportReference(name = "ViewChild",reference = "@angular/core")
 @NgImportReference(name = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
-public class BSCarousel<J extends BSCarousel<J>>
+
+public abstract class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
 		implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSCarousel<J>, INgComponent<J>
 {

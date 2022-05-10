@@ -16,38 +16,22 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel;
 
+import com.jwebmp.core.base.angular.services.annotations.*;
 import com.jwebmp.plugins.bootstrap.carousel.parts.*;
 import org.junit.jupiter.api.*;
 
 /**
  * @author GedMarc
  */
-public class BSCarouselTest
-
+@NgComponent("carousel-test")
+public class BSCarouselTest extends BSCarousel<BSCarouselTest>
 {
-	
-	public BSCarouselTest()
+	@Override
+	public void init()
 	{
-	}
-	
-	@Test
-	public void testSomeMethod()
-	{
+		addSlide(new BSCarouselSlide<>().add("Slide 1"));
+		addSlide(new BSCarouselSlide<>().add("Slide 2"));
 		
-		BSCarousel<?> car = new BSCarousel();
-		
-		System.out.println(car.toString(true));
+		super.init();
 	}
-	
-	@Test
-	public void testOnDemand()
-	{
-		BSCarousel<?> car = new BSCarousel();
-		BSCarouselSlide ci = new BSCarouselSlide();
-		ci.add(new BSCarouselCaption("Caption"));
-		car.addSlide(ci);
-		
-		System.out.println(car.toString(0));
-	}
-	
 }

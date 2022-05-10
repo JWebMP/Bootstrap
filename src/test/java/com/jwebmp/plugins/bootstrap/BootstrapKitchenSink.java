@@ -62,9 +62,7 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
 		
 		BSRow<?> carouselRow = new BSRow<>();
 		container.add(carouselRow);
-		carouselRow.add(new BSCarousel<>().addSlide(new BSCarouselSlide<>().add("Slide 1"))
-		                                  .addSlide(new BSCarouselSlide<>().add("Slide 2"))
-		);
+		carouselRow.add(new BSCarouselTest());
 		
 		BSRow<?> datepickerRow = new BSRow<>();
 		container.add("datepicker");

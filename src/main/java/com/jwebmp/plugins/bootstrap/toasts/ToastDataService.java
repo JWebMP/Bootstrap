@@ -6,33 +6,33 @@ import com.jwebmp.core.base.angular.services.interfaces.*;
 
 import java.util.*;
 
-@NgDataTypeReference(Toasts.class)
+
 @NgDataTypeReference(value = ToastInfo.class, primary = false)
-@NgImportReference(name = "TemplateRef",reference = "@angular/core")
+@NgImportReference(name = "TemplateRef", reference = "@angular/core")
 public abstract class ToastDataService<J extends ToastDataService<J>> implements INgDataService<J>
 {
 	@Override
-	public abstract Toasts getData(AjaxCall<?> call);
-	
-	@Override
-	public List<String> decorators()
+	public String providedIn()
 	{
-		return List.of("@Injectable({ providedIn: 'root' })");
+		return "any";
 	}
 	
 	@Override
 	public List<String> methods()
 	{
 		return List.of("show(textOrTpl: string | TemplateRef<any>, options: any = {}) {\n" +
-		               "    this.data.toasts?.push({ textOrTpl, ...options });\n" +
+		               "        this.dataStore.datas.out?.push({textOrTpl, ...options});\n" +
+		               "        this._data.next(Object.assign({}, this.dataStore).datas);\n" +
 		               "  }\n" +
 		               "\n" +
 		               "  remove(toast : any) {\n" +
-		               "    this.data.toasts = this.data.toasts?.filter(t => t !== toast);\n" +
+		               "        this.dataStore.datas.out = this.dataStore.datas.out?.filter(t => t !== toast);\n" +
+		               "        this._data.next(Object.assign({}, this.dataStore).datas);\n" +
 		               "  }\n" +
 		               "\n" +
 		               "  clear() {\n" +
-		               "    this.data.toasts?.splice(0, this.data.toasts?.length);\n" +
+		               "    this.dataStore.datas.out?.splice(0, this.dataStore.datas.out?.length);\n" +
+		               "        this._data.next(Object.assign({}, this.dataStore).datas);\n" +
 		               "  }");
 	}
 }

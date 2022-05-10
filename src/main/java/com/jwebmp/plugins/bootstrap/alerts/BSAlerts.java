@@ -46,6 +46,8 @@ import java.util.List;
                       url = "https://v4-alpha.getbootstrap.com/components/alerts/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 @NgDataTypeReference(Alert.class)
+@NgImportReference(name = "AfterViewInit", reference = "@angular/core")
+@NgImportReference(name = "OnDestroy", reference = "@angular/core")
 public abstract class BSAlerts<J extends BSAlerts<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSAlertEvents, J>
 		implements IBSAlerts<J>, INgComponent<J>
@@ -67,7 +69,7 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 	{
 	
 	}
-
+	
 	public String getServiceName()
 	{
 		if (alertDataService == null)
@@ -81,15 +83,29 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 	}
 	
 	@Override
+	public List<String> componentFields()
+	{
+		return List.of("    data?: any;\n" +
+		               "    private updated: boolean = false;");
+	}
+	
+	@Override
 	public List<String> componentMethods()
 	{
 		if (alertDataService != null)
 		{
 			String name = getServiceName();
-			return List.of("close(alertItem: Alert) {\n" +
-			               "    this." + name + ".data.alerts?.splice(this."
-			               + name + ".data.alerts?.indexOf(alertItem), 1);\n" +
-			               //      "alert('removed from service');  " +
+			return List.of("ngAfterViewInit(): void {\n" +
+			               "        this." + name + ".data.subscribe((dd) => {\n" +
+			               "            this.data = dd;\n" +
+			               "            this.updated = true;\n" +
+			               "        });\n" +
+			               "    }",
+					
+					
+					
+					"close(alertItem: Alert) {\n" +
+			               "    this.data.out?.splice(this.data.out?.indexOf(alertItem), 1);\n" +
 			               "}\n");
 		}
 		else
@@ -99,11 +115,20 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 	}
 	
 	@Override
+	public List<String> componentInterfaces()
+	{
+		return List.of("AfterViewInit");
+	}
+	
+	@Override
 	public List<String> componentConstructorParameters()
 	{
 		List<String> out = new ArrayList<>();
-		if(alertDataService != null)
-			out.add("public " + getServiceName() + " : " + alertDataService.getClass().getSimpleName());
+		if (alertDataService != null)
+		{
+			out.add("public " + getServiceName() + " : " + alertDataService.getClass()
+			                                                               .getSimpleName());
+		}
 		return out;
 	}
 	
@@ -135,7 +160,7 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 		if (!isInitialized())
 		{
 			String name = getServiceName();
-			addAttribute("*ngFor", "let alert of " + name + ".data.alerts");
+			addAttribute("*ngFor", "let alert of data?.out");
 			
 			add(new BSAlertsAlert().setType(BSColourTypes.AlertsType)
 			                       .bind("alert.message")

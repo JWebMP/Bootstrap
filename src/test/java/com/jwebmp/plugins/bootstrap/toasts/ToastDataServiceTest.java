@@ -8,11 +8,11 @@ import com.jwebmp.core.base.angular.services.interfaces.*;
 public class ToastDataServiceTest extends ToastDataService<ToastDataServiceTest>
 {
 	@Override
-	public Toasts getData(AjaxCall<?> call)
+	public DynamicData getData(AjaxCall<?> call)
 	{
-		return new Toasts().addToast(new ToastInfo().setHeader("Header")
-		                                            .setBody("Toast Body")
-		                                            .setAutohide(false)
+		return new DynamicData().addData(new ToastInfo().setHeader("Header")
+		                                                .setBody("Toast Body")
+		                                                .setAutohide(false)
 		);
 	}
 }
