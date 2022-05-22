@@ -17,6 +17,7 @@
 
 package com.jwebmp.plugins.bootstrap.forms.groups;
 
+import com.jwebmp.core.base.angular.implementations.*;
 import com.jwebmp.core.base.html.Italic;
 import com.jwebmp.core.base.html.inputs.InputTextType;
 import com.jwebmp.plugins.bootstrap.forms.groups.sets.BSFormInputGroup;
@@ -37,6 +38,8 @@ public class BSFormGroupTest
 	@Test
 	public void testgetAppend()
 	{
+		AngularTSPostStartup.loadTSOnStartup = false;
+		
 		BSFormInputGroup<?,InputTextType<?>> group = new BSFormInputGroup<>();
 		group.setInput(new InputTextType<>());
 		group.append(new Italic<>().addClass("fa fa-icon"));

@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap.forms;
 
 import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.jwebmp.core.base.angular.implementations.*;
 import com.jwebmp.core.base.html.inputs.InputEmailType;
 import com.jwebmp.core.base.html.inputs.InputSelectType;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
@@ -43,6 +44,8 @@ public class BSFormTest
 	@Test
 	public void testBasic()
 	{
+		AngularTSPostStartup.loadTSOnStartup = false;
+		
 		BSForm<?> form = new BSForm<>();
 
 		BSFormGroup<?, InputEmailType<?>> input = form.createEmailInput("binded", "This is the label");
@@ -105,7 +108,7 @@ public class BSFormTest
 		    .addMessage(InputErrorValidations.maxLength, "You have reached the maximum length for input", false);
 
 		form.createTextInput("textWithmessages", "textwithmessage")
-		    .addMessage(InputErrorValidations.maxLength, "You have reached the maximum length for input", false);
+		    .addMessage(InputErrorValidations.maxLength, "You have reached the maximum length for input",false);
 
 		form.createCheckboxInput("checkboxCustom", "custom checkbox")
 		    .setCustomControl(false);

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap.forms.groups.sets;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.generics.TopOrBottom;
+import com.jwebmp.core.generics.*;
 import com.jwebmp.plugins.bootstrap.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
@@ -30,8 +30,8 @@ import com.jwebmp.plugins.bootstrap.forms.interfaces.IBSFormInputGroup;
 
 import jakarta.validation.constraints.NotNull;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.List;
 
 import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.*;
 import static com.jwebmp.plugins.bootstrap.forms.groups.sets.BSComponentInputGroupOptions.*;
@@ -49,11 +49,6 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		extends BSFormGroup<J, I>
 		implements BSFormGroupChildren, IBSFormInputGroup<J, I>
 {
-
-
-	private final InputGroupPrependItem<?> prependDiv;
-	private final InputGroupAppendItem<?> appendDiv;
-
 	private IComponentHierarchyBase<?,?> helpText;
 
 	private boolean styleInputGroupTextWithValidation;
@@ -77,23 +72,33 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	{
 		getClasses().clear();
 		addClass(Input_Group);
-		prependDiv = new InputGroupPrependItem<>();
-		prependDiv.addClass(Input_Group_Prepend);
-		appendDiv = new InputGroupAppendItem<>();
-		appendDiv.addClass(Input_Group_Append);
 		if (largeOrSmall != null)
 		{
 			if (largeOrSmall)
 			{
-				addClass(Input_Group_Lg);
+				setLarge();
 			}
 			else
 			{
-				addClass(Input_Group_Sm);
+				setSmall();
 			}
 		}
 	}
-
+	
+	public J setLarge()
+	{
+		removeClass(Input_Group_Sm);
+		addClass(Input_Group_Lg);
+		return (J)this;
+	}
+	
+	public J setSmall()
+	{
+		removeClass(Input_Group_Lg);
+		addClass(Input_Group_Sm);
+		return (J)this;
+	}
+	
 	/**
 	 * The text (or component.toString(0)) to prepend
 	 *
@@ -107,7 +112,22 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		Span<?, ?, ?> span = new Span<>();
 		span.addClass(Input_Group_Text);
 		span.setText(text);
-		prependDiv.add(span);
+		List<GlobalChildren> children = new ArrayList<>();
+		Object[] array = (Object[]) getChildren().toArray();
+		for (int i = 0, arrayLength = array.length; i < arrayLength; i++)
+		{
+			Object o = array[i];
+			if (o instanceof Input<?, ?>)
+			{
+				children.add(span);
+				children.add((GlobalChildren) o);
+			}
+			else
+			{
+				children.add((GlobalChildren) o);
+			}
+		}
+		setChildren(new LinkedHashSet<>(children));
 		return (J) this;
 	}
 
@@ -121,18 +141,27 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@NotNull
 	public J prepend(IComponentHierarchyBase<?,?> component)
 	{
-		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
+		if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
 		{
-			prependDiv.add(component);
+			component.addClass(Input_Group_Text);
 		}
-		else
+		
+		List<GlobalChildren> children = new ArrayList<>();
+		Object[] array = (Object[]) getChildren().toArray();
+		for (int i = 0, arrayLength = array.length; i < arrayLength; i++)
 		{
-			Span<?, ?, ?> span = new Span<>();
-			span.addClass(Input_Group_Text);
-			span.setText(component.toString(0));
-			prependDiv.add(span);
+			Object o = array[i];
+			if (o instanceof Input<?, ?>)
+			{
+				children.add(component);
+				children.add((GlobalChildren) o);
+			}
+			else
+			{
+				children.add((GlobalChildren) o);
+			}
 		}
-
+		setChildren(new LinkedHashSet<>(children));
 		return (J) this;
 	}
 
@@ -151,7 +180,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		Span<?, ?, ?> span = new Span<>();
 		span.setText(text);
 		span.addClass(Input_Group_Text);
-		appendDiv.add(span);
+		add(span);
 		return (J) this;
 	}
 
@@ -167,41 +196,11 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	@NotNull
 	public J append(IComponentHierarchyBase<?,?> component)
 	{
-		if (BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass()))
+		if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
 		{
-			appendDiv.add(component);
-		}
-		else
-		{
-			Span<?, ?, ?> span = new Span<>();
-			span.addClass(Input_Group_Text);
-			span.setText(component.setTiny(true)
-			                      .toString(0));
-			appendDiv.add(span);
+			component.addClass(Input_Group_Text);
 		}
 		return (J) this;
-	}
-
-	/**
-	 * returns the prepending div as it currently is. Only add spans directly with classes??
-	 *
-	 * @return
-	 */
-	@Override
-	public DivSimple<?> getPrependDiv()
-	{
-		return prependDiv;
-	}
-
-	/**
-	 * returns the appending div as it currently is. Only add spans directly with classes??
-	 *
-	 * @return
-	 */
-	@Override
-	public DivSimple<?> getAppendDiv()
-	{
-		return appendDiv;
 	}
 
 	/**
@@ -221,11 +220,11 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 			Span<?, ?, ?> span = new Span<>();
 			span.setText(component.toString(0));
 			span.addClass(Input_Group_Text);
-			appendDiv.add(span);
+			add(span);
 		}
 		else
 		{
-			appendDiv.add(component);
+			add(component);
 		}
 		return (J) this;
 	}
@@ -266,6 +265,11 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 	protected StringBuilder renderBeforeTag()
 	{
 		StringBuilder output = new StringBuilder();
+		
+		if(getMessagePlacement() == CompassPoints.N && getMessages() != null && !getMessages().getChildren().isEmpty())
+		{
+			output.append(getMessages().toString(0));
+		}
 
 		if (getLabel() != null && getLabel().getText() != null)
 		{
@@ -281,7 +285,18 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		}
 		return output;
 	}
-
+	
+	@Override
+	protected StringBuilder renderAfterTag()
+	{
+		StringBuilder output = new StringBuilder();
+		if(getMessagePlacement() == CompassPoints.S && getMessages() != null && !getMessages().getChildren().isEmpty())
+		{
+			output.append(getMessages().toString(0));
+		}
+		return output;
+	}
+	
 	@Override
 	public void preConfigure()
 	{
@@ -289,35 +304,17 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
 		{
 			getChildren().removeIf(a -> a.equals(getLabel()));
 			Set<GlobalChildren> newOrder = new LinkedHashSet<>();
-			if(getMessagePlacement() == TopOrBottom.Top)
+			if(getMessagePlacement() == CompassPoints.E && getMessages() != null && !getMessages().getChildren().isEmpty())
 			{
-				//getChildren().remove(getMessages());
-			//	newOrder.add(getMessages());
-			}
-			if (!prependDiv.getChildren()
-			               .isEmpty())
-			{
-				newOrder.add(prependDiv);
+				newOrder.add(getMessages());
 			}
 			newOrder.addAll(getChildren());
-			if (!appendDiv.getChildren()
-			              .isEmpty())
+			if(getMessagePlacement() == CompassPoints.W && getMessages() != null && !getMessages().getChildren().isEmpty())
 			{
-				newOrder.add(appendDiv);
-			}
-			if(getMessagePlacement() == TopOrBottom.Bottom)
-			{
-			//	getChildren().remove(getMessages());
-			//	newOrder.add(getMessages());
+				newOrder.add(getMessages());
 			}
 			//noinspection unchecked, rawtypes
 			setChildren(new LinkedHashSet(newOrder));
-
-			if (isStyleInputGroupTextWithValidation())
-			{
-			//	getMessages().addAttribute("ng-class", getForm().buildValidationClass(getInput())
-		//		                                                .replace("is-invalid", "invalid-feedback"));
-			}
 		}
 		super.preConfigure();
 	}

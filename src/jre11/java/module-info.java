@@ -44,6 +44,8 @@ module com.jwebmp.plugins.bootstrap {
 	exports com.jwebmp.plugins.bootstrap.collapse;
 	exports com.jwebmp.plugins.bootstrap.collapse.features;
 	exports com.jwebmp.plugins.bootstrap.containers;
+	exports com.jwebmp.plugins.bootstrap.datepicker;
+	exports com.jwebmp.plugins.bootstrap.datetimepicker;
 	exports com.jwebmp.plugins.bootstrap.dropdown;
 	exports com.jwebmp.plugins.bootstrap.dropdown.parts;
 	exports com.jwebmp.plugins.bootstrap.dropdown.interfaces;
@@ -143,6 +145,8 @@ exports com.jwebmp.plugins.bootstrap.navbar.toggler;
 	opens com.jwebmp.plugins.bootstrap.collapse.events.shown to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.collapse.features to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.containers to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap.datepicker to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.bootstrap.datetimepicker to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.dropdown to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.dropdown.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.bootstrap.dropdown.events.hidden to com.fasterxml.jackson.databind, com.jwebmp.core;

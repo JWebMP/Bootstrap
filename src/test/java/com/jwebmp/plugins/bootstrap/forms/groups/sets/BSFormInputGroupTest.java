@@ -3,7 +3,7 @@ package com.jwebmp.plugins.bootstrap.forms.groups.sets;
 import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
 import com.jwebmp.plugins.bootstrap.buttons.checkbox.BSCheckBox;
 import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
-import com.jwebmp.plugins.bootstrap.forms.BSForm;
+import com.jwebmp.plugins.bootstrap.forms.*;
 import org.junit.jupiter.api.Test;
 
 class BSFormInputGroupTest
@@ -13,7 +13,7 @@ class BSFormInputGroupTest
 	@Test
 	void getInputGroupAddons()
 	{
-		BSForm<?> form = new BSForm<>();
+		BSForm<?> form = new BSForm<>("test",new FormDataServiceTest());
 		form.createTextInput("Binding", "Label", true)
 		    .append("Appending")
 		    .prepend("Prepending");

@@ -21,6 +21,7 @@ import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.*;
 import com.jwebmp.core.plugins.*;
+import com.jwebmp.core.utilities.*;
 import com.jwebmp.plugins.bootstrap.*;
 import com.jwebmp.plugins.bootstrap.collapse.*;
 import com.jwebmp.plugins.bootstrap.containers.*;
@@ -246,7 +247,7 @@ public class BSNavBar<J extends BSNavBar<J>>
 	@NotNull
 	public BSForm<?> addForm()
 	{
-		BSForm<?> form = new BSForm<>();
+		BSForm<?> form = new BSForm<>(GUIDGenerator.generateGuid(),null);
 		form.setInline(true);
 		addToCollapsable(form);
 		return form;

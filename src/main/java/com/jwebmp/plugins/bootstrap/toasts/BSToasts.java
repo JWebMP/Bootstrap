@@ -111,15 +111,22 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
 	public List<String> methods()
 	{
 		String name = getServiceName();
-		return List.of("ngAfterViewInit(): void {\n" +
-		               "        this." + name + ".data.subscribe((dd) => {\n" +
-		               "            this.data = dd;\n" +
-		               "            this.updated = true;\n" +
-		               "        });\n" +
-		               "    }",
-				
-				
-				"isTemplate(toast : any) { return toast.textOrTpl instanceof TemplateRef; }");
+		if (toastDataService != null)
+		{
+			return List.of("ngAfterViewInit(): void {\n" +
+			               "        this." + name + ".data.subscribe((dd : any) => {\n" +
+			               "            this.data = dd;\n" +
+			               "            this.updated = true;\n" +
+			               "        });\n" +
+			               "    }",
+					
+					
+					"isTemplate(toast : any) { return toast.textOrTpl instanceof TemplateRef; }");
+		}
+		else
+		{
+			return List.of("ngAfterViewInit() {}");
+		}
 	}
 	
 	@Override

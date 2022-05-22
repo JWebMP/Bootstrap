@@ -80,25 +80,6 @@ public class BSFieldSet<J extends BSFieldSet<J>>
 		return (J) this;
 	}
 	
-	
-	@Override
-	public String getFormID()
-	{
-		return formOwner.getID() + STRING_DOT + getID();
-	}
-	
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-	
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-	
 	@Override
 	public BSFormGroup<?, InputTextType<?>> createTextInput(String binding, String label)
 	{

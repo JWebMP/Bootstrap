@@ -50,21 +50,6 @@ public interface IBSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends I
 	
 	@NotNull
 	J append(IComponentHierarchyBase<?,?> component);
-
-	/**
-	 * returns the prepending div as it currently is. Only add spans directly with classes??
-	 *
-	 * @return
-	 */
-	DivSimple<?> getPrependDiv();
-
-	/**
-	 * returns the appending div as it currently is. Only add spans directly with classes??
-	 *
-	 * @return
-	 */
-	DivSimple<?> getAppendDiv();
-
 	
 	@NotNull
 	J append(IComponentHierarchyBase<?,?> component, boolean renderInSpan);

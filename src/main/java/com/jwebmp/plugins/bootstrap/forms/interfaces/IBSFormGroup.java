@@ -21,7 +21,7 @@ import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.ICssStructure;
-import com.jwebmp.core.generics.TopOrBottom;
+import com.jwebmp.core.generics.*;
 import com.jwebmp.plugins.bootstrap.forms.BSForm;
 import com.jwebmp.plugins.bootstrap.forms.BSFormLabel;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
@@ -114,7 +114,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-	TopOrBottom getMessagePlacement();
+	CompassPoints getMessagePlacement();
 
 	/**
 	 * Sets the message placement
@@ -125,7 +125,7 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 */
 	
 	@NotNull
-	J setMessagePlacement(@NotNull TopOrBottom messagePlacement);
+	J setMessagePlacement(@NotNull CompassPoints messagePlacement);
 
 	/**
 	 * Sets the size of the input controller
@@ -185,26 +185,5 @@ public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>
 	 *
 	 * @return
 	 */
-
 	BSFormLabel<?> getLabel();
-
-	/**
-	 * Sets if the input update binding should occur and validate when the field is left
-	 *
-	 * @return
-	 */
-	
-	@NotNull
-	J updateOnBlur();
-
-	/**
-	 * Sets to display if the field must display styled before action has occured
-	 *
-	 * @param validity
-	 *
-	 * @return
-	 */
-	
-	@NotNull
-	J setDisplayValidity(boolean validity);
 }

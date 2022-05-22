@@ -24,6 +24,7 @@ import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.inputs.*;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.utilities.*;
 import com.jwebmp.plugins.bootstrap.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap.buttons.BSButtonSizeOptions;
@@ -63,14 +64,14 @@ public class BSForm<J extends BSForm<J>>
 {
 	private boolean styleInputs;
 	
-	public BSForm()
+	BSForm()
 	{
-		this(null);
+		this(GUIDGenerator.generateGuid(),null);
 	}
 	
-	public BSForm(FormDataService<?> formDataService)
+	public BSForm(String id, FormDataService<?> formDataService)
 	{
-		super(formDataService);
+		super(id,formDataService);
 		addAttribute("no-validation", "");
 	}
 	
@@ -1378,28 +1379,15 @@ public class BSForm<J extends BSForm<J>>
 			else if (Input.class.isAssignableFrom(a.getClass()))
 			{
 				Input<?, ?> input = (Input<?, ?>) a;
-			//	input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
+				//	input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
 			}
 			else if (Label.class.isAssignableFrom(a.getClass()))
 			{
 				Label<?> input = (Label<?>) a;
 				input.addClass("form-control-feedback");
-		//		input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
+				//		input.addAttribute(AngularAttributes.ngClass.getAttributeName(), buildValidationClass(input));
 			}
-			else if (BSFormInputGroup.class.isAssignableFrom(a.getParent()
-					.getClass()))
-			{
-				BSFormInputGroup<?, ?> inputGroup = (BSFormInputGroup<?, ?>) a.getParent();
-				inputGroup.getPrependDiv()
-						.getChildren()
-						.forEach(b -> b.asHierarchyBase()
-								.addClass("form-control"));
-				inputGroup.getAppendDiv()
-						.getChildren()
-						.forEach(b -> b.asHierarchyBase()
-								.addClass("form-control"));
-			}
-
+			
 		}
 		return (J) this;
 	}

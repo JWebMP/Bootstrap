@@ -16,6 +16,9 @@
  */
 package com.jwebmp.plugins.bootstrap.forms.groups;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.jwebmp.core.base.angular.forms.AngularFormMessage;
+import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
 import com.fasterxml.jackson.annotation.*;
 import com.guicedee.guicedinjection.json.*;
 import com.guicedee.logger.*;
@@ -23,6 +26,27 @@ import com.jwebmp.core.base.angular.*;
 import com.jwebmp.core.base.angular.forms.*;
 import com.jwebmp.core.base.angular.forms.enumerations.*;
 import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.html.inputs.InputCheckBoxType;
+import com.jwebmp.core.base.html.inputs.InputFileType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.children.FormChildren;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.generics.TopOrBottom;
+import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.logger.LogFactory;
+import com.jwebmp.core.utilities.*;
+import com.jwebmp.plugins.bootstrap.containers.BSRowChildren;
+import com.jwebmp.plugins.bootstrap.forms.BSComponentFormOptions;
+import com.jwebmp.plugins.bootstrap.forms.BSForm;
+import com.jwebmp.plugins.bootstrap.forms.BSFormChildren;
+import com.jwebmp.plugins.bootstrap.forms.BSFormLabel;
+import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions;
+import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupSizes;
+import com.jwebmp.plugins.bootstrap.forms.interfaces.IBSFormGroup;
+import com.jwebmp.plugins.bootstrap.options.BSColumnOptions;
 import com.jwebmp.core.base.html.attributes.*;
 import com.jwebmp.core.base.html.inputs.*;
 import com.jwebmp.core.base.html.interfaces.*;
@@ -37,7 +61,12 @@ import com.jwebmp.plugins.bootstrap.forms.interfaces.*;
 import com.jwebmp.plugins.bootstrap.options.*;
 import jakarta.validation.constraints.*;
 
+import jakarta.validation.constraints.NotNull;
+
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.*;
 import java.util.logging.*;
 
@@ -71,7 +100,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@JsonIdentityReference(alwaysAsId = true)
 	private BSForm<?> form;
 	
-	private TopOrBottom messagePlacement = Bottom;
+	private CompassPoints messagePlacement = CompassPoints.S;
 	
 	private boolean addInput = true;
 	private boolean addLabel = true;
@@ -84,12 +113,8 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	/**
 	 * Form Group Messages
 	 */
-	//private AngularInputMessages<?> messages;
-	/**
-	 * Enables or disables message display in the group
-	 */
-	private boolean enableMessages = true;
-	
+	private AngularFormMessages<?> messages;
+
 	/**
 	 * Constructs a new BS Form Group
 	 */
@@ -98,59 +123,41 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		addClass(BSFormGroupOptions.Form_Group);
 	}
 	
-	@Override
-	public void preConfigure()
-	{
-		/*if (!isConfigured() && messages != null && enableMessages)
-		{
-			if (messagePlacement == Bottom)
-			{
-				add(getMessages());
-			}
-			else
-			{
-				List<IComponentHierarchyBase<?, ?>> children = new ArrayList(getChildren());
-				children.add(0, getMessages());
-				setChildren(new LinkedHashSet<>(children));
-			}
-		}*/
-		super.preConfigure();
-	}
-	
-/*	*//**
+	/**
 	 * Returns the applied messages
 	 *
 	 * @return
-	 *//*
+	 */
+	
 	@NotNull
-	public AngularInputMessages<?> getMessages()
+	public AngularFormMessages<?> getMessages()
 	{
-		if (messages == null && enableMessages)
+		if (messages == null)
 		{
-			messages = new AngularInputMessages<>(getForm(), input);
-			messages.addClass("is-invalid");
-			messages.addStyle("display", "inherit");
-		//	messages.addAttribute("ng-class", getForm().buildValidationClass(input)
-	//		                                           .replace("is-invalid", "invalid-feedback"));
+			messages = new AngularFormMessages<>(getInput());
 		}
 		
 		return messages;
 	}
 	
-	*//**
+	/**
+	 */
+	/**
 	 * Sets the collection of validation messages to display
 	 *
 	 * @param messages
 	 * @return
-	 *//*
+	 */
+	
 	@SuppressWarnings("unchecked")
 	@NotNull
-	protected J setMessages(AngularInputMessages<?> messages)
+	protected J setMessages(AngularFormMessages<?> messages)
 	{
 		this.messages = messages;
 		return (J) this;
 	}
-	*/
+	
+	
 	/**
 	 * The slimmer neater version
 	 *
@@ -174,8 +181,10 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 			label = new BSFormLabel<>();
 		}
 		label.setText(text);
-		if(addLabel)
-		add(label);
+		if (addLabel)
+		{
+			add(label);
+		}
 		return label;
 	}
 	
@@ -209,12 +218,14 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		input = inputComponent;
 		
-		if(addInput)
-		if (inputComponent != null)
+		if (addInput)
 		{
-			if (!(inputComponent instanceof InputFileType))
+			if (inputComponent != null)
 			{
-				inputComponent.addClass(BSFormGroupOptions.Form_Control);
+				if (!(inputComponent instanceof InputFileType))
+				{
+					inputComponent.addClass(BSFormGroupOptions.Form_Control);
+				}
 			}
 		}
 		
@@ -254,9 +265,6 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		}
 		component.add(new Paragraph<>(feedback).setTextOnly(true));
 		component.addClass("valid-feedback");
-		/*component.asAttributeBase()
-		         .addAttribute(String.valueOf(AngularAttributes.ngShow),
-				         getForm().getID() + "." + getInput().getID() + ".$valid");*/
 		add(component);
 		return (J) this;
 	}
@@ -271,7 +279,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		if (form == null)
 		{
-			form = new BSForm<>();
+			form = new BSForm<>(GUIDGenerator.generateGuid(), null);
 		}
 		return form;
 	}
@@ -295,6 +303,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	{
 		return input;
 	}
+	
 	/**
 	 * Returns the input component associated
 	 *
@@ -353,6 +362,8 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@NotNull
 	public J addMessage(@NotNull InputErrorValidations forError, String message, boolean inline)
 	{
+		getMessages().addMessage(forError, message)
+		             .addClass("invalid-feedback");
 		/*getMessages().addMessage(forError, message, inline)
 		             .addClass("invalid-feedback");*/
 		return (J) this;
@@ -363,6 +374,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@NotNull
 	public J addMessage(@NotNull InputErrorValidations forError, String message)
 	{
+		getMessages().addMessage(forError, message);
 		//getMessages().addMessage(forError, message, false);
 		return (J) this;
 	}
@@ -373,7 +385,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	 * @return
 	 */
 	@Override
-	public TopOrBottom getMessagePlacement()
+	public CompassPoints getMessagePlacement()
 	{
 		return messagePlacement;
 	}
@@ -387,7 +399,7 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setMessagePlacement(@NotNull TopOrBottom messagePlacement)
+	public J setMessagePlacement(@NotNull CompassPoints messagePlacement)
 	{
 		this.messagePlacement = messagePlacement;
 		return (J) this;
@@ -531,72 +543,10 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		if (label == null)
 		{
 			label = new BSFormLabel<>();
-		//	label.addClass("custom-control-label");
+			//	label.addClass("custom-control-label");
 			label.setForInputComponent(getInput());
 		}
 		return label;
-	}
-	
-	/**
-	 * Sets if the input update binding should occur and validate when the field is left
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J updateOnBlur()
-	{
-		if (getInput() == null)
-		{
-			throw new UnsupportedOperationException("Can't set update features without an input component to do it on.");
-		}
-	//	getInput().addAttribute(AngularAttributes.ngModelOptions.getAttributeName(), "{updateOn:'blur'}");
-		return (J) this;
-	}
-	
-	/**
-	 * Sets to display if the field must display styled before action has occured
-	 *
-	 * @param validity
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setDisplayValidity(boolean validity)
-	{
-		if (validity)
-		{
-			//addClass(getForm().getSuccessClass());
-		}
-		else
-		{
-		//	addClass(getForm().getErrorClass());
-		}
-		return (J) this;
-	}
-	
-	/**
-	 * If messages are enabled
-	 *
-	 * @return
-	 */
-	public boolean isEnableMessages()
-	{
-		return enableMessages;
-	}
-	
-	/**
-	 * Set messages enabled flag
-	 *
-	 * @param enableMessages
-	 * @return
-	 */
-	public BSFormGroup<J, I> setEnableMessages(boolean enableMessages)
-	{
-		this.enableMessages = enableMessages;
-		return this;
 	}
 	
 	public boolean isAddInput()
@@ -633,3 +583,4 @@ public class BSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		return super.equals(o);
 	}
 }
+
