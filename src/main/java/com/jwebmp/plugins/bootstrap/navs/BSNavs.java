@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap.navs;
 
 import com.google.common.base.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;

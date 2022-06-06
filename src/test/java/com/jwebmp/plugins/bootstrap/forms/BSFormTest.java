@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.forms;
 
-import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
+import com.jwebmp.core.base.angular.forms.enumerations.*;
 import com.jwebmp.core.base.angular.implementations.*;
 import com.jwebmp.core.base.html.inputs.InputEmailType;
 import com.jwebmp.core.base.html.inputs.InputSelectType;
@@ -132,7 +132,8 @@ public class BSFormTest
 
 
 		form.createTextInput("testvalidatoin", "successvalidation")
-		    .setDisplayValidity(true);
+		//    .setDisplayValidity(true)
+		;
 
 		form.createFileInput("filebinding", "File Input Default", true);
 

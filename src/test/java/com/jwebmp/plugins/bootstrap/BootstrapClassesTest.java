@@ -40,7 +40,7 @@ public class BootstrapClassesTest
 		d.addClass(BSDefaultOptions.Active);
 		System.out.println(d.toString(0));
 		
-		BSForm<?> form = new BSForm<>("outer form",new FormDataServiceTest());
+		BSForm<?> form = new BSForm<>("outer form",new FormDataServiceProvider());
 		BSFormInputGroup<?, ?> group = new BSFormInputGroup<>();
 		
 		group.add(new Form<>().setID("inner form"));

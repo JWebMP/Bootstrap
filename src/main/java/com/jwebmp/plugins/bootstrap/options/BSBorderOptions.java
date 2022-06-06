@@ -90,11 +90,11 @@ public enum BSBorderOptions
 	 */
 	Border_Warning,
 	Border_Info;
-
+	
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase()
-		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
+		return "border " + name().toLowerCase()
+		                         .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

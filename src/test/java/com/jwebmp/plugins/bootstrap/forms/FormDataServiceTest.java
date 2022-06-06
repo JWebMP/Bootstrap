@@ -1,10 +1,12 @@
 package com.jwebmp.plugins.bootstrap.forms;
 
 import com.jwebmp.core.base.ajax.*;
-import com.jwebmp.core.base.angular.modules.services.angular.forms.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.*;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 
-public class FormDataServiceTest extends FormDataService<FormDataServiceTest>
+@NgDataService("FormDataService")
+public class FormDataServiceTest implements INgDataService<FormDataServiceTest>
 {
 	@Override
 	public DynamicData getData(AjaxCall<?> call)

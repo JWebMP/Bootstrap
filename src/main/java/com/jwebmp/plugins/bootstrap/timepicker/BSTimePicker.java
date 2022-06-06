@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.timepicker;
 
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 

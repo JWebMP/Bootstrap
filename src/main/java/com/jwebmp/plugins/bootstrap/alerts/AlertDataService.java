@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.bootstrap.alerts;
 
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 
 import java.util.*;
 

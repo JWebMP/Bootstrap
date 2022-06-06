@@ -130,6 +130,7 @@ public class BSAlert<J extends BSAlert<J>>
 			{
 				addAttribute("[type]", "'" + type.toString() + "'");
 			}
+			addAttribute("[dismissible]", "" + dismissible + "");
 		}
 	}
 	

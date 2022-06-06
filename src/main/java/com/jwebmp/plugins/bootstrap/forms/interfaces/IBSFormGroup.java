@@ -17,18 +17,15 @@
 
 package com.jwebmp.plugins.bootstrap.forms.interfaces;
 
-import com.jwebmp.core.base.angular.forms.enumerations.InputErrorValidations;
-import com.jwebmp.core.base.html.Input;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.base.interfaces.ICssStructure;
+import com.jwebmp.core.base.angular.forms.enumerations.*;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.generics.*;
-import com.jwebmp.plugins.bootstrap.forms.BSForm;
-import com.jwebmp.plugins.bootstrap.forms.BSFormLabel;
-import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
-import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupSizes;
-import com.jwebmp.plugins.bootstrap.options.BSColumnOptions;
-
-import jakarta.validation.constraints.NotNull;
+import com.jwebmp.plugins.bootstrap.forms.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import jakarta.validation.constraints.*;
 
 public interface IBSFormGroup<J extends BSFormGroup<J, I>, I extends Input<?, ?>>
 		extends ICssStructure<J>

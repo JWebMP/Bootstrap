@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.bootstrap.navbar;
 
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
 import com.jwebmp.core.base.angular.implementations.*;
-import com.jwebmp.core.base.angular.services.annotations.*;
 import com.jwebmp.plugins.bootstrap.*;
 import com.jwebmp.plugins.bootstrap.navbar.enumerations.*;
 import org.junit.jupiter.api.*;

@@ -16,9 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel;
 
-import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
 import com.jwebmp.plugins.bootstrap.carousel.parts.*;
-import org.junit.jupiter.api.*;
 
 /**
  * @author GedMarc

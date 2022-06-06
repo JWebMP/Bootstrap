@@ -54,6 +54,10 @@ public enum BSColoursOptions
 	 */
 	Text_Danger,
 	/**
+	 * Text styled with class "text_danger"
+	 */
+	Text_Purple,
+	/**
 	 * Text marked as white
 	 */
 	Text_White,

@@ -13,7 +13,7 @@ class BSFormInputGroupTest
 	@Test
 	void getInputGroupAddons()
 	{
-		BSForm<?> form = new BSForm<>("test",new FormDataServiceTest());
+		BSForm<?> form = new BSForm<>("test",new FormDataServiceProvider());
 		form.createTextInput("Binding", "Label", true)
 		    .append("Appending")
 		    .prepend("Prepending");

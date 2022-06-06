@@ -1,11 +1,6 @@
 package com.jwebmp.plugins.bootstrap.modal.parts;
 
-import com.jwebmp.core.base.html.Button;
-import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.plugins.bootstrap.close.BSCloseIcon;
+import com.jwebmp.core.base.html.*;
 import com.jwebmp.plugins.bootstrap.modal.BSModalChildren;
 import com.jwebmp.plugins.bootstrap.modal.BSModalOptions;
 
@@ -37,6 +32,20 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 		return this;
 	}
 	
+	
+	/**
+	 * Adds a new title to the header
+	 *
+	 * @return
+	 */
+	@Override
+	public BSModalTitle<?> addTitle()
+	{
+		BSModalTitle<?> modalTitle = new BSModalTitle<>();
+		add(modalTitle);
+		return modalTitle;
+	}
+	
 	/**
 	 * Adds a new title to the header
 	 *
@@ -47,7 +56,8 @@ public class BSModalHeader<J extends BSModalHeader<J>>
 	public BSModalTitle<?> addTitle(String title)
 	{
 		BSModalTitle<?> modalTitle = new BSModalTitle<>();
-		modalTitle.setText(title);
+		H3<?> h3 = new H3<>(title);
+		modalTitle.add(h3);
 		add(modalTitle);
 		return modalTitle;
 	}

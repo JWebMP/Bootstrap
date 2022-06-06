@@ -16,11 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel;
 
-import com.jwebmp.core.base.angular.modules.services.angular.*;
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
@@ -57,8 +54,8 @@ import java.util.List;
                       url = "https://v4-alpha.getbootstrap.com/components/carousel/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
 
-@NgImportReference(name = "ViewChild",reference = "@angular/core")
-@NgImportReference(name = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(value = "ViewChild", reference = "@angular/core")
+@NgImportReference(value = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
 
 public abstract class BSCarousel<J extends BSCarousel<J>>
 		extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>

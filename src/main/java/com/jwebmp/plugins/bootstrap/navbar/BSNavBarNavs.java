@@ -16,21 +16,14 @@
  */
 package com.jwebmp.plugins.bootstrap.navbar;
 
-import com.google.common.base.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.*;
 import com.jwebmp.core.base.html.interfaces.events.*;
 import com.jwebmp.core.plugins.*;
-import com.jwebmp.plugins.bootstrap.dropdown.*;
 import com.jwebmp.plugins.bootstrap.navbar.interfaces.*;
 import com.jwebmp.plugins.bootstrap.navs.*;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
-import com.jwebmp.plugins.bootstrap.navs.parts.*;
-import com.jwebmp.plugins.bootstrap.options.*;
-import jakarta.validation.constraints.*;
-
-import static com.jwebmp.plugins.bootstrap.navs.BSNavsOptions.*;
 
 /**
  * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. Swap

@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.bootstrap;
 
-import com.jwebmp.core.base.angular.services.NGApplication;
-import com.jwebmp.core.base.angular.services.annotations.NgApp;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.services.*;
 
 @NgApp(name = "bootstrap", bootComponent = BootstrapKitchenSink.class)
 public class BootstrapApp extends NGApplication<BootstrapApp>

@@ -1,10 +1,8 @@
 package com.jwebmp.plugins.bootstrap.timepicker;
 
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
 import com.jwebmp.core.base.angular.implementations.*;
-import com.jwebmp.core.base.angular.services.annotations.*;
 import org.junit.jupiter.api.*;
-
-import java.time.*;
 
 @NgComponent("timepickertest")
 public class BSTimePickerTest extends BSTimePicker<BSTimePickerTest>

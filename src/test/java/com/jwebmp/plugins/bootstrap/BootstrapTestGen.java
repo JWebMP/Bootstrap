@@ -3,6 +3,7 @@ package com.jwebmp.plugins.bootstrap;
 import com.guicedee.guicedinjection.*;
 import com.guicedee.guicedservlets.undertow.GuicedUndertow;
 import com.guicedee.logger.LogFactory;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.angular.services.compiler.*;
 import com.jwebmp.core.base.angular.services.interfaces.*;
 import org.junit.jupiter.api.*;
@@ -10,7 +11,8 @@ import org.junit.jupiter.api.*;
 import java.io.*;
 import java.util.logging.Level;
 
-import static com.jwebmp.core.base.angular.services.interfaces.ITSComponent.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.IComponent.*;
 
 public class BootstrapTestGen
 {

@@ -21,6 +21,8 @@ import com.jwebmp.plugins.bootstrap.close.BSCloseIcon;
 
 public interface IBSModalHeader<J extends BSModalHeader<J>>
 {
+	BSModalTitle<?> addTitle();
+	
 	/**
 	 * Adds a new title to the header
 	 *

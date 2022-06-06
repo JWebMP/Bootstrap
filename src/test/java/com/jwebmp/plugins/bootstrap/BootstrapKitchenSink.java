@@ -1,22 +1,20 @@
 package com.jwebmp.plugins.bootstrap;
 
 import com.google.inject.*;
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.plugins.bootstrap.accordion.*;
 import com.jwebmp.plugins.bootstrap.alerts.*;
 import com.jwebmp.plugins.bootstrap.buttons.styles.*;
 import com.jwebmp.plugins.bootstrap.carousel.*;
-import com.jwebmp.plugins.bootstrap.carousel.parts.*;
 import com.jwebmp.plugins.bootstrap.containers.*;
 import com.jwebmp.plugins.bootstrap.datepicker.*;
 import com.jwebmp.plugins.bootstrap.datetimepicker.*;
 import com.jwebmp.plugins.bootstrap.dropdown.*;
-import com.jwebmp.plugins.bootstrap.modal.DefaultModalTest;
+import com.jwebmp.plugins.bootstrap.modal.*;
 import com.jwebmp.plugins.bootstrap.navbar.*;
-import com.jwebmp.plugins.bootstrap.navbar.parts.*;
 import com.jwebmp.plugins.bootstrap.options.*;
 import com.jwebmp.plugins.bootstrap.popovers.*;
 import com.jwebmp.plugins.bootstrap.progressbar.*;
@@ -26,8 +24,7 @@ import com.jwebmp.plugins.bootstrap.toasts.*;
 import static com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions.*;
 
 @NgComponent(value = "bootstrap-kitchen-sink")
-//@NgProviderReference(SocketClientService.class)
-@NgImportReference(name = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(value = "NgbDateStruct, NgbCalendar", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
 		implements INgComponent<BootstrapKitchenSink>
 {

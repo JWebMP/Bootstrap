@@ -16,9 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts;
 
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.annotations.structures.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.*;
 import com.jwebmp.core.base.html.interfaces.*;
@@ -29,6 +30,8 @@ import com.jwebmp.plugins.bootstrap.alerts.events.*;
 
 import java.util.*;
 import java.util.List;
+
+import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
 
 /**
  * Alerts
@@ -46,8 +49,9 @@ import java.util.List;
                       url = "https://v4-alpha.getbootstrap.com/components/alerts/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 @NgDataTypeReference(Alert.class)
-@NgImportReference(name = "AfterViewInit", reference = "@angular/core")
-@NgImportReference(name = "OnDestroy", reference = "@angular/core")
+
+@NgField("data?: any;")
+@NgField("private updated: boolean = false;")
 public abstract class BSAlerts<J extends BSAlerts<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSAlertEvents, J>
 		implements IBSAlerts<J>, INgComponent<J>
@@ -76,48 +80,47 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 		{
 			return "alertDataService";
 		}
-		String name = ITSComponent.getTsFilename(alertDataService.getClass());
+		String name = getTsFilename(alertDataService.getClass());
 		name = name.substring(0, 1)
 		           .toLowerCase() + name.substring(1);
 		return name;
 	}
 	
 	@Override
-	public List<String> componentFields()
+	public List<NgImportReference> getAllImportAnnotations()
 	{
-		return List.of("    data?: any;\n" +
-		               "    private updated: boolean = false;");
+		List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
+		NgComponentReference reference = getNgComponentReference((Class<? extends IComponent<?>>) alertDataService.getClass());
+		out.addAll(putRelativeLinkInMap(getClass(), reference));
+		return out;
+	}
+	
+	@Override
+	public List<String> afterViewInit()
+	{
+		List<String> out = INgComponent.super.afterViewInit();
+		out.add("        this." + getServiceName() + ".data.subscribe((dd) => {\n" +
+		        "            this.data = dd;\n" +
+		        "            this.updated = true;\n" +
+		        "        });\n");
+		return out;
 	}
 	
 	@Override
 	public List<String> componentMethods()
 	{
+		List<String> out = INgComponent.super.componentMethods();
 		if (alertDataService != null)
 		{
-			String name = getServiceName();
-			return List.of("ngAfterViewInit(): void {\n" +
-			               "        this." + name + ".data.subscribe((dd) => {\n" +
-			               "            this.data = dd;\n" +
-			               "            this.updated = true;\n" +
-			               "        });\n" +
-			               "    }",
-					
-					
-					
-					"close(alertItem: Alert) {\n" +
-			               "    this.data.out?.splice(this.data.out?.indexOf(alertItem), 1);\n" +
-			               "}\n");
+			out.add("close(alertItem: Alert) {\n" +
+			        "    this.data.out?.splice(this.data.out?.indexOf(alertItem), 1);\n" +
+			        "}\n");
 		}
 		else
 		{
 			return List.of();
 		}
-	}
-	
-	@Override
-	public List<String> componentInterfaces()
-	{
-		return List.of("AfterViewInit");
+		return out;
 	}
 	
 	@Override
@@ -126,8 +129,7 @@ public abstract class BSAlerts<J extends BSAlerts<J>>
 		List<String> out = new ArrayList<>();
 		if (alertDataService != null)
 		{
-			out.add("public " + getServiceName() + " : " + alertDataService.getClass()
-			                                                               .getSimpleName());
+			out.add("public " + getServiceName() + " : " + getTsFilename(alertDataService.getClass()));
 		}
 		return out;
 	}

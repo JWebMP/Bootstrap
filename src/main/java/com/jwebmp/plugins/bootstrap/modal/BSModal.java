@@ -16,18 +16,21 @@
  */
 package com.jwebmp.plugins.bootstrap.modal;
 
-import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.annotations.structures.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.constructors.*;
+import com.jwebmp.core.base.angular.client.annotations.globals.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.annotations.structures.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.children.*;
 import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.bootstrap.*;
 import com.jwebmp.plugins.bootstrap.modal.parts.*;
 import com.jwebmp.plugins.bootstrap.navbar.interfaces.*;
 
 import java.util.List;
+import java.util.*;
 
 /**
  * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
@@ -46,15 +49,42 @@ import java.util.List;
                                     "notifications, or completely custom content.",
                       url = "https://ng-bootstrap.github.io/#/components/modal/examples",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
-@NgImportReference(name = "NgbModal, ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap",onParent = true)
+
+@NgImportReference(value = "NgbModal", reference = "@ng-bootstrap/ng-bootstrap",onParent = true)
+@NgImportReference(value = "ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap")
 @NgConstructorParameter(value = "public modalService: NgbModal",onParent = true)
-@NgMethod(value = "open(content : any) {\n" +
-          "this.modalService.open(content, {ariaLabelledBy: '.modal-title'});\n" +
-          "}\n",onParent = true)
+
+@NgField("closeResult? : string;")
+@NgMethod("private getDismissReason(reason: any): string {\n" +
+          "    if (reason === ModalDismissReasons.ESC) {\n" +
+          "      return 'by pressing ESC';\n" +
+          "    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {\n" +
+          "      return 'by clicking on a backdrop';\n" +
+          "    } else {\n" +
+          "      return `with: ${reason}`;\n" +
+          "    }\n" +
+          "  }")
+
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
-		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren,INgComponent<J>
+		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren, INgComponent<J>
 {
+	
+	@Override
+	public List<String> componentMethods()
+	{
+		List<String> list = INgComponent.super.componentMethods();
+		if (list == null)
+		{
+			list = new ArrayList<>();
+		}
+		list.add("open(content : any) {\\n\" +\n" +
+		         "                  \"this.modalService.open(content, " + renderOptions() + ");\\n\" +\n" +
+		         "                  \"}");
+		
+		return list;
+	}
+	
 	/**
 	 * The modal content
 	 */
@@ -68,23 +98,13 @@ public class BSModal<J extends BSModal<J>>
 	 */
 	private BSModalFooter<?> modalFooter;
 	
-	public List<String> fields()
-	{
-		return List.of("closeResult? : string;");
-	}
-
-	public List<String> methods()
-	{
-		return List.of("private getDismissReason(reason: any): string {\n" +
-				"    if (reason === ModalDismissReasons.ESC) {\n" +
-				"      return 'by pressing ESC';\n" +
-				"    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {\n" +
-				"      return 'by clicking on a backdrop';\n" +
-				"    } else {\n" +
-				"      return `with: ${reason}`;\n" +
-				"    }\n" +
-				"  }");
-	}
+	private boolean backdrop = true;
+	private boolean backdropStatic;
+	private boolean centered;
+	private boolean fullScreen;
+	private BSSizes fullScreenBelow;
+	private boolean keyboard = true;
+	private BSSizes size;
 	
 	/**
 	 * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user
@@ -157,10 +177,45 @@ public class BSModal<J extends BSModal<J>>
 		return component;
 	}
 	
+	public String renderOptions()
+	{
+		String options = "{";
+		if (!backdrop)
+		{
+			options += "backdrop:false,";
+		}
+		if (backdropStatic)
+		{
+			options += "backdrop:'static',";
+		}
+		if (centered)
+		{
+			options += "centered:true,";
+		}
+		if (keyboard)
+		{
+			options += "keyboard:true,";
+		}
+		else
+		{
+			options += "keyboard:false,";
+		}
+		if (size != null)
+		{
+			options += "size:'" + size + "',";
+		}
+		if(options.endsWith(","))
+		{
+			options = options.substring(0, options.length() - 1);
+		}
+		options += "}";
+		return options;
+	}
+	
 	public <T extends IComponentHierarchyBase<?, ?>> T setOpenButton(T component)
 	{
 		component.asAttributeBase()
-		         .addAttribute("(click)", "this.modalService.open(" + getTemplateName() + ")");
+		         .addAttribute("(click)", "this.modalService.open('" + getTemplateName() + "'," + renderOptions() + ")");
 		return component;
 	}
 	
@@ -188,6 +243,17 @@ public class BSModal<J extends BSModal<J>>
 		super.init();
 	}
 	
+	public boolean isBackdropStatic()
+	{
+		return backdropStatic;
+	}
+	
+	public J setBackdropStatic(boolean backdropStatic)
+	{
+		this.backdropStatic = backdropStatic;
+		return (J) this;
+	}
+	
 	/**
 	 * Returns this modal with only its methods
 	 *
@@ -196,5 +262,71 @@ public class BSModal<J extends BSModal<J>>
 	public IBSModal<?> asMe()
 	{
 		return this;
+	}
+	
+	public boolean isBackdrop()
+	{
+		return backdrop;
+	}
+	
+	public J setBackdrop(boolean backdrop)
+	{
+		this.backdrop = backdrop;
+		return (J) this;
+	}
+	
+	public boolean isCentered()
+	{
+		return centered;
+	}
+	
+	public J setCentered(boolean centered)
+	{
+		this.centered = centered;
+		return (J) this;
+	}
+	
+	public boolean isFullScreen()
+	{
+		return fullScreen;
+	}
+	
+	public J setFullScreen(boolean fullScreen)
+	{
+		this.fullScreen = fullScreen;
+		return (J) this;
+	}
+	
+	public BSSizes getFullScreenBelow()
+	{
+		return fullScreenBelow;
+	}
+	
+	public J setFullScreenBelow(BSSizes fullScreenBelow)
+	{
+		this.fullScreenBelow = fullScreenBelow;
+		return (J) this;
+	}
+	
+	public boolean isKeyboard()
+	{
+		return keyboard;
+	}
+	
+	public J setKeyboard(boolean keyboard)
+	{
+		this.keyboard = keyboard;
+		return (J) this;
+	}
+	
+	public BSSizes getSize()
+	{
+		return size;
+	}
+	
+	public J setSize(BSSizes size)
+	{
+		this.size = size;
+		return (J) this;
 	}
 }

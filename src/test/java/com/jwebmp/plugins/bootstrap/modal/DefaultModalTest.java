@@ -1,9 +1,5 @@
 package com.jwebmp.plugins.bootstrap.modal;
 
-import com.jwebmp.core.base.angular.services.annotations.NgComponent;
-import com.jwebmp.core.base.angular.services.interfaces.INgComponent;
-import com.jwebmp.core.base.angular.services.interfaces.INgModule;
-
 
 public class DefaultModalTest extends BSModal<DefaultModalTest>
 {

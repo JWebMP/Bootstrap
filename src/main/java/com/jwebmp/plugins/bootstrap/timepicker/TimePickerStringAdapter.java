@@ -1,15 +1,16 @@
 package com.jwebmp.plugins.bootstrap.timepicker;
 
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.annotations.references.*;
-import com.jwebmp.core.base.angular.services.annotations.structures.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.annotations.structures.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 
 import java.util.*;
 
 @NgDataType
-@NgImportReference(name = "Injectable",reference = "@angular/core")
-@NgImportReference(name = "NgbTimeStruct, NgbTimeAdapter",reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(value = "Injectable", reference = "@angular/core")
+@NgImportReference(value = "NgbTimeStruct, NgbTimeAdapter",reference = "@ng-bootstrap/ng-bootstrap")
 @NgMethod("fromModel(value: string| null): NgbTimeStruct | null {\n" +
           "    if (!value) {\n" +
           "      return null;\n" +

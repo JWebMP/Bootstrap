@@ -16,30 +16,26 @@
  */
 package com.jwebmp.plugins.bootstrap.forms;
 
-import com.jwebmp.core.base.angular.forms.AngularForm;
-import com.jwebmp.core.base.angular.modules.services.angular.forms.*;
-import com.jwebmp.core.base.html.Input;
-import com.jwebmp.core.base.html.Label;
-import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
+import com.jwebmp.core.base.angular.forms.*;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.*;
 import com.jwebmp.core.base.html.inputs.*;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.plugins.*;
 import com.jwebmp.core.utilities.*;
-import com.jwebmp.plugins.bootstrap.buttons.BSButton;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
-import com.jwebmp.plugins.bootstrap.buttons.BSButtonSizeOptions;
-import com.jwebmp.plugins.bootstrap.buttons.checkbox.BSCheckBoxGroup;
-import com.jwebmp.plugins.bootstrap.buttons.radio.BSRadioButtonGroup;
-import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
-import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions;
-import com.jwebmp.plugins.bootstrap.forms.groups.sets.BSFormInputGroup;
-import com.jwebmp.plugins.bootstrap.forms.interfaces.IBSForm;
-import com.jwebmp.plugins.bootstrap.navbar.interfaces.BSNavBarChildren;
-import com.jwebmp.plugins.bootstrap.options.BSAlignmentVerticalOptions;
+import com.jwebmp.plugins.bootstrap.buttons.*;
+import com.jwebmp.plugins.bootstrap.buttons.checkbox.*;
+import com.jwebmp.plugins.bootstrap.buttons.radio.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.*;
+import com.jwebmp.plugins.bootstrap.forms.groups.sets.*;
+import com.jwebmp.plugins.bootstrap.forms.interfaces.*;
+import com.jwebmp.plugins.bootstrap.navbar.interfaces.*;
+import com.jwebmp.plugins.bootstrap.options.*;
+import jakarta.validation.constraints.*;
 
-import jakarta.validation.constraints.NotNull;
-
-import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.Form_Horizontal;
+import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.*;
 
 /**
  * Forms
@@ -69,9 +65,9 @@ public class BSForm<J extends BSForm<J>>
 		this(GUIDGenerator.generateGuid(),null);
 	}
 	
-	public BSForm(String id, FormDataService<?> formDataService)
+	public BSForm(String id, INgServiceProvider<?> formDataProvider)
 	{
-		super(id,formDataService);
+		super(id,formDataProvider);
 		addAttribute("no-validation", "");
 	}
 	

@@ -4,6 +4,7 @@ import com.jwebmp.plugins.bootstrap.implementations.*;
 module com.jwebmp.plugins.bootstrap {
 
 	requires transitive com.jwebmp.core.angular;
+	requires transitive com.jwebmp.core.base.angular.client;
 	
 	requires com.google.common;
 	
