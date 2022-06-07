@@ -64,7 +64,7 @@ import java.util.*;
           "      return `with: ${reason}`;\n" +
           "    }\n" +
           "  }")
-
+@NgMethod("")
 public class BSModal<J extends BSModal<J>>
 		extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
 		implements BSNavBarChildren, IBSModal<J>, BodyChildren, FormChildren, ListItemChildren, INgComponent<J>
@@ -78,9 +78,9 @@ public class BSModal<J extends BSModal<J>>
 		{
 			list = new ArrayList<>();
 		}
-		list.add("open(content : any) {\\n\" +\n" +
-		         "                  \"this.modalService.open(content, " + renderOptions() + ");\\n\" +\n" +
-		         "                  \"}");
+		list.add("open(content : any) {\n" +
+		         "                  this.modalService.open(content, " + renderOptions() + ");\n" +
+		         "                  }\n");
 		
 		return list;
 	}
