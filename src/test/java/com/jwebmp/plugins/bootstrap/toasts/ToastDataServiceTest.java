@@ -8,7 +8,7 @@ import com.jwebmp.core.base.angular.client.annotations.angular.*;
 public class ToastDataServiceTest extends ToastDataService<ToastDataServiceTest>
 {
 	@Override
-	public DynamicData getData(AjaxCall<?> call)
+	public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		return new DynamicData().addData(new ToastInfo().setHeader("Header")
 		                                                .setBody("Toast Body")

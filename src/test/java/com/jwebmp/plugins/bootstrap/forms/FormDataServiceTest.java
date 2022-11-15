@@ -9,7 +9,7 @@ import com.jwebmp.core.base.angular.client.services.interfaces.*;
 public class FormDataServiceTest implements INgDataService<FormDataServiceTest>
 {
 	@Override
-	public DynamicData getData(AjaxCall<?> call)
+	public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		return new DynamicData();
 	}

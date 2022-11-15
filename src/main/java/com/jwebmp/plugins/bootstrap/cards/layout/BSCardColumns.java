@@ -44,7 +44,7 @@ import java.util.Map;
  * @since 01 Jan 2017
  */
 public class BSCardColumns<J extends BSCardColumns<J>>
-		extends Div<BSCard<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 		implements GlobalChildren,IBSCardDeckChildren
 {
 

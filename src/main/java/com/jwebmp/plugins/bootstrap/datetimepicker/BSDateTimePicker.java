@@ -6,9 +6,6 @@ import com.jwebmp.core.base.angular.client.annotations.typescript.*;
 import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 
-@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.25")
-@NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")
-@NgBootModuleImport("NgBootstrapDatetimeAngularModule")
 public class BSDateTimePicker<J extends BSDateTimePicker<J>>
 		extends DivSimple<J>
 		implements INgComponent<J>

@@ -25,7 +25,7 @@ public class RebuildAppClickEvent extends ClickAdapter<RebuildAppClickEvent>
 	{
 		try
 		{
-			new JWebMPTypeScriptCompiler(new BootstrapApp()).renderAppTS();
+			new JWebMPTypeScriptCompiler(new BootstrapApp()).renderAppTS(BootstrapApp.class);
 		}
 		catch (IOException e)
 		{

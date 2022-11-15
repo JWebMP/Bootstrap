@@ -49,10 +49,14 @@ import jakarta.validation.constraints.*;
                    pluginModuleName = "com.jwebmp.plugins.bootstrap4",
                    pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.1")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
 @TsDependency(value = "bootstrap", version = "^5.1.3")
-@TsDependency(value = "@angular/localize", version = "^13.3.4")
+@TsDependency(value = "@angular/localize", version = "^13.3.0")
+
+@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
+@NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")
+@NgBootModuleImport("NgBootstrapDatetimeAngularModule")
 
 @NgPolyfill("@angular/localize/init")
 

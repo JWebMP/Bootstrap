@@ -15,7 +15,7 @@ public class AlertDataServiceTest extends AlertDataService<AlertDataServiceTest>
 	}
 	
 	@Override
-	public DynamicData getData(AjaxCall<?> call)
+	public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		return new DynamicData().addData(new Alert(Success, "SuccessMessage"))
 		                        .addData(new Alert(Primary, "Primary Message"))
