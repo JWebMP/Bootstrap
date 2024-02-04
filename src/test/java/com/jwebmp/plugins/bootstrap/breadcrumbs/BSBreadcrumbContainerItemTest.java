@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap.breadcrumbs;
 
 import org.junit.jupiter.api.Test;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * @author GedMarc

@@ -20,7 +20,7 @@ import com.google.common.base.*;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.navs.BSNavsAttributes;
 import com.jwebmp.plugins.bootstrap.navs.BSNavsOptions;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.BSNavsChildren;

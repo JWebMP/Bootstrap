@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.bootstrap.options;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Colour settings for bootstrap 4 beta and up

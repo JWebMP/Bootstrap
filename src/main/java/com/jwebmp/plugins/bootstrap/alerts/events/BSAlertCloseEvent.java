@@ -16,24 +16,24 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts.events;
 
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
+import lombok.extern.java.Log;
 
-import java.util.Objects;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 /**
  * Handles all events. Over-ride methods.
  *
  * @author GedMarc
  */
+@Log
 public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 		extends Event<GlobalFeatures, J>
 		implements BSAlertEvents<J>
@@ -42,8 +42,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 	/**
 	 * Logger for the Component
 	 */
-	private static final Logger LOG = LogFactory.getInstance()
-	                                            .getLogger("BSAlertCloseEvent");
+	
 	
 	/**
 	 * Performs a click
@@ -66,7 +65,7 @@ public abstract class BSAlertCloseEvent<J extends BSAlertCloseEvent<J>>
 		}
 		catch (Exception e)
 		{
-			BSAlertCloseEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
+			BSAlertCloseEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
 

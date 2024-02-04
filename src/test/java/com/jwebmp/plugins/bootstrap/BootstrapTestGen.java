@@ -1,25 +1,20 @@
 package com.jwebmp.plugins.bootstrap;
 
-import com.guicedee.guicedinjection.*;
+import com.guicedee.guicedinjection.GuiceContext;
 import com.guicedee.guicedservlets.undertow.GuicedUndertow;
-import com.guicedee.logger.LogFactory;
-import com.jwebmp.core.base.angular.client.services.interfaces.*;
-import com.jwebmp.core.base.angular.services.compiler.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
-import org.junit.jupiter.api.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.INgApp;
+import com.jwebmp.core.base.angular.services.compiler.JWebMPTypeScriptCompiler;
+import org.junit.jupiter.api.Test;
 
-import java.io.*;
-import java.util.logging.Level;
+import java.io.IOException;
 
-import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
-import static com.jwebmp.core.base.angular.client.services.interfaces.IComponent.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.getTsFilename;
+import static com.jwebmp.core.base.angular.client.services.interfaces.IComponent.getClassDirectory;
 
 public class BootstrapTestGen
 {
 	public static void main(String[] args) throws Exception
 	{
-		LogFactory.configureDefaultLogHiding();
-		LogFactory.configureConsoleColourOutput(Level.FINE);
 		GuicedUndertow.boot("localhost", 6524);
 	}
 	

@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.breadcrumbs;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.plugins.bootstrap.options.BSDefaultOptions;

@@ -1,5 +1,6 @@
 import com.jwebmp.core.databind.IOnComponentAdded;
-import com.jwebmp.plugins.bootstrap.implementations.*;
+import com.jwebmp.plugins.bootstrap.implementations.BootstrapModuleInclusion;
+import com.jwebmp.plugins.bootstrap.implementations.OnBootstrapComponentAdded;
 
 module com.jwebmp.plugins.bootstrap {
 
@@ -8,7 +9,10 @@ module com.jwebmp.plugins.bootstrap {
 	
 	requires com.google.common;
 	
+	requires static lombok;
+	
 	requires com.guicedee.guicedinjection;
+	requires com.guicedee.jsonrepresentation;
 	
 	exports com.jwebmp.plugins.bootstrap;
 	exports com.jwebmp.plugins.bootstrap.accordion;

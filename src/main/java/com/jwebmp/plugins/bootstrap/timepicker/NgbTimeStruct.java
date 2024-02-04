@@ -1,10 +1,13 @@
 package com.jwebmp.plugins.bootstrap.timepicker;
 
-import com.fasterxml.jackson.annotation.*;
-import com.guicedee.guicedinjection.representations.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.guicedee.services.jsonrepresentation.IJsonRepresentation;
 
-import java.time.*;
-import java.util.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,

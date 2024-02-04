@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.bootstrap.cards.parts;
 
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap.buttons.BSButtonOptions;
 import com.jwebmp.plugins.bootstrap.cards.BSCardChildren;
@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap.options.interfaces.IBSLayout;
 
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * @author GedMarc

@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel.events;
 
-import com.guicedee.logger.*;
+
 import com.jwebmp.core.*;
 import com.jwebmp.core.base.ajax.*;
 import com.jwebmp.core.base.html.interfaces.*;
@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap.carousel.*;
 import java.util.*;
 import java.util.logging.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -42,8 +42,7 @@ public abstract class BSCarouselSlidEvent<J extends BSCarouselSlidEvent<J>>
 	/**
 	 * Logger for the Component
 	 */
-	private static final Logger LOG = LogFactory.getInstance()
-	                                            .getLogger("BSCarouselSlidEvent");
+	
 	
 
 	/**

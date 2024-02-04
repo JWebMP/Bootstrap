@@ -16,13 +16,13 @@
  */
 package com.jwebmp.plugins.bootstrap.listgroup;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.listgroup.parts.BSListGroupButtonItem;
 import com.jwebmp.plugins.bootstrap.listgroup.parts.BSListGroupLinkItem;
 import com.jwebmp.plugins.bootstrap.listgroup.parts.BSListGroupListItem;
 import org.junit.jupiter.api.Test;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * @author GedMarc

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.bootstrap.navbar.enumerations;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.jwebmp.plugins.bootstrap.options.IBSComponentOptions;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Placement

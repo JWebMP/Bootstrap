@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.forms.groups.enumerations;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.options.IBSComponentOptions;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Dropdowns

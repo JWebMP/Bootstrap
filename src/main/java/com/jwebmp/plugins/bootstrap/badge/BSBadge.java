@@ -21,7 +21,7 @@ import com.jwebmp.core.base.html.attributes.ALinkAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 import jakarta.validation.constraints.NotNull;
 

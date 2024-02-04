@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.modal;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.options.IBSComponentOptions;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Modal Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user

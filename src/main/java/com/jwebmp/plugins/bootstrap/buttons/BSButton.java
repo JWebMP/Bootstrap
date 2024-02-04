@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.buttons;
 
-import com.guicedee.guicedinjection.json.*;
+import com.guicedee.services.jsonrepresentation.json.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.attributes.*;
 import com.jwebmp.core.base.html.interfaces.*;

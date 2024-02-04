@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.navs;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.options.IBSComponentOptions;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Navs Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. Swap

@@ -27,7 +27,7 @@ import com.jwebmp.plugins.bootstrap.forms.groups.sets.BSFormInputGroup;
 import com.jwebmp.plugins.bootstrap.options.BSAlignmentVerticalOptions;
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 import static com.jwebmp.core.base.html.attributes.GlobalAttributes.*;
 import static com.jwebmp.core.base.servlets.enumarations.ComponentTypes.*;
 

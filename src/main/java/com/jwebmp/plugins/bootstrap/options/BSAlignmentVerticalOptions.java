@@ -18,7 +18,7 @@ package com.jwebmp.plugins.bootstrap.options;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Vertical alignment

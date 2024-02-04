@@ -16,21 +16,25 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel.events;
 
-import com.guicedee.logger.*;
-import com.jwebmp.core.*;
-import com.jwebmp.core.base.ajax.*;
-import com.jwebmp.core.base.html.interfaces.*;
-import com.jwebmp.core.base.html.interfaces.events.*;
-import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.*;
-import com.jwebmp.plugins.bootstrap.carousel.*;
 
-import java.util.logging.*;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Event;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.plugins.bootstrap.carousel.BSCarouselEvents;
+import lombok.extern.java.Log;
+
+import java.util.logging.Level;
 
 /**
  * Handles all events. Over-ride methods.
  *
  * @author GedMarc
  */
+@Log
 public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		extends Event<GlobalFeatures, J>
 		implements GlobalEvents<J>, BSCarouselEvents<J>
@@ -38,8 +42,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 	/**
 	 * Logger for the Component
 	 */
-	private static final Logger LOG = LogFactory.getInstance()
-	                                            .getLogger("BSCarouselSlideEvent");
+	
 	
 	/**
 	 * Performs a click
@@ -60,7 +63,7 @@ public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
 		}
 		catch (Exception e)
 		{
-			BSCarouselSlideEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
+			BSCarouselSlideEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
 	

@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.media;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.plugins.bootstrap.options.IBSComponentOptions;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * The media object is an abstract element used as the basis for building more complex and repetitive components (like blog comments,

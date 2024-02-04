@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.toasts.events;
 
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
@@ -24,18 +24,18 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.plugins.bootstrap.alerts.events.BSAlertEvents;
+import lombok.extern.java.Log;
 
-import java.util.Objects;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
 /**
  * Handles all events. Over-ride methods.
  *
  * @author GedMarc
  */
+@Log
 public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 		extends Event<GlobalFeatures, J>
 		implements BSAlertEvents<J>
@@ -44,8 +44,7 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 	/**
 	 * Logger for the Component
 	 */
-	private static final Logger LOG = LogFactory.getInstance()
-	                                            .getLogger("BSToastHideEvent");
+	
 
 
 	/**
@@ -69,7 +68,7 @@ public abstract class BSToastHideEvent<J extends BSToastHideEvent<J>>
 		}
 		catch (Exception e)
 		{
-			BSToastHideEvent.LOG.log(Level.SEVERE, "Error In Firing Event", e);
+			BSToastHideEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
 		}
 	}
 
