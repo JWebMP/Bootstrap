@@ -39,222 +39,223 @@ import jakarta.validation.constraints.*;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Progress Bars",
-                      description = "Use our custom progress component for displaying simple or complex progress bars.",
-                      url = "https://v4-alpha.getbootstrap.com/components/progress/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Use our custom progress component for displaying simple or complex progress bars.",
+        url = "https://v4-alpha.getbootstrap.com/components/progress/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSProgressBar<J extends BSProgressBar<J>>
-		extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
+        extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {
-	private double percent;
-	
-	/**
-	 * Whether or not the progress bar is striped
-	 */
-	private Boolean striped;
-	/**
-	 * if animated
-	 */
-	private Boolean animated;
-	
-	private Integer max;
-	private BSColourTypes type;
-	private BSColourTypes textType;
-	private Boolean showValue;
-	
-	private MeasurementCSSImpl height;
-	
-	/**
-	 * Use our custom progress component for displaying simple or complex progress bars.
-	 */
-	public BSProgressBar()
-	{
-		this(false);
-	}
-	
-	/**
-	 * Creates a new instance of a progress bar
-	 *
-	 * @param striped If the progress bar is striped or not
-	 */
-	public BSProgressBar(boolean striped)
-	{
-		setTag("ngb-progressbar");
-		setStriped(striped);
-	}
-	
-	@Override
-	public void init()
-	{
-		if (getAttribute("[value]") == null)
-		{
-			addAttribute("[value]", percent + "");
-		}
-		if (type != null)
-		{
-			addAttribute("type", type.toString());
-		}
-		if (textType != null)
-		{
-			addAttribute("textType", textType.toString());
-		}
-		if (showValue != null)
-		{
-			addAttribute("[showValue]", showValue + "");
-		}
-		if (max != null)
-		{
-			addAttribute("[max]", max + "");
-		}
-		
-		if (getAttribute("[striped]") == null)
-		if (striped != null)
-		{
-			addAttribute("[striped]", striped + "");
-		}
-		if (height != null)
-		{
-			addAttribute("height", height + "");
-		}
-		if (getAttribute("[animated]") == null)
-		if (animated != null)
-		{
-			addAttribute("[animated]", animated + "");
-		}
-		
-		
-		super.init();
-	}
-	
-	/**
-	 * If is animated
-	 *
-	 * @return
-	 */
-	
-	public boolean isAnimated()
-	{
-		return animated;
-	}
-	
-	/**
-	 * Sets if animated
-	 *
-	 * @param animated
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setAnimated(boolean animated)
-	{
-		this.animated = animated;
-		return (J) this;
-	}
-	
-	/**
-	 * Sets if this component is striped or not
-	 *
-	 * @return
-	 */
-	
-	public boolean isStriped()
-	{
-		return striped;
-	}
-	
-	/**
-	 * Sets if this components is striped or not
-	 *
-	 * @param striped
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public final J setStriped(boolean striped)
-	{
-		this.striped = striped;
-		return (J) this;
-	}
-	
-	/**
-	 * Sets the given percentage
-	 *
-	 * @param percent
-	 * @return
-	 */
-	
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setPercentage(double percent)
-	{
-		this.percent = percent;
-		return (J) this;
-	}
-	
-	public double getPercent()
-	{
-		return percent;
-	}
-	
-	public Boolean getStriped()
-	{
-		return striped;
-	}
-	
-	public Boolean getAnimated()
-	{
-		return animated;
-	}
-	
-	public Integer getMax()
-	{
-		return max;
-	}
-	
-	public J setMax(Integer max)
-	{
-		this.max = max;
-		return (J) this;
-	}
-	
-	public BSColourTypes getType()
-	{
-		return type;
-	}
-	
-	public J setType(BSColourTypes type)
-	{
-		this.type = type;
-		return (J) this;
-	}
-	
-	public Boolean getShowValue()
-	{
-		return showValue;
-	}
-	
-	public J setShowValue(Boolean showValue)
-	{
-		this.showValue = showValue;
-		return (J) this;
-	}
-	
-	public MeasurementCSSImpl getHeight()
-	{
-		return height;
-	}
-	
-	public J setHeight(MeasurementCSSImpl height)
-	{
-		this.height = height;
-		return (J) this;
-	}
-	
-	public BSColourTypes getTextType()
-	{
-		return textType;
-	}
-	
-	public J setTextType(BSColourTypes textType)
-	{
-		this.textType = textType;
-		return (J) this;
-	}
+    private double percent = 0;
+
+    /**
+     * Whether or not the progress bar is striped
+     */
+    private Boolean striped;
+    /**
+     * if animated
+     */
+    private Boolean animated;
+
+    private Integer max;
+    private BSColourTypes type;
+    private BSColourTypes textType;
+    private Boolean showValue;
+
+    private MeasurementCSSImpl height;
+
+    /**
+     * Use our custom progress component for displaying simple or complex progress bars.
+     */
+    public BSProgressBar()
+    {
+        this(false);
+    }
+
+    /**
+     * Creates a new instance of a progress bar
+     *
+     * @param striped If the progress bar is striped or not
+     */
+    public BSProgressBar(boolean striped)
+    {
+        setTag("ngb-progressbar");
+        setStriped(striped);
+    }
+
+    @Override
+    public void init()
+    {
+        addAttribute("[value]", percent + "");
+        if (type != null)
+        {
+            addAttribute("type", type.toString());
+        }
+        if (textType != null)
+        {
+            addAttribute("textType", textType.toString());
+        }
+        if (showValue != null)
+        {
+            addAttribute("[showValue]", showValue + "");
+        }
+        if (max != null)
+        {
+            addAttribute("[max]", max + "");
+        }
+
+        if (getAttribute("[striped]") == null)
+        {
+            if (striped != null)
+            {
+                addAttribute("[striped]", striped + "");
+            }
+        }
+        if (height != null)
+        {
+            addAttribute("height", height + "");
+        }
+        if (getAttribute("[animated]") == null)
+        {
+            if (animated != null)
+            {
+                addAttribute("[animated]", animated + "");
+            }
+        }
+
+
+        super.init();
+    }
+
+    /**
+     * If is animated
+     *
+     * @return
+     */
+
+    public boolean isAnimated()
+    {
+        return animated;
+    }
+
+    /**
+     * Sets if animated
+     *
+     * @param animated
+     */
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J setAnimated(boolean animated)
+    {
+        this.animated = animated;
+        return (J) this;
+    }
+
+    /**
+     * Sets if this component is striped or not
+     *
+     * @return
+     */
+
+    public boolean isStriped()
+    {
+        return striped;
+    }
+
+    /**
+     * Sets if this components is striped or not
+     *
+     * @param striped
+     */
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public final J setStriped(boolean striped)
+    {
+        this.striped = striped;
+        return (J) this;
+    }
+
+    /**
+     * Sets the given percentage
+     *
+     * @param percent
+     * @return
+     */
+
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J setPercentage(double percent)
+    {
+        this.percent = percent;
+        return (J) this;
+    }
+
+    public double getPercent()
+    {
+        return percent;
+    }
+
+    public Boolean getStriped()
+    {
+        return striped;
+    }
+
+    public Boolean getAnimated()
+    {
+        return animated;
+    }
+
+    public Integer getMax()
+    {
+        return max;
+    }
+
+    public J setMax(Integer max)
+    {
+        this.max = max;
+        return (J) this;
+    }
+
+    public BSColourTypes getType()
+    {
+        return type;
+    }
+
+    public J setType(BSColourTypes type)
+    {
+        this.type = type;
+        return (J) this;
+    }
+
+    public Boolean getShowValue()
+    {
+        return showValue;
+    }
+
+    public J setShowValue(Boolean showValue)
+    {
+        this.showValue = showValue;
+        return (J) this;
+    }
+
+    public MeasurementCSSImpl getHeight()
+    {
+        return height;
+    }
+
+    public J setHeight(MeasurementCSSImpl height)
+    {
+        this.height = height;
+        return (J) this;
+    }
+
+    public BSColourTypes getTextType()
+    {
+        return textType;
+    }
+
+    public J setTextType(BSColourTypes textType)
+    {
+        this.textType = textType;
+        return (J) this;
+    }
 }

@@ -16,6 +16,10 @@
  */
 package com.jwebmp.plugins.bootstrap.accordion;
 
+import com.jwebmp.core.base.html.Button;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import org.junit.jupiter.api.*;
 
 /**
@@ -24,21 +28,21 @@ import org.junit.jupiter.api.*;
 public class BSAccordionTest
 
 {
-	
-	public BSAccordionTest()
-	{
-	}
-	
-	@Test
-	public void testHtml()
-	{
-		BSAccordion accordion = new BSAccordion();
-		accordion.setID("test");
-		
-		accordion.addPanel("static-1", new BSAccordionPanelTitle<>().add("Title 1"),
-				new BSAccordionPanelContent<>().add("Content 1"), true);
-		
-		System.out.println(accordion.toString(true));
-	}
-	
+
+    public BSAccordionTest()
+    {
+    }
+
+    @Test
+    public void testHtml()
+    {
+        BSAccordion accordion = new BSAccordion();
+        accordion.setID("test");
+
+        accordion.addPanel("static-1", new BSAccordionPanelHeader<>().addTitle(new Button<>("Title 1")),
+                new BSAccordionPanelContent<>().add("Content 1"), true);
+
+        System.out.println(accordion.toString(true));
+    }
+
 }

@@ -31,74 +31,72 @@ import jakarta.validation.constraints.*;
  * file://
  */
 @PluginInformation(pluginName = "Bootstrap",
-                   pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
-                                       "on the web",
-                   pluginUniqueName = "bootstrap",
-                   pluginVersion = "5.0.2",
-                   pluginCategories = "bootstrap,ui,web ui, framework",
-                   pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
-                   pluginSourceUrl = "http://getbootstrap.com/",
-                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
-                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
-                   pluginIconUrl = "",
-                   pluginIconImageUrl = "",
-                   pluginOriginalHomepage = "http://getbootstrap.com/",
-                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
-                   pluginGroupId = "com.jwebmp.plugins.bootstrap",
-                   pluginArtifactId = "jwebmp-bootstrap",
-                   pluginModuleName = "com.jwebmp.plugins.bootstrap4",
-                   pluginStatus = PluginStatus.Released
+        pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
+                "on the web",
+        pluginUniqueName = "bootstrap",
+        pluginVersion = "5.0.2",
+        pluginCategories = "bootstrap,ui,web ui, framework",
+        pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
+        pluginSourceUrl = "http://getbootstrap.com/",
+        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
+        pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
+        pluginIconUrl = "",
+        pluginIconImageUrl = "",
+        pluginOriginalHomepage = "http://getbootstrap.com/",
+        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
+        pluginGroupId = "com.jwebmp.plugins",
+        pluginArtifactId = "bootstrap",
+        pluginModuleName = "com.jwebmp.plugins.bootstrap",
+        pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^12.0.0")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^16.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
-@TsDependency(value = "bootstrap", version = "^5.1.3")
-@TsDependency(value = "@angular/localize", version = "^13.3.0")
+@TsDependency(value = "bootstrap", version = "^5.3.2")
+@TsDependency(value = "@angular/localize", version = "^17.2.0")
 
-@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
+/*@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
 @NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")
-@NgBootModuleImport("NgBootstrapDatetimeAngularModule")
+@NgBootModuleImport("NgBootstrapDatetimeAngularModule")*/
 
 @NgPolyfill("@angular/localize/init")
 
-
 @NgStyleSheet(value = "node_modules/bootstrap/scss/bootstrap.scss", name = "bootstrap")
-@NgScript(value = "@popperjs/core/dist/umd/popper.js",sortOrder = 4)
-@NgScript(value = "bootstrap/dist/js/bootstrap.js",sortOrder = 5)
+@NgScript(value = "@popperjs/core/dist/umd/popper.js", sortOrder = 4)
+@NgScript(value = "bootstrap/dist/js/bootstrap.js", sortOrder = 5)
 
 @NgBootModuleImport("NgbModule")
-@NgBootImportReference(name = "NgbModule",reference = "@ng-bootstrap/ng-bootstrap")
-
+@NgBootImportReference(name = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapPageConfigurator
-		implements IPageConfigurator<BootstrapPageConfigurator>
+        implements IPageConfigurator<BootstrapPageConfigurator>
 {
-	
-	/**
-	 * The default page configurator for bootstrap
-	 */
-	public BootstrapPageConfigurator()
-	{
-		//Nothing Needed
-	}
-	
-	/**
-	 * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
-	 * <p>
-	 * HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn't work if you view the page
-	 * via file://
-	 *
-	 * @return
-	 */
-	@NotNull
-	@Override
-	public Page<?> configure(Page<?> page)
-	{
-		return page;
-	}
-	
-	@Override
-	public boolean enabled()
-	{
-		return true;
-	}
-	
+
+    /**
+     * The default page configurator for bootstrap
+     */
+    public BootstrapPageConfigurator()
+    {
+        //Nothing Needed
+    }
+
+    /**
+     * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+     * <p>
+     * HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn't work if you view the page
+     * via file://
+     *
+     * @return
+     */
+    @NotNull
+    @Override
+    public IPage<?> configure(IPage<?> page)
+    {
+        return page;
+    }
+
+    @Override
+    public boolean enabled()
+    {
+        return true;
+    }
+
 }
