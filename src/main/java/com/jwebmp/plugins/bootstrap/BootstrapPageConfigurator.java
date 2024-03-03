@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.bootstrap;
 
-import com.jwebmp.core.*;
 import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
 import com.jwebmp.core.base.angular.client.annotations.boot.*;
 import com.jwebmp.core.base.angular.client.annotations.typescript.*;
@@ -65,7 +64,7 @@ import jakarta.validation.constraints.*;
 @NgScript(value = "bootstrap/dist/js/bootstrap.js", sortOrder = 5)
 
 @NgBootModuleImport("NgbModule")
-@NgBootImportReference(name = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
+@NgBootImportReference(value = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapPageConfigurator
         implements IPageConfigurator<BootstrapPageConfigurator>
 {
