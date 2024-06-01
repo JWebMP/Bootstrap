@@ -9,6 +9,7 @@ module com.jwebmp.plugins.bootstrap {
     requires com.jwebmp.client;
     requires com.jwebmp.core;
     requires com.jwebmp.core.angular;
+    requires com.jwebmp.angular.forms;
 
     requires com.google.common;
 

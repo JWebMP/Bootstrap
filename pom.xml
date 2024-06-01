@@ -25,16 +25,20 @@
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>angular</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jwebmp.plugins</groupId>
+            <artifactId>angular-forms</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>typescript-client</artifactId>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>moment</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <properties>

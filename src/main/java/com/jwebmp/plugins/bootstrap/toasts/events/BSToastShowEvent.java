@@ -29,6 +29,7 @@ import lombok.extern.java.Log;
 import java.util.logging.Level;
 
 import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.jwebmp.interception.services.StaticStrings.STRING_ANGULAR_EVENT_START;
 
 /**
  * Handles all events. Over-ride methods.
@@ -37,61 +38,59 @@ import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING
  */
 @Log
 public abstract class BSToastShowEvent<J extends BSToastShowEvent<J>>
-		extends Event<GlobalFeatures, J>
-		implements BSAlertEvents<J>
+        extends Event<GlobalFeatures, J>
+        implements BSAlertEvents<J>
 {
 
-	/**
-	 * Logger for the Component
-	 */
-	
+    /**
+     * Logger for the Component
+     */
 
-	/**
-	 * Performs a click
-	 *
-	 * @param component
-	 * 		The component this click is going to be acting on
-	 */
-	public BSToastShowEvent(IComponentHierarchyBase<?,?> component)
-	{
-		super(EventTypes.undefined, component);
-		setComponent(component);
-	}
 
-	@Override
-	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
-	{
-		try
-		{
-			onShow(call, response);
-		}
-		catch (Exception e)
-		{
-			BSToastShowEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
-		}
-	}
+    /**
+     * Performs a click
+     *
+     * @param component The component this click is going to be acting on
+     */
+    public BSToastShowEvent(IComponentHierarchyBase<?, ?> component)
+    {
+        super(EventTypes.undefined, component);
+        setComponent(component);
+    }
 
-	/**
-	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
-	 */
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			getComponent().asAttributeBase().addAttribute("ng-bs-toast-show-directive", com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
-		}
-		super.preConfigure();
-	}
+    @Override
+    public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
+    {
+        try
+        {
+            onShow(call, response);
+        }
+        catch (Exception e)
+        {
+            BSToastShowEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
+        }
+    }
 
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call
-	 * 		The physical AJAX call
-	 * @param response
-	 * 		The physical Ajax Receiver
-	 */
-	public abstract void onShow(AjaxCall<?> call, AjaxResponse<?> response);
+    /**
+     * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
+     */
+    @Override
+    public void preConfigure()
+    {
+        if (!isConfigured())
+        {
+            getComponent().asAttributeBase()
+                          .addAttribute("ng-bs-toast-show-directive", STRING_ANGULAR_EVENT_START + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+        }
+        super.preConfigure();
+    }
+
+    /**
+     * Triggers on Click
+     * <p>
+     *
+     * @param call     The physical AJAX call
+     * @param response The physical Ajax Receiver
+     */
+    public abstract void onShow(AjaxCall<?> call, AjaxResponse<?> response);
 }
