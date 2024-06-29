@@ -16,12 +16,17 @@
  */
 package com.jwebmp.plugins.bootstrap;
 
-import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
-import com.jwebmp.core.base.angular.client.annotations.boot.*;
-import com.jwebmp.core.base.angular.client.annotations.typescript.*;
-import com.jwebmp.core.plugins.*;
-import com.jwebmp.core.services.*;
-import jakarta.validation.constraints.*;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgPolyfill;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgScript;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgStyleSheet;
+import com.jwebmp.core.base.angular.client.annotations.boot.NgBootImportReference;
+import com.jwebmp.core.base.angular.client.annotations.boot.NgBootModuleImport;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
+import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
+import com.jwebmp.core.services.IPage;
+import com.jwebmp.core.services.IPageConfigurator;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
@@ -30,28 +35,28 @@ import jakarta.validation.constraints.*;
  * file://
  */
 @PluginInformation(pluginName = "Bootstrap",
-        pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
-                "on the web",
-        pluginUniqueName = "bootstrap",
-        pluginVersion = "5.0.2",
-        pluginCategories = "bootstrap,ui,web ui, framework",
-        pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
-        pluginSourceUrl = "http://getbootstrap.com/",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
-        pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
-        pluginIconUrl = "",
-        pluginIconImageUrl = "",
-        pluginOriginalHomepage = "http://getbootstrap.com/",
-        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
-        pluginGroupId = "com.jwebmp.plugins",
-        pluginArtifactId = "bootstrap",
-        pluginModuleName = "com.jwebmp.plugins.bootstrap",
-        pluginStatus = PluginStatus.Released
+                   pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
+                           "on the web",
+                   pluginUniqueName = "bootstrap",
+                   pluginVersion = "5.0.2",
+                   pluginCategories = "bootstrap,ui,web ui, framework",
+                   pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
+                   pluginSourceUrl = "http://getbootstrap.com/",
+                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
+                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
+                   pluginIconUrl = "",
+                   pluginIconImageUrl = "",
+                   pluginOriginalHomepage = "http://getbootstrap.com/",
+                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
+                   pluginGroupId = "com.jwebmp.plugins",
+                   pluginArtifactId = "bootstrap",
+                   pluginModuleName = "com.jwebmp.plugins.bootstrap",
+                   pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^16.0.0")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^17.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
 @TsDependency(value = "bootstrap", version = "^5.3.2")
-@TsDependency(value = "@angular/localize", version = "^17.2.0")
+@TsDependency(value = "@angular/localize", version = "^18.0.1")
 
 /*@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
 @NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")
