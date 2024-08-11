@@ -16,14 +16,15 @@
  */
 package com.jwebmp.plugins.bootstrap.progressbar;
 
-import com.jwebmp.core.base.html.*;
-import com.jwebmp.core.base.html.attributes.*;
-import com.jwebmp.core.htmlbuilder.css.measurement.*;
-import com.jwebmp.core.plugins.*;
-import com.jwebmp.plugins.bootstrap.*;
-import com.jwebmp.plugins.bootstrap.options.*;
-import com.jwebmp.plugins.bootstrap.progressbar.interfaces.*;
-import jakarta.validation.constraints.*;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.bootstrap.BSColourTypes;
+import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarChildren;
+import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarEvents;
+import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarFeatures;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Progress
@@ -39,13 +40,13 @@ import jakarta.validation.constraints.*;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Progress Bars",
-        description = "Use our custom progress component for displaying simple or complex progress bars.",
-        url = "https://v4-alpha.getbootstrap.com/components/progress/",
-        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Use our custom progress component for displaying simple or complex progress bars.",
+                      url = "https://v4-alpha.getbootstrap.com/components/progress/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSProgressBar<J extends BSProgressBar<J>>
         extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
 {
-    private double percent = 0;
+    private Double percent;
 
     /**
      * Whether or not the progress bar is striped
@@ -85,7 +86,10 @@ public class BSProgressBar<J extends BSProgressBar<J>>
     @Override
     public void init()
     {
-        addAttribute("[value]", percent + "");
+        if (this.percent != null)
+        {
+            addAttribute("[value]", percent + "");
+        }
         if (type != null)
         {
             addAttribute("type", type.toString());
