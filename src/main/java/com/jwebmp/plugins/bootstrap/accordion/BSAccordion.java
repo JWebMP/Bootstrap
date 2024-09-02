@@ -16,13 +16,16 @@
  */
 package com.jwebmp.plugins.bootstrap.accordion;
 
-import com.jwebmp.core.base.html.*;
-import com.jwebmp.core.base.html.attributes.*;
-import com.jwebmp.core.base.html.interfaces.*;
-import com.jwebmp.core.plugins.*;
-import com.jwebmp.plugins.bootstrap.options.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.bootstrap.options.interfaces.IBSAccordion;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Extend the default collapse behavior to create an accordion.
@@ -34,13 +37,25 @@ import java.util.*;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Accordion",
-        description = "Extend the default collapse behavior to create an accordion.",
-        url = "https://v4-alpha.getbootstrap.com/components/collapse/",
-        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Extend the default collapse behavior to create an accordion.",
+                      url = "https://v4-alpha.getbootstrap.com/components/collapse/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+@NgImportReference(value = "NgbAccordionDirective", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportReference(value = "NgbAccordionCollapse", reference = "@ng-bootstrap/ng-bootstrap")
 public class BSAccordion<J extends BSAccordion<J>>
         extends Div<BSAccordionChildren, NoAttributes, GlobalFeatures, BSAccordionEvents, J>
-        implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSAccordion<J>
+        implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSAccordion<J>, INgComponent<J>
 {
+
+    @Override
+    public Set<String> moduleImports()
+    {
+        var s = INgComponent.super.moduleImports();
+        s.add("NgbAccordionDirective");
+        s.add("NgbAccordionCollapse");
+        return s;
+    }
+
     /**
      * If this accordion must only display one at a time
      */
@@ -74,7 +89,7 @@ public class BSAccordion<J extends BSAccordion<J>>
     }
 
     @Override
-    public void init()
+    protected void init()
     {
         if (!isInitialized())
         {

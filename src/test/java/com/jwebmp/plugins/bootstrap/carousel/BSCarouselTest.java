@@ -25,12 +25,12 @@ import com.jwebmp.plugins.bootstrap.carousel.parts.*;
 @NgComponent("carousel-test")
 public class BSCarouselTest extends BSCarousel<BSCarouselTest>
 {
-	@Override
-	public void init()
-	{
-		addSlide(new BSCarouselSlide<>().add("Slide 1"));
-		addSlide(new BSCarouselSlide<>().add("Slide 2"));
-		
-		super.init();
-	}
+    @Override
+    protected void init()
+    {
+        addSlide(new BSCarouselSlide<>().add("Slide 1"));
+        addSlide(new BSCarouselSlide<>().add("Slide 2"));
+
+        super.init();
+    }
 }

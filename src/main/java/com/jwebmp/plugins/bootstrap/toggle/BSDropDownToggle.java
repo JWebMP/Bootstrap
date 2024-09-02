@@ -22,11 +22,7 @@ import com.jwebmp.core.base.html.attributes.ButtonAttributes;
 import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.core.base.html.attributes.LinkAttributes;
 import com.jwebmp.plugins.bootstrap.dropdown.options.BSDropDownOptions;
-
 import jakarta.validation.constraints.NotNull;
-
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 
 /**
  * An implementation of the Bootstrap Toggle Feature
@@ -101,9 +97,7 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
         this.title = title;
         if (title != null)
         {
-            java.util.List tempList = new ArrayList<>(getChildren());
-            tempList.add(0, this.title);
-            setChildren(new LinkedHashSet<>(tempList));
+            getChildren().addFirst(this.title);
             if (contents != null)
             {
                 title.addAttribute(String.valueOf(ButtonAttributes.Data_Target), contents.getID(true));
@@ -138,9 +132,9 @@ public class BSDropDownToggle<J extends BSDropDownToggle<J>>
         this.title = title;
         if (title != null)
         {
-            java.util.List tempList = new ArrayList<>(getChildren());
-            tempList.add(0, this.title);
-            setChildren(new LinkedHashSet<>(tempList));
+            //java.util.List tempList = new ArrayList<>(getChildren());
+            getChildren().addFirst(this.title);
+            //setChildren(new LinkedHashSet<>(tempList));
             if (contents != null)
             {
                 title.addAttribute(LinkAttributes.Data_Target, contents.getID(true));

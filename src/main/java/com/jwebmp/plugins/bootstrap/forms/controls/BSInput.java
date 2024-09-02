@@ -30,36 +30,36 @@ import com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions
  * @since 17 Jan 2017
  */
 public class BSInput<J extends BSInput<J>>
-		extends Input<NoAttributes, J>
-		implements BSFormGroupChildren
+        extends Input<NoAttributes, J>
+        implements BSFormGroupChildren
 {
-	/**
-	 * Allows construction of a bootstrap input component
-	 */
-	public BSInput()
-	{
-		//input
-	}
+    /**
+     * Allows construction of a bootstrap input component
+     */
+    public BSInput()
+    {
+        //input
+    }
 
-	/**
-	 * Allows construction of a bootstrap input component
-	 *
-	 * @param inputType
-	 */
-	public BSInput(InputTypes inputType)
-	{
-		super(inputType);
+    /**
+     * Allows construction of a bootstrap input component
+     *
+     * @param inputType
+     */
+    public BSInput(InputTypes inputType)
+    {
+        super(inputType);
 
-	}
+    }
 
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			addAttribute(GlobalAttributes.Name, getID());
-			addClass(BSFormGroupOptions.Form_Control.toString());
-		}
-		super.preConfigure();
-	}
+    @Override
+    protected void preConfigure()
+    {
+        if (!isConfigured())
+        {
+            addAttribute(GlobalAttributes.Name, getID());
+            addClass(BSFormGroupOptions.Form_Control.toString());
+        }
+        super.preConfigure();
+    }
 }

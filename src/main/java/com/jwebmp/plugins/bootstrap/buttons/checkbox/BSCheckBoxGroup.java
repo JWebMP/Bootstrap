@@ -29,151 +29,146 @@ import static com.jwebmp.plugins.bootstrap.options.BSDefaultOptions.Disabled;
  * A bootstrap formatted radio button
  *
  * @param <J>
- *
  * @author GedMarc
  * @since 18 Jan 2017
  */
 public class BSCheckBoxGroup<J extends BSCheckBoxGroup<J>>
-		extends BSFormGroup<J, InputCheckBoxType<?>>
+        extends BSFormGroup<J, InputCheckBoxType<?>>
 {
 
 
-	/**
-	 * Constructs a new instance of a group of items that denote a single radio button.
-	 * <p>
-	 * Place inside a BS Form Set
-	 */
-	public BSCheckBoxGroup()
-	{
-		removeClass(Form_Group);
-		addClass(Form_Check);
-	}
+    /**
+     * Constructs a new instance of a group of items that denote a single radio button.
+     * <p>
+     * Place inside a BS Form Set
+     */
+    public BSCheckBoxGroup()
+    {
+        removeClass(Form_Group);
+        addClass(Form_Check);
+    }
 
-	/**
-	 * Adds the label and replaces the classses with the checkbox specific classes
-	 *
-	 * @param text
-	 *
-	 * @return
-	 */
-	@Override
-	public BSFormLabel<?> addLabel(String text)
-	{
-		BSFormLabel<?> label = super.addLabel(text);
-		label.addClass(Form_Check_Label);
-		return label;
-	}
+    /**
+     * Adds the label and replaces the classses with the checkbox specific classes
+     *
+     * @param text
+     * @return
+     */
+    @Override
+    public BSFormLabel<?> addLabel(String text)
+    {
+        BSFormLabel<?> label = super.addLabel(text);
+        label.addClass(Form_Check_Label);
+        return label;
+    }
 
-	/**
-	 * Adds the input with the additional settings for checkboxes
-	 *
-	 * @param inputComponent
-	 *
-	 * @return
-	 */
-	@Override
-	public InputCheckBoxType<?> setInput(InputCheckBoxType<?> inputComponent)
-	{
-		InputCheckBoxType<?> checkBoxType = super.setInput(inputComponent);
-		checkBoxType.removeClass(Form_Control);
-		checkBoxType.addClass(Form_Check_Input);
-		if (getLabel() != null)
-		{
-			remove(getLabel());
-			add(getLabel());
-		}
-		return checkBoxType;
-	}
+    /**
+     * Adds the input with the additional settings for checkboxes
+     *
+     * @param inputComponent
+     * @return
+     */
+    @Override
+    public InputCheckBoxType<?> setInput(InputCheckBoxType<?> inputComponent)
+    {
+        InputCheckBoxType<?> checkBoxType = super.setInput(inputComponent);
+        checkBoxType.removeClass(Form_Control);
+        checkBoxType.addClass(Form_Check_Input);
+        if (getLabel() != null)
+        {
+            remove(getLabel());
+            add(getLabel());
+        }
+        return checkBoxType;
+    }
 
-	@Override
-	public void init()
-	{
-		if(!isInitialized())
-		{
-			add(getInput());
-			if(getLabel() != null)
-			{
-				add(getLabel());
-			}
-		}
-		super.init();
-	}
+    @Override
+    protected void init()
+    {
+        if (!isInitialized())
+        {
+            add(getInput());
+            if (getLabel() != null)
+            {
+                add(getLabel());
+            }
+        }
+        super.init();
+    }
 
-	/**
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setCustomControl(boolean inline)
-	{
-		removeClass(Form_Group);
-		removeClass(Form_Check);
-		removeClass(Form_Check_Inline);
+    /**
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J setCustomControl(boolean inline)
+    {
+        removeClass(Form_Group);
+        removeClass(Form_Check);
+        removeClass(Form_Check_Inline);
 
-		addClass(Custom_Control);
-		addClass(Custom_CheckBox);
+        addClass(Custom_Control);
+        addClass(Custom_CheckBox);
 
-		if (inline)
-		{
-			addClass(Custom_Control_Inline);
-		}
+        if (inline)
+        {
+            addClass(Custom_Control_Inline);
+        }
 
-		if (getLabel() != null)
-		{
-			getLabel().addClass(Custom_Control_Label);
-			getLabel().addClass(Form_Check_Label);
-		}
-		if (getInput() != null)
-		{
-			getInput().removeClass(Form_Control);
-			getInput().removeClass(Form_Check_Input);
-			getInput().addClass(Custom_Control_Input);
-		}
-		return (J) this;
-	}
+        if (getLabel() != null)
+        {
+            getLabel().addClass(Custom_Control_Label);
+            getLabel().addClass(Form_Check_Label);
+        }
+        if (getInput() != null)
+        {
+            getInput().removeClass(Form_Control);
+            getInput().removeClass(Form_Check_Input);
+            getInput().addClass(Custom_Control_Input);
+        }
+        return (J) this;
+    }
 
-	/**
-	 * Group checkboxes or radios on the same horizontal row by adding .form-check-inline to any .form-check.
-	 *
-	 * @param inline
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("all")
-	@NotNull
-	public J setInline(boolean inline)
-	{
-		if (inline)
-		{
-			addClass(Form_Check_Inline);
-		}
-		else
-		{
-			removeClass(Form_Check_Inline);
-		}
-		return (J) this;
-	}
+    /**
+     * Group checkboxes or radios on the same horizontal row by adding .form-check-inline to any .form-check.
+     *
+     * @param inline
+     * @return
+     */
+    @SuppressWarnings("all")
+    @NotNull
+    public J setInline(boolean inline)
+    {
+        if (inline)
+        {
+            addClass(Form_Check_Inline);
+        }
+        else
+        {
+            removeClass(Form_Check_Inline);
+        }
+        return (J) this;
+    }
 
-	/**
-	 * Sets the item as disabled
-	 *
-	 * @param disabled
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("all")
-	@NotNull
-	public J setDisabled(boolean disabled)
-	{
-		if (disabled)
-		{
-			getInput().addClass(Disabled);
-		}
-		else
-		{
-			getInput().removeClass(Disabled);
-		}
-		return (J) this;
-	}
+    /**
+     * Sets the item as disabled
+     *
+     * @param disabled
+     * @return
+     */
+    @SuppressWarnings("all")
+    @NotNull
+    public J setDisabled(boolean disabled)
+    {
+        if (disabled)
+        {
+            getInput().addClass(Disabled);
+        }
+        else
+        {
+            getInput().removeClass(Disabled);
+        }
+        return (J) this;
+    }
 
 }

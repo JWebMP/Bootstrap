@@ -17,7 +17,6 @@
 package com.jwebmp.plugins.bootstrap.forms;
 
 import com.jwebmp.angular.forms.enumerations.InputErrorValidations;
-import com.jwebmp.core.base.angular.implementations.AngularTSPostStartup;
 import com.jwebmp.core.base.html.inputs.InputEmailType;
 import com.jwebmp.core.base.html.inputs.InputSelectType;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
@@ -45,7 +44,7 @@ public class BSFormTest
     @Test
     public void testBasic()
     {
-        AngularTSPostStartup.loadTSOnStartup = false;
+
 
         BSForm<?> form = new BSForm<>();
 

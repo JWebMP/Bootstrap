@@ -16,6 +16,8 @@
  */
 package com.jwebmp.plugins.bootstrap.progressbar;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementCSSImpl;
@@ -25,6 +27,8 @@ import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarChildren
 import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarEvents;
 import com.jwebmp.plugins.bootstrap.progressbar.interfaces.BSProgressBarFeatures;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.Set;
 
 /**
  * Progress
@@ -43,9 +47,22 @@ import jakarta.validation.constraints.NotNull;
                       description = "Use our custom progress component for displaying simple or complex progress bars.",
                       url = "https://v4-alpha.getbootstrap.com/components/progress/",
                       wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+
+@NgImportReference(value = "NgbProgressbar", reference = "@ng-bootstrap/ng-bootstrap")
 public class BSProgressBar<J extends BSProgressBar<J>>
-        extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J>
+        extends Div<BSProgressBarChildren, NoAttributes, BSProgressBarFeatures, BSProgressBarEvents, J> implements
+                                                                                                        INgComponent<J>
 {
+
+    @Override
+    public Set<String> moduleImports()
+    {
+        var s = INgComponent.super.moduleImports();
+        s.add("NgbProgressbar");
+        return s;
+    }
+
+
     private Double percent;
 
     /**
@@ -84,7 +101,7 @@ public class BSProgressBar<J extends BSProgressBar<J>>
     }
 
     @Override
-    public void init()
+    protected void init()
     {
         if (this.percent != null)
         {

@@ -27,12 +27,10 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.bootstrap.navs.BSNavsAttributes;
-
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.
@@ -40,9 +38,9 @@ import java.util.Set;
  * @param <J>
  */
 @ComponentInformation(name = "Bootstrap Breadcrumbs",
-        description = "Indicate the current page’s location within a navigational hierarchy. Separators are automatically added in CSS " + "through ::before and content.",
-        url = "https://v4-alpha.getbootstrap.com/components/breadcrumb/",
-        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+                      description = "Indicate the current page’s location within a navigational hierarchy. Separators are automatically added in CSS " + "through ::before and content.",
+                      url = "https://v4-alpha.getbootstrap.com/components/breadcrumb/",
+                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 public class BSBreadCrumb<J extends BSBreadCrumb<J>>
         extends Div<BSBreadcrumbContainer<?>, NoAttributes, GlobalFeatures, GlobalEvents, J>
         implements IBSBreadCrumb<J>
@@ -132,9 +130,9 @@ public class BSBreadCrumb<J extends BSBreadCrumb<J>>
     }
 
     @Override
-    public void preConfigure()
+    protected void preConfigure()
     {
-        Set<BSBreadcrumbsChildren> crumbChildren = this.crumbs.getChildren();
+        var crumbChildren = this.crumbs.getChildren();
         if (!crumbChildren.isEmpty())
         {
             crumbChildren.forEach(next -> next.cast()

@@ -16,26 +16,25 @@
  */
 package com.jwebmp.plugins.bootstrap.forms.groups.sets;
 
-import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.html.SmallText;
+import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.generics.*;
+import com.jwebmp.core.generics.CompassPoints;
 import com.jwebmp.plugins.bootstrap.buttons.BSButton;
 import com.jwebmp.plugins.bootstrap.dropdown.BSDropDown;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroup;
 import com.jwebmp.plugins.bootstrap.forms.groups.BSFormGroupChildren;
-import com.jwebmp.plugins.bootstrap.forms.groups.sets.parts.InputGroupAppendItem;
-import com.jwebmp.plugins.bootstrap.forms.groups.sets.parts.InputGroupPrependItem;
 import com.jwebmp.plugins.bootstrap.forms.interfaces.IBSFormInputGroup;
-
 import jakarta.validation.constraints.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.*;
+import static com.jwebmp.plugins.bootstrap.forms.groups.enumerations.BSFormGroupOptions.Form_Text;
 import static com.jwebmp.plugins.bootstrap.forms.groups.sets.BSComponentInputGroupOptions.*;
-import static com.jwebmp.plugins.bootstrap.options.BSTypographyOptions.*;
+import static com.jwebmp.plugins.bootstrap.options.BSTypographyOptions.Text_Muted;
 
 /**
  * Input group
@@ -46,330 +45,308 @@ import static com.jwebmp.plugins.bootstrap.options.BSTypographyOptions.*;
  * @since 18 Jan 2017
  */
 public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<?, ?>>
-		extends BSFormGroup<J, I>
-		implements BSFormGroupChildren, IBSFormInputGroup<J, I>
+        extends BSFormGroup<J, I>
+        implements BSFormGroupChildren, IBSFormInputGroup<J, I>
 {
-	private IComponentHierarchyBase<?,?> helpText;
+    private IComponentHierarchyBase<?, ?> helpText;
 
-	private boolean styleInputGroupTextWithValidation;
+    private boolean styleInputGroupTextWithValidation;
 
-	/**
-	 * Input group
-	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
-	 */
-	public BSFormInputGroup()
-	{
-		this(null);
-	}
+    /**
+     * Input group
+     * <p>
+     * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
+     */
+    public BSFormInputGroup()
+    {
+        this(null);
+    }
 
-	/**
-	 * Input group
-	 * <p>
-	 * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
-	 */
-	public BSFormInputGroup(Boolean largeOrSmall)
-	{
-		getClasses().clear();
-		addClass(Input_Group);
-		if (largeOrSmall != null)
-		{
-			if (largeOrSmall)
-			{
-				setLarge();
-			}
-			else
-			{
-				setSmall();
-			}
-		}
-	}
-	
-	public J setLarge()
-	{
-		removeClass(Input_Group_Sm);
-		addClass(Input_Group_Lg);
-		return (J)this;
-	}
-	
-	public J setSmall()
-	{
-		removeClass(Input_Group_Lg);
-		addClass(Input_Group_Sm);
-		return (J)this;
-	}
-	
-	/**
-	 * The text (or component.toString(0)) to prepend
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J prepend(String text)
-	{
-		Span<?, ?, ?> span = new Span<>();
-		span.addClass(Input_Group_Text);
-		span.setText(text);
-		List<GlobalChildren> children = new ArrayList<>();
-		Object[] array = (Object[]) getChildren().toArray();
-		for (int i = 0, arrayLength = array.length; i < arrayLength; i++)
-		{
-			Object o = array[i];
-			if (o instanceof Input<?, ?>)
-			{
-				children.add(span);
-				children.add((GlobalChildren) o);
-			}
-			else
-			{
-				children.add((GlobalChildren) o);
-			}
-		}
-		setChildren(new LinkedHashSet<>(children));
-		return (J) this;
-	}
+    /**
+     * Input group
+     * <p>
+     * Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
+     */
+    public BSFormInputGroup(Boolean largeOrSmall)
+    {
+        getClasses().clear();
+        addClass(Input_Group);
+        if (largeOrSmall != null)
+        {
+            if (largeOrSmall)
+            {
+                setLarge();
+            }
+            else
+            {
+                setSmall();
+            }
+        }
+    }
 
-	/**
-	 * The text (or component.toString(0)) to prepend
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J prepend(IComponentHierarchyBase<?,?> component)
-	{
-		if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
-		{
-			component.addClass(Input_Group_Text);
-		}
-		
-		List<GlobalChildren> children = new ArrayList<>();
-		Object[] array = (Object[]) getChildren().toArray();
-		for (int i = 0, arrayLength = array.length; i < arrayLength; i++)
-		{
-			Object o = array[i];
-			if (o instanceof Input<?, ?>)
-			{
-				children.add(component);
-				children.add((GlobalChildren) o);
-			}
-			else
-			{
-				children.add((GlobalChildren) o);
-			}
-		}
-		setChildren(new LinkedHashSet<>(children));
-		return (J) this;
-	}
+    public J setLarge()
+    {
+        removeClass(Input_Group_Sm);
+        addClass(Input_Group_Lg);
+        return (J) this;
+    }
 
-	/**
-	 * The text (or component.toString(0)) to append
-	 *
-	 * @param text
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J append(String text)
-	{
-		Span<?, ?, ?> span = new Span<>();
-		span.setText(text);
-		span.addClass(Input_Group_Text);
-		add(span);
-		return (J) this;
-	}
+    public J setSmall()
+    {
+        removeClass(Input_Group_Lg);
+        addClass(Input_Group_Sm);
+        return (J) this;
+    }
 
-	/**
-	 * The text (or component.toString(0)) to append
-	 *
-	 * @param component
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J append(IComponentHierarchyBase<?,?> component)
-	{
-		if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
-		{
-			component.addClass(Input_Group_Text);
-		}
-		return (J) this;
-	}
+    /**
+     * The text (or component.toString(0)) to prepend
+     *
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J prepend(String text)
+    {
+        Span<?, ?, ?> span = new Span<>();
+        span.addClass(Input_Group_Text);
+        span.setText(text);
 
-	/**
-	 * The text (or component.toString(0)) to append
-	 *
-	 * @param component
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@NotNull
-	@Override
-	public J append(IComponentHierarchyBase<?,?> component, boolean renderInSpan)
-	{
-		if (renderInSpan)
-		{
-			Span<?, ?, ?> span = new Span<>();
-			span.setText(component.toString(0));
-			span.addClass(Input_Group_Text);
-			add(span);
-		}
-		else
-		{
-			add(component);
-		}
-		return (J) this;
-	}
+        getChildren().addFirst(span);
+        return (J) this;
+    }
 
-	/**
-	 * Sets whether or not the text of the input group must be validated
-	 *
-	 * @return
-	 */
-	@Override
-	public boolean isStyleInputGroupTextWithValidation()
-	{
-		return styleInputGroupTextWithValidation;
-	}
+    /**
+     * The text (or component.toString(0)) to prepend
+     *
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J prepend(IComponentHierarchyBase<?, ?> component)
+    {
+        if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
+        {
+            component.addClass(Input_Group_Text);
+        }
 
-	/**
-	 * Sets whether or not the text of the input group must be validated
-	 *
-	 * @param styleInputGroupTextWithValidation
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J setStyleInputGroupTextWithValidation(boolean styleInputGroupTextWithValidation)
-	{
-		this.styleInputGroupTextWithValidation = styleInputGroupTextWithValidation;
-		return (J) this;
-	}
+        getChildren().addFirst(component);
+        return (J) this;
+    }
 
-	/**
-	 * Renders the label, help text and validation messages before the tag
-	 *
-	 * @return
-	 */
+    /**
+     * The text (or component.toString(0)) to append
+     *
+     * @param text
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J append(String text)
+    {
+        Span<?, ?, ?> span = new Span<>();
+        span.setText(text);
+        span.addClass(Input_Group_Text);
+        add(span);
+        return (J) this;
+    }
 
-	@Override
-	protected StringBuilder renderBeforeTag()
-	{
-		StringBuilder output = new StringBuilder();
-		
-		if(getMessagePlacement() == CompassPoints.N && getMessages() != null && !getMessages().getChildren().isEmpty())
-		{
-			output.append(getMessages().toString(0));
-		}
+    /**
+     * The text (or component.toString(0)) to append
+     *
+     * @param component
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    @NotNull
+    public J append(IComponentHierarchyBase<?, ?> component)
+    {
+        if (!(BSButton.class.isAssignableFrom(component.getClass()) || BSDropDown.class.isAssignableFrom(component.getClass())))
+        {
+            component.addClass(Input_Group_Text);
+        }
+        return (J) this;
+    }
 
-		if (getLabel() != null && getLabel().getText() != null)
-		{
-			output.append(getCurrentTabIndentString())
-			      .append(getLabel().toString(0))
-			      .append(getNewLine());
-		}
-		if (helpText != null)
-		{
-			output.append(getCurrentTabIndentString())
-			      .append(helpText.toString(0))
-			      .append(getNewLine());
-		}
-		return output;
-	}
-	
-	@Override
-	protected StringBuilder renderAfterTag()
-	{
-		StringBuilder output = new StringBuilder();
-		if(getMessagePlacement() == CompassPoints.S && getMessages() != null && !getMessages().getChildren().isEmpty())
-		{
-			output.append(getMessages().toString(0));
-		}
-		return output;
-	}
-	
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			getChildren().removeIf(a -> a.equals(getLabel()));
-			Set<GlobalChildren> newOrder = new LinkedHashSet<>();
-			if(getMessagePlacement() == CompassPoints.E && getMessages() != null && !getMessages().getChildren().isEmpty())
-			{
-				newOrder.add(getMessages());
-			}
-			newOrder.addAll(getChildren());
-			if(getMessagePlacement() == CompassPoints.W && getMessages() != null && !getMessages().getChildren().isEmpty())
-			{
-				newOrder.add(getMessages());
-			}
-			//noinspection unchecked, rawtypes
-			setChildren(new LinkedHashSet(newOrder));
-		}
-		super.preConfigure();
-	}
+    /**
+     * The text (or component.toString(0)) to append
+     *
+     * @param component
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    @NotNull
+    @Override
+    public J append(IComponentHierarchyBase<?, ?> component, boolean renderInSpan)
+    {
+        if (renderInSpan)
+        {
+            Span<?, ?, ?> span = new Span<>();
+            span.setText(component.toString(0));
+            span.addClass(Input_Group_Text);
+            add(span);
+        }
+        else
+        {
+            add(component);
+        }
+        return (J) this;
+    }
 
-	@Override
-	public IBSFormInputGroup<J, I> asMe()
-	{
-		return this;
-	}
+    /**
+     * Sets whether or not the text of the input group must be validated
+     *
+     * @return
+     */
+    @Override
+    public boolean isStyleInputGroupTextWithValidation()
+    {
+        return styleInputGroupTextWithValidation;
+    }
 
-	/**
-	 * Does not add immediately, allows you to set the position via setHelpTextPosition
-	 *
-	 * @param text
-	 * 		The component to show
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J addHelpText(IComponentHierarchyBase<?,?> text)
-	{
-		text.addClass(Form_Text, Text_Muted);
-		add(text);
-		return (J) this;
-	}
+    /**
+     * Sets whether or not the text of the input group must be validated
+     *
+     * @param styleInputGroupTextWithValidation
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public J setStyleInputGroupTextWithValidation(boolean styleInputGroupTextWithValidation)
+    {
+        this.styleInputGroupTextWithValidation = styleInputGroupTextWithValidation;
+        return (J) this;
+    }
 
-	/**
-	 * Does not add immediately, allows you to set the position via setHelpTextPosition
-	 *
-	 * @param text
-	 * 		The component to show
-	 *
-	 * @return
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public J addHelpText(String text)
-	{
-		SmallText<?> sm = new SmallText<>().addClass(Form_Text, Text_Muted)
-		                                .setText(text);
-		add(sm);
-		helpText = sm;
-		return (J) this;
-	}
+    /**
+     * Renders the label, help text and validation messages before the tag
+     *
+     * @return
+     */
 
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
+    @Override
+    protected StringBuilder renderBeforeTag()
+    {
+        StringBuilder output = new StringBuilder();
+        if (getMessages() != null)
+        {
+            getMessages().toString(0);
+        }
+        if (getMessagePlacement() == CompassPoints.N && getMessages() != null && !getMessages().getChildren()
+                                                                                               .isEmpty())
+        {
+            output.append(getMessages().toString(0));
+        }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
+        if (getLabel() != null && getLabel().getText() != null)
+        {
+            output.append(getCurrentTabIndentString())
+                  .append(getLabel().toString(0))
+                  .append(getNewLine());
+        }
+        if (helpText != null)
+        {
+            output.append(getCurrentTabIndentString())
+                  .append(helpText.toString(0))
+                  .append(getNewLine());
+        }
+        return output;
+    }
+
+    @Override
+    protected StringBuilder renderAfterTag()
+    {
+        StringBuilder output = new StringBuilder();
+        if (getMessages() != null)
+        {
+            getMessages().toString(0);
+        }
+        if (getMessagePlacement() == CompassPoints.S && getMessages() != null && !getMessages().getChildren()
+                                                                                               .isEmpty())
+        {
+            output.append(getMessages().toString(0));
+        }
+        return output;
+    }
+
+    @Override
+    protected void init()
+    {
+        if (!isInitialized())
+        {
+            getChildren().removeIf(a -> a.equals(getLabel()));
+            List<GlobalChildren> newOrder = new ArrayList<>();
+            if (getMessages() != null)
+            {
+                getMessages().toString(0);
+            }
+            if (getMessagePlacement() == CompassPoints.E && getMessages() != null && !getMessages().getChildren()
+                                                                                                   .isEmpty())
+            {
+                newOrder.add(getMessages());
+            }
+            newOrder.addAll(getChildren());
+            if (getMessagePlacement() == CompassPoints.W && getMessages() != null && !getMessages().getChildren()
+                                                                                                   .isEmpty())
+            {
+                newOrder.add(getMessages());
+            }
+            //noinspection unchecked, rawtypes
+            setChildren(newOrder);
+        }
+        super.init();
+    }
+
+    @Override
+    public IBSFormInputGroup<J, I> asMe()
+    {
+        return this;
+    }
+
+    /**
+     * Does not add immediately, allows you to set the position via setHelpTextPosition
+     *
+     * @param text The component to show
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public J addHelpText(IComponentHierarchyBase<?, ?> text)
+    {
+        text.addClass(Form_Text, Text_Muted);
+        add(text);
+        return (J) this;
+    }
+
+    /**
+     * Does not add immediately, allows you to set the position via setHelpTextPosition
+     *
+     * @param text The component to show
+     * @return
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public J addHelpText(String text)
+    {
+        SmallText<?> sm = new SmallText<>().addClass(Form_Text, Text_Muted)
+                                           .setText(text);
+        add(sm);
+        helpText = sm;
+        return (J) this;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        return super.equals(o);
+    }
 }

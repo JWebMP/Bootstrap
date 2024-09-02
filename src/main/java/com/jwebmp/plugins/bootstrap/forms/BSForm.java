@@ -1311,7 +1311,7 @@ public class BSForm<J extends BSForm<J>>
      * Pre configures the item with a name
      */
     @Override
-    public void preConfigure()
+    protected void preConfigure()
     {
         addAttribute(GlobalAttributes.Name, getID());
         if (styleInputs)

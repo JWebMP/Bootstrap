@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts;
 
-import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
 
 /**
  * @author GedMarc
@@ -24,9 +24,9 @@ import com.jwebmp.core.base.angular.client.annotations.references.*;
 @NgComponentReference(AlertDataServiceTest.class)
 public class BSAlertsTest extends BSAlerts<BSAlertsTest>
 {
-	public BSAlertsTest()
-	{
-		super(new AlertDataServiceTest());
-	}
-	
+    public BSAlertsTest()
+    {
+        super(new AlertDataServiceTest());
+    }
+
 }

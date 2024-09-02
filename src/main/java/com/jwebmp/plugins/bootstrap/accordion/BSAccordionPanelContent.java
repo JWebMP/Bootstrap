@@ -15,7 +15,7 @@ public class BSAccordionPanelContent<J extends BSAccordionPanelContent<J>> exten
     }
 
     @Override
-    public void init()
+    protected void init()
     {
         if (!isInitialized())
         {

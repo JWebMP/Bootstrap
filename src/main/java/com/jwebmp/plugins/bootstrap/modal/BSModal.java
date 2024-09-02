@@ -56,18 +56,20 @@ import java.util.List;
 
 @NgImportReference(value = "NgbModal", reference = "@ng-bootstrap/ng-bootstrap", onParent = true)
 @NgImportReference(value = "ModalDismissReasons", reference = "@ng-bootstrap/ng-bootstrap")
+
 @NgConstructorParameter(value = "public modalService: NgbModal", onParent = true)
 
 @NgField("closeResult? : string;")
-@NgMethod("private getDismissReason(reason: any): string {\n" +
-        "    if (reason === ModalDismissReasons.ESC) {\n" +
-        "      return 'by pressing ESC';\n" +
-        "    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {\n" +
-        "      return 'by clicking on a backdrop';\n" +
-        "    } else {\n" +
-        "      return `with: ${reason}`;\n" +
-        "    }\n" +
-        "  }")
+@NgMethod("""
+        private getDismissReason(reason: any): string {
+            if (reason === ModalDismissReasons.ESC) {
+              return 'by pressing ESC';
+            } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+              return 'by clicking on a backdrop';
+            } else {
+              return `with: ${reason}`;
+            }
+          }""")
 @NgMethod("")
 public class BSModal<J extends BSModal<J>>
         extends Div<BSModalChildren, BSModalAttributes, BSModalFeatures, BSModalEvents, J>
@@ -75,16 +77,16 @@ public class BSModal<J extends BSModal<J>>
 {
 
     @Override
-    public List<String> componentMethods()
+    public List<String> methods()
     {
-        List<String> list = INgComponent.super.componentMethods();
+        List<String> list = INgComponent.super.methods();
         if (list == null)
         {
             list = new ArrayList<>();
         }
         list.add("openModal(content : any) {\n" +
-                         "                  this.modalService.open(content, " + renderOptions() + ");\n" +
-                         "                  }\n");
+                         "\tthis.modalService.open(content, " + renderOptions() + ");\n" +
+                         "}\n");
 
         return list;
     }
@@ -224,7 +226,7 @@ public class BSModal<J extends BSModal<J>>
     }
 
     @Override
-    public void init()
+    protected void init()
     {
         if (!isInitialized())
         {

@@ -38,7 +38,7 @@ public class BSFormGroupTest
 	@Test
 	public void testgetAppend()
 	{
-		AngularTSPostStartup.loadTSOnStartup = false;
+		
 		
 		BSFormInputGroup<?,InputTextType<?>> group = new BSFormInputGroup<>();
 		group.setInput(new InputTextType<>());

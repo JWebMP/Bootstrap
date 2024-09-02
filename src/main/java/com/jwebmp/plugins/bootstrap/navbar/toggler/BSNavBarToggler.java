@@ -32,135 +32,134 @@ import jakarta.validation.constraints.NotNull;
  * @since 21 Jan 2017
  */
 public class BSNavBarToggler<C extends GlobalChildren,
-		A extends Enum<?> & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
-		extends Button<C, A, F, E, J>
-		implements BSNavBarChildren,
-		           IBSNavBarToggler<C, A, F, E, J>
+        A extends Enum<?> & AttributeDefinitions, F extends GlobalFeatures, E extends GlobalEvents, J extends Button<C, A, F, E, J>>
+        extends Button<C, A, F, E, J>
+        implements BSNavBarChildren,
+                   IBSNavBarToggler<C, A, F, E, J>
 {
-	/**
-	 * The specified screen reader aria label to apply when creating the div
-	 */
-	private String ariaLabel = "Toggle Navigation";
+    /**
+     * The specified screen reader aria label to apply when creating the div
+     */
+    private String ariaLabel = "Toggle Navigation";
 
-	private String iconClass = "navbar-toggler-icon";
-	private Span<?, ?, ?> iconSpan;
+    private String iconClass = "navbar-toggler-icon";
+    private Span<?, ?, ?> iconSpan;
 
-	/**
-	 * Creates 2 new accessible objects for the nav bar
-	 */
-	public BSNavBarToggler()
-	{
-		addClass("navbar-toggler");
-	}
+    /**
+     * Creates 2 new accessible objects for the nav bar
+     */
+    public BSNavBarToggler()
+    {
+        addClass("navbar-toggler");
+    }
 
-	public IBSNavBarToggler<?,?,?,?,?> asMe()
-	{
-		return this;
-	}
+    public IBSNavBarToggler<?, ?, ?, ?, ?> asMe()
+    {
+        return this;
+    }
 
-	/**
-	 * Gets the screen reader aria label
-	 *
-	 * @return
-	 */
-	@Override
-	public String getAriaLabel()
-	{
-		return ariaLabel;
-	}
+    /**
+     * Gets the screen reader aria label
+     *
+     * @return
+     */
+    @Override
+    public String getAriaLabel()
+    {
+        return ariaLabel;
+    }
 
-	/**
-	 * sets the screen reader aria label
-	 */
-	@Override
-	@NotNull
-	@SuppressWarnings("unchecked")
-	public J setAriaLabel(String ariaLabel)
-	{
-		this.ariaLabel = ariaLabel;
-		return (J) this;
-	}
+    /**
+     * sets the screen reader aria label
+     */
+    @Override
+    @NotNull
+    @SuppressWarnings("unchecked")
+    public J setAriaLabel(String ariaLabel)
+    {
+        this.ariaLabel = ariaLabel;
+        return (J) this;
+    }
 
-	/**
-	 * Gets the span for the navbar icon
-	 *
-	 * @return
-	 */
-	@Override
-	public Span<?, ?, ?> getIconSpan()
-	{
-		if (iconSpan == null)
-		{
-			iconSpan = new Span<>();
-			if (iconClass != null)
-			{
-				iconSpan.addClass(iconClass);
-			}
-		}
-		return iconSpan;
-	}
+    /**
+     * Gets the span for the navbar icon
+     *
+     * @return
+     */
+    @Override
+    public Span<?, ?, ?> getIconSpan()
+    {
+        if (iconSpan == null)
+        {
+            iconSpan = new Span<>();
+            if (iconClass != null)
+            {
+                iconSpan.addClass(iconClass);
+            }
+        }
+        return iconSpan;
+    }
 
-	/**
-	 * Gets the Icon Class
-	 *
-	 * @return
-	 */
-	@Override
-	public String getIconClass()
-	{
-		return iconClass;
-	}
+    /**
+     * Gets the Icon Class
+     *
+     * @return
+     */
+    @Override
+    public String getIconClass()
+    {
+        return iconClass;
+    }
 
-	/**
-	 * Sets the Icon Class
-	 *
-	 * @param iconClass
-	 */
-	@Override
-	@NotNull
-	@SuppressWarnings("unchecked")
-	public J setIconClass(String iconClass)
-	{
-		this.iconClass = iconClass;
-		return (J) this;
-	}
+    /**
+     * Sets the Icon Class
+     *
+     * @param iconClass
+     */
+    @Override
+    @NotNull
+    @SuppressWarnings("unchecked")
+    public J setIconClass(String iconClass)
+    {
+        this.iconClass = iconClass;
+        return (J) this;
+    }
 
-	/**
-	 * Sets the icon for the span
-	 *
-	 * @param iconSpan
-	 *
-	 * @return
-	 */
-	@Override
-	@NotNull
-	@SuppressWarnings("unchecked")
-	public J setIconSpan(Span<?, ?, ?> iconSpan)
-	{
-		this.iconSpan = iconSpan;
-		return (J) this;
-	}
+    /**
+     * Sets the icon for the span
+     *
+     * @param iconSpan
+     * @return
+     */
+    @Override
+    @NotNull
+    @SuppressWarnings("unchecked")
+    public J setIconSpan(Span<?, ?, ?> iconSpan)
+    {
+        this.iconSpan = iconSpan;
+        return (J) this;
+    }
 
-	@Override
-	@SuppressWarnings("unchecked")
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			add((C) getIconSpan());
-		}
-		super.preConfigure();
-	}
+    @Override
+    @SuppressWarnings("unchecked")
+    protected void preConfigure()
+    {
+        if (!isConfigured())
+        {
+            add((C) getIconSpan());
+        }
+        super.preConfigure();
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return super.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        return super.equals(o);
+    }
 }

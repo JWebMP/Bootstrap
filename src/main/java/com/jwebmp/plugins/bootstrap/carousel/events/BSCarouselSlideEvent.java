@@ -36,58 +36,58 @@ import java.util.logging.Level;
  */
 @Log
 public abstract class BSCarouselSlideEvent<J extends BSCarouselSlideEvent<J>>
-		extends Event<GlobalFeatures, J>
-		implements GlobalEvents<J>, BSCarouselEvents<J>
+        extends Event<GlobalFeatures, J>
+        implements GlobalEvents<J>, BSCarouselEvents<J>
 {
-	/**
-	 * Logger for the Component
-	 */
-	
-	
-	/**
-	 * Performs a click
-	 *
-	 * @param component The component this click is going to be acting on
-	 */
-	public BSCarouselSlideEvent(Component component)
-	{
-		super(EventTypes.undefined, component);
-	}
-	
-	@Override
-	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
-	{
-		try
-		{
-			onSlide(call, response);
-		}
-		catch (Exception e)
-		{
-			BSCarouselSlideEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
-		}
-	}
-	
-	/**
-	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
-	 */
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			getComponent().asAttributeBase()
-			              .addAttribute("slideClassName", getClass().getCanonicalName());
-		}
-		
-		super.preConfigure();
-	}
-	
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call     The physical AJAX call
-	 * @param response The physical Ajax Receiver
-	 */
-	public abstract void onSlide(AjaxCall<?> call, AjaxResponse<?> response);
+    /**
+     * Logger for the Component
+     */
+
+
+    /**
+     * Performs a click
+     *
+     * @param component The component this click is going to be acting on
+     */
+    public BSCarouselSlideEvent(Component component)
+    {
+        super(EventTypes.undefined, component);
+    }
+
+    @Override
+    public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
+    {
+        try
+        {
+            onSlide(call, response);
+        }
+        catch (Exception e)
+        {
+            BSCarouselSlideEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
+        }
+    }
+
+    /**
+     * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
+     */
+    @Override
+    protected void preConfigure()
+    {
+        if (!isConfigured())
+        {
+            getComponent().asAttributeBase()
+                          .addAttribute("slideClassName", getClass().getCanonicalName());
+        }
+
+        super.preConfigure();
+    }
+
+    /**
+     * Triggers on Click
+     * <p>
+     *
+     * @param call     The physical AJAX call
+     * @param response The physical Ajax Receiver
+     */
+    public abstract void onSlide(AjaxCall<?> call, AjaxResponse<?> response);
 }

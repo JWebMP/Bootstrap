@@ -7,9 +7,6 @@ import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Button;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
-import com.jwebmp.plugins.bootstrap.accordion.BSAccordion;
-import com.jwebmp.plugins.bootstrap.accordion.BSAccordionPanelContent;
-import com.jwebmp.plugins.bootstrap.accordion.BSAccordionPanelHeader;
 import com.jwebmp.plugins.bootstrap.alerts.BSAlertsTest;
 import com.jwebmp.plugins.bootstrap.buttons.styles.BSButtonPrimary;
 import com.jwebmp.plugins.bootstrap.carousel.BSCarouselTest;
@@ -47,7 +44,7 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
         BSContainer<?> container = BSContainer.newInstance(BSContainerOptions.Container_Fluid);
         add(container);
 
-        BSRow<?> accordionRow = new BSRow<>();
+     /*   BSRow<?> accordionRow = new BSRow<>();
         container.add(accordionRow);
 
         BSAccordion<?> accordion = new BSAccordion<>();
@@ -55,12 +52,12 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
         accordion.setID("test");
 
         accordion.addPanel("static-1", new BSAccordionPanelHeader<>().addTitle(new Button<>("Title 1")),
-                new BSAccordionPanelContent<>().add("Content 1"), true);
+                           new BSAccordionPanelContent<>().add("Content 1"), true);
 
         accordion.addPanel("static-2", new BSAccordionPanelHeader<>().addTitle(new Button<>("Title 2")),
-                new BSAccordionPanelContent<>().add("Content 2"), false);
-
-        BSRow<?> alertRow = new BSRow<>();
+                           new BSAccordionPanelContent<>().add("Content 2"), false);
+*/
+        BSRow<?> alertRow = new BSRow<>().setID("alertROw");
         container.add(alertRow);
 
         alertRow.add(new BSAlertsTest());
@@ -69,6 +66,7 @@ public class BootstrapKitchenSink extends DivSimple<BootstrapKitchenSink>
         BSRow<?> carouselRow = new BSRow<>();
         container.add(carouselRow);
         carouselRow.add(new BSCarouselTest());
+
 
         BSRow<?> datepickerRow = new BSRow<>();
         container.add("datepicker");

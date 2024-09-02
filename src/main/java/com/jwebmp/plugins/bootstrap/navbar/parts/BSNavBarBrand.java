@@ -34,86 +34,84 @@ import jakarta.validation.constraints.NotNull;
  * @since 21 Jan 2017
  */
 public class BSNavBarBrand<J extends BSNavBarBrand<J>>
-		extends DivSimple<J>
-		implements BSNavBarChildren
+        extends DivSimple<J>
+        implements BSNavBarChildren
 {
-	private String routerLink;
+    private String routerLink;
 
-	/**
-	 * Brand
-	 * <p>
-	 * The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom
-	 * styles.
-	 */
-	public BSNavBarBrand()
-	{
-		addClass(BSNavBarOptions.Brand);
-		setTag("a");
-		addAttribute("href", "#");
-	}
+    /**
+     * Brand
+     * <p>
+     * The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom
+     * styles.
+     */
+    public BSNavBarBrand()
+    {
+        addClass(BSNavBarOptions.Brand);
+        setTag("a");
+        addAttribute("href", "#");
+    }
 
-	/**
-	 * Adds a BS Image with the image properties all set
-	 *
-	 * @param imageUrl
-	 *
-	 * @return
-	 */
-	public BSNavBarBrandImage<?> addImage(String imageUrl)
-	{
-		return addImage(imageUrl, null);
-	}
-	
-	public String getRouterLink()
-	{
-		return routerLink;
-	}
-	
-	public BSNavBarBrand<J> setRouterLink(String routerLink)
-	{
-		this.routerLink = routerLink;
-		return this;
-	}
-	
-	/**
-	 * Adds a BS Image with the image properties all set
-	 *
-	 * @param imageUrl
-	 *
-	 * @return
-	 */
-	@NotNull
-	public BSNavBarBrandImage<?> addImage(String imageUrl, String textAfter)
-	{
-		Image<?> image = new Image<>(imageUrl);
-		BSNavBarBrandImage<?> brandImage = new BSNavBarBrandImage<>(image);
+    /**
+     * Adds a BS Image with the image properties all set
+     *
+     * @param imageUrl
+     * @return
+     */
+    public BSNavBarBrandImage<?> addImage(String imageUrl)
+    {
+        return addImage(imageUrl, null);
+    }
 
-		image.addStyle("width", "30px");
-		image.addStyle("height", "30px");
-		image.addClass("d-inline-block align-top");
+    public String getRouterLink()
+    {
+        return routerLink;
+    }
 
-		add(image);
+    public BSNavBarBrand<J> setRouterLink(String routerLink)
+    {
+        this.routerLink = routerLink;
+        return this;
+    }
 
-		addText(textAfter);
-		return brandImage;
-	}
+    /**
+     * Adds a BS Image with the image properties all set
+     *
+     * @param imageUrl
+     * @return
+     */
+    @NotNull
+    public BSNavBarBrandImage<?> addImage(String imageUrl, String textAfter)
+    {
+        Image<?> image = new Image<>(imageUrl);
+        BSNavBarBrandImage<?> brandImage = new BSNavBarBrandImage<>(image);
 
-	@SuppressWarnings("unchecked")
-	public J addText(String text)
-	{
-		if (text != null)
-		{
-			setText(text);
-		}
-		return (J) this;
-	}
-	
-	@Override
-	public void init()
-	{
-		if (!Strings.isNullOrEmpty(routerLink))
-		{
-			addAttribute("[routerLink]", routerLink);
-		}
-	}
+        image.addStyle("width", "30px");
+        image.addStyle("height", "30px");
+        image.addClass("d-inline-block align-top");
+
+        add(image);
+
+        addText(textAfter);
+        return brandImage;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J addText(String text)
+    {
+        if (text != null)
+        {
+            setText(text);
+        }
+        return (J) this;
+    }
+
+    @Override
+    protected void init()
+    {
+        if (!Strings.isNullOrEmpty(routerLink))
+        {
+            addAttribute("[routerLink]", routerLink);
+        }
+    }
 }

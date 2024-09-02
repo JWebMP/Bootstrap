@@ -73,7 +73,7 @@ public abstract class BSModalShowAdapter<J extends BSModalShowAdapter<J>>
      * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
      */
     @Override
-    public void preConfigure()
+    protected void preConfigure()
     {
         if (!isConfigured())
         {

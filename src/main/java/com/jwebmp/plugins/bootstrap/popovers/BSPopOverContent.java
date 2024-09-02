@@ -5,16 +5,16 @@ import com.jwebmp.plugins.bootstrap.popovers.interfaces.*;
 
 public class BSPopOverContent<J extends BSPopOverContent<J>> extends DivSimple<J> implements BSPopOverChildren
 {
-	public BSPopOverContent()
-	{
-		setTag("ng-template");
-	}
-	
-	@Override
-	public void init()
-	{
-		addAttribute("#" + getID(), "");
-		super.init();
-	}
-	
+    public BSPopOverContent()
+    {
+        setTag("ng-template");
+    }
+
+    @Override
+    protected void init()
+    {
+        addAttribute("#" + getID(), "");
+        super.init();
+    }
+
 }

@@ -28,41 +28,40 @@ import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
  * @since 19 Jan 2017
  */
 public class BSNavBarLink<J extends BSNavBarLink<J>>
-		extends Link<J>
-		implements BSNavsChildren, ListItemChildren
+        extends Link<J>
+        implements BSNavsChildren, ListItemChildren
 {
-	private String routerLink;
-	
-	/**
-	 * A navigation link item
-	 *
-	 */
-	public BSNavBarLink(String routerLink)
-	{
-		this.routerLink = routerLink;
-		setTag("a");
-		addClass("nav-link");
-	}
-	
-	@Override
-	public void init()
-	{
-		if(!Strings.isNullOrEmpty(routerLink))
-		{
-			addAttribute("routerLink", routerLink);
-		}
-		removeAttribute("href");
-		super.init();
-	}
-	
-	public String getRouterLink()
-	{
-		return routerLink;
-	}
-	
-	public J setRouterLink(String routerLink)
-	{
-		this.routerLink = routerLink;
-		return (J)this;
-	}
+    private String routerLink;
+
+    /**
+     * A navigation link item
+     */
+    public BSNavBarLink(String routerLink)
+    {
+        this.routerLink = routerLink;
+        setTag("a");
+        addClass("nav-link");
+    }
+
+    @Override
+    protected void init()
+    {
+        if (!Strings.isNullOrEmpty(routerLink))
+        {
+            addAttribute("routerLink", routerLink);
+        }
+        removeAttribute("href");
+        super.init();
+    }
+
+    public String getRouterLink()
+    {
+        return routerLink;
+    }
+
+    public J setRouterLink(String routerLink)
+    {
+        this.routerLink = routerLink;
+        return (J) this;
+    }
 }
