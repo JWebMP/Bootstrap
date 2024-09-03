@@ -19,8 +19,6 @@ package com.jwebmp.plugins.bootstrap;
 import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgPolyfill;
 import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgScript;
 import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgStyleSheet;
-import com.jwebmp.core.base.angular.client.annotations.boot.NgBootImportReference;
-import com.jwebmp.core.base.angular.client.annotations.boot.NgBootModuleImport;
 import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
@@ -68,8 +66,8 @@ import jakarta.validation.constraints.NotNull;
 @NgScript(value = "@popperjs/core/dist/umd/popper.js", sortOrder = 4)
 @NgScript(value = "bootstrap/dist/js/bootstrap.js", sortOrder = 5)
 
-@NgBootModuleImport("NgbModule")
-@NgBootImportReference(value = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
+//@NgModuleImport("NgbModule")
+//@NgImportReference(value = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapPageConfigurator
         implements IPageConfigurator<BootstrapPageConfigurator>
 {
