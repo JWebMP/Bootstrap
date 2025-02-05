@@ -33,23 +33,23 @@ import jakarta.validation.constraints.NotNull;
  * file://
  */
 @PluginInformation(pluginName = "Bootstrap",
-                   pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
-                           "on the web",
-                   pluginUniqueName = "bootstrap",
-                   pluginVersion = "5.0.2",
-                   pluginCategories = "bootstrap,ui,web ui, framework",
-                   pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
-                   pluginSourceUrl = "http://getbootstrap.com/",
-                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
-                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
-                   pluginIconUrl = "",
-                   pluginIconImageUrl = "",
-                   pluginOriginalHomepage = "http://getbootstrap.com/",
-                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
-                   pluginGroupId = "com.jwebmp.plugins",
-                   pluginArtifactId = "bootstrap",
-                   pluginModuleName = "com.jwebmp.plugins.bootstrap",
-                   pluginStatus = PluginStatus.Released
+        pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
+                "on the web",
+        pluginUniqueName = "bootstrap",
+        pluginVersion = "5.0.2",
+        pluginCategories = "bootstrap,ui,web ui, framework",
+        pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
+        pluginSourceUrl = "http://getbootstrap.com/",
+        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
+        pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
+        pluginIconUrl = "",
+        pluginIconImageUrl = "",
+        pluginOriginalHomepage = "http://getbootstrap.com/",
+        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
+        pluginGroupId = "com.jwebmp.plugins",
+        pluginArtifactId = "bootstrap",
+        pluginModuleName = "com.jwebmp.plugins.bootstrap",
+        pluginStatus = PluginStatus.Released
 )
 @TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^17.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
@@ -69,14 +69,12 @@ import jakarta.validation.constraints.NotNull;
 //@NgModuleImport("NgbModule")
 //@NgImportReference(value = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapPageConfigurator
-        implements IPageConfigurator<BootstrapPageConfigurator>
-{
+        implements IPageConfigurator<BootstrapPageConfigurator> {
 
     /**
      * The default page configurator for bootstrap
      */
-    public BootstrapPageConfigurator()
-    {
+    public BootstrapPageConfigurator() {
         //Nothing Needed
     }
 
@@ -90,14 +88,12 @@ public class BootstrapPageConfigurator
      */
     @NotNull
     @Override
-    public IPage<?> configure(IPage<?> page)
-    {
+    public IPage<?> configure(IPage<?> page) {
         return page;
     }
 
     @Override
-    public boolean enabled()
-    {
+    public boolean enabled() {
         return true;
     }
 
