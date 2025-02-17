@@ -11,13 +11,13 @@ import com.jwebmp.core.base.angular.client.services.interfaces.*;
 @NgImportReference(value = "Input", reference = "@angular/core")
 @NgImportReference(value = "HostListener", reference = "@angular/core")
 @NgImportReference(value = "RouterModule, ParamMap,Router", reference = "@angular/router")
-@NgComponentReference(SocketClientService.class)
+@NgComponentReference(EventBusService.class)
 @NgImportReference(value = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource", reference = "@ng-bootstrap/ng-bootstrap")
 @NgInput("slideClassName")
 
 @NgMethod("\t@HostListener('slide', ['$event'])\n" +
         "\tonSlide(slideEvent: NgbSlideEvent) {\n" +
-        "\t\tthis.socketClientService.send('ajax',{eventClass : this.slideClassName},'onSlide',slideEvent,this.elementRef);\n" +
+        "\t\tthis.eventBusService.send('ajax',{eventClass : this.slideClassName},'onSlide',slideEvent,this.elementRef);\n" +
         "\t}\n")
 public class OnSlidListenerDirective implements INgDirective<OnSlidListenerDirective>
 {
