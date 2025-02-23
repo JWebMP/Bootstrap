@@ -21,7 +21,7 @@ public abstract class ToastDataService<J extends ToastDataService<J>> implements
     public List<String> methods()
     {
         var list = INgDataService.super.methods();
-        list.addAll(List.of("show(textOrTpl: string | TemplateRef<any>, options: any = {}) {\n" +
+        /*list.addAll(List.of("show(textOrTpl: string | TemplateRef<any>, options: any = {}) {\n" +
                                     "        this.dataStore.datas.out?.push({textOrTpl, ...options});\n" +
                                     "        this._data.next(Object.assign({}, this.dataStore).datas);\n" +
                                     "  }\n" +
@@ -34,7 +34,7 @@ public abstract class ToastDataService<J extends ToastDataService<J>> implements
                                     "  clear() {\n" +
                                     "    this.dataStore.datas.out?.splice(0, this.dataStore.datas.out?.length);\n" +
                                     "        this._data.next(Object.assign({}, this.dataStore).datas);\n" +
-                                    "  }"));
+                                    "  }"));*/
         return list;
     }
 }

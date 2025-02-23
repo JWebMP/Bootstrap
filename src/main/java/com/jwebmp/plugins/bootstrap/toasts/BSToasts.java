@@ -59,7 +59,7 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
         }
         String name = getTsFilename(toastDataService.getClass());
         name = name.substring(0, 1)
-                   .toLowerCase() + name.substring(1);
+                .toLowerCase() + name.substring(1);
         return name;
     }
 
@@ -78,14 +78,14 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
                 addAttribute("[class]", "toast.classname ");
                 addAttribute("[autohide]", "toast.autohide ");
                 addAttribute("[delay]", "toast.delay || 5000");
-                addAttribute("(hidden)", "" + name + ".remove(toast) ");
+                //addAttribute("(hidden)", "" + name + ".remove(toast) ");
 
                 DivSimple<?> template = new DivSimple<>();
                 template.setTag("ng-template");
                 template.addAttribute("ngbToastHeader", "");
                 template.addAttribute("*ngIf", "toast.header");
                 template.add(new Bold<>().addClass("me-auto {{toast.classname}}")
-                                         .setText("{{toast.header}}"));
+                        .setText("{{toast.header}}"));
                 add(template);
                 add("{{toast.body}}");
 
@@ -100,7 +100,12 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
         List<String> out = INgComponent.super.afterViewInit();
         if (toastDataService != null)
         {
-            out.add("        this." + getServiceName() + ".data.subscribe((dd : any) => {\n" + "            this.toastData = dd;\n" + "            this.updated = true;\n" + "        });\n");
+            out.add("""
+                            this.%s.data.subscribe((dd : any) => {
+                                this.toastData = dd;
+                                this.updated = true;
+                            });
+                    """.formatted(getServiceName()));
         }
         return out;
     }
