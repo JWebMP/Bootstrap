@@ -215,4 +215,6 @@ module com.jwebmp.plugins.bootstrap {
     opens com.jwebmp.plugins.bootstrap.toggle to com.fasterxml.jackson.databind, com.jwebmp.core;
     opens com.jwebmp.plugins.bootstrap.timepicker to com.fasterxml.jackson.databind, com.jwebmp.core;
 //	opens com.jwebmp.plugins.bootstrap.tooltips to com.fasterxml.jackson.databind, com.jwebmp.core;
+
+    provides com.jwebmp.core.databind.IOnComponentConfigured with com.jwebmp.plugins.bootstrap.implementations.OnBootstrapComponentAdded;
 }

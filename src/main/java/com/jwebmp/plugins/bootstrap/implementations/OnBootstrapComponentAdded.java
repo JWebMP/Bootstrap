@@ -4,11 +4,12 @@ import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.angular.services.interfaces.IOnNgComponentAdded;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.databind.IOnComponentConfigured;
 import com.jwebmp.plugins.bootstrap.alerts.BSAlert;
 import com.jwebmp.plugins.bootstrap.alerts.BSAlerts;
 import com.jwebmp.plugins.bootstrap.modal.BSModal;
 
-public class OnBootstrapComponentAdded implements IOnNgComponentAdded<OnBootstrapComponentAdded>
+public class OnBootstrapComponentAdded implements IOnNgComponentAdded<OnBootstrapComponentAdded>, IOnComponentConfigured<OnBootstrapComponentAdded>
 {
     @Override
     public void onComponentAdded(IComponentHierarchyBase<GlobalChildren, ?> parent, IComponentHierarchyBase<GlobalChildren, ?> component)
@@ -41,5 +42,28 @@ public class OnBootstrapComponentAdded implements IOnNgComponentAdded<OnBootstra
     public Integer sortOrder()
     {
         return Integer.MIN_VALUE;
+    }
+
+    @Override
+    public void onComponentConfigured(IComponentHierarchyBase<GlobalChildren, ?> parent, IComponentHierarchyBase<GlobalChildren, ?> component)
+    {
+        var ngComponent = parent == null ? component : parent;
+        
+        if (component instanceof BSModal comp)
+        {
+            ngComponent.addConfiguration(AnnotationUtils.getNgConstructorParameter("public modalService: NgbModal"));
+            ngComponent.addConfiguration(AnnotationUtils.getNgImportReference("NgbModal", "@ng-bootstrap/ng-bootstrap"));
+        }
+
+        if (component instanceof BSAlerts comp)
+        {
+            ngComponent.addConfiguration(AnnotationUtils.getNgImportReference("NgbAlert", "@ng-bootstrap/ng-bootstrap"));
+            ngComponent.addConfiguration(AnnotationUtils.getNgImportModule("NgbAlert"));
+        }
+        if (component instanceof BSAlert comp)
+        {
+            ngComponent.addConfiguration(AnnotationUtils.getNgImportReference("NgbAlert", "@ng-bootstrap/ng-bootstrap"));
+            ngComponent.addConfiguration(AnnotationUtils.getNgImportModule("NgbAlert"));
+        }
     }
 }
