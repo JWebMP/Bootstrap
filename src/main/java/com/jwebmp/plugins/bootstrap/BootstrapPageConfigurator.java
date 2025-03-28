@@ -51,10 +51,10 @@ import jakarta.validation.constraints.NotNull;
         pluginModuleName = "com.jwebmp.plugins.bootstrap",
         pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^17.0.0")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^18.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
-@TsDependency(value = "bootstrap", version = "^5.3.2")
-@TsDependency(value = "@angular/localize", version = "^18.0.1")
+@TsDependency(value = "bootstrap", version = "^5.3.3")
+@TsDependency(value = "@angular/localize", version = "^19.0.1")
 
 /*@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
 @NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")
@@ -69,12 +69,14 @@ import jakarta.validation.constraints.NotNull;
 //@NgModuleImport("NgbModule")
 //@NgImportReference(value = "NgbModule", reference = "@ng-bootstrap/ng-bootstrap")
 public class BootstrapPageConfigurator
-        implements IPageConfigurator<BootstrapPageConfigurator> {
+        implements IPageConfigurator<BootstrapPageConfigurator>
+{
 
     /**
      * The default page configurator for bootstrap
      */
-    public BootstrapPageConfigurator() {
+    public BootstrapPageConfigurator()
+    {
         //Nothing Needed
     }
 
@@ -88,12 +90,14 @@ public class BootstrapPageConfigurator
      */
     @NotNull
     @Override
-    public IPage<?> configure(IPage<?> page) {
+    public IPage<?> configure(IPage<?> page)
+    {
         return page;
     }
 
     @Override
-    public boolean enabled() {
+    public boolean enabled()
+    {
         return true;
     }
 
