@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.popovers;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
@@ -56,24 +57,15 @@ import java.util.Set;
  * @since 17 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Popovers",
-                      description = "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
-                      url = "https://v4-alpha.getbootstrap.com/components/popovers/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
+        url = "https://v4-alpha.getbootstrap.com/components/popovers/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 @NgImportReference(value = "NgbPopover", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbPopover")
 public class BSPopOver<J extends BSPopOver<J>>
         extends Div<GlobalChildren, BSPopOverAttributes, BSPopOverFeatures, BSPopOverEvents, J>
         implements IBSPopOver, INgComponent<J>
 {
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbPopover");
-        return s;
-    }
-
-
     private BSPopOverTitle<?> popOverTitle;
     private BSPopOverContent<?> popOverContent;
 
@@ -155,14 +147,14 @@ public class BSPopOver<J extends BSPopOver<J>>
         if (popOverTitle != null)
         {
             sb.append(getCurrentTabIndentString())
-              .append(popOverTitle.toString(0))
-              .append(getNewLine());
+                    .append(popOverTitle.toString(0))
+                    .append(getNewLine());
         }
         if (popOverContent != null)
         {
             sb.append(getCurrentTabIndentString())
-              .append(popOverContent.toString(0))
-              .append(getNewLine());
+                    .append(popOverContent.toString(0))
+                    .append(getNewLine());
         }
         return sb;
     }
@@ -217,7 +209,7 @@ public class BSPopOver<J extends BSPopOver<J>>
             for (BSTriggers trigger : triggers)
             {
                 sb.append(trigger.toString())
-                  .append(" ");
+                        .append(" ");
             }
         }
         super.init();

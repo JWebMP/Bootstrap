@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown.parts;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
@@ -28,18 +29,10 @@ import java.util.Set;
  * @since 13 Jan 2017
  */
 @NgImportReference(value = "NgbDropdownMenu", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbDropdownMenu")
 public class BSDropDownMenu<J extends BSDropDownMenu<J>>
         extends DivSimple<J> implements INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbDropdownMenu");
-        return s;
-    }
-
-
     /**
      * Identifies a drop down menu
      *

@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.accordion;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
@@ -9,17 +10,10 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 @NgImportReference(value = "NgbAccordionBody", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbAccordionBody")
 public class BSAccordionPanelBody<J extends BSAccordionPanelBody<J>> extends DivSimple<J> implements INgComponent<J>
 {
     private DivSimple<?> ngTemplate = new DivSimple<>();
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbAccordionBody");
-        return s;
-    }
 
     public BSAccordionPanelBody()
     {

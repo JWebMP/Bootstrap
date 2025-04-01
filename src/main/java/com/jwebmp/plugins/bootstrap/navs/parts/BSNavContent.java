@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.navs.parts;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Link;
@@ -31,18 +32,11 @@ import java.util.Set;
  * @since 19 Jan 2017
  */
 @NgImportReference(value = "NgbNavContent", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbNavContent")
 public class BSNavContent<J extends BSNavContent<J>>
         extends Link<J>
         implements BSNavsChildren, ListItemChildren, INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbNavContent");
-        return s;
-    }
-
     /**
      * A navigation link contents
      */

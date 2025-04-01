@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.bootstrap.navs;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
@@ -46,24 +47,17 @@ import static com.jwebmp.plugins.bootstrap.navs.BSNavsOptions.*;
  * @since 17 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Navs",
-                      description = "Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and " +
-                              "disabled states. Swap modifier classes to switch between each style.",
-                      url = "https://v4-alpha.getbootstrap.com/components/navs/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and " +
+                "disabled states. Swap modifier classes to switch between each style.",
+        url = "https://v4-alpha.getbootstrap.com/components/navs/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 
 @NgImportReference(value = "NgbNav", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbNav")
 public class BSNavs<J extends BSNavs<J>>
         extends Div<BSNavsChildren, BSNavsAttributes, GlobalFeatures, GlobalEvents, J>
         implements BSNavBarChildren, IBSNavs<J>, INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbNav");
-        return s;
-    }
-
     private boolean pills;
     private boolean vertical;
     private boolean animation;

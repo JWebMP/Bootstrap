@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.carousel;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
@@ -43,15 +44,16 @@ import java.util.Set;
  * @since 01 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Carousel",
-                      description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
-                      url = "https://v4-alpha.getbootstrap.com/components/carousel/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
+        description = " slideshow component for cycling through elements—images or slides of text—like a carousel.",
+        url = "https://v4-alpha.getbootstrap.com/components/carousel/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-Bootstrap4Plugin/wiki")
 
 @NgImportReference(value = "ViewChild", reference = "@angular/core")
 @NgImportReference(value = "NgbCarousel, NgbSlideEvent, NgbSlideEventSource,NgbSlide",
-                   reference = "@ng-bootstrap/ng-bootstrap")
+        reference = "@ng-bootstrap/ng-bootstrap")
 
-
+@NgImportModule("NgbCarousel")
+@NgImportModule("NgbSlide")
 public abstract class BSCarousel<J extends BSCarousel<J>>
         extends Div<BSCarouselChildren, BSCarouselAttributes, BSCarouselFeatures, BSCarouselEvents, J>
         implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSCarousel<J>, INgComponent<J>
@@ -61,36 +63,27 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
     private Integer interval;
     private Boolean pauseOnHover;
     private Boolean pauseOnFocus;
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbCarousel");
-        s.add("NgbSlide");
-        return s;
-    }
-
+    
     @Override
     public List<String> fields()
     {
         return List.of("@ViewChild('carousel', {static : true}) carousel!: NgbCarousel;",
-                       "paused = false;");
+                "paused = false;");
     }
 
     @Override
     public List<String> methods()
     {
         return List.of("togglePaused() {\n" +
-                               "    if (this.paused) {\n" +
-                               "      this.carousel.cycle();\n" +
-                               "    } else {\n" +
-                               "      this.carousel.pause();\n" +
-                               "    }\n" +
-                               "    this.paused = !this.paused;\n" +
-                               "  }",
-                       "" +
-                               "");
+                        "    if (this.paused) {\n" +
+                        "      this.carousel.cycle();\n" +
+                        "    } else {\n" +
+                        "      this.carousel.pause();\n" +
+                        "    }\n" +
+                        "    this.paused = !this.paused;\n" +
+                        "  }",
+                "" +
+                        "");
     }
 
     /**

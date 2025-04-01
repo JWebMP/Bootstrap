@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.dropdown;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Button;
@@ -51,16 +52,17 @@ import static com.jwebmp.plugins.bootstrap.options.BSDisplayOptions.Inline_Block
  * @since 13 Jan 2017
  */
 @ComponentInformation(name = "Bootstrap Dropdown",
-                      description = "Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive " +
-                              "with" +
-                              " the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering;" +
-                              "  this  is an intentional design  decision.",
-                      url = "https://ng-bootstrap.github.io/#/components/dropdown/examples",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive " +
+                "with" +
+                " the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering;" +
+                "  this  is an intentional design  decision.",
+        url = "https://ng-bootstrap.github.io/#/components/dropdown/examples",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 
 @NgImportReference(value = "NgbDropdown", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportReference(value = "NgbDropdownToggle", reference = "@ng-bootstrap/ng-bootstrap")
-
+@NgImportModule("NgbDropdown")
+@NgImportModule("NgbDropdownToggle")
 public class BSDropDown<J extends BSDropDown<J>>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSDropDownEvents, J>
         implements IBSDropDown<J>, BSNavsChildren, INgComponent<J>
@@ -71,16 +73,6 @@ public class BSDropDown<J extends BSDropDown<J>>
     private BSPlacements placement;
     private boolean bodyContainer;
     private boolean dynamic;
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbDropdown");
-        s.add("NgbDropdownToggle");
-        return s;
-    }
-
 
     /**
      * Construct a new bootstrap drop down

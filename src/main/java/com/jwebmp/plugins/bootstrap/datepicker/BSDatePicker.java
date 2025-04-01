@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.datepicker;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.inputs.InputTextType;
@@ -11,17 +12,10 @@ import java.util.Set;
 
 @NgImportReference(value = "NgbDatepicker", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportReference(value = "NgbInputDatepicker", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbDatepicker")
+@NgImportModule("DgbInputDatepicker")
 public class BSDatePicker<J extends BSDatePicker<J>> extends InputTextType<J> implements INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbDatepicker");
-        s.add("NgbInputDatepicker");
-        return s;
-    }
-
     private IComponentHierarchyBase<?, ?> toggle;
 
     public BSDatePicker()
@@ -61,7 +55,7 @@ public class BSDatePicker<J extends BSDatePicker<J>> extends InputTextType<J> im
     {
         this.toggle = component;
         component.asAttributeBase()
-                 .addAttribute("(click)", getID() + ".toggle()");
+                .addAttribute("(click)", getID() + ".toggle()");
         return (J) this;
     }
 

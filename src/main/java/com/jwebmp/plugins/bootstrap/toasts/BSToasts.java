@@ -26,6 +26,7 @@ import static com.jwebmp.core.base.angular.client.services.interfaces.Annotation
 @NgImportModule("NgbToast")
 @NgImportReference(value = "NgbToast", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportReference(value = "NgbToastHeader", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbToast")
 public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INgComponent<J>
 {
     private static ToastDataService<?> toastDataService;
@@ -41,16 +42,7 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
     {
         setTag("ngb-toast");
     }
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbToast");
-        s.add("NgbToastHeader");
-        return s;
-    }
-
+    
     public String getServiceName()
     {
         if (toastDataService == null)

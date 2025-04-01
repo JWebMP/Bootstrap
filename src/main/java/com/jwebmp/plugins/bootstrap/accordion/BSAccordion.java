@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.accordion;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
@@ -37,25 +38,17 @@ import java.util.Set;
  * @since 29 Aug 2015
  */
 @ComponentInformation(name = "Bootstrap Accordion",
-                      description = "Extend the default collapse behavior to create an accordion.",
-                      url = "https://v4-alpha.getbootstrap.com/components/collapse/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Extend the default collapse behavior to create an accordion.",
+        url = "https://v4-alpha.getbootstrap.com/components/collapse/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 @NgImportReference(value = "NgbAccordionDirective", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportReference(value = "NgbAccordionCollapse", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbAccordionDirective")
+@NgImportModule("NgbAccordionCollapse")
 public class BSAccordion<J extends BSAccordion<J>>
         extends Div<BSAccordionChildren, NoAttributes, GlobalFeatures, BSAccordionEvents, J>
         implements com.jwebmp.plugins.bootstrap.options.interfaces.IBSAccordion<J>, INgComponent<J>
 {
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbAccordionDirective");
-        s.add("NgbAccordionCollapse");
-        return s;
-    }
-
     /**
      * If this accordion must only display one at a time
      */

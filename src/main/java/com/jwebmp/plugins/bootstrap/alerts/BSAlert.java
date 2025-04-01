@@ -16,6 +16,7 @@
  */
 package com.jwebmp.plugins.bootstrap.alerts;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Div;
@@ -41,23 +42,15 @@ import java.util.Set;
  * @since 31 Dec 2016
  */
 @ComponentInformation(name = "Bootstrap Alert",
-                      description = "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert " + "messages.",
-                      url = "https://v4-alpha.getbootstrap.com/components/alerts/",
-                      wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
+        description = "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert " + "messages.",
+        url = "https://v4-alpha.getbootstrap.com/components/alerts/",
+        wikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki")
 
 @NgImportReference(value = "NgbAlert", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbAlert")
 public class BSAlert<J extends BSAlert<J>>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSAlertEvents, J> implements INgComponent<J>
 {
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbAlert");
-        return s;
-    }
-
     private boolean dismissible;
     private BSColourTypes type;
 

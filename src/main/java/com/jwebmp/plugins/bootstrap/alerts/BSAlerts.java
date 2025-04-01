@@ -18,6 +18,7 @@ package com.jwebmp.plugins.bootstrap.alerts;
 
 import com.jwebmp.core.base.angular.client.annotations.angular.NgComponent;
 import com.jwebmp.core.base.angular.client.annotations.references.NgDataTypeReference;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.annotations.structures.NgField;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
@@ -59,18 +60,11 @@ import static com.jwebmp.core.base.angular.client.services.interfaces.Annotation
 @NgField("data?: any;")
 @NgField("private updated: boolean = false;")
 @NgImportReference(value = "NgbAlert", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbAlert")
 public abstract class BSAlerts<J extends BSAlerts<J>>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, BSAlertEvents, J>
         implements IBSAlerts<J>, INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbAlert");
-        return s;
-    }
-
     private AlertDataService alertDataService;
 
     public BSAlerts(AlertDataService<?> alertDataService)

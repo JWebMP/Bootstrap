@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.accordion;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
@@ -8,19 +9,11 @@ import java.util.Set;
 
 @NgImportReference(value = "NgbAccordionItem", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportReference(value = "NgbAccordionButton", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbAccordionItem")
+@NgImportModule("NgbAccordionButton")
 public class BSAccordionItem<J extends BSAccordionItem<J>> extends DivSimple<J> implements BSAccordionChildren,
-                                                                                           INgComponent<J>
+        INgComponent<J>
 {
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbAccordionItem");
-        s.add("NgbAccordionButton");
-        return s;
-    }
-
     private boolean active;
     private boolean destroyOnHide;
 

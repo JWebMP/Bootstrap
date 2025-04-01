@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.bootstrap.timepicker;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
@@ -12,17 +13,9 @@ import java.util.List;
 import java.util.Set;
 
 @NgImportReference(value = "NgbTimepicker", reference = "@ng-bootstrap/ng-bootstrap")
+@NgImportModule("NgbTimepicker")
 public class BSTimePicker<J extends BSTimePicker<J>> extends DivSimple<J> implements INgComponent<J>
 {
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("NgbTimepicker");
-        return s;
-    }
-
-
     private NgbTimeStruct time;
 
     private Integer hourStep;
