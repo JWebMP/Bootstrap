@@ -5,12 +5,12 @@ import com.jwebmp.core.base.angular.client.*;
 import com.jwebmp.core.base.angular.client.annotations.angular.*;
 import com.jwebmp.core.base.angular.client.services.interfaces.*;
 
-@NgDataService("FormDataService")
+@NgDataService(value = "FormDataService", listenerName = "FormDataService")
 public class FormDataServiceTest implements INgDataService<FormDataServiceTest>
 {
-	@Override
-	public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
-	{
-		return new DynamicData();
-	}
+    @Override
+    public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
+    {
+        return new DynamicData();
+    }
 }
