@@ -24,6 +24,7 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.plugins.bootstrap.alerts.events.BSAlertEvents;
+import io.smallrye.mutiny.Uni;
 import lombok.extern.java.Log;
 
 import java.util.logging.Level;
@@ -59,7 +60,7 @@ public abstract class BSToastHiddenEvent<J extends BSToastHiddenEvent<J>>
     }
 
     @Override
-    public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
+    public Uni<Void> fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
     {
         try
         {
@@ -69,6 +70,8 @@ public abstract class BSToastHiddenEvent<J extends BSToastHiddenEvent<J>>
         {
             BSToastHiddenEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
         }
+        return Uni.createFrom()
+                  .voidItem();
     }
 
     /**

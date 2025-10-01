@@ -23,6 +23,7 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
+import io.smallrye.mutiny.Uni;
 import lombok.extern.java.Log;
 
 import java.util.logging.Level;
@@ -58,7 +59,7 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
     }
 
     @Override
-    public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
+    public Uni<Void> fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
     {
         try
         {
@@ -68,6 +69,8 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
         {
             BSAlertClosedEvent.log.log(Level.SEVERE, "Error In Firing Event", e);
         }
+        return Uni.createFrom()
+                  .voidItem();
     }
 
     /**
@@ -80,8 +83,8 @@ public abstract class BSAlertClosedEvent<J extends BSAlertClosedEvent<J>>
         {
             getComponent().asAttributeBase()
                           .addAttribute("ng-bs-alert-closed-directive",
-                                        STRING_ANGULAR_EVENT_START +
-                                                renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+                                  STRING_ANGULAR_EVENT_START +
+                                          renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
         }
         super.preConfigure();
     }

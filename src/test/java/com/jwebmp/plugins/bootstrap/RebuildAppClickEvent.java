@@ -1,6 +1,5 @@
 package com.jwebmp.plugins.bootstrap;
 
-import com.guicedee.client.IGuiceContext;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.ajax.AjaxResponseReaction;
@@ -8,8 +7,7 @@ import com.jwebmp.core.base.ajax.ReactionType;
 import com.jwebmp.core.base.angular.services.compiler.JWebMPTypeScriptCompiler;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.events.click.ClickAdapter;
-
-import java.io.IOException;
+import io.smallrye.mutiny.Uni;
 
 public class RebuildAppClickEvent extends ClickAdapter<RebuildAppClickEvent>
 {
@@ -23,7 +21,7 @@ public class RebuildAppClickEvent extends ClickAdapter<RebuildAppClickEvent>
     }
 
     @Override
-    public void onClick(AjaxCall<?> call, AjaxResponse<?> response)
+    public Uni<Void> onClick(AjaxCall<?> call, AjaxResponse<?> response)
     {
         try
         {
@@ -34,5 +32,7 @@ public class RebuildAppClickEvent extends ClickAdapter<RebuildAppClickEvent>
             e.printStackTrace();
         }
         response.addReaction(new AjaxResponseReaction<>("/", ReactionType.RedirectUrl));
+        return Uni.createFrom()
+                  .voidItem();
     }
 }
