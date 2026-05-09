@@ -8,7 +8,7 @@ class BSBadgePrimaryTest
 	@Test
 	public void testMe()
 	{
-		BSBadgePrimary badge = new BSBadgePrimary();
+		BSBadgePrimary badge = new BSBadgePrimary<>();
 		System.out.println(badge.toString(0));
 	}
 }

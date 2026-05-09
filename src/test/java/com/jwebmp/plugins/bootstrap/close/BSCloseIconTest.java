@@ -33,7 +33,7 @@ public class BSCloseIconTest
 	@Test
 	public void test()
 	{
-		BSCloseIcon icon = new BSCloseIcon();
+		BSCloseIcon icon = new BSCloseIcon<>();
 		icon.setID("icon");
 		icon.getCloseIcon()
 		    .setID("closeIcon");
@@ -49,7 +49,7 @@ public class BSCloseIconTest
 	@Test
 	public void testSetAriaLabel()
 	{
-		BSCloseIcon icon = new BSCloseIcon();
+		BSCloseIcon icon = new BSCloseIcon<>();
 		icon.setID("icon");
 		icon.getCloseIcon()
 		    .setID("closeIcon");
@@ -66,7 +66,7 @@ public class BSCloseIconTest
 	@Test
 	public void testGetCloseIcon()
 	{
-		BSCloseIcon icon = new BSCloseIcon();
+		BSCloseIcon icon = new BSCloseIcon<>();
 		icon.setID("icon");
 		icon.getCloseIcon()
 		    .setID("closeIcon");
@@ -83,7 +83,7 @@ public class BSCloseIconTest
 	@Test
 	public void testGetCloseIconText()
 	{
-		BSCloseIcon icon = new BSCloseIcon();
+		BSCloseIcon icon = new BSCloseIcon<>();
 		icon.setID("icon");
 		icon.getCloseIcon()
 		    .setID("closeIcon");
@@ -101,7 +101,7 @@ public class BSCloseIconTest
 	@Test
 	public void testJSON()
 	{
-		BSCloseIcon icon = new BSCloseIcon();
+		BSCloseIcon icon = new BSCloseIcon<>();
 		icon.setID("icon");
 		icon.getCloseIcon()
 		    .setID("closeIcon");

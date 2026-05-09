@@ -53,9 +53,10 @@ public class BSSelect<J extends BSSelect<J>>
      *
      * @param size Value to set for property 'size'.
      */
-    public BSSelect<J> setSize(BSSelectSizes size)
+    @SuppressWarnings("unchecked")
+    public J setSize(BSSelectSizes size)
     {
         this.size = size;
-        return this;
+        return (J) this;
     }
 }

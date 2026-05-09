@@ -112,7 +112,8 @@ public class BSFileUpload<J extends BSFileUpload<J>>
      * @param label
      * @return
      */
-    public BSFileUpload<J> setLabel(BSFormLabel<?> label)
+    @SuppressWarnings("unchecked")
+    public J setLabel(BSFormLabel<?> label)
     {
         if (this.label != null)
         {
@@ -124,7 +125,7 @@ public class BSFileUpload<J extends BSFileUpload<J>>
             this.label.addClass("custom-file-label");
             this.label.setForInputComponent(getInput());
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -142,10 +143,11 @@ public class BSFileUpload<J extends BSFileUpload<J>>
      *
      * @param showFilename Value to set for property 'showFilename'.
      */
-    public BSFileUpload<J> setShowFilename(boolean showFilename)
+    @SuppressWarnings("unchecked")
+    public J setShowFilename(boolean showFilename)
     {
         this.showFilename = showFilename;
-        return this;
+        return (J) this;
     }
 
     /**
@@ -169,7 +171,8 @@ public class BSFileUpload<J extends BSFileUpload<J>>
      *
      * @param label Value to set for property 'label'.
      */
-    public BSFileUpload<J> setLabel(String label)
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
     {
         if (this.label != null)
         {
@@ -178,6 +181,6 @@ public class BSFileUpload<J extends BSFileUpload<J>>
         this.label = new BSFormLabel<>(label);
         this.label.addClass("custom-file-label");
         this.label.setForInputComponent(getInput());
-        return this;
+        return (J) this;
     }
 }

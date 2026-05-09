@@ -4,7 +4,7 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.ajax.AjaxResponseReaction;
 import com.jwebmp.core.base.ajax.ReactionType;
-import com.jwebmp.core.base.angular.services.compiler.JWebMPTypeScriptCompiler;
+import com.jwebmp.core.base.angular.services.compiler.TypeScriptCompiler;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.events.click.ClickAdapter;
 import io.smallrye.mutiny.Uni;
@@ -25,7 +25,7 @@ public class RebuildAppClickEvent extends ClickAdapter<RebuildAppClickEvent>
     {
         try
         {
-            new JWebMPTypeScriptCompiler(new BootstrapApp()).renderAppTS(new BootstrapApp());
+            new TypeScriptCompiler(new BootstrapApp()).compileApp();
         }
         catch (Exception e)
         {

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.jwebmp.plugins.bootstrap.carousel;
 
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
@@ -117,10 +101,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return showNavigationArrows;
     }
 
-    public BSCarousel<J> setShowNavigationArrows(Boolean showNavigationArrows)
+    @SuppressWarnings("unchecked")
+    public J setShowNavigationArrows(Boolean showNavigationArrows)
     {
         this.showNavigationArrows = showNavigationArrows;
-        return this;
+        return (J) this;
     }
 
     public Boolean getShowNavigationIndicators()
@@ -128,10 +113,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return showNavigationIndicators;
     }
 
-    public BSCarousel<J> setShowNavigationIndicators(Boolean showNavigationIndicators)
+    @SuppressWarnings("unchecked")
+    public J setShowNavigationIndicators(Boolean showNavigationIndicators)
     {
         this.showNavigationIndicators = showNavigationIndicators;
-        return this;
+        return (J) this;
     }
 
     public Integer getInterval()
@@ -139,10 +125,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return interval;
     }
 
-    public BSCarousel<J> setInterval(Integer interval)
+    @SuppressWarnings("unchecked")
+    public J setInterval(Integer interval)
     {
         this.interval = interval;
-        return this;
+        return (J) this;
     }
 
     public Boolean getPauseOnHover()
@@ -150,10 +137,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return pauseOnHover;
     }
 
-    public BSCarousel<J> setPauseOnHover(Boolean pauseOnHover)
+    @SuppressWarnings("unchecked")
+    public J setPauseOnHover(Boolean pauseOnHover)
     {
         this.pauseOnHover = pauseOnHover;
-        return this;
+        return (J) this;
     }
 
     public Boolean getPauseOnFocus()
@@ -161,10 +149,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return pauseOnFocus;
     }
 
-    public BSCarousel<J> setPauseOnFocus(Boolean pauseOnFocus)
+    @SuppressWarnings("unchecked")
+    public J setPauseOnFocus(Boolean pauseOnFocus)
     {
         this.pauseOnFocus = pauseOnFocus;
-        return this;
+        return (J) this;
     }
 
     public List<BSCarouselSlide<?>> getCarouselSlides()
@@ -176,10 +165,11 @@ public abstract class BSCarousel<J extends BSCarousel<J>>
         return carouselSlides;
     }
 
-    public BSCarousel<J> setCarouselSlides(List<BSCarouselSlide<?>> carouselSlides)
+    @SuppressWarnings("unchecked")
+    public J setCarouselSlides(List<BSCarouselSlide<?>> carouselSlides)
     {
         this.carouselSlides = carouselSlides;
-        return this;
+        return (J) this;
     }
 
     @Override

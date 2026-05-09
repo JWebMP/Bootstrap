@@ -34,8 +34,8 @@ public class BSCardTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSCard card = new BSCard();
-		card.add(new BSCardBody());
+		BSCard card = new BSCard<>();
+		card.add(new BSCardBody<>());
 		card.add(new BSCardHeader("THis is a card header"));
 		System.out.println(card.toString(true));
 	}
@@ -43,7 +43,7 @@ public class BSCardTest
 	@Test
 	public void testSetStyle()
 	{
-		BSCard card = new BSCard();
+		BSCard card = new BSCard<>();
 		card.addMargin(BSMarginOptions.MarginBottom_3);
 		card.addPadding(BSPaddingOptions.PaddingTop_3);
 
@@ -54,7 +54,7 @@ public class BSCardTest
 	@Test
 	public void testSetBorder()
 	{
-		BSCard card = new BSCard();
+		BSCard card = new BSCard<>();
 		card.addBorder(BSBorderOptions.Rounded_Bottom);
 		card.addBorder(BSBorderOptions.Border_Success);
 		card.addForeground(BSColoursOptions.Text_White);

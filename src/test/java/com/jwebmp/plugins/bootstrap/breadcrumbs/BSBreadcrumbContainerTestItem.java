@@ -38,14 +38,14 @@ public class BSBreadcrumbContainerTestItem
 	@Test
 	public void testPreConfigure()
 	{
-		BSBreadcrumbContainer crumbs = new BSBreadcrumbContainer();
+		BSBreadcrumbContainer crumbs = new BSBreadcrumbContainer<>();
 		BSBreadCrumbItem crumb = new BSBreadCrumbItem();
 
 		crumbs.add(crumb);
 
 		System.out.println(crumbs.toString(true));
 
-		BSBreadCrumb crumby = new BSBreadCrumb();
+		BSBreadCrumb crumby = new BSBreadCrumb<>();
 		crumby.addBreadCrumb(crumb);
 
 		System.out.println(crumby.toString(0));

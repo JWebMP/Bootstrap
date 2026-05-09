@@ -32,7 +32,7 @@ public class BSButtonGroupTest
 	@Test
 	public void testSetAriaLabel()
 	{
-		BSButtonGroup group = new BSButtonGroup();
+		BSButtonGroup group = new BSButtonGroup<>();
 		group.setAriaLabel("Aria Aria ");
 
 		System.out.println(group.toString(true));
@@ -41,7 +41,7 @@ public class BSButtonGroupTest
 	@Test
 	public void testSetSize()
 	{
-		BSButtonGroup group = new BSButtonGroup();
+		BSButtonGroup group = new BSButtonGroup<>();
 		group.setSize(BSButtonGroupSizeOptions.Btn_Group_Lg);
 
 		System.out.println(group.toString(true));
@@ -50,14 +50,14 @@ public class BSButtonGroupTest
 	@Test
 	public void testStuff()
 	{
-		BSButtonGroup group = new BSButtonGroup();
+		BSButtonGroup group = new BSButtonGroup<>();
 		System.out.println(group.toString(true));
 	}
 
 	@Test
 	public void testVertical()
 	{
-		BSButtonGroup group = new BSButtonGroupVertical();
+		BSButtonGroup group = new BSButtonGroupVertical<>();
 		System.out.println(group.toString(true));
 	}
 }

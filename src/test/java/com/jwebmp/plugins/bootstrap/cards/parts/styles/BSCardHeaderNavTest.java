@@ -26,7 +26,7 @@ class BSCardHeaderNavTest
 	@Test
 	public void testMe()
 	{
-		BSCardHeaderNav nav = new BSCardHeaderNav();
+		BSCardHeaderNav nav = new BSCardHeaderNav<>();
 		nav.addItem("Text", true);
 		System.out.println(nav.toString(0));
 

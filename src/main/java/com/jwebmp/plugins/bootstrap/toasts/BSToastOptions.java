@@ -37,10 +37,11 @@ public class BSToastOptions<J extends BSToastOptions<J>>
 	 * @param animation
 	 * 		Value to set for property 'animation'.
 	 */
-	public BSToastOptions<J> setAnimation(Boolean animation)
+	@SuppressWarnings("unchecked")
+	public J setAnimation(Boolean animation)
 	{
 		this.animation = animation;
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -59,10 +60,11 @@ public class BSToastOptions<J extends BSToastOptions<J>>
 	 * @param autohide
 	 * 		Value to set for property 'autohide'.
 	 */
-	public BSToastOptions<J> setAutohide(Boolean autohide)
+	@SuppressWarnings("unchecked")
+	public J setAutohide(Boolean autohide)
 	{
 		this.autohide = autohide;
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -81,9 +83,10 @@ public class BSToastOptions<J extends BSToastOptions<J>>
 	 * @param delay
 	 * 		Value to set for property 'delay'.
 	 */
-	public BSToastOptions<J> setDelay(Integer delay)
+	@SuppressWarnings("unchecked")
+	public J setDelay(Integer delay)
 	{
 		this.delay = delay;
-		return this;
+		return (J) this;
 	}
 }

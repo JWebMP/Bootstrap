@@ -33,7 +33,7 @@ public class BSPopOverTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSPopOver popOver = new BSPopOver();
+		BSPopOver popOver = new BSPopOver<>();
 
 		System.out.println(popOver.toString(true));
 		System.out.println(popOver.renderJavascript());

@@ -25,6 +25,6 @@ public class BSFormTextAreaInputTest
 	@Test
 	public void testHtml()
 	{
-		System.out.println(new BSFormTextAreaInput().toString(0));
+		System.out.println(new BSFormTextAreaInput<>().toString(0));
 	}
 }

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.jwebmp.plugins.bootstrap;
 
 import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgPolyfill;
@@ -36,25 +20,25 @@ import jakarta.validation.constraints.NotNull;
         pluginDescription = "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects " +
                 "on the web",
         pluginUniqueName = "bootstrap",
-        pluginVersion = "5.0.2",
-        pluginCategories = "bootstrap,ui,web ui, framework",
+        pluginVersion = "5.3.8",
+        pluginCategories = "bootstrap, ui, web ui, framework",
         pluginSubtitle = "Bootstrap makes front-end web development faster and easier.",
-        pluginSourceUrl = "http://getbootstrap.com/",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin/wiki",
-        pluginGitUrl = "https://github.com/GedMarc/JWebMP-BootstrapPlugin",
+        pluginSourceUrl = "https://getbootstrap.com/",
+        pluginWikiUrl = "https://github.com/JWebMP/JWebMP/wiki",
+        pluginGitUrl = "https://github.com/JWebMP/JWebMP",
         pluginIconUrl = "",
         pluginIconImageUrl = "",
-        pluginOriginalHomepage = "http://getbootstrap.com/",
-        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.bootstrap/jwebmp-bootstrap",
+        pluginOriginalHomepage = "https://getbootstrap.com/",
+        pluginDownloadUrl = "https://jwebmp.com/",
         pluginGroupId = "com.jwebmp.plugins",
         pluginArtifactId = "bootstrap",
         pluginModuleName = "com.jwebmp.plugins.bootstrap",
         pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^18.0.0")
+@TsDependency(value = "@ng-bootstrap/ng-bootstrap", version = "^20.0.0")
 @TsDependency(value = "@popperjs/core", version = "*")
-@TsDependency(value = "bootstrap", version = "^5.3.3")
-@TsDependency(value = "@angular/localize", version = "^19.0.1")
+@TsDependency(value = "bootstrap", version = "^5.3.8")
+@TsDependency(value = "@angular/localize", version = "^21.0.0")
 
 /*@TsDependency(value = "ng-bootstrap-datetime-angular-13", version = "^0.1.33")
 @NgBootImportReference(name = "NgBootstrapDatetimeAngularModule ", reference = "ng-bootstrap-datetime-angular-13")

@@ -22,7 +22,7 @@ public class OnBootstrapComponentAdded implements IOnNgComponentAdded<OnBootstra
 
         if (component instanceof BSModal comp)
         {
-            ngComponent.addConfiguration(AnnotationUtils.getNgConstructorParameter("public modalService: NgbModal"));
+            ngComponent.addConfiguration(AnnotationUtils.getNgConstructorParameter("public modalService: NgbModal", false, true, true));
             ngComponent.addConfiguration(AnnotationUtils.getNgImportReference("NgbModal", "@ng-bootstrap/ng-bootstrap"));
         }
 
@@ -51,7 +51,7 @@ public class OnBootstrapComponentAdded implements IOnNgComponentAdded<OnBootstra
         
         if (component instanceof BSModal comp)
         {
-            ngComponent.addConfiguration(AnnotationUtils.getNgConstructorParameter("public modalService: NgbModal"));
+            ngComponent.addConfiguration(AnnotationUtils.getNgConstructorParameter("public modalService: NgbModal", false, true, true));
             ngComponent.addConfiguration(AnnotationUtils.getNgImportReference("NgbModal", "@ng-bootstrap/ng-bootstrap"));
         }
 

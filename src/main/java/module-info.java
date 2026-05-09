@@ -112,7 +112,7 @@ module com.jwebmp.plugins.bootstrap {
 //	exports com.jwebmp.plugins.bootstrap.tooltips;
 
     provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.bootstrap.BootstrapPageConfigurator;
-    provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with BootstrapModuleInclusion;
+    provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with BootstrapModuleInclusion;
     provides IOnComponentAdded with OnBootstrapComponentAdded;
 
 

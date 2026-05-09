@@ -32,12 +32,12 @@ public class BSButtonTest
 	@Test
 	public void testPreConfigure()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setTag("a");
 
 		System.out.println(button.toString(true));
 
-		button = new BSButton();
+		button = new BSButton<>();
 		button.setTag("a");
 		button.setDisabled(true);
 
@@ -47,7 +47,7 @@ public class BSButtonTest
 	@Test
 	public void testSetSize()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setSize(BSButtonSizeOptions.Btn_Lg)
 		      .setDangerOutline(true);
 
@@ -57,7 +57,7 @@ public class BSButtonTest
 	@Test
 	public void testSetPressed()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setPressed(true);
 
 		System.out.println(button.toString(true));
@@ -69,7 +69,7 @@ public class BSButtonTest
 	@Test
 	public void testSetDisabled()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setDisabled(true);
 
 		System.out.println(button.toString(true));
@@ -81,7 +81,7 @@ public class BSButtonTest
 	@Test
 	public void testSetPrimary()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setPrimary(true);
 
 		System.out.println(button.toString(true));
@@ -93,7 +93,7 @@ public class BSButtonTest
 	@Test
 	public void testSetSecondary()
 	{
-		BSButton button = new BSButton();
+		BSButton button = new BSButton<>();
 		button.setSecondary(true);
 
 		System.out.println(button.toString(true));

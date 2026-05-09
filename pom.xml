@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.jwebmp.core</groupId>
+            <groupId>com.jwebmp</groupId>
             <artifactId>jwebmp-core</artifactId>
         </dependency>
 
@@ -25,6 +25,7 @@
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>angular</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>angular-forms</artifactId>
@@ -37,7 +38,7 @@
 
         <dependency>
             <groupId>com.jwebmp.core</groupId>
-            <artifactId>jwebmp-testlib</artifactId>
+            <artifactId>testlib</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -59,13 +60,20 @@
             </dependency>
 
             <dependency>
-                <groupId>com.jwebmp</groupId>
-                <artifactId>jwebmp-bom</artifactId>
+                <groupId>com.guicedee</groupId>
+                <artifactId>fasterxml-bom</artifactId>
                 <type>pom</type>
                 <scope>import</scope>
                 <version>${guicedee.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.jwebmp</groupId>
+                <artifactId>jwebmp-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${jwebmp.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

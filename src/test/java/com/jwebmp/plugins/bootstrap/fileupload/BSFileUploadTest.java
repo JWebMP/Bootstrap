@@ -8,7 +8,7 @@ class BSFileUploadTest
 	@Test
 	void showNew()
 	{
-		BSFileUpload upload = new BSFileUpload();
+		BSFileUpload upload = new BSFileUpload<>();
 		upload.getInput()
 		      .setID("fUploadInput");
 		upload.setID("fUpload");
@@ -20,7 +20,7 @@ class BSFileUploadTest
 	@Test
 	void isShowFilename()
 	{
-		BSFileUpload upload = new BSFileUpload();
+		BSFileUpload upload = new BSFileUpload<>();
 		upload.getInput()
 		      .setID("fUploadInput");
 		upload.setID("fUpload");

@@ -1,15 +1,14 @@
 package com.jwebmp.plugins.bootstrap.implementations;
 
-import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions;
-import jakarta.validation.constraints.NotNull;
+import com.guicedee.client.services.config.IGuiceScanModuleInclusions;
 
 import java.util.Set;
 
 public class AngularScanModuleInclusion implements IGuiceScanModuleInclusions<AngularScanModuleInclusion>
 {
-	@Override
-	public @NotNull Set<String> includeModules()
-	{
-		return Set.of("com.jwebmp.core.angular");
-	}
+    @Override
+    public Set<String> includeModules()
+    {
+        return Set.of("com.jwebmp.core.angular");
+    }
 }

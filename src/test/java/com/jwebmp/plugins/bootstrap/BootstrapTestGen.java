@@ -2,7 +2,7 @@ package com.jwebmp.plugins.bootstrap;
 
 import com.guicedee.client.IGuiceContext;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgApp;
-import com.jwebmp.core.base.angular.services.compiler.JWebMPTypeScriptCompiler;
+import com.jwebmp.core.base.angular.services.compiler.TypeScriptCompiler;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -19,9 +19,9 @@ public class BootstrapTestGen
     {
         IGuiceContext.instance()
                 .inject();
-        for (INgApp<?> app : JWebMPTypeScriptCompiler.getAllApps())
+        for (INgApp<?> app : TypeScriptCompiler.getAllApps())
         {
-            JWebMPTypeScriptCompiler compiler = new JWebMPTypeScriptCompiler(app);
+            TypeScriptCompiler compiler = new TypeScriptCompiler(app);
 
             System.out.println("Generating @NgApp (" + getTsFilename(app.getClass()) + ") " +
                     "in folder " + getClassDirectory(app.getClass()));

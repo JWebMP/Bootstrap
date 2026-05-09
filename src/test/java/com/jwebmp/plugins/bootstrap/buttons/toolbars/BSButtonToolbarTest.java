@@ -34,16 +34,16 @@ public class BSButtonToolbarTest
 	@Test
 	public void testToolbar()
 	{
-		BSButtonToolbar bbt = new BSButtonToolbar();
+		BSButtonToolbar bbt = new BSButtonToolbar<>();
 		bbt.setID("toolbar");
 		System.out.println(bbt.toString(true));
 
-		BSButtonGroup group = new BSButtonGroup();
+		BSButtonGroup group = new BSButtonGroup<>();
 		group.setID("group");
 		bbt.add(group);
 		System.out.println(bbt.toString(true));
 
-		BSButtonSuccess bbs = new BSButtonSuccess();
+		BSButtonSuccess bbs = new BSButtonSuccess<>();
 		bbs.setID("button");
 
 		System.out.println(bbt.toString(true));

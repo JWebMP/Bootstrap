@@ -64,7 +64,7 @@ public class BSToasts<J extends BSToasts<J>> extends DivSimple<J> implements INg
             if (toastDataService != null)
             {
                 addConfiguration(AnnotationUtils.getNgComponentReference((Class<? extends IComponent<?>>) toastDataService.getClass()));
-                addConfiguration(AnnotationUtils.getNgConstructorParameter("public " + getServiceName() + " : " + getTsFilename(toastDataService.getClass())));
+                addConfiguration(AnnotationUtils.getNgConstructorParameter("public " + getServiceName() + " : " + getTsFilename(toastDataService.getClass()), false, true, true));
 
                 addAttribute("*ngFor", "let toast of toastData?.out ");
                 addAttribute("[class]", "toast.classname ");

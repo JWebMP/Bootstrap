@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.jwebmp.plugins.bootstrap.navbar;
 
 import com.jwebmp.core.base.angular.client.services.interfaces.*;
@@ -112,10 +96,11 @@ public class BSNavBar<J extends BSNavBar<J>>
         return container;
     }
 
-    public BSNavBar<J> setContainer(BSContainer<?> container)
+    @SuppressWarnings("unchecked")
+    public J setContainer(BSContainer<?> container)
     {
         this.container = container;
-        return this;
+        return (J) this;
     }
 
     public String getCollapsedFieldName()
@@ -123,10 +108,11 @@ public class BSNavBar<J extends BSNavBar<J>>
         return collapsedFieldName;
     }
 
-    public BSNavBar<J> setCollapsedFieldName(String collapsedFieldName)
+    @SuppressWarnings("unchecked")
+    public J setCollapsedFieldName(String collapsedFieldName)
     {
         this.collapsedFieldName = collapsedFieldName;
-        return this;
+        return (J) this;
     }
 
     public boolean isMenuCollapsed()
@@ -134,10 +120,11 @@ public class BSNavBar<J extends BSNavBar<J>>
         return menuCollapsed;
     }
 
-    public BSNavBar<J> setMenuCollapsed(boolean menuCollapsed)
+    @SuppressWarnings("unchecked")
+    public J setMenuCollapsed(boolean menuCollapsed)
     {
         this.menuCollapsed = menuCollapsed;
-        return this;
+        return (J) this;
     }
 
     public BSNavBarCollapse<?> getCollapseDiv()
@@ -145,10 +132,11 @@ public class BSNavBar<J extends BSNavBar<J>>
         return collapseDiv;
     }
 
-    public BSNavBar<J> setCollapseDiv(BSNavBarCollapse<?> collapseDiv)
+    @SuppressWarnings("unchecked")
+    public J setCollapseDiv(BSNavBarCollapse<?> collapseDiv)
     {
         this.collapseDiv = collapseDiv;
-        return this;
+        return (J) this;
     }
 
     @Override

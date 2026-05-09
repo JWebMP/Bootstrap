@@ -29,7 +29,7 @@ public class BSFormGroupTest
 	@Test
 	public void testGetLabel()
 	{
-		BSFormGroup group = new BSFormGroup();
+		BSFormGroup group = new BSFormGroup<>();
 		group.addLabel("THis is the label");
 		System.out.println(group.toString(0));
 	}

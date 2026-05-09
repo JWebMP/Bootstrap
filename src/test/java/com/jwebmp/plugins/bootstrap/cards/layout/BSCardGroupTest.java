@@ -26,7 +26,7 @@ class BSCardGroupTest
 	@Test
 	void addCard()
 	{
-		BSCardGroup group = new BSCardGroup();
+		BSCardGroup group = new BSCardGroup<>();
 		group.addCard();
 		System.out.println(group.toString(0));
 	}

@@ -2,7 +2,7 @@ package com.jwebmp.plugins.bootstrap.timepicker;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.guicedee.services.jsonrepresentation.IJsonRepresentation;
+import com.guicedee.modules.services.jsonrepresentation.IJsonRepresentation;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

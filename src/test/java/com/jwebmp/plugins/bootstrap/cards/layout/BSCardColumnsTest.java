@@ -10,7 +10,7 @@ class BSCardColumnsTest
 	@Test
 	void render()
 	{
-		BSCardColumns<?> columns = new BSCardColumns();
+		BSCardColumns<?> columns = new BSCardColumns<>();
 		columns.getBreakpointColumnCount()
 		       .put(BSSizes.ExtraLarge, 5);
 		columns.getBreakpointColumnCount()

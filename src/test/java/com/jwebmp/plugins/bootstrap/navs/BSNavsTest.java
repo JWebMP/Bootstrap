@@ -26,7 +26,7 @@ import org.junit.jupiter.api.*;
 public class BSNavsTest
 {
 	
-	BSNavs nav = new BSNavs();
+	BSNavs nav = new BSNavs<>();
 	
 	public BSNavsTest()
 	{
@@ -35,7 +35,7 @@ public class BSNavsTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSNavs nav = new BSNavs();
+		BSNavs nav = new BSNavs<>();
 		nav.setActiveId("active");
 		nav.setHorizontalAlignment(BSAlignmentHorizontalOptions.Align_Center);
 		nav.addTab(new BSNavItem<>(1)

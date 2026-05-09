@@ -36,7 +36,7 @@ public class BSPaginationTest
 	@Test
 	public void testSomeMethod()
 	{
-		BSPagination page = new BSPagination();
+		BSPagination page = new BSPagination<>();
 		BSPaginationLink link = page.createPageLink("AriaLabel");
 
 		link.add(new Span("&laquo;"));

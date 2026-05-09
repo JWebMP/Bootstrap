@@ -33,7 +33,7 @@ public class BSMediaTest
 	@Test
 	public void testNothing()
 	{
-		BSMedia media = new BSMedia();
+		BSMedia media = new BSMedia<>();
 		media.setID("media");
 		System.out.println(media.toString(true));
 		Assertions.assertEquals("<div class=\"media\" id=\"media\"></div>", media.toString(true));
@@ -42,7 +42,7 @@ public class BSMediaTest
 	@Test
 	public void testGetMediaLink()
 	{
-		BSMedia media = new BSMedia();
+		BSMedia media = new BSMedia<>();
 		media.setID("media");
 		media.getMediaLink()
 		     .setID("link");
@@ -53,7 +53,7 @@ public class BSMediaTest
 	@Test
 	public void testGetMediaBody()
 	{
-		BSMedia media = new BSMedia();
+		BSMedia media = new BSMedia<>();
 		media.setID("media");
 		media.getMediaBody()
 		     .setID("body");
@@ -64,7 +64,7 @@ public class BSMediaTest
 	@Test
 	public void testGetMediaHeader()
 	{
-		BSMedia media = new BSMedia();
+		BSMedia media = new BSMedia<>();
 		media.setID("media");
 		media.getMediaHeader()
 		     .setID("header");
@@ -90,7 +90,7 @@ public class BSMediaTest
 	@Test
 	public void testGetMediaComponent()
 	{
-		BSMedia media = new BSMedia();
+		BSMedia media = new BSMedia<>();
 		media.setID("media");
 		media.getMediaComponent()
 		     .setID("object");

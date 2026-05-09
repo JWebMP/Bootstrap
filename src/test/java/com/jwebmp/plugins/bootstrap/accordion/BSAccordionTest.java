@@ -36,7 +36,7 @@ public class BSAccordionTest
     @Test
     public void testHtml()
     {
-        BSAccordion accordion = new BSAccordion();
+        BSAccordion accordion = new BSAccordion<>();
         accordion.setID("test");
 
         accordion.addPanel("static-1", new BSAccordionPanelHeader<>().addTitle(new Button<>("Title 1")),

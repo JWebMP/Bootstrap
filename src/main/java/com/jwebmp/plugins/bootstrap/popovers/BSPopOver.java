@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.jwebmp.plugins.bootstrap.popovers;
 
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
@@ -121,10 +105,11 @@ public class BSPopOver<J extends BSPopOver<J>>
     }
 
     @Override
-    public BSPopOver<J> setPopOverTitle(BSPopOverTitle<?> popOverTitle)
+    @SuppressWarnings("unchecked")
+    public J setPopOverTitle(BSPopOverTitle<?> popOverTitle)
     {
         this.popOverTitle = popOverTitle;
-        return this;
+        return (J) this;
     }
 
     @Override
@@ -134,10 +119,11 @@ public class BSPopOver<J extends BSPopOver<J>>
     }
 
     @Override
-    public BSPopOver<J> setPopOverContent(BSPopOverContent<?> popOverContent)
+    @SuppressWarnings("unchecked")
+    public J setPopOverContent(BSPopOverContent<?> popOverContent)
     {
         this.popOverContent = popOverContent;
-        return this;
+        return (J) this;
     }
 
     @Override
@@ -221,10 +207,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return animation;
     }
 
-    public BSPopOver<J> setAnimation(boolean animation)
+    @SuppressWarnings("unchecked")
+    public J setAnimation(boolean animation)
     {
         this.animation = animation;
-        return this;
+        return (J) this;
     }
 
     public BSTriggers getAutoClose()
@@ -232,10 +219,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return autoClose;
     }
 
-    public BSPopOver<J> setAutoClose(BSTriggers autoClose)
+    @SuppressWarnings("unchecked")
+    public J setAutoClose(BSTriggers autoClose)
     {
         this.autoClose = autoClose;
-        return this;
+        return (J) this;
     }
 
     public Integer getCloseDelay()
@@ -243,10 +231,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return closeDelay;
     }
 
-    public BSPopOver<J> setCloseDelay(Integer closeDelay)
+    @SuppressWarnings("unchecked")
+    public J setCloseDelay(Integer closeDelay)
     {
         this.closeDelay = closeDelay;
-        return this;
+        return (J) this;
     }
 
     public boolean isContainInBody()
@@ -254,10 +243,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return containInBody;
     }
 
-    public BSPopOver<J> setContainInBody(boolean containInBody)
+    @SuppressWarnings("unchecked")
+    public J setContainInBody(boolean containInBody)
     {
         this.containInBody = containInBody;
-        return this;
+        return (J) this;
     }
 
     public boolean isDisablePopover()
@@ -265,10 +255,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return disablePopover;
     }
 
-    public BSPopOver<J> setDisablePopover(boolean disablePopover)
+    @SuppressWarnings("unchecked")
+    public J setDisablePopover(boolean disablePopover)
     {
         this.disablePopover = disablePopover;
-        return this;
+        return (J) this;
     }
 
     public Integer getOpenDelay()
@@ -276,10 +267,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return openDelay;
     }
 
-    public BSPopOver<J> setOpenDelay(Integer openDelay)
+    @SuppressWarnings("unchecked")
+    public J setOpenDelay(Integer openDelay)
     {
         this.openDelay = openDelay;
-        return this;
+        return (J) this;
     }
 
     public BSPlacements getPlacement()
@@ -287,10 +279,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return placement;
     }
 
-    public BSPopOver<J> setPlacement(BSPlacements placement)
+    @SuppressWarnings("unchecked")
+    public J setPlacement(BSPlacements placement)
     {
         this.placement = placement;
-        return this;
+        return (J) this;
     }
 
     public String getPopoverClass()
@@ -298,10 +291,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return popoverClass;
     }
 
-    public BSPopOver<J> setPopoverClass(String popoverClass)
+    @SuppressWarnings("unchecked")
+    public J setPopoverClass(String popoverClass)
     {
         this.popoverClass = popoverClass;
-        return this;
+        return (J) this;
     }
 
     public List<BSTriggers> getTriggers()
@@ -309,10 +303,11 @@ public class BSPopOver<J extends BSPopOver<J>>
         return triggers;
     }
 
-    public BSPopOver<J> setTriggers(List<BSTriggers> triggers)
+    @SuppressWarnings("unchecked")
+    public J setTriggers(List<BSTriggers> triggers)
     {
         this.triggers = triggers;
-        return this;
+        return (J) this;
     }
 
     /**

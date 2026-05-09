@@ -1,20 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package com.jwebmp.plugins.bootstrap.cards.prebuilt;
 
 import com.jwebmp.core.base.html.H1;
@@ -164,18 +147,18 @@ public class DefaultCard<J extends DefaultCard<J>>
         {
             if (contentBlock == null)
             {
-                contentBlock = new BSCardBody();
+                contentBlock = new BSCardBody<>();
             }
             if (cardTitle.isPresent())
             {
-                BSCardTitle innerTitle = new BSCardTitle();
+                BSCardTitle innerTitle = new BSCardTitle<>();
                 innerTitle.setText(cardTitle.get());
                 contentBlock.add(innerTitle);
             }
 
             if (cardSubTitle.isPresent())
             {
-                BSCardSubtitle innerSubTitle = new BSCardSubtitle();
+                BSCardSubtitle innerSubTitle = new BSCardSubtitle<>();
                 innerSubTitle.setText(cardSubTitle.get());
                 contentBlock.add(innerSubTitle);
             }
@@ -195,7 +178,7 @@ public class DefaultCard<J extends DefaultCard<J>>
         {
             if (contentBlock == null)
             {
-                contentBlock = new BSCardBody();
+                contentBlock = new BSCardBody<>();
                 add(contentBlock);
             }
             for (BSCardLink link : getCardLinks())
@@ -211,7 +194,7 @@ public class DefaultCard<J extends DefaultCard<J>>
         {
             if (footerBlock == null)
             {
-                footerBlock = new BSCardFooter();
+                footerBlock = new BSCardFooter<>();
             }
             if (footerText != null && footerText.isPresent())
             {
@@ -290,7 +273,7 @@ public class DefaultCard<J extends DefaultCard<J>>
     {
         if (cardBody == null)
         {
-            cardBody = new BSCardBody();
+            cardBody = new BSCardBody<>();
             contentBlock = cardBody;
         }
         return cardBody;
@@ -333,7 +316,7 @@ public class DefaultCard<J extends DefaultCard<J>>
     {
         if (cardImageTop == null)
         {
-            cardImageTop = new BSCardImageTop();
+            cardImageTop = new BSCardImageTop<>();
         }
         return cardImageTop;
     }
@@ -376,7 +359,7 @@ public class DefaultCard<J extends DefaultCard<J>>
     {
         if (footerBlock == null)
         {
-            footerBlock = new BSCardFooter();
+            footerBlock = new BSCardFooter<>();
         }
         return footerBlock;
     }

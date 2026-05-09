@@ -45,7 +45,7 @@ public class BSContainerTest
 	@Test
 	public void testContainer()
 	{
-		BSContainer b = new BSContainer();
+		BSContainer b = new BSContainer<>();
 		b.setID("id");
 		System.out.println(b.toString(true));
 		Assertions.assertEquals("<div class=\"container-fluid\" id=\"id\"></div>", b.toString(true));
