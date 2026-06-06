@@ -89,7 +89,6 @@ public class DefaultCard<J extends DefaultCard<J>>
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     protected void init()
     {
         if (!isInitialized())

@@ -20,8 +20,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 * @param responsive
 	 * 		Value to set for property 'responsive'.
 	 */
-	@SuppressWarnings("unchecked")
-	J setResponsive(boolean responsive);
+    J setResponsive(boolean responsive);
 
 	/**
 	 * Getter for property 'rounded'.
@@ -36,8 +35,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 * @param rounded
 	 * 		Value to set for property 'rounded'.
 	 */
-	@SuppressWarnings("unchecked")
-	J setRounded(boolean rounded);
+    J setRounded(boolean rounded);
 
 	/**
 	 * Getter for property 'thumbnail'.
@@ -52,8 +50,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 * @param thumbnail
 	 * 		Value to set for property 'thumbnail'.
 	 */
-	@SuppressWarnings("unchecked")
-	J setThumbnail(boolean thumbnail);
+    J setThumbnail(boolean thumbnail);
 
 	/**
 	 * Sets the alignment left using the float-left class
@@ -63,8 +60,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 *
 	 * @return This class
 	 */
-	@SuppressWarnings("unchecked")
-	J setAlignLeft(boolean floatLeft);
+    J setAlignLeft(boolean floatLeft);
 
 	/**
 	 * Sets the alignment right for the class float left
@@ -74,8 +70,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 *
 	 * @return This class
 	 */
-	@SuppressWarnings("unchecked")
-	J setAlignRight(boolean floatRight);
+    J setAlignRight(boolean floatRight);
 
 	/**
 	 * Aligns center using auto margin left and right and display block
@@ -85,8 +80,7 @@ public interface IBSImage<J extends BSImage<J>>
 	 *
 	 * @return This
 	 */
-	@SuppressWarnings("unchecked")
-	J setAlignCenter(boolean alignCenter);
+    J setAlignCenter(boolean alignCenter);
 
 	/**
 	 * Aligns text center by adding the text-center class
@@ -96,6 +90,5 @@ public interface IBSImage<J extends BSImage<J>>
 	 *
 	 * @return This
 	 */
-	@SuppressWarnings("unchecked")
-	J setTextCenter(boolean textCenter);
+    J setTextCenter(boolean textCenter);
 }

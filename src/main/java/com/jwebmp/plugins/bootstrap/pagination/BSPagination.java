@@ -116,8 +116,7 @@ public class BSPagination<J extends BSPagination<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public BSPaginationLink<?> createPageLink(String ariaLabel)
+    public BSPaginationLink<?> createPageLink(String ariaLabel)
 	{
 		BSPaginationListItem<?> listItem = new BSPaginationListItem<>();
 		BSPaginationLink<?> newLink = new BSPaginationLink<>(ariaLabel);

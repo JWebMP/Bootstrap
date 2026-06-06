@@ -64,7 +64,6 @@ public class BSCollapse
 	 * @param display
 	 * @param hideOnStart
 	 */
-	@SuppressWarnings("Duplicates")
 	public static void link(Button<?,?,?,?,?> buttonController, @NotNull IComponentHierarchyBase<?,?> display, boolean hideOnStart)
 	{
 		display.addClass(Collapse);
@@ -88,7 +87,6 @@ public class BSCollapse
 	 * @param display
 	 * @param hideOnStart
 	 */
-	@SuppressWarnings("Duplicates")
 	public static void link(IComponentHierarchyBase<?,?> anyComponent, @NotNull IComponentHierarchyBase<?,?> display, boolean hideOnStart)
 	{
 		display.addClass(Collapse);

@@ -278,7 +278,7 @@ public class BSFormInputGroup<J extends BSFormInputGroup<J, I>, I extends Input<
             {
                 newOrder.add(getMessages());
             }
-            //noinspection unchecked, rawtypes
+            // noinspection  rawtypes
             setChildren(newOrder);
         }
         super.init();
