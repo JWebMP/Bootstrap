@@ -1,6 +1,8 @@
 package com.jwebmp.plugins.bootstrap.navbar;
 
 import com.google.common.base.*;
+import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
+import com.jwebmp.core.base.angular.components.modules.RouterModuleConfig;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.html.interfaces.children.*;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
@@ -11,6 +13,7 @@ import com.jwebmp.plugins.bootstrap.navs.interfaces.*;
  * @author GedMarc
  * @since 19 Jan 2017
  */
+@NgComponentReference(RouterModuleConfig.class)
 public class BSNavBarLink<J extends BSNavBarLink<J>>
         extends Link<J>
         implements BSNavsChildren, ListItemChildren

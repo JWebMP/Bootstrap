@@ -1,6 +1,8 @@
 package com.jwebmp.plugins.bootstrap.navbar.parts;
 
 import com.google.common.base.*;
+import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
+import com.jwebmp.core.base.angular.components.modules.RouterModuleConfig;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Image;
 import com.jwebmp.plugins.bootstrap.navbar.enumerations.BSNavBarOptions;
@@ -17,6 +19,7 @@ import jakarta.validation.constraints.NotNull;
  * @author GedMarc
  * @since 21 Jan 2017
  */
+@NgComponentReference(RouterModuleConfig.class)
 public class BSNavBarBrand<J extends BSNavBarBrand<J>>
         extends DivSimple<J>
         implements BSNavBarChildren

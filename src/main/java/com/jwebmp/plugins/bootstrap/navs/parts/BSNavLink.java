@@ -1,9 +1,11 @@
 package com.jwebmp.plugins.bootstrap.navs.parts;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
+import com.jwebmp.core.base.angular.components.modules.RouterModuleConfig;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.bootstrap.navs.interfaces.BSNavsChildren;
@@ -18,6 +20,7 @@ import java.util.Set;
  */
 @NgImportReference(value = "NgbNavLink", reference = "@ng-bootstrap/ng-bootstrap")
 @NgImportModule("NgbNavLink")
+@NgComponentReference(RouterModuleConfig.class)
 public class BSNavLink<J extends BSNavLink<J>>
         extends Link<J>
         implements BSNavsChildren, ListItemChildren, INgComponent<J>
