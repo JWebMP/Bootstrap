@@ -6,7 +6,7 @@ import static com.jwebmp.plugins.bootstrap.select.BSSelectSizes.*;
 
 /**
  * Custom Select Menu
- * To create a custom select menu, add the .custom-select class to the <select> element:
+ * To create a custom select menu, add the {@code .custom-select} class to the {@code <select>} element:
  * <p>
  * Custom Select Menu Size
  * Use the .custom-select-sm class to create a small select menu and the .custom-select-lg class for a large one:
