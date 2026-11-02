@@ -39,8 +39,8 @@ public class BSCloseIconTest
 		    .setID("closeIcon");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals(
-				"<button aria_label=\"Close\" class=\"close\" id=\"icon\" type=\"button\">\n" +
-				"	<span aria_hidden=\"true\" " +
+				"<button aria-label=\"Close\" class=\"close\" id=\"icon\" type=\"button\">\n" +
+				"	<span aria-hidden=\"true\" " +
 				"id=\"closeIcon\">&times;</span>\n" +
 				"</button>",
 				icon.toString(true));
@@ -56,8 +56,8 @@ public class BSCloseIconTest
 		icon.setAriaLabel("aria label");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals(
-				"<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
-				"	<span aria_hidden=\"true\" " +
+				"<button aria-label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
+				"	<span aria-hidden=\"true\" " +
 				"id=\"closeIcon\">&times;</span>\n" +
 				"</button>",
 				icon.toString(true));
@@ -73,8 +73,8 @@ public class BSCloseIconTest
 		icon.setAriaLabel("aria label");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals(
-				"<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
-				"	<span aria_hidden=\"true\" " +
+				"<button aria-label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
+				"	<span aria-hidden=\"true\" " +
 				"id=\"closeIcon\">&times;</span>\n" +
 				"</button>",
 				icon.toString(true));
@@ -91,8 +91,8 @@ public class BSCloseIconTest
 		icon.setCloseIconText("newText");
 		System.out.println(icon.toString(true));
 		Assertions.assertEquals(
-				"<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
-				"	<span aria_hidden=\"true\" " +
+				"<button aria-label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
+				"	<span aria-hidden=\"true\" " +
 				"id=\"closeIcon\">newText</span>\n" +
 				"</button>",
 				icon.toString(true));
@@ -109,8 +109,8 @@ public class BSCloseIconTest
 		icon.setCloseIconText("newText");
 		System.out.println(icon.toString());
 		Assertions.assertEquals(
-				"<button aria_label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
-				"	<span aria_hidden=\"true\" " +
+				"<button aria-label=\"aria label\" class=\"close\" id=\"icon\" type=\"button\">\n" +
+				"	<span aria-hidden=\"true\" " +
 				"id=\"closeIcon\">newText</span>\n" +
 				"</button>",
 				icon.toString(true));
